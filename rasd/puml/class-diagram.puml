@@ -1,0 +1,149 @@
+@startuml
+
+skinparam nodesep 100
+skinparam ranksep 100
+
+class Educator {
+}
+
+class Student {
+}
+
+<> inviteDiamond
+
+Student "1" - inviteDiamond
+inviteDiamond -* "0...n" Invite: sends
+inviteDiamond -* "0...n" Invite: receives
+Invite "0...n" -* "1" TeamPartecipation: to join
+
+Invite - InviteState
+
+class Invite {
+  +state: InviteState
+}
+
+enum InviteState {
+    ACCEPTED
+    REJECTED
+    PENDING
+}
+
+Student "1" -down-* "0...n" TeamPartecipation: form
+note on link
+One student must have sent invites
+and the others must have accepted them
+end note
+
+class TeamPartecipation {
+  +studentCommits: Int
+}
+
+TeamPartecipation "1...n" -down-* "1" Team: form
+
+class Team {
+}
+
+Team "1" -down-> "0...1" BattlePartecipation: takes part
+note on link
+All students must be subscribed to the tournament
+Must respect min/max students contraints
+end note
+
+class BattlePartecipation {
+  +registrationDate: Date
+  +score: int
+}
+
+Student "0...n" -down-* "0...n" TournamentSubscription: subscribes
+
+class TournamentSubscription {
+  +score: Int
+}
+
+TournamentSubscription "0...n" -down-* "1" Tournament: referred to
+
+class Tournament {
+  +state: TournamentState
+  +subscriptionDeadline: Date
+}
+
+enum TournamentState {
+  SUBSCRIBING
+  IN_PROGRESS
+  DONE
+}
+
+BattlePartecipation "0...n" -down--> "1" Battle: referred to
+note on link
+Must have 
+registrationDate <= registrationDeadline
+end note
+
+class Battle {
+  +state: BattleState
+  +description: String
+  +softwareProject: Folder
+  +minStudents: Int
+  +maxStudents: Int
+  +registrationDeadline: Date
+  +submissionDeadline: Date
+  ----
+  +requiresManualEvaluation: Bool
+}
+
+enum BattleState {
+  REGISTRATION
+  SUBMISSION
+  CONSOLIDATION
+  DONE
+}
+
+class Repository {
+}
+
+class Github {
+}
+
+class Badge {
+  +title: String
+  +condition: String
+}
+
+Educator "1" --o "0...n" Tournament: creates
+Educator "0...n" <-- "1" Tournament : is allowed
+Educator "1" <-- "0...n" Battle : created by
+
+
+Tournament - TournamentState
+
+Tournament "1" --* "0...n" Battle: formed by
+note top on link 
+must be tournament 
+creator or authorized
+end note
+
+Battle - BattleState
+
+Battle "1" -* "0...1" Repository
+note on link
+Exists only past the REGISTRATION state
+end note
+
+BattlePartecipation "1" -* "0...1" Repository
+note on link
+Exists only past the battle REGISTRATION state
+and if the team created it on their own
+end note
+
+Github "1" - "0...n" Repository: hosts
+
+TournamentSubscription "0...n" -- "0...n" Badge : earns
+note on link
+Badge must be defined for this tournament
+Student must have fulfilled badge condition
+end note
+
+Educator "1" -- "0...n" Badge : creates
+Badge "0...n" -- "0...n" Tournament : is assigned
+
+@enduml
