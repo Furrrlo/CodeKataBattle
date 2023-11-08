@@ -89,12 +89,10 @@
 \newif\if@cosupervisorexist\@cosupervisorexistfalse
 \define@key[OIST]{title}{title}{\def\thesistitle{#1}}
 \define@key[OIST]{title}{course}{\def\course{#1}}
-\define@key[OIST]{title}{name}{\def\name{#1}}
-\define@key[OIST]{title}{ID}{\def\ID{#1}}
-\define@key[OIST]{title}{advisor}{\def\advisor{#1}}
-\define@key[OIST]{title}{coadvisor}{\def\coadvisor{#1}\@cosupervisorexisttrue}
+\define@key[OIST]{title}{nameA}{\def\nameA{#1}}
+\define@key[OIST]{title}{nameB}{\def\nameB{#1}}
+\define@key[OIST]{title}{nameC}{\def\nameC{#1}}
 \define@key[OIST]{title}{academicyear}{\def\academicyear{#1}}
-\define@key[OIST]{title}{course}{\def\course{#1}}
 
 \providecommand{\puttitle}{}
 \renewcommand{\puttitle}[1]{
@@ -117,21 +115,19 @@
 			\\
 			{{\color{bluepoli} \singlespacing \huge \bfseries \thesistitle \par}}
 			\vspace{1.5cm}
-			{\color{bluepoli} \bfseries \large{\textsc{Tesi di Laurea Magistrale in\\ \course}}\par}
+			{\color{bluepoli} \bfseries \large{\textsc{\course}}\par}
 			\vspace{1.5 cm}
-			{\color{black} \Large {Author:} \bfseries{\name}}
+			{\color{black} \Large {Author(s):} \bfseries{\nameA}} \\ \\
+			\vspace{0.51cm}
+			{\color{black} \hspace{6.3em} \Large \bfseries{\nameB}} \\
+			\vspace{0.51cm}
+			{\color{black} \hspace{6.3em} \Large \bfseries{\nameC}} \\
 		\end{minipage}
 		\\
 		\vspace*{\fill}
 		\\
 		\begin{minipage}{0.85\textwidth}
 			\normalsize{
-			Student ID: {\ID}
-			\\
-			Advisor: {\advisor}
-			\\
-			Co-advisors: {\coadvisor}
-			\\
 			Academic Year: {\academicyear}
 			}
 		\end{minipage}

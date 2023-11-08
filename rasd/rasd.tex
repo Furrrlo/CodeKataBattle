@@ -79,6 +79,7 @@
 \usepackage{afterpage}
 \usepackage{lipsum} % DUMMY PACKAGE
 \usepackage{fancyhdr} % For the headers
+\usepackage{tabu}
 \fancyhf{}
 
 % Input of configuration file. Do not change config.tex file unless you really know what you are doing. 
@@ -101,6 +102,11 @@
 %	ADD YOUR DEFINITIONS AND COMMANDS (be careful of existing commands)
 %----------------------------------------------------------------------------
 
+% Some utilities\ldots
+\newcommand{\comment}[1]{{\color{Red}$\blacktriangleright$ Comment: #1 $\blacktriangleleft$}}
+\input{config/highlight}
+\input{config/abbrev}
+
 %----------------------------------------------------------------------------
 %	BEGIN OF YOUR DOCUMENT
 %----------------------------------------------------------------------------
@@ -121,47 +127,37 @@
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the preamble pages
 
 \puttitle{
-    title=Title, % Title of the thesis
-    name=Name Surname, % Author Name and Surname
+    title=Requirement Analysis and Specification, % Title of the thesis
+    nameA=Name Surname, % Author Name and Surname
+    nameB=Name Surname, % Author Name and Surname
+    nameC=Name Surname, % Author Name and Surname
     course=Xxxxxxx Engineering - Ingegneria Xxxxxxx, % Study Programme (in Italian)
-    ID  = 000000,  % Student ID number (numero di matricola)
-    advisor= Prof. Name Surname, % Supervisor name
-    coadvisor={Name Surname, Name Surname}, % Co-Supervisor name, remove this line if there is none
     academicyear={20XX-XX},  % Academic Year
 } % These info will be put into your Title page 
+
+% Define deliverable specific info
+% Replace cell contents where neededs
+\renewcommand{\headrulewidth}{0pt} % removing the horizontal line in the header
+\begin{table}[h!]
+    \begin{tabu} to \textwidth { X[0.3,r,p] X[0.7,l,p] }
+        \hline
+
+        \textbf{Deliverable:}   & RASD                                               \\
+        \textbf{Title:}         & Requirement Analysis and Verification Document     \\
+        \textbf{Authors:}       & YOUR NAMES                                         \\
+        \textbf{Version:}       & 1.0                                                \\
+        \textbf{Date:}          & 31-January-2016                                    \\
+        \textbf{Download page:} & LINK TO YOUR REPOSITORY                            \\
+        \textbf{Copyright:}     & Copyright © 2017, YOUR NAMES – All rights reserved \\
+        \hline
+    \end{tabu}
+\end{table}
 
 %----------------------------------------------------------------------------
 %	PREAMBLE PAGES: ABSTRACT (inglese e italiano), EXECUTIVE SUMMARY
 %----------------------------------------------------------------------------
 \startpreamble
 \setcounter{page}{1} % Set page counter to 1
-
-% ABSTRACT IN ENGLISH
-\chapter*{Abstract}
-Here goes the Abstract in English of your thesis followed by a list of keywords.
-The Abstract is a concise summary of the content of the thesis (single page of text)
-and a guide to the most important contributions included in your thesis.
-The Abstract is the very last thing you write.
-It should be a self-contained text and should be clear to someone who hasn't (yet) read the whole manuscript.
-The Abstract should contain the answers to the main scientific questions that have been addressed in your thesis.
-It needs to summarize the adopted motivations and the adopted methodological approach as well as the findings of your work and their relevance and impact.
-The Abstract is the part appearing in the record of your thesis inside POLITesi,
-the Digital Archive of PhD and Master Theses (Laurea Magistrale) of Politecnico di Milano.
-The Abstract will be followed by a list of four to six keywords.
-Keywords are a tool to help indexers and search engines to find relevant documents.
-To be relevant and effective, keywords must be chosen carefully.
-They should represent the content of your work and be specific to your field or sub-field.
-Keywords may be a single word or two to four words.
-\\
-\\
-\textbf{Keywords:} here, the keywords, of your thesis % Keywords
-
-% ABSTRACT IN ITALIAN
-\chapter*{Abstract in lingua italiana}
-Qui va l'Abstract in lingua italiana della tesi seguito dalla lista di parole chiave.
-\\
-\\
-\textbf{Parole chiave:} qui, vanno, le parole chiave, della tesi % Keywords (italian)
 
 %----------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES/SYMBOLS
@@ -498,7 +494,7 @@ and possible future developments of your work have to be inserted in this chapte
 %-------------------------------------------------------------------------
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
-\bibliography{Thesis_bibliography} % The references information are stored in the file named "Thesis_bibliography.bib"
+\bibliography{bibliography} % The references information are stored in the file named "Thesis_bibliography.bib"
 
 %-------------------------------------------------------------------------
 %	APPENDICES
@@ -514,25 +510,6 @@ which supplement the main results contained in the previous chapters.
 
 \chapter{Appendix B}
 It may be necessary to include another appendix to better organize the presentation of supplementary material.
-
-
-% LIST OF FIGURES
-\listoffigures
-
-% LIST OF TABLES
-\listoftables
-
-% LIST OF SYMBOLS
-% Write out the List of Symbols in this page
-\chapter*{List of Symbols} % You have to include a chapter for your list of symbols (
-\begin{table}[H]
-    \centering
-    \begin{tabular}{lll}
-        \textbf{Variable} & \textbf{Description} & \textbf{SI unit} \\\hline\\[-9px]
-        $\bm{u}$          & solid displacement   & m                \\[2px]
-        $\bm{u}_f$        & fluid displacement   & m                \\[2px]
-    \end{tabular}
-\end{table}
 
 % ACKNOWLEDGEMENTS
 \chapter*{Acknowledgements}
