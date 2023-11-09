@@ -44,7 +44,7 @@ RUN apt update && \
         link /usr/bin/python3 /usr/bin/python
 # drop user so that created files will have the correct owner (see the shit-fix above)
 USER ${USERNAME} 
-RUN tlmgr install tlmgr install texliveonfly && tlmgr path add
+RUN tlmgr install texliveonfly && tlmgr path add
 USER root
 
 ## Bunch of stuff that texliveonfly fails to auto-install
