@@ -2,6 +2,12 @@
     "latex-workshop.linting.chktex.enabled": true,
     "plantuml.render": "PlantUMLServer",
     "plantuml.server": "https://www.plantuml.com/plantuml",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.autoClean.run": "onFailed",
+    "latex-workshop.latex.build.forceRecipeUsage": false,
+    "latex-workshop.latex.search.rootFiles.include": [
+        "rasd/rasd.tex"
+    ],
     "latex-workshop.latex.recipes": [
         {
             "name": "texliveonfly",
