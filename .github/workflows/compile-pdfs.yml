@@ -1,0 +1,36 @@
+name: Compile PDFs
+on:
+  push:
+    branches:
+      - main
+  pull_request_target:
+    types:
+      - closed
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: "write"
+      pull-requests: "read"
+    steps:
+      - uses: actions/checkout@v3
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: rasd/rasd.tex
+          work_in_root_file_dir: true
+          latexmk_shell_escape: true
+      - name: Archive PDFs
+        uses: actions/upload-artifact@v3
+        with:
+          name: RASD
+          path: rasd/rasd.pdf 
+      - name: Create prerelease
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "nightly"
+          prerelease: true
+          title: "Nightly Release"
+          files: rasd/rasd.pdf
