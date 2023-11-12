@@ -1,0 +1,80 @@
+\section{Purpose}
+The purpose of the system is to help students improve their software development skills by joining code kata battles.
+A code kata battle is a programming exercise created by an educator that contains a set of test cases.
+Students have to provide a solution that pass the test, using a test-driven approach.
+Students can try as many times as they want, each time a solution is submitted, the tests are executed and the score is calculated.
+
+The goals of the CKB platform are:
+\begin{enumerate}
+    \item Educators can organize tournaments of programming exercises aimed at improving their students skills.
+    \item Educators can organize battles in a tournament they have created.
+    \item Educators can aid their colleagues in creating battles.
+    \item Educator can decide how to score a battle they have created.
+    \item Students can be notified about new tournaments.
+    \item Students can subscribe to tournaments.
+    \item Students can be notified about new battles in tournaments they are subscribed to.
+    \item Students can form teams to take part in a battle.
+    \item Teams of students can join a battle
+    \item Students and educators can monitor the progress of all students in battles and tournaments.
+    \item Educators can manage students’ gamification badges.
+    \item Students can receive badges depending on the rules they have fulfilled.
+    \item Students and educators can see badges collected by a student.
+\end{enumerate}
+
+\section{Scope}
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|p{4in}|p{1.2in}|p{1.2in}|} \hline
+        \textbf{Phenomena}                                                                                                                    & \textbf{Controlled by} & \textbf{Shared} \\ \hline
+        An educator wants to create a tournament                                                                                              & W                      & N               \\ \hline
+        A student wants to take part in a tournament                                                                                          & W                      & N               \\ \hline
+        A student wants to invite other students in a tournament                                                                              & W                      & N               \\ \hline
+        A student wants to see the ranking in a battle                                                                                        & W                      & N               \\ \hline
+        An educator wants to see the ranking in a battle                                                                                      & W                      & N               \\ \hline
+        login and registration?                                                                                                               & W                      & Y               \\ \hline
+        An educator creates a tournament                                                                                                      & W                      & Y               \\ \hline
+        The system notifies students about a new tournament                                                                                   & M                      & Y               \\ \hline
+        An educator grants permissions for a tournament to another educator                                                                   & W                      & Y               \\ \hline
+        A student subscribes to a tournament                                                                                                  & W                      & Y               \\ \hline
+        An educator creates a battle as part of a tournament he has permissions for                                                           & W                      & Y               \\ \hline
+        The system notifies students subscribed to a tournament about a new battle in said tournament                                         & M                      & Y               \\ \hline
+        A student invites another student to take part in a battle with them                                                                  & W                      & Y               \\ \hline
+        A student accepts the invite of another student to take part in a battle with them                                                    & W                      & Y               \\ \hline
+        A student joins a battle on their own                                                                                                 & W                      & Y               \\ \hline
+        The registration deadline of a battle expires                                                                                         & W                      & N               \\ \hline
+        The system sends the link to a GitHub repository containing the code for a battle to all students who are members of subscribed teams & M                      & Y               \\ \hline
+        A student forks the GitHub repository                                                                                                 & W                      & N               \\ \hline
+        A student sets up the automated workflow                                                                                              & W                      & N               \\ \hline
+        Student writes code                                                                                                                   & W                      & N               \\ \hline
+        A student pushes a new commit in their repository main branch                                                                         & W                      & Y               \\ \hline
+        CKB platform pulls the latest sources, analyses them, and runs the tests                                                              & M                      & N               \\ \hline
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|p{3.8in}|p{1.2in}|p{1.2in}|} \hline
+        Platform calculates the battle score of the team.                                   & M & N \\ \hline
+        A student or an educator visualize the current rank of a battle                     & W & Y \\ \hline
+        The submission deadline expires and the consolidation stage starts                  & W & N \\ \hline
+        An educator manually evaluates the submission of a team for a battle he has created & W & Y \\ \hline
+        An educator closes the consolidation stage                                          & W & Y \\ \hline
+        The system notifies students taking part in a battle that is over                   & M & Y \\ \hline
+        An educator closes a tournament                                                     & W & Y \\ \hline
+        The platform updates the personal tournament score of each student                  & M & N \\ \hline
+        The system notifies students taking part in a tournament that it was closed         & M & Y \\ \hline
+        Any subscribed user visualizes the list of current tournaments                      & W & Y \\ \hline
+        Any subscribed user visualizes the ranking of a tournament                          & W & Y \\ \hline
+        Educator defines a badge                                                            & W & Y \\ \hline
+        Student achieves a badge                                                            & W & Y \\ \hline
+        Any subscribed user visualizes the badges achieved by a student                     & W & Y \\ \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Phenomenas}
+\end{table}
+
+
+
