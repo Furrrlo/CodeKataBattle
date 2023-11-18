@@ -1,0 +1,98 @@
+\section{Product perspective}
+\subsection{Scenarios}
+
+\begin{enumerate}
+      \item \textbf{Tournament Creation by an Educator}\\
+    	Luca Proserpio is an educator who works for a famous Italian university and is subscribed to the CKB Platform.\\
+    	Luca wants to create a new tournament on the platform so that students can participate in it to improve their programming skills in Java.\\
+		Luca logs in, and the \emph{HOMEPAGE} will be shown.\\
+		Luca among the various options on the homepage decides to click on the "Create New Tournament" button. \\
+		The platform shows the \emph{CREATE\_TOURNAMENT} page which contains:
+		
+		\begin{enumerate}
+			\item Name field: to set the name of the tournament 
+			\item Collaborators list: with all the educators in the platform
+			\item Deadline field: to define the deadline date to be able to register for the tournament
+			\item Create Tournament button: to proceed with the creation of the tournament
+		\end{enumerate}
+		
+		Luca enters the name "Welcome Tournament School Year 2024" in the Name field and sets the date 30/09/2023 in the Deadline field.\\
+		Next, he clicks on the list of educators selecting educators Gianpaolo Mariani, Mario Rossi, and Rosa Ballabio as he wants to allow them also to be able to create new
+		battles for the tournament he is creating.\\
+		Accordingly, he clicks on the Create Tournament button and the platform shows a message of successful tournament creation.
+		Luca will be shown the \emph{DETAIL\_TOURNAMENT} page of the newly created "Welcome Tournament School Year 2024" for which, at the moment, as an empty list of
+		available
+		battles.
+		All students enrolled in the CKB Platform will be notified about the new creation of the tournament created by educator Luca.
+
+
+    	
+    	
+    \item \textbf{Battle Creation by and Educator for an Existing Tournament}\\
+    	Gianpaolo Mariani is an educator registered with the CKB Platform and wants to create a battle for the "Welcome Tournament School Year 2024" tournament.\\
+    	After logging in, the \emph{HOMEPAGE} shows the list of tournaments he has created or to which he has been added by other contributors. Gianpaolo clicks on the "Welcome 
+    	Tournament School Year 2024" line found in the list of tournaments mentioned earlier.\\
+    	After clicking, the platform shows the \emph{DETAIL\_TOURNAMENT} page of the selected tournament.
+    	On the \emph{DETAIL\_TOURNAMENT} page, Gianpaolo clicks on the "Create New Battle" button and the \emph{CREATE\_BATTLE} page is shown to him.\\
+    	The \emph{CREATE\_BATTLE} page contains:
+
+		\begin{enumerate}
+			\item Kata Code Upload Section
+				\begin{enumerate}
+					\item Battle Description field
+					\item Form to upload test cases
+					\item Form to upload build automation scripts
+				\end{enumerate}
+			\item Field group policy: to set minimum and maximum number of students per group
+			\item Field registration deadline: to define maximum date for which students can register for the battle
+			\item Field final submission deadline: to define maximum date for which students can submit code to be evaluated
+			\item Scoring Configuration section
+
+				\begin{enumerate}
+					\item Form functional aspects
+					\item Form timeliness
+					\item Form quality level
+					\item Form optional manual evaluation
+				\end{enumerate}
+
+			
+			\item Create Battle button
+		\end{enumerate}
+		
+		Gianpaolo fills in all the fields by entering the description of the battle, the registration deadline as 6/11/2023, the final submission deadline as 23/12/2023, the minimum
+		and maximum number of students as 3, and does not edit any of the default entries in the Scoring Configuration section as he plans to edit it later before the battle is
+		actually started.\\
+		After that, he clicks on the Create Battle button and the platform redirect Gianpaolo to the \emph{DETAIL\_TOURNAMENT} page containing the new created battle in the list of available battles.
+		All students who had signed up for the tournament will receive a notification of the newly added battle created by educator Gianpaolo.
+
+		
+		
+		\item \textbf{Student joins to an existing Tournament by receiving a notification}\\
+		Marco is an University student and thus is registered on the CKB Platform (ASSUMPTION). He wants to sign up for a tournament to improve his programming skills in Java as he notices that he has difficulty writing code using Object Oriented Programming. In the afternoon Marco receives a notification of a new tournament creation called "The Basics of Object-Oriented Programming in Java", he decides to take the opportunity and sign up.\\
+Therefore, he accesses the platform by logging in and the platform redirect him to the \emph{HOMEPAGE}. Marco clicks on the record "The Basics of Object-Oriented Programming in Java" listed in the list of available Tournaments for which he is not subscribed.\\
+The platform shows Marco the \emph{SUBSCRIPTION\_TO\_A\_TOURNAMENT} page.\\
+The \emph{SUBSCRIPTION\_TO\_A\_TOURNAMENT}  page shows information about the name and the description of the selected tournament. \\
+Marco clicks on the Subscribe button, and the platform enrolls Marco in the tournament showing a confirmation registration message.
+		
+
+    	
+\end{enumerate}
+
+
+\subsection{Domain class diagram}
+
+\subsection{Statecharts}
+
+
+
+
+\section{Product functions}
+
+
+
+\section{User characteristics}
+
+
+
+\section{Assumptions, dependencies and constraints}
+
