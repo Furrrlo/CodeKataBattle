@@ -1,6 +1,7 @@
 # Exclude all pdfs which are not in the deliverables folder
 *.pdf
 !DeliveryFolder/*.pdf
+!Assignment RDD AY 2023-2024.pdf
 
 # Eclude puml svgs, we generate them on compile
 **/*/puml/*.svg
