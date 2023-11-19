@@ -1,0 +1,32 @@
+\section{External Interface Requirements}
+\section{Functional Requirements}
+\section{Performance Requirements}
+\section{Design Constraints}
+\section{Software System Attributes}
+\subsection{Reliability}
+The CKB platform does not manage critical operations.
+If an operation fails, it can be re-executed without any particular consequences.
+For example, if the evaluation of an exercise fails, students can resubmit their code.
+It is therefore reasonable to have a failure rate around 1\%.
+
+\subsection{Availability}
+The platform should have the lowest downtime possible during the day.
+A few hours of downtime are allowed between 1am and 5am, when student are usually not studying.
+The platform shall therefore guarantee 99\% (two-nines) of availability, so that 3.65 days of downtime per year are allowed.
+
+\subsection{Security}
+Communication between the user and the CBK platform is encrypted with HTTPS. %Forse non posso dirlo qua(?)
+Furthermore, users must only be able to perform operations that they are authorized to do.
+For example, a student must not be able to change his grade.
+
+\subsection{Maintainability}
+The system should be divided in scalable and reusable modules, 
+which will be easier to maintain and replace in case of failure. 
+Ordinary maintenance, for bug fixes and improvements, will be scheduled during night time, when the user traffic is minimal.
+
+\subsection{Portability}
+The CKD platform does not require any particular hardware or software.
+It must be accessible from any operating system with a modern web browser.
+A mobile application that allows users to see the state of the battles can also be developed.
+Since the mobile app does not require any special function, a non-native approach can be adopted.
+It is therefore possible to use cross-platform development tools, which can speed up the development process.
