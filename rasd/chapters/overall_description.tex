@@ -6,7 +6,7 @@
     	Luca Proserpio is an educator who works for a famous Italian university and is subscribed to the CKB Platform.\\
     	Luca wants to create a new tournament on the platform so that students can participate in it to improve their programming skills in Java.\\
 		Luca logs in, and the \emph{HOMEPAGE} will be shown.\\
-		Luca among the various options on the homepage decides to click on the "Create New Tournament" button. \\
+		Luca among the various options on the homepage decides to click on the \emph{"Create New Tournament"} button. \\
 		The platform shows the \emph{CREATE\_TOURNAMENT} page which contains:
 		
 		\begin{enumerate}
@@ -16,11 +16,11 @@
 			\item Create Tournament button: to proceed with the creation of the tournament
 		\end{enumerate}
 		
-		Luca enters the name "Welcome Tournament School Year 2024" in the Name field and sets the date 30/09/2023 in the Deadline field.\\
+		Luca enters the name \emph{"Welcome Tournament School Year 2024"} in the Name field and sets the date 30/09/2023 in the Deadline field.\\
 		Next, he clicks on the list of educators selecting educators Gianpaolo Mariani, Mario Rossi, and Rosa Ballabio as he wants to allow them also to be able to create new
 		battles for the tournament he is creating.\\
 		Accordingly, he clicks on the Create Tournament button and the platform shows a message of successful tournament creation.
-		Luca will be shown the \emph{DETAIL\_TOURNAMENT} page of the newly created "Welcome Tournament School Year 2024" for which, at the moment, as an empty list of
+		Luca will be shown the \emph{DETAIL\_TOURNAMENT} page of the newly created \emph{"Welcome Tournament School Year 2024"} for which, at the moment, as an empty list of
 		available
 		battles.
 		All students enrolled in the CKB Platform will be notified about the new creation of the tournament created by educator Luca.
@@ -29,11 +29,11 @@
     	
     	
     \item \textbf{Battle Creation by and Educator for an Existing Tournament}\\
-    	Gianpaolo Mariani is an educator registered with the CKB Platform and wants to create a battle for the "Welcome Tournament School Year 2024" tournament.\\
-    	After logging in, the \emph{HOMEPAGE} shows the list of tournaments he has created or to which he has been added by other contributors. Gianpaolo clicks on the "Welcome 
-    	Tournament School Year 2024" line found in the list of tournaments mentioned earlier.\\
+    	Gianpaolo Mariani is an educator registered with the CKB Platform and wants to create a battle for the \emph{"Welcome Tournament School Year 2024"} tournament.\\
+    	After logging in, the \emph{HOMEPAGE} shows the list of tournaments he has created or to which he has been added by other contributors. Gianpaolo clicks on the \emph{"Welcome 
+    	Tournament School Year 2024"} line found in the list of tournaments mentioned earlier.\\
     	After clicking, the platform shows the \emph{DETAIL\_TOURNAMENT} page of the selected tournament.
-    	On the \emph{DETAIL\_TOURNAMENT} page, Gianpaolo clicks on the "Create New Battle" button and the \emph{CREATE\_BATTLE} page is shown to him.\\
+    	On the \emph{DETAIL\_TOURNAMENT} page, Gianpaolo clicks on the \emph{"Create New Battle"} button and the \emph{CREATE\_BATTLE} page is shown to him.\\
     	The \emph{CREATE\_BATTLE} page contains:
 
 		\begin{enumerate}
@@ -68,22 +68,25 @@
 		
 		
 		\item \textbf{Student joins to an existing Tournament by receiving a notification}\\
-		Marco is an University student and thus is registered on the CKB Platform (ASSUMPTION). He wants to sign up for a tournament to improve his programming skills in Java as he notices that he has difficulty writing code using Object Oriented Programming. In the afternoon Marco receives a notification of a new tournament creation called "The Basics of Object-Oriented Programming in Java", he decides to take the opportunity and sign up.\\
-Therefore, he accesses the platform by logging in and the platform redirect him to the \emph{HOMEPAGE}. Marco clicks on the record "The Basics of Object-Oriented Programming in Java" listed in the list of available Tournaments for which he is not subscribed.\\
+		Marco is an University student and thus is registered on the CKB Platform (ASSUMPTION). He wants to sign up for a tournament to improve his programming skills in Java as he notices that he has difficulty writing code using Object Oriented Programming. In the afternoon Marco receives a notification of a new tournament creation called \emph{"The Basics of Object-Oriented Programming in Java"}, he decides to take the opportunity and sign up.\\
+Therefore, he accesses the platform by logging in and the platform redirect him to the \emph{HOMEPAGE}. Marco clicks on the record \emph{"The Basics of Object-Oriented Programming in Java"} listed in the list of available Tournaments for which he is not subscribed.\\
 The platform shows Marco the \emph{SUBSCRIPTION\_TO\_A\_TOURNAMENT} page.\\
 The \emph{SUBSCRIPTION\_TO\_A\_TOURNAMENT}  page shows information about the name and the description of the selected tournament. \\
 Marco clicks on the Subscribe button, and the platform enrolls Marco in the tournament showing a confirmation registration message.
 
 		\item \textbf{Students create a team for a tournament battle}\\
-Marco, Stefano, and Carlo are students enrolled in "The Basics of Object-Oriented Programming in Java" tournament.\\
+Marco, Stefano, and Carlo are students enrolled in \emph{"The Basics of Object-Oriented Programming in Java"} tournament.\\
 They want to participate in one of the available tournament battles by creating a team.
 Specifically, Marco logs in and in the \emph{HOMEPAGE} clicks on the tournament from the list of tournaments in which he is registered.\\
 Marco is shown the \emph{DETAIL\_TOURNAMENT} page and within it he clicks on the first available battle.\\
-He is shown the \emph{DETAIL\_BATTLE} page and clicks on the "Participate by creating a team" button.\\
+He is shown the \emph{DETAIL\_BATTLE} page and clicks on the \emph{"Participate by creating a team"} button.\\
 Marco already knows Stefano and decides to invite him to join his team.\\
-Carlo, on the other hand, performs the same operations as Marco except that instead of clicking on the "Participate by creating a team" field, he clicks on the "Participate by joining an existing team" button.\\
+Carlo, on the other hand, performs the same operations as Marco except that instead of clicking on the \emph{"Participate by creating a team"} field, he clicks on the \emph{"Participate by joining an existing team"} button.\\
 The system after analyzing all existing teams decides to add Carlo to the same team with Marco and Stefano.
 		
+		\item \textbf{Platform creates the GitHub repository when a battle's registration deadline expires}\\
+Gianpaolo Mariano is an educator on the platform and had created a battle within the \emph{"Welcome Tournament School Year 2024"} tournament context with deadline 6/11/2023.\\
+The system, when the deadline of the battle expires, creates the GitHub repository containing the code kata specified by Gianpaolo for the battle and sends the link of the newly created repository to all students who have registered in teams before the deadline expired.
 
     	
 \end{enumerate}
@@ -105,16 +108,4 @@ The system after analyzing all existing teams decides to add Carlo to the same t
 
 
 \section{Assumptions, dependencies and constraints}
-The following domain assumptions must hold in the world:
-
-\begin{enumerate}[label=\textbf{D\arabic*}:,leftmargin=1.3cm]
-	\item Students are enrolled in the school 
-	\item Educators teach in the school
-	\item Students correctly fork the GitHub repository of the code kata battle
-	\item Students correctly set up an automated workflow through GitHub Actions
-	\item The grade assigned manually by the teachers reflects the work done
-	\item The GitHub Action platform is working properly
-	\item Test cases and build automation scripts uploaded by educators are correct
-	\item The static analysis tool is working
-\end{enumerate}
 
