@@ -16,8 +16,14 @@ jobs:
       pull-requests: "read"
     steps:
       - uses: actions/checkout@v3
+      - id: gen_img_tag
+        name: Create a tag for the docker image
+        run: echo "docker_img=texlive-full-puml:$(date +%s)" >> $GITHUB_OUTPUT
+      - name: Build the Docker image
+        run: docker build . --file ci.dockerfile --tag ${{ steps.gen_img_tag.outputs.docker_img }}
       - uses: xu-cheng/latex-action@v3
         with:
+          docker_image: ${{ steps.gen_img_tag.outputs.docker_img }}
           root_file: rasd/rasd.tex
           work_in_root_file_dir: true
           latexmk_shell_escape: true
