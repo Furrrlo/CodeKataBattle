@@ -53,7 +53,10 @@
 \usepackage{xcolor} % Coloured captions
 \usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
 \usepackage{float}
-
+\usepackage{svg} % svgs
+\pdfsuppresswarningpagegroup=1 % disable svg export warnings
+\usepackage{adjustbox} % adjust svg size to fit
+ 
 % STANDARD MATH PACKAGES
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -84,6 +87,7 @@
 \usepackage{lipsum} % DUMMY PACKAGE
 \usepackage{fancyhdr} % For the headers
 \usepackage{tabu}
+\usepackage[]{underscore} % To be able to use _ in text
 \fancyhf{}
 
 % Input of configuration file. Do not change config.tex file unless you really know what you are doing. 
@@ -92,6 +96,14 @@
 %----------------------------------------------------------------------------
 %	NEW COMMANDS DEFINED
 %----------------------------------------------------------------------------
+
+\newcommand*{\puml}[2][]{%
+    \immediate\write18{./puml/compile-svg.sh #1}
+    \begin{adjustbox}{max size={\textwidth}{\textheight}}
+        % inkscapelatex false cause otherwise for some reason inkscape puts white boxes all around text
+        \includesvg[inkscapelatex=false #1]{#2}%
+    \end{adjustbox}
+}
 
 % EXAMPLES OF NEW COMMANDS
 \newcommand{\bea}{\begin{eqnarray}} % Shortcut for equation arrays

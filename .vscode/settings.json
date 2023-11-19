@@ -78,6 +78,7 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
+                "-shell-escape",
                 "-pdf",
                 "-pdflatex=texliveonfly --terminal_only --arguments='%O' %S",
                 "-outdir=%OUTDIR%",

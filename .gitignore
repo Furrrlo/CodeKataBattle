@@ -1,6 +1,10 @@
-# Exclude all pdfs whcih are not in the deliverables folder
+# Exclude all pdfs which are not in the deliverables folder
 *.pdf
 !DeliveryFolder/*.pdf
+
+# Eclude puml svgs, we generate them on compile
+**/*/puml/*.svg
+**/*/svg-inkscape
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,latex,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,latex,linux
