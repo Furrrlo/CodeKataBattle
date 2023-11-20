@@ -110,4 +110,15 @@ The system, when the deadline of the battle expires, creates the GitHub reposito
 
 
 \section{Assumptions, dependencies and constraints}
+The following domain assumptions must hold in the world:
 
+\begin{enumerate}[label=\textbf{D\arabic*}:,leftmargin=1.3cm]
+	\item Students are enrolled in the school 
+	\item Educators teach in the school
+	\item Students correctly fork the GitHub repository of the code kata battle
+	\item Students correctly set up an automated workflow through GitHub Actions
+	\item The grade assigned manually by the teachers reflects the work done
+	\item The GitHub Action platform is working properly
+	\item Test cases and build automation scripts uploaded by educators are correct
+	\item The static analysis tool is working
+\end{enumerate}
