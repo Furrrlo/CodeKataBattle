@@ -98,7 +98,7 @@
 %----------------------------------------------------------------------------
 
 \newcommand*{\puml}[2][]{%
-    \immediate\write18{./puml/compile-svg.sh #1}
+    \immediate\write18{./puml/compile-svg.sh #2}
     \begin{adjustbox}{max size={\textwidth}{\textheight}}
         % inkscapelatex false cause otherwise for some reason inkscape puts white boxes all around text
         \includesvg[inkscapelatex=false #1]{#2}%
