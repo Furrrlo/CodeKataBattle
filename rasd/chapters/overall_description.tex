@@ -89,6 +89,18 @@ The system after analyzing all existing teams decides to add Carlo to the same t
 Gianpaolo Mariano is an educator on the platform and had created a battle within the \emph{"Welcome Tournament School Year 2024"} tournament context with deadline 6/11/2023.\\
 The system, when the deadline of the battle expires, creates the GitHub repository containing the code kata specified by Gianpaolo for the battle and sends the link of the newly created repository to all students who have registered in teams before the deadline expired.
 
+
+\item \textbf{Calculation of a team's battle scrore}\\
+Marco is a student and is participating in a battle with the team consisting of Stefano and Carlo.\\
+Marco edits the project code and commits and pushes to the forked GitHub repository. \\
+The platform fetches the code, analyzes it, and runs the prepared tests (test cases) for the battle in which the team is participating.\\
+The platform updates the team's score by considering:
+				\begin{enumerate}
+					\item The number of successfully passed test cases
+					\item The number of days that have passed since the end of the registration deadline
+					\item The quality level of the sources extracted from the static analysis tools 
+				\end{enumerate}
+Therefore, after the update, Marco,Stefano and Carlo go to the \emph{DETAIL\_BATTLE} page and view the new rank assigned to them automatically by the platform.
     	
 \end{enumerate}
 
