@@ -14,8 +14,8 @@
 %--------------------------------------------------------------------------
 %	HANDLING THE STYLE OF THE THESIS
 %--------------------------------------------------------------------------
-\LoadClass[12pt, oneside]{book} % 12 pt font, one-sided book style
-\RequirePackage[a4paper, includehead, headheight=0.6cm, inner=2.5cm, outer=2.5cm, top=1cm, bottom=1cm]{geometry}
+\LoadClass[12pt, twoside]{book} % 12 pt font, one-sided book style
+\RequirePackage[a4paper, includehead, headheight=0.6cm, inner=2.5cm, outer=2.5cm, top=1cm, bottom=1cm, asymmetric]{geometry}
 
 \RequirePackage[bf, font=onehalfspacing]{caption} % caption: FIG in bold, 1.5 line spacing in figure and table captions
 \newcommand{\thesisspacing}{\onehalfspacing}

@@ -59,13 +59,15 @@
 
 \makeatletter
 % Renewcommand: cleardoublepage including the background pic
-\renewcommand*\cleardoublepage{%
-  \clearpage\if@twoside\ifodd\c@page\else
-      \null
-      \AddToShipoutPicture*{\BackgroundPic}
-      \thispagestyle{empty}%
-      \newpage
-      \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+% \renewcommand*\cleardoublepage{%
+%   \clearpage\if@twoside\ifodd\c@page\else
+%       \null
+%       \AddToShipoutPicture*{\BackgroundPic}
+%       \thispagestyle{empty}%
+%       \newpage
+%       \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+% To avoid that LaTeX forces chapters to start always on even pages
+\renewcommand{\cleardoublepage}{\clearpage}
 \makeatother
 
 %For correctly numbering algorithms
