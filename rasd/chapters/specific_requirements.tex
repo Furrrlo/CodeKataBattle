@@ -1,5 +1,50 @@
 \section{External Interface Requirements}
 \section{Functional Requirements}
+\subsection{Use case diagrams}
+\subsection{Use cases}
+%Oppure facciamo tre sezioni separate per tabella, seq diagram e activity diagram,
+% ma così mi sembra più leggibile.
+\begin{enumerate}[label=\textbf{UC\arabic*}:,leftmargin=1.3cm]
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item \textbf{Closing a tournament}
+          \begin{table}[H]
+              %\caption*{\textbf{Title}}
+              \centering
+              \begin{tabular}{|l|p{11.9cm}|}
+                  \hline
+                  \textbf{Name}            & Closing a tournament                                 \\\hline
+                  \textbf{Actor}           & Educator, Students                                   \\\hline
+                  \textbf{Entry condition} &
+                  \begin{itemize}
+                      \item Educator has logged in
+                      \item Educator has permission to modify the tournament
+                      \item The tournament is in the consolidation stage
+                  \end{itemize}                           \\\hline
+                  \textbf{Event flow}      &
+                  \begin{enumerate}
+                      \item Educator click the \emph{close} button in the tournament page.
+                      \item The platform calculate the final tournament rank.
+                      \item The platform notifies students who participated in the tournament.
+                      \item The platform assign badges to the student who fulfilled the rules.
+                  \end{enumerate}         \\\hline
+                  \textbf{Exit condition}  & The tournament is closed and the bedges are assigned \\\hline
+                  %\textbf{Exception}       &                                                      \\\hline
+                  %\textbf{Special reqs}    &                                                      \\\hline
+              \end{tabular}
+              \caption{Closing a tournament use case.}
+              \label{table:Closing a tournament use case}
+          \end{table}
+
+          \puml{puml/UC8}
+
+\end{enumerate}
+\subsection{Requirements mapping}
 \section{Performance Requirements}
 \section{Design Constraints}
 \section{Software System Attributes}
@@ -20,8 +65,8 @@ Furthermore, users must only be able to perform operations that they are authori
 For example, a student must not be able to change his grade.
 
 \subsection{Maintainability}
-The system should be divided in scalable and reusable modules, 
-which will be easier to maintain and replace in case of failure. 
+The system should be divided in scalable and reusable modules,
+which will be easier to maintain and replace in case of failure.
 Ordinary maintenance, for bug fixes and improvements, will be scheduled during night time, when the user traffic is minimal.
 
 \subsection{Portability}
