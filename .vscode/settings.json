@@ -80,7 +80,7 @@
                 "-file-line-error",
                 "-shell-escape",
                 "-pdf",
-                "-pdflatex=texliveonfly --terminal_only --arguments='%O' %S",
+                "-pdflatex=texliveonfly --terminal_only --compiler=./pdflatex-with-vars.sh --arguments='%O' %S",
                 "-outdir=%OUTDIR%",
                 "%DOC%"
             ],

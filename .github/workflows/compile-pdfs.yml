@@ -26,6 +26,7 @@ jobs:
           docker_image: ${{ steps.gen_img_tag.outputs.docker_img }}
           root_file: rasd/rasd.tex
           work_in_root_file_dir: true
+          pre_compile: args+=("-pdflatex=./pdflatex-with-vars.sh %O %S")
           latexmk_shell_escape: true
       - name: Archive PDFs
         uses: actions/upload-artifact@v3
