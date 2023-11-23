@@ -28,17 +28,17 @@ enum InviteState {
     PENDING
 }
 
-Student "1" -down-* "0...n" TeamPartecipation: form
-note on link
-One student must have sent invites
-and the others must have accepted them
-end note
+Student "1" -down- "0...1" TeamPartecipation: > takes part
 
 class TeamPartecipation {
   +studentCommits: Int
 }
 
 TeamPartecipation "1...n" -down-* "1" Team: form
+note on link
+One student must have sent invites
+and the others must have accepted them
+end note
 
 class Team {
 }
@@ -47,6 +47,7 @@ Team "1" -down-> "0...1" BattlePartecipation: takes part
 note on link
 All students must be subscribed to the tournament
 Must respect min/max students contraints
+A student must only be in one team at a time for each battle
 end note
 
 class BattlePartecipation {
