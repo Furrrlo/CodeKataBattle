@@ -1,0 +1,36 @@
+@startuml UC7
+title UC7 - Closing a battle
+actor Educator
+participant System
+actor Student
+
+note across: The submission deadline expires
+
+Educator -> System ++ : selecTournament(tournament)
+Educator <-- System -- : tournamentDetails
+
+Educator -> System ++ : selectBattle(battle)
+Educator <-- System -- : battleDetails
+
+Educator -> System ++ : evaluate()
+Educator <-- System -- : teamList
+
+
+loop for each team
+    Educator -> System ++ : getSource(team)
+    Educator <-- System -- : source
+
+    Educator -> System ++ : assignGrade(team, grade)
+    Educator <-- System -- : outcome
+end
+
+Educator -> System ++ : close(battle)
+Educator <-- System -- : outcome
+
+
+System -> System ++ : calculateFinalRank()
+deactivate System
+
+System -> Student: notify()
+
+@enduml

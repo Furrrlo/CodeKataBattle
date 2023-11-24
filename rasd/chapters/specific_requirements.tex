@@ -10,38 +10,53 @@
     \item
     \item
     \item
-    \item
+    \item \textbf{}
+          \pagebreak
     \item \textbf{}
           \begin{table}[H]
               %\caption*{\textbf{Title}}
               \centering
               \begin{tabular}{|l|p{11.9cm}|}
                   \hline
-                  \textbf{Name}            & Begin of Consolidation Stage when submission deadline of a battle expires \\\hline
-                  \textbf{Actor}           & Educator, Students                                                        \\\hline
+                  \textbf{Name}            & Begin of Consolidation Stage when submission deadline of a battle expires   \\\hline
+                  \textbf{Actor}           & Educator, Students                                                          \\\hline
                   \textbf{Entry condition} &
                   \begin{itemize}
                       \item Educator has logged in
                       \item Educator has permission to modify the battle
-                  \end{itemize}                                                    \\\hline
+                  \end{itemize}                                                      \\\hline
                   \textbf{Event flow}      &
                   \begin{enumerate}[label=\arabic*.]
                       \item When the submission deadline expires, the platform opens the comsolidation stage.
-                      \item The educator opens the battle page.
-                      \item The educator click the \emph{evaluate} button.
+                      \item The educator selects a tournament from the \emph{HOMEPAGE}
+                      \item The platform shows the list of battles in the tournament.
+                      \item The educator selects the battle.
+                      \item The platform shows the details of the battle.
+                      \item The educator clicks the \emph{evaluate} button.
                       \item The platform shows sources submitted by each team.
-                      \item The educator assign a score to each team.
-                      \item The educator click the \emph{close} button in the battle page.
+                      \item The educator assigns a score to each team.
+                      \item The educator clicks the \emph{close} button in the battle page.
                       \item The platform calculates the final battle ranks.
                       \item The platform notifies students who participated in the battle.
-                  \end{enumerate}               \\\hline
-                  \textbf{Exit condition}  & The battle is closed                                                      \\\hline
-                  %\textbf{Exception}       &                                                      \\\hline
+                  \end{enumerate}                 \\\hline
+                  \textbf{Exit condition}  & The battle is closed                                                        \\\hline
+                  \textbf{Exception}       & The educator clicks the \emph{close} button before evaluating all students.
+                  In this case the platform return an error and the educator can assign the missing grades.              \\\hline
                   %\textbf{Special reqs}    &                                                      \\\hline
               \end{tabular}
-              \caption{Begin of Consolidation Stage}
+              \caption{Begin of Consolidation Stage.}
               \label{table:Begin of Consolidation Stage}
           \end{table}
+
+          \begin{figure}[H]
+              \centering
+              \puml{puml/UC7}
+              \caption{Begin of Consolidation Stage.}
+              \label{fig:Begin of Consolidation Stage}
+          \end{figure}
+
+          \pagebreak
+
     \item \textbf{}
           \begin{table}[H]
               %\caption*{\textbf{Title}}
@@ -71,7 +86,12 @@
               \label{table:Closing a tournament use case}
           \end{table}
 
-          \puml{puml/UC8}
+          \begin{figure}[H]
+              \centering
+              \puml{puml/UC8}
+              \caption{Closing a tournament use case.}
+              \label{fig:Closing a tournament use case}
+          \end{figure}
 
 \end{enumerate}
 \subsection{Requirements mapping}
