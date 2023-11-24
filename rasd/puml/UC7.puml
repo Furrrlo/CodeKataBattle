@@ -15,7 +15,6 @@ Educator <-- System -- : battleDetails
 Educator -> System ++ : evaluate()
 Educator <-- System -- : teamList
 
-
 loop for each team
     Educator -> System ++ : getSource(team)
     Educator <-- System -- : source
@@ -25,12 +24,12 @@ loop for each team
 end
 
 Educator -> System ++ : close(battle)
-Educator <-- System -- : outcome
-
 
 System -> System ++ : calculateFinalRank()
 deactivate System
 
 System -> Student: notify()
+
+Educator <-- System -- : outcome
 
 @enduml
