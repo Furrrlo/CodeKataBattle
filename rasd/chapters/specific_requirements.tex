@@ -6,8 +6,44 @@
 % ma così mi sembra più leggibile.
 \begin{enumerate}[label=\textbf{UC\arabic*}:,leftmargin=1.3cm]
     \item
-    \item
-    \item
+    \item \textbf{}
+          \pagebreak
+    \item \textbf{}
+          \begin{table}[H]
+              %\caption*{\textbf{Title}}
+              \centering
+              \begin{tabular}{|l|p{11.9cm}|}
+                  \hline
+                  \textbf{Name}            & Student joins to an existing Tournament by receiving a notication                     \\\hline
+                  \textbf{Actor}           & Student                                                                               \\\hline
+                  \textbf{Entry condition} &
+                  \begin{itemize}
+                      \item Student has enabled the receival of tournament notifications
+                  \end{itemize}                                                \\\hline
+                  \textbf{Event flow}      &
+                  \begin{enumerate}[label=\arabic*.]
+                      \item Upon the creation of a new tournament, the platform sends a notification to all students which enabled them
+                      \item The student receives a notification
+                      \item The student clicks the notification
+                      \item The platform shows the details of the new tournament.
+                      \item The student clicks the \emph{sign up} button.
+                      \item The platform enrolls the student in the tournament.
+                      \item The platform shows a confirmation message.
+                  \end{enumerate} \\\hline
+                  \textbf{Exit condition}  & The student is subscribed                                                             \\\hline
+                  %\textbf{Exception} &                                                                                              \\\hline
+              \end{tabular}
+              \caption{Subscribe to tournament from notification.}
+              \label{table:Subscribe to tournament from notification}
+          \end{table}
+
+          \begin{figure}[H]
+              \centering
+              \puml{puml/UC3}
+              \caption{Subscribe to tournament from notification}
+              \label{fig:Subscribe to tournament from notification}
+          \end{figure}
+          \pagebreak
     \item
     \item
     \item \textbf{}

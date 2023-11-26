@@ -1,0 +1,17 @@
+@startuml UC3
+title UC3 - Signing up to a tournament
+actor Student
+participant System
+
+note across: A tournament is created
+
+Student <- System -- : notify(tournament)
+
+Student -> System ++ : selectTournament(tournament)
+Student <-- System -- : tournamentDetails
+
+Student -> System ++ : signup(tournament)
+System -> System ++-- : enrollStudent(student, tournament)
+Student <-- System -- : signupConfirmation
+
+@enduml
