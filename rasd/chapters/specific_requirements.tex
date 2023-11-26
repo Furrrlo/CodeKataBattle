@@ -44,7 +44,64 @@
               \label{fig:Subscribe to tournament from notification}
           \end{figure}
           \pagebreak
-    \item
+    \item \textbf{}
+          \begin{table}[H]
+              %\caption*{\textbf{Title}}
+              \centering
+              \begin{tabular}{|l|p{11.9cm}|}
+                  \hline
+                  \textbf{Name}            & Students create a team for a tournament battle                              \\\hline
+                  \textbf{Actor}           & Inviting student, Invited student 1, Invited student 2                      \\\hline
+                  \textbf{Entry condition} &
+                  \begin{itemize}
+                      \item Students are enrolled in the same tournament
+                      \item Students are logged in
+                      \item Invited student 1 has invitation notifications enabled
+                  \end{itemize}                                            \\\hline
+                  \textbf{Event flow}      &
+                  \begin{enumerate}[label=\arabic*.]
+                      \item The inviting student selects a tournament on \emph{HOMEPAGE}.
+                      \item The platform shows the list of battles in the tournament.
+                      \item The inviting student selects the battle.
+                      \item The platform shows the details of the battle.
+                      \item The inviting student clicks the \emph{create a team} button.
+                      \item The platform creates a new team with the student.
+                      \item The platform returns a confirmation message.
+                      \item The inviting student inserts the name of invited student 1.
+                      \item The platform creates an invitation for invited student 1.
+                      \item The platform sends a notification to invited student 1.
+                      \item Invited student 1 clicks on \emph{accept} on the notification.
+                      \item The platform adds invited student 1 to the team.
+                      \item The platform shows a confirmation message.
+                      \item The inviting student inserts the name of invited student 2.
+                      \item The platform creates an invitation for invited student 2.
+                      \item Invited student 2 visits the \emph{HOMEPAGE}.
+                      \item The platform returns the homepage, with the invites.
+                      \item Invited student 2 clicks the \emph{accept} button of the invitation.
+                      \item The platform adds invited student 2 to the team.
+                      \item The platform shows a confirmation message.
+                      \item The inviting student refreshes the battle page.
+                      \item The platform shows the details of the battle, along with the team information.
+                      \item The inviting student clicks the \emph{partecipate with team} button.
+                      \item The platform signs up the team to the battle.
+                      \item The platform shows a confirmation message.
+                  \end{enumerate}                    \\\hline
+                  \textbf{Exit condition}  & The students are all subscribed in a battle with the same team              \\\hline
+                  \textbf{Exception}       & The team does not respect the partecipant number requirement of the battle.
+                  In that case, the platform returns an error and the student can invite additional members              \\\hline
+              \end{tabular}
+              \caption{Create a team.}
+              \label{table:Create a team}
+          \end{table}
+          \pagebreak
+
+          \begin{figure}[H]
+              \centering
+              \puml{puml/UC4}
+              \caption{Create a team}
+              \label{fig:Create a team}
+          \end{figure}
+          \pagebreak
     \item
     \item \textbf{}
           \pagebreak

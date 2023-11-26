@@ -1,0 +1,51 @@
+@startuml UC4
+title UC4 - Create a team
+actor "Inviting Student" as inviting
+actor "Invited Student 1" as notif
+actor "Invited Student 2" as invited
+participant System
+
+inviting -> System ++ : selectTournament(tournament)
+inviting <-- System -- : tournamentDetails
+
+inviting -> System ++ : selectBattle(battle)
+inviting <-- System -- : battleDetails
+
+inviting -> System ++ : createTeam(battle)
+System -> System ++ : createTeam(battle)
+System -> System -- : addStudentToTeam(team, inviting-student)
+inviting <-- System -- : confirmation
+
+inviting -> System ++ : invite(team, invited-student-1)
+System -> System ++ : createInvite(team, invited-student-1)
+notif <- System  ++-- : notify(invite)
+inviting <-- System -- : invitationConfirmation
+
+...
+
+notif -> System --++ : acceptInvite(invite)
+System -> System ++-- : addStudentToTeam(team, invited-student-1)
+inviting <-- System -- : confirmation
+
+...
+
+inviting -> System ++ : invite(team, invited-student-2)
+System -> System ++-- : createInvite(team, invited-student-2)
+inviting <-- System -- : invitationConfirmation
+
+...
+
+invited -> System ++ : seeHomepage()
+invited <-- System -- : homepageDetails
+
+invited -> System --++ : acceptInvite(invite)
+System -> System ++-- : addStudentToTeam(team, invited-student-1)
+invited <-- System -- : confirmation
+
+...
+
+inviting -> System ++ : partecipate(battle, team)
+System -> System ++-- : enrollInBattle(battle, team)
+inviting <-- System -- : confirmation
+
+@enduml
