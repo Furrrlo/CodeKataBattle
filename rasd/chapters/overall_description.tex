@@ -3,130 +3,130 @@
 \subsection{Scenarios}
 
 \begin{enumerate}
-      \item \textbf{Tournament Creation by an Educator}\\
-    	Luca Proserpio is an educator who works for a famous Italian university and is subscribed to the CKB Platform.\\
-    	Luca wants to create a new tournament on the platform so that students can participate in it to improve their programming skills in Java.\\
-		Luca logs in, and the \emph{HOMEPAGE} will be shown.\\
-		Luca among the various options on the homepage decides to click on the \emph{"Create New Tournament"} button. \\
-		The platform shows the \emph{CREATE\_TOURNAMENT} page which contains:
-		
-		\begin{enumerate}
-			\item Name field: to set the name of the tournament 
-			\item Collaborators list: with all the educators in the platform
-			\item Deadline field: to define the deadline date to be able to register for the tournament
-			\item Create Tournament button: to proceed with the creation of the tournament
-		\end{enumerate}
-		
-		Luca enters the name \emph{"Welcome Tournament School Year 2024"} in the Name field and sets the date 30/09/2023 in the Deadline field.\\
-		Next, he clicks on the list of educators selecting educators Gianpaolo Mariani, Mario Rossi, and Rosa Ballabio as he wants to allow them also to be able to create new
-		battles for the tournament he is creating.\\
-		Accordingly, he clicks on the Create Tournament button and the platform shows a message of successful tournament creation.
-		Luca will be shown the \emph{DETAIL\_TOURNAMENT} page of the newly created \emph{"Welcome Tournament School Year 2024"} for which, at the moment, as an empty list of
-		available
-		battles.
-		All students enrolled in the CKB Platform will be notified about the new creation of the tournament created by educator Luca.
+	\item \textbf{Tournament Creation by an Educator}\\
+	      Luca Proserpio is an educator who works for a famous Italian university and is subscribed to the CKB Platform.\\
+	      Luca wants to create a new tournament on the platform so that students can participate in it to improve their programming skills in Java.\\
+	      Luca logs in, and the \emph{HOMEPAGE} will be shown.\\
+	      Luca among the various options on the homepage decides to click on the \emph{"Create New Tournament"} button. \\
+	      The platform shows the \emph{CREATE\_TOURNAMENT} page which contains:
 
+	      \begin{enumerate}
+		      \item Name field: to set the name of the tournament
+		      \item Collaborators list: with all the educators in the platform
+		      \item Deadline field: to define the deadline date to be able to register for the tournament
+		      \item Create Tournament button: to proceed with the creation of the tournament
+	      \end{enumerate}
 
-    	
-    	
-    \item \textbf{Battle Creation by and Educator for an Existing Tournament}\\
-    	Gianpaolo Mariani is an educator registered with the CKB Platform and wants to create a battle for the \emph{"Welcome Tournament School Year 2024"} tournament.\\
-    	After logging in, the \emph{HOMEPAGE} shows the list of tournaments he has created or to which he has been added by other contributors. Gianpaolo clicks on the \emph{"Welcome 
-    	Tournament School Year 2024"} line found in the list of tournaments mentioned earlier.\\
-    	After clicking, the platform shows the \emph{DETAIL\_TOURNAMENT} page of the selected tournament.
-    	On the \emph{DETAIL\_TOURNAMENT} page, Gianpaolo clicks on the \emph{"Create New Battle"} button and the \emph{CREATE\_BATTLE} page is shown to him.\\
-    	The \emph{CREATE\_BATTLE} page contains:
-
-		\begin{enumerate}
-			\item Kata Code Upload Section
-				\begin{enumerate}
-					\item Battle Description field
-					\item Form to upload test cases
-					\item Form to upload build automation scripts
-				\end{enumerate}
-			\item Field group policy: to set minimum and maximum number of students per group
-			\item Field registration deadline: to define maximum date for which students can register for the battle
-			\item Field final submission deadline: to define maximum date for which students can submit code to be evaluated
-			\item Scoring Configuration section
-
-				\begin{enumerate}
-					\item Form functional aspects
-					\item Form timeliness
-					\item Form quality level
-					\item Form optional manual evaluation
-				\end{enumerate}
-
-			
-			\item Create Battle button
-		\end{enumerate}
-		
-		Gianpaolo fills in all the fields by entering the description of the battle, the registration deadline as 6/11/2023, the final submission deadline as 23/12/2023, the minimum
-		and maximum number of students as 3, and does not edit any of the default entries in the Scoring Configuration section as he plans to edit it later before the battle is
-		actually started.\\
-		After that, he clicks on the Create Battle button and the platform redirect Gianpaolo to the \emph{DETAIL\_TOURNAMENT} page containing the new created battle in the list of available battles.
-		All students who had signed up for the tournament will receive a notification of the newly added battle created by educator Gianpaolo.
-
-		
-		
-		\item \textbf{Student joins to an existing Tournament by receiving a notification}\\
-		Marco is an University student and thus is registered on the CKB Platform (ASSUMPTION). He wants to sign up for a tournament to improve his programming skills in Java as he notices that he has difficulty writing code using Object Oriented Programming. In the afternoon Marco receives a notification of a new tournament creation called \emph{"The Basics of Object-Oriented Programming in Java"}, he decides to take the opportunity and sign up.\\
-Therefore, he accesses the platform by logging in and the platform redirect him to the \emph{HOMEPAGE}. Marco clicks on the record \emph{"The Basics of Object-Oriented Programming in Java"} listed in the list of available Tournaments for which he is not subscribed.\\
-The platform shows Marco the \emph{SUBSCRIPTION\_TO\_A\_TOURNAMENT} page.\\
-The \emph{SUBSCRIPTION\_TO\_A\_TOURNAMENT}  page shows information about the name and the description of the selected tournament. \\
-Marco clicks on the Subscribe button, and the platform enrolls Marco in the tournament showing a confirmation registration message.
-
-		\item \textbf{Students create a team for a tournament battle}\\
-Marco, Stefano, and Carlo are students enrolled in \emph{"Welcome Tournament School Year 2024"} tournament.\\
-They want to participate in one of the available tournament battles by creating a team.
-Specifically, Marco logs in and in the \emph{HOMEPAGE} clicks on the tournament from the list of tournaments in which he is registered.\\
-Marco is shown the \emph{DETAIL\_TOURNAMENT} page and within it he clicks on the first available battle.\\
-He is shown the \emph{DETAIL\_BATTLE} page and clicks on the \emph{"Participate by creating a team"} button.\\
-Marco already knows Stefano and decides to invite him to join his team.\\
-Carlo, on the other hand, performs the same operations as Marco except that instead of clicking on the \emph{"Participate by creating a team"} field, he clicks on the \emph{"Participate by joining an existing team"} button.\\
-The system after analyzing all existing teams decides to add Carlo to the same team with Marco and Stefano.
-		
-		\item \textbf{Platform creates the GitHub repository when a battle's registration deadline expires}\\
-Gianpaolo Mariano is an educator on the platform and had created a battle within the \emph{"Welcome Tournament School Year 2024"} tournament context with deadline 6/11/2023.\\
-The system, when the deadline of the battle expires, creates the GitHub repository containing the code kata specified by Gianpaolo for the battle and sends the link of the newly created repository to all students who have registered in teams before the deadline expired.
-
-
-\item \textbf{Calculation of a team's battle scrore}\\
-Marco is a student and is participating in a battle with the team consisting of Stefano and Carlo.\\
-Marco edits the project code and commits and pushes to the forked GitHub repository. \\
-The platform fetches the code, analyzes it, and runs the prepared tests (test cases) for the battle in which the team is participating.\\
-The platform updates the team's battle score by considering:
-				\begin{enumerate}
-					\item The number of successfully passed test cases
-					\item The number of days that have passed since the end of the registration deadline
-					\item The quality level of the sources extracted from the static analysis tools 
-				\end{enumerate}
-The platform also modifies each student's personal tournament score by summing all the battle scores received in that tournament.\\
-Therefore, after the update, Marco,Stefano and Carlo go to the \emph{DETAIL\_BATTLE} page and view the new battle and tournament score assigned to them automatically by the platform.\\
-
-    	
+	      Luca enters the name \emph{"Welcome Tournament School Year 2024"} in the Name field and sets the date 30/09/2023 in the Deadline field.\\
+	      Next, he clicks on the list of educators selecting educators Gianpaolo Mariani, Mario Rossi, and Rosa Ballabio as he wants to allow them also to be able to create new
+	      battles for the tournament he is creating.\\
+	      Accordingly, he clicks on the Create Tournament button and the platform shows a message of successful tournament creation.
+	      Luca will be shown the \emph{DETAIL\_TOURNAMENT} page of the newly created \emph{"Welcome Tournament School Year 2024"} for which, at the moment, as an empty list of
+	      available
+	      battles.
+	      All students enrolled in the CKB Platform will be notified about the new creation of the tournament created by educator Luca.
 
 
 
-\item \textbf{Begin of Consolidation Stage when submission deadline of a battle expires}\\
-Gianpaolo Mariano is a platform educator and had created a battle for the \emph{"Welcome Tournament School Year 2024"} with final submission deadline as 23/12/2023.\\
-The platform at the end of the final submission deadline declares the start of the consolidation stage due to the fact that Gianpaolo had selected the \emph{"manual evaluation"} option for the battle he created.\\
-Gianpaolo proceeds by hand analyzing the code submitted by the various groups and, in particular, decides to increase the score by +2 obtained by the group of students composed of Marco, Stefano and Carlo.\\
-Afterwards, Gianpaolo using the platform declares the consolidation stage closed.\\
-Marco, Stefano and Carlo and all other students who participated in the tournament battle receive a notification with the final battle rank.
+
+	\item \textbf{Battle Creation by and Educator for an Existing Tournament}\\
+	      Gianpaolo Mariani is an educator registered with the CKB Platform and wants to create a battle for the \emph{"Welcome Tournament School Year 2024"} tournament.\\
+	      After logging in, the \emph{HOMEPAGE} shows the list of tournaments he has created or to which he has been added by other contributors. Gianpaolo clicks on the \emph{"Welcome
+		      Tournament School Year 2024"} line found in the list of tournaments mentioned earlier.\\
+	      After clicking, the platform shows the \emph{DETAIL\_TOURNAMENT} page of the selected tournament.
+	      On the \emph{DETAIL\_TOURNAMENT} page, Gianpaolo clicks on the \emph{"Create New Battle"} button and the \emph{CREATE\_BATTLE} page is shown to him.\\
+	      The \emph{CREATE\_BATTLE} page contains:
+
+	      \begin{enumerate}
+		      \item Kata Code Upload Section
+		            \begin{enumerate}
+			            \item Battle Description field
+			            \item Form to upload test cases
+			            \item Form to upload build automation scripts
+		            \end{enumerate}
+		      \item Field group policy: to set minimum and maximum number of students per group
+		      \item Field registration deadline: to define maximum date for which students can register for the battle
+		      \item Field final submission deadline: to define maximum date for which students can submit code to be evaluated
+		      \item Scoring Configuration section
+
+		            \begin{enumerate}
+			            \item Form functional aspects
+			            \item Form timeliness
+			            \item Form quality level
+			            \item Form optional manual evaluation
+		            \end{enumerate}
 
 
-\item \textbf{Closing a tournament}\\
-Luca Proserpio is a platform educator who had created the \emph{"Welcome Tournament School Year 2024"} tournament.\\
-In March 2024, Luca decides to close the tournament.\\
-All students enrolled in the CKB Platform will be notified about the closure of the Tournament.\\
-Gianpaolo had also created the following gamification badges:
-			\begin{enumerate}
-				\item \emph{"Start2024_with_the_right_foot"}: awarded to all students enrolled in the tournament.
-				\item \emph{"Participant_2024"}: awarded to all students who have made at least 1 commit in any battle present in the tournament
-			\end{enumerate}
-The platform analyzes all the details of the students who had registered for the tournament and accordingly assigns all students who met the requirements the relevant badges created by Luca.\\
-In particular, Marco, Stefano, and Carlo had participated in several battles in the tournament and therefore receive both badges.\\
-Samuele is another student who signed up for the tournament but never participated in any battle within the tournament, as a result the platform only assigns him the \emph{"Start2024_with_the_right_foot"} badge.
+		      \item Create Battle button
+	      \end{enumerate}
+
+	      Gianpaolo fills in all the fields by entering the description of the battle, the registration deadline as 6/11/2023, the final submission deadline as 23/12/2023, the minimum
+	      and maximum number of students as 3, and does not edit any of the default entries in the Scoring Configuration section as he plans to edit it later before the battle is
+	      actually started.\\
+	      After that, he clicks on the Create Battle button and the platform redirect Gianpaolo to the \emph{DETAIL\_TOURNAMENT} page containing the new created battle in the list of available battles.
+	      All students who had signed up for the tournament will receive a notification of the newly added battle created by educator Gianpaolo.
+
+
+
+	\item \textbf{Student joins to an existing Tournament by receiving a notification}\\
+	      Marco is an University student and thus is registered on the CKB Platform (ASSUMPTION). He wants to sign up for a tournament to improve his programming skills in Java as he notices that he has difficulty writing code using Object Oriented Programming. In the afternoon Marco receives a notification of a new tournament creation called \emph{"The Basics of Object-Oriented Programming in Java"}, he decides to take the opportunity and sign up.\\
+	      Therefore, he accesses the platform by logging in and the platform redirect him to the \emph{HOMEPAGE}. Marco clicks on the record \emph{"The Basics of Object-Oriented Programming in Java"} listed in the list of available Tournaments for which he is not subscribed.\\
+	      The platform shows Marco the \emph{SUBSCRIPTION\_TO\_A\_TOURNAMENT} page.\\
+	      The \emph{SUBSCRIPTION\_TO\_A\_TOURNAMENT}  page shows information about the name and the description of the selected tournament. \\
+	      Marco clicks on the Subscribe button, and the platform enrolls Marco in the tournament showing a confirmation registration message.
+
+	\item \textbf{Students create a team for a tournament battle}\\
+	      Marco, Stefano, and Carlo are students enrolled in \emph{"Welcome Tournament School Year 2024"} tournament.\\
+	      They want to participate in one of the available tournament battles by creating a team.
+	      Specifically, Marco logs in and in the \emph{HOMEPAGE} clicks on the tournament from the list of tournaments in which he is registered.\\
+	      Marco is shown the \emph{DETAIL\_TOURNAMENT} page and within it he clicks on the first available battle.\\
+	      He is shown the \emph{DETAIL\_BATTLE} page and clicks on the \emph{"Participate by creating a team"} button.\\
+	      Marco already knows Stefano and decides to invite him to join his team.\\
+	      Carlo, on the other hand, performs the same operations as Marco except that instead of clicking on the \emph{"Participate by creating a team"} field, he clicks on the \emph{"Participate by joining an existing team"} button.\\
+	      The system after analyzing all existing teams decides to add Carlo to the same team with Marco and Stefano.
+
+	\item \textbf{Platform creates the GitHub repository when a battle's registration deadline expires}\\
+	      Gianpaolo Mariano is an educator on the platform and had created a battle within the \emph{"Welcome Tournament School Year 2024"} tournament context with deadline 6/11/2023.\\
+	      The system, when the deadline of the battle expires, creates the GitHub repository containing the code kata specified by Gianpaolo for the battle and sends the link of the newly created repository to all students who have registered in teams before the deadline expired.
+
+
+	\item \textbf{Calculation of a team's battle scrore}\\
+	      Marco is a student and is participating in a battle with the team consisting of Stefano and Carlo.\\
+	      Marco edits the project code and commits and pushes to the forked GitHub repository. \\
+	      The platform fetches the code, analyzes it, and runs the prepared tests (test cases) for the battle in which the team is participating.\\
+	      The platform updates the team's battle score by considering:
+	      \begin{enumerate}
+		      \item The number of successfully passed test cases
+		      \item The number of days that have passed since the end of the registration deadline
+		      \item The quality level of the sources extracted from the static analysis tools
+	      \end{enumerate}
+	      The platform also modifies each student's personal tournament score by summing all the battle scores received in that tournament.\\
+	      Therefore, after the update, Marco,Stefano and Carlo go to the \emph{DETAIL\_BATTLE} page and view the new battle and tournament score assigned to them automatically by the platform.\\
+
+
+
+
+
+	\item \textbf{Begin of Consolidation Stage when submission deadline of a battle expires}\\
+	      Gianpaolo Mariano is a platform educator and had created a battle for the \emph{"Welcome Tournament School Year 2024"} with final submission deadline as 23/12/2023.\\
+	      The platform at the end of the final submission deadline declares the start of the consolidation stage due to the fact that Gianpaolo had selected the \emph{"manual evaluation"} option for the battle he created.\\
+	      Gianpaolo proceeds by hand analyzing the code submitted by the various groups and, in particular, decides to increase the score by +2 obtained by the group of students composed of Marco, Stefano and Carlo.\\
+	      Afterwards, Gianpaolo using the platform declares the consolidation stage closed.\\
+	      Marco, Stefano and Carlo and all other students who participated in the tournament battle receive a notification with the final battle rank.
+
+
+	\item \textbf{Closing a tournament}\\
+	      Luca Proserpio is a platform educator who had created the \emph{"Welcome Tournament School Year 2024"} tournament.\\
+	      In March 2024, Luca decides to close the tournament.\\
+	      All students enrolled in the CKB Platform will be notified about the closure of the Tournament.\\
+	      Gianpaolo had also created the following gamification badges:
+	      \begin{enumerate}
+		      \item \emph{"Start2024_with_the_right_foot"}: awarded to all students enrolled in the tournament.
+		      \item \emph{"Participant_2024"}: awarded to all students who have made at least 1 commit in any battle present in the tournament
+	      \end{enumerate}
+	      The platform analyzes all the details of the students who had registered for the tournament and accordingly assigns all students who met the requirements the relevant badges created by Luca.\\
+	      In particular, Marco, Stefano, and Carlo had participated in several battles in the tournament and therefore receive both badges.\\
+	      Samuele is another student who signed up for the tournament but never participated in any battle within the tournament, as a result the platform only assigns him the \emph{"Start2024_with_the_right_foot"} badge.
 
 \end{enumerate}
 
@@ -145,7 +145,7 @@ Samuele is another student who signed up for the tournament but never participat
 
 \section{User characteristics}
 \subsection{Student}
-The Student is a Client, i.e. a person who is able to access the CKB Platform.\\ 
+The Student is a Client, i.e. a person who is able to access the CKB Platform.\\
 They use the platform with the goal of honing their software development skills. Their participation takes place through several stages: they begin by signing up for tournaments and code kata battles, where they form or join teams of developers. Once involved, teams tackle a series of programming exercises in different languages. \\
 Each student participates in tournaments within which he or she conducts battles and obtains scores.\\
 They receive updates on battle scores, view final standings and personal tournament scores. Can also view and collect badges obtained during competitions.
@@ -162,7 +162,7 @@ His or her participation in the CKB Platform contributes to a challenging and co
 The following domain assumptions must hold in the world:
 
 \begin{enumerate}[label=\textbf{D\arabic*}:,leftmargin=1.3cm]
-	\item Students are enrolled in the school 
+	\item Students are enrolled in the school
 	\item Educators teach in the school
 	\item Students correctly fork the GitHub repository of the code kata battle
 	\item Students correctly set up an automated workflow through GitHub Actions
