@@ -161,6 +161,8 @@ fact studentInOneTeamPerBattle {
 
 one sig Github {
 	, repositories: set Repository
+} {
+	all r: Repository | r in repositories
 }
 
 sig Repository {
