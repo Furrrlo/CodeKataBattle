@@ -25,7 +25,7 @@ inviting <-- System -- : invitationConfirmation
 
 notif -> System --++ : acceptInvite(invite)
 System -> System ++-- : addStudentToTeam(team, invited-student-1)
-inviting <-- System -- : confirmation
+notif <-- System -- : confirmation
 
 ...
 
