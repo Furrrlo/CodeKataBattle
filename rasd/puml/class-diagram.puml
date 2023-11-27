@@ -59,6 +59,7 @@ Student "0...n" -down-* "0...n" TournamentSubscription: subscribes
 
 class TournamentSubscription {
   +score: Int
+  +subscriptionDate: Date
 }
 
 TournamentSubscription "0...n" -down-* "1" Tournament: referred to
