@@ -25,11 +25,14 @@ sig Battle {
 	, registrationDeadline: DateTime
 	, submissionDeadline: DateTime
 	, partecipations: set BattlePartecipation
+	, repo: lone Repository
 } {
 	// Min and max students constraints
 	minStudents > 0 and minStudents <= maxStudents
 	// Sync the two relationships
 	all p: BattlePartecipation | (p in partecipations) <=> (p.battle = this)
+	// Repo must exist after the registration state
+	gt[state, Registration] <=> repo != none
 }
 
 enum BattleState { Registration, Submission, Consolidation, BattleDone }
@@ -132,6 +135,7 @@ sig BattlePartecipation {
 	, battle: Battle
 	, registrationDate: DateTime
 	, score: Int
+	, repo: Repository
 } {
 	// Sync the two relationships
 	team.partecipation = this
@@ -139,6 +143,9 @@ sig BattlePartecipation {
 	some team: Team | team.partecipation = this
 	// Must be registered before the deadline
 	lte[registrationDate, battle.registrationDeadline]
+	// Repo can only exist past the battle REGISTRATION state
+	// (if the team created it on their own)
+	repo != none => gt[battle.state, Registration]
 }
 
 // A student must only be in one team at a time for each battle
@@ -150,6 +157,22 @@ fact studentInOneTeamPerBattle {
 		) implies (
 			p1.team.partecipation.battle != p2.team.partecipation.battle
 		)
+}
+
+one sig Github {
+	, repositories: set Repository
+}
+
+sig Repository {
+	, battle: lone Battle
+	, battleParticipation: lone BattlePartecipation
+} {
+	// Sync the two fields
+	battle != none => battle.repo = this
+	// Sync the two fields
+	battleParticipation != none => battleParticipation.repo = this
+	// Must be used either by a battle or by a team
+	battle != none or battleParticipation != none
 }
 
 run {
