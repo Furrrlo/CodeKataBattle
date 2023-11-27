@@ -63,6 +63,10 @@ class TournamentSubscription {
 }
 
 TournamentSubscription "0...n" -down-* "1" Tournament: referred to
+note on link
+Must have
+subscriptionDate <= subscriptionDeadline
+end note
 
 class Tournament {
   +state: TournamentState
@@ -102,6 +106,7 @@ enum BattleState {
 
 class Repository {
 }
+note right: Either refers to a Battle or a BattlePartecipation
 
 class Github {
 }
@@ -114,24 +119,23 @@ class Badge {
 Educator "1" --o "0...n" Tournament: creates
 Educator "0...n" <-- "1" Tournament : is allowed
 Educator "1" <-- "0...n" Battle : created by
-
-
-Tournament - TournamentState
-
-Tournament "1" --* "0...n" Battle: formed by
 note top on link 
 must be tournament 
 creator or authorized
 end note
 
+Tournament - TournamentState
+
+Tournament "1" --* "0...n" Battle: formed by
+
 Battle - BattleState
 
-Battle "1" -* "0...1" Repository
+Battle "0...1" -* "0...1" Repository
 note on link
 Exists only past the REGISTRATION state
 end note
 
-BattlePartecipation "1" -* "0...1" Repository
+BattlePartecipation "0...1" -* "0...1" Repository
 note on link
 Exists only past the battle REGISTRATION state
 and if the team created it on their own
