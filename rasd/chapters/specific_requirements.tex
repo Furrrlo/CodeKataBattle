@@ -1,5 +1,34 @@
 \section{External Interface Requirements}
 \section{Functional Requirements}
+
+\begin{enumerate}[label=\textbf{R\arabic*}:,leftmargin=1.3cm]
+    \item The system shall allow the educator to create a tournament.
+    \item The system shall allow the educator to specify the subscribe deadline of a tournamnent.
+    \item The system shall allow the educator to grant other colleagues the permission to create battles within the context of a specific tournament.
+    \item The system shall notify the students of the new tournament.
+    \item The system shall allow the educator to close a tournament.
+    \item The system shall allow the educator to create a battle within the context of a specific tournament.
+          \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
+              \item The system shall allow the educator to set minimum and maximum number of students per group.
+              \item The system shall allow the educator to set a textual description.
+              \item The system shall allow the educator to set the programming language.
+              \item The system shall allow the educator to upload a set of test cases.
+              \item The system shall allow the educator to upload a build automation script.
+              \item The system shall allow the educator to set a registration deadline.
+              \item The system shall allow the educator to set a final submission deadline.
+              \item The system shall allow the educator to set configurations for scoring. %TODO: spiegare meglio
+              \item The system shall allow the educator to create badges. %TODO: spiegare meglio
+          \end{enumerate}
+    \item The system shall notify students subscribed to a tournament of the creation of a new battle.
+    \item The system shall allow students to join a battle on his/her own or by inviting other students. %TODO: spiegare meglio
+    \item When the registration deadline expires, the system shall create a GitHub repository containing the code kata.
+    \item The system shall send the link to all students who are members of subscribed teams.
+    \item The system shall expose an API that can by called by the GitHub Action platform.
+    \item On each push, the system shall pull the latest sources, analyze them, and run the tests on the corresponding executables to calculate and update the battle score of the team. %TODO: dividere(?)
+    \item The system shall allow students and educators involved in the battle to see the current rank evolving during the battle.
+    \item When the submission deadline expires, the system shall change the state of the battle to the consolidation stage.
+    \item During the consolidation stage, the system shall allow the educator to go through the sources produced by each team to assign his/her score.
+\end{enumerate}
 \subsection{Use case diagrams}
 \subsection{Use cases}
 %Oppure facciamo tre sezioni separate per tabella, seq diagram e activity diagram,
@@ -156,7 +185,7 @@
               \centering
               \begin{tabular}{|l|p{11.9cm}|}
                   \hline
-                  \textbf{Name}            & The educator closes a tournament                                 \\\hline
+                  \textbf{Name}            & The educator closes a tournament                     \\\hline
                   \textbf{Actor}           & Educator, Students                                   \\\hline
                   \textbf{Entry condition} &
                   \begin{itemize}
