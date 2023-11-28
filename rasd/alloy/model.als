@@ -2,11 +2,45 @@ open util/ordering[DateTime]
 
 sig DateTime {}
 
+sig Educator {
+	, createdTournaments: set Tournament
+	, allowedTournaments: set Tournament
+	, battles: set Battle
+	, badges: set Badge
+} {
+	// Sync the two relationships
+	all t: Tournament | t in createdTournaments <=> t.creator = this
+	// Sync the two relationships
+	all t: Tournament | t in allowedTournaments <=> this in t.authorized
+	// Sync the two relationships
+	all b: Battle | b in battles <=> b.creator = this
+	// Sync the two relationships
+	all b: Badge | b in badges <=> b.creator = this
+}
+
+sig Badge {
+	, creator: Educator
+	, tournaments: set Tournament
+	, title: String
+	, condition: String
+	, earners: set TournamentSubscription
+} {
+	title = "Title"
+	condition = "predicate"
+	// Sync the two relationships
+	all t: Tournament | t in tournaments <=> this in t.badges
+	// Sync the two relationships
+	all ts: TournamentSubscription | ts in earners <=> this in ts.badges
+}
+
 sig Tournament {
+	, creator: Educator
+	, authorized: set Educator
 	, state: TournamentState
 	, subscriptionDeadline: DateTime
 	, battles: set Battle
 	, subscriptions: set TournamentSubscription
+	, badges: set Badge
 } {
 	// Sync the two relationships
 	all b: Battle | (b in battles) <=> (b.tournament = this)
@@ -17,9 +51,10 @@ sig Tournament {
 enum TournamentState { Subscribing, InProgress, TournamentDone }
 
 sig Battle {
+	, creator: Educator
 	, tournament: Tournament
 	, state: BattleState
-	//, description: String
+	, description: String
 	, minStudents: Int
 	, maxStudents: Int
 	, registrationDeadline: DateTime
@@ -27,12 +62,15 @@ sig Battle {
 	, partecipations: set BattlePartecipation
 	, repo: lone Repository
 } {
+	description = "descr"
 	// Min and max students constraints
 	minStudents > 0 and minStudents <= maxStudents
 	// Sync the two relationships
 	all p: BattlePartecipation | (p in partecipations) <=> (p.battle = this)
 	// Repo must exist after the registration state
 	gt[state, Registration] <=> repo != none
+	// creator must be tournament creator or authorized
+	creator = tournament.creator or creator in tournament.authorized
 }
 
 enum BattleState { Registration, Submission, Consolidation, BattleDone }
@@ -58,9 +96,14 @@ sig TournamentSubscription {
 	, tournament: Tournament
 	, subscriptionDate: DateTime
 	, score: Int
+	, badges: set Badge
 } {
 	// Must be subscribed before the deadline
 	lte[subscriptionDate, tournament.subscriptionDeadline]
+	// If the tournament has not started yet, can't have badges
+	lte[tournament.state, Subscribing] => not (some b: Badge | b in badges)
+	// Earned badge must be defined for this tournament
+	all b: Badge | b in badges => b in tournament.badges
 }
 
 sig Invite {
@@ -179,4 +222,4 @@ sig Repository {
 
 run {
 	some b: Battle | b.minStudents >= 3 and #b.partecipations >= 1
-} for 10 but exactly 1 Battle
+} for 10 but exactly 1 Battle, exactly 2 Badge
