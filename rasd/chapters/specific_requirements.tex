@@ -131,7 +131,41 @@
               \label{fig:Create a team}
           \end{figure}
           \pagebreak
-    \item
+          \item \textbf{}
+          \begin{table}[H]
+              %\caption*{\textbf{Title}}
+              \centering
+              \begin{tabular}{|l|p{11.9cm}|}
+                  \hline
+                  \textbf{Name}            & The Platform creates the GitHub repository                     \\\hline
+                  \textbf{Actor}           & Student                                                                               \\\hline
+                  \textbf{Entry condition} &
+                  \begin{itemize}
+                      \item The battle's registration deadline expires
+                  \end{itemize}                                                \\\hline
+                  \textbf{Event flow}      &
+                  \begin{enumerate}[label=\arabic*.]
+                      \item When the registration deadline of a battle expires, the platform starts the creation of the repository.
+                      \item The platform gets the battle info.
+                      \item The platform get the CodeKata of the battle.
+                      \item The platform creates the repository GitHub with name, description and the CodeKata
+                      \item The platform gets all the teams registered for the battle.
+                      \item The platform notifies all the students that are in a team.
+                  \end{enumerate} \\\hline
+                  \textbf{Exit condition}  & The GitHub repository for the battle is created                                                            \\\hline
+                  %\textbf{Exception} &                                                                                              \\\hline
+              \end{tabular}
+              \caption{The Platform creates the GitHub repository   .}
+              \label{table:Subscribe to tournament from notification}
+          \end{table}
+
+          \begin{figure}[H]
+              \centering
+              \puml{puml/UC5}
+              \caption{The Platform creates the GitHub repository   .}
+              \label{fig:Subscribe to tournament from notification}
+          \end{figure}
+          \pagebreak
     \item \textbf{}
           \begin{table}[H]
               %\caption*{\textbf{Title}}
@@ -180,7 +214,7 @@
               \centering
               \begin{tabular}{|l|p{11.9cm}|}
                   \hline
-                  \textbf{Name}            & The educator manually evaluate teams.                                       \\\hline
+                  \textbf{Name}            & The educator manually evaluate teams                                       \\\hline
                   \textbf{Actor}           & Educator, Students                                                          \\\hline
                   \textbf{Entry condition} &
                   \begin{itemize}

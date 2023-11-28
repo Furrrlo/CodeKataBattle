@@ -1,0 +1,32 @@
+@startuml UC8
+title UC5 - Platform creates the GitHub repository when a battle's registration deadline expires
+
+
+
+actor GitHub
+participant System
+actor Student
+
+note across: The registration deadline expires
+
+
+System -> System ++: getBattleInfo()
+
+
+System -> System ++: getCodeKata(tournament, battle)
+deactivate System
+
+System -> GitHub ++: createRepository(name, desc, codeKata)
+GitHub --> System --: link 
+
+System -> System ++: getTeams(battle)
+deactivate System
+
+
+loop for each student in a team
+    System -> Student : notify()
+
+end
+deactivate System
+
+@enduml
