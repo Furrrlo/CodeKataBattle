@@ -1,4 +1,4 @@
-@startuml UC8
+@startuml UC6
 title UC6 - Calculation of a team's battle score
 actor Student
 actor GitHub

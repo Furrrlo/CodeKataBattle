@@ -1,4 +1,4 @@
-@startuml UC8
+@startuml UC5
 title UC5 - Platform creates the GitHub repository when a battle's registration deadline expires
 
 
