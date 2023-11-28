@@ -1,0 +1,562 @@
+<alloy builddate="2023-06-08T16:17:14.380Z">
+
+<instance bitwidth="4" maxseq="7" mintrace="-1" maxtrace="-1" command="Run run$1 for 10 but exactly 1 Battle, exactly 2 Badge" filename="D:\Projects\polimi\se2-codekatabattles\rasd\alloy\model.als" tracelength="1" backloop="0">
+
+<sig label="seq/Int" ID="0" parentID="1" builtin="yes">
+</sig>
+
+<sig label="Int" ID="1" parentID="2" builtin="yes">
+</sig>
+
+<sig label="String" ID="3" parentID="2" builtin="yes">
+   <atom label="&quot;predicate&quot;"/>
+   <atom label="&quot;Title&quot;"/>
+   <atom label="&quot;descr&quot;"/>
+</sig>
+
+<sig label="this/DateTime" ID="4" parentID="2">
+   <atom label="DateTime$0"/>
+   <atom label="DateTime$1"/>
+   <atom label="DateTime$2"/>
+   <atom label="DateTime$3"/>
+   <atom label="DateTime$4"/>
+   <atom label="DateTime$5"/>
+   <atom label="DateTime$6"/>
+   <atom label="DateTime$7"/>
+   <atom label="DateTime$8"/>
+   <atom label="DateTime$9"/>
+</sig>
+
+<sig label="this/Educator" ID="5" parentID="2">
+   <atom label="Educator$0"/>
+   <atom label="Educator$1"/>
+</sig>
+
+<field label="createdTournaments" ID="6" parentID="5">
+   <tuple> <atom label="Educator$0"/> <atom label="Tournament$0"/> </tuple>
+   <types> <type ID="5"/> <type ID="7"/> </types>
+</field>
+
+<field label="allowedTournaments" ID="8" parentID="5">
+   <types> <type ID="5"/> <type ID="7"/> </types>
+</field>
+
+<field label="battles" ID="9" parentID="5">
+   <tuple> <atom label="Educator$0"/> <atom label="Battle$0"/> </tuple>
+   <types> <type ID="5"/> <type ID="10"/> </types>
+</field>
+
+<field label="badges" ID="11" parentID="5">
+   <tuple> <atom label="Educator$0"/> <atom label="Badge$1"/> </tuple>
+   <tuple> <atom label="Educator$1"/> <atom label="Badge$0"/> </tuple>
+   <types> <type ID="5"/> <type ID="12"/> </types>
+</field>
+
+<sig label="this/Badge" ID="12" parentID="2">
+   <atom label="Badge$0"/>
+   <atom label="Badge$1"/>
+</sig>
+
+<field label="creator" ID="13" parentID="12">
+   <tuple> <atom label="Badge$0"/> <atom label="Educator$1"/> </tuple>
+   <tuple> <atom label="Badge$1"/> <atom label="Educator$0"/> </tuple>
+   <types> <type ID="12"/> <type ID="5"/> </types>
+</field>
+
+<field label="tournaments" ID="14" parentID="12">
+   <tuple> <atom label="Badge$1"/> <atom label="Tournament$0"/> </tuple>
+   <types> <type ID="12"/> <type ID="7"/> </types>
+</field>
+
+<field label="title" ID="15" parentID="12">
+   <tuple> <atom label="Badge$0"/> <atom label="&quot;Title&quot;"/> </tuple>
+   <tuple> <atom label="Badge$1"/> <atom label="&quot;Title&quot;"/> </tuple>
+   <types> <type ID="12"/> <type ID="3"/> </types>
+</field>
+
+<field label="condition" ID="16" parentID="12">
+   <tuple> <atom label="Badge$0"/> <atom label="&quot;predicate&quot;"/> </tuple>
+   <tuple> <atom label="Badge$1"/> <atom label="&quot;predicate&quot;"/> </tuple>
+   <types> <type ID="12"/> <type ID="3"/> </types>
+</field>
+
+<field label="earners" ID="17" parentID="12">
+   <tuple> <atom label="Badge$1"/> <atom label="TournamentSubscription$2"/> </tuple>
+   <types> <type ID="12"/> <type ID="18"/> </types>
+</field>
+
+<sig label="this/Tournament" ID="7" parentID="2">
+   <atom label="Tournament$0"/>
+</sig>
+
+<field label="creator" ID="19" parentID="7">
+   <tuple> <atom label="Tournament$0"/> <atom label="Educator$0"/> </tuple>
+   <types> <type ID="7"/> <type ID="5"/> </types>
+</field>
+
+<field label="authorized" ID="20" parentID="7">
+   <types> <type ID="7"/> <type ID="5"/> </types>
+</field>
+
+<field label="state" ID="21" parentID="7">
+   <tuple> <atom label="Tournament$0"/> <atom label="InProgress$0"/> </tuple>
+   <types> <type ID="7"/> <type ID="22"/> </types>
+</field>
+
+<field label="subscriptionDeadline" ID="23" parentID="7">
+   <tuple> <atom label="Tournament$0"/> <atom label="DateTime$7"/> </tuple>
+   <types> <type ID="7"/> <type ID="4"/> </types>
+</field>
+
+<field label="battles" ID="24" parentID="7">
+   <tuple> <atom label="Tournament$0"/> <atom label="Battle$0"/> </tuple>
+   <types> <type ID="7"/> <type ID="10"/> </types>
+</field>
+
+<field label="subscriptions" ID="25" parentID="7">
+   <tuple> <atom label="Tournament$0"/> <atom label="TournamentSubscription$0"/> </tuple>
+   <tuple> <atom label="Tournament$0"/> <atom label="TournamentSubscription$1"/> </tuple>
+   <tuple> <atom label="Tournament$0"/> <atom label="TournamentSubscription$2"/> </tuple>
+   <types> <type ID="7"/> <type ID="18"/> </types>
+</field>
+
+<field label="badges" ID="26" parentID="7">
+   <tuple> <atom label="Tournament$0"/> <atom label="Badge$1"/> </tuple>
+   <types> <type ID="7"/> <type ID="12"/> </types>
+</field>
+
+<sig label="this/Subscribing" ID="27" parentID="22" one="yes">
+   <atom label="Subscribing$0"/>
+</sig>
+
+<sig label="this/InProgress" ID="28" parentID="22" one="yes">
+   <atom label="InProgress$0"/>
+</sig>
+
+<sig label="this/TournamentDone" ID="29" parentID="22" one="yes">
+   <atom label="TournamentDone$0"/>
+</sig>
+
+<sig label="this/TournamentState" ID="22" parentID="2" abstract="yes" enum="yes">
+</sig>
+
+<sig label="this/Battle" ID="10" parentID="2">
+   <atom label="Battle$0"/>
+</sig>
+
+<field label="creator" ID="30" parentID="10">
+   <tuple> <atom label="Battle$0"/> <atom label="Educator$0"/> </tuple>
+   <types> <type ID="10"/> <type ID="5"/> </types>
+</field>
+
+<field label="tournament" ID="31" parentID="10">
+   <tuple> <atom label="Battle$0"/> <atom label="Tournament$0"/> </tuple>
+   <types> <type ID="10"/> <type ID="7"/> </types>
+</field>
+
+<field label="state" ID="32" parentID="10">
+   <tuple> <atom label="Battle$0"/> <atom label="BattleDone$0"/> </tuple>
+   <types> <type ID="10"/> <type ID="33"/> </types>
+</field>
+
+<field label="description" ID="34" parentID="10">
+   <tuple> <atom label="Battle$0"/> <atom label="&quot;descr&quot;"/> </tuple>
+   <types> <type ID="10"/> <type ID="3"/> </types>
+</field>
+
+<field label="minStudents" ID="35" parentID="10">
+   <tuple> <atom label="Battle$0"/> <atom label="3"/> </tuple>
+   <types> <type ID="10"/> <type ID="1"/> </types>
+</field>
+
+<field label="maxStudents" ID="36" parentID="10">
+   <tuple> <atom label="Battle$0"/> <atom label="4"/> </tuple>
+   <types> <type ID="10"/> <type ID="1"/> </types>
+</field>
+
+<field label="registrationDeadline" ID="37" parentID="10">
+   <tuple> <atom label="Battle$0"/> <atom label="DateTime$0"/> </tuple>
+   <types> <type ID="10"/> <type ID="4"/> </types>
+</field>
+
+<field label="submissionDeadline" ID="38" parentID="10">
+   <tuple> <atom label="Battle$0"/> <atom label="DateTime$8"/> </tuple>
+   <types> <type ID="10"/> <type ID="4"/> </types>
+</field>
+
+<field label="partecipations" ID="39" parentID="10">
+   <tuple> <atom label="Battle$0"/> <atom label="BattlePartecipation$0"/> </tuple>
+   <types> <type ID="10"/> <type ID="40"/> </types>
+</field>
+
+<field label="repo" ID="41" parentID="10">
+   <tuple> <atom label="Battle$0"/> <atom label="Repository$0"/> </tuple>
+   <types> <type ID="10"/> <type ID="42"/> </types>
+</field>
+
+<sig label="this/Registration" ID="43" parentID="33" one="yes">
+   <atom label="Registration$0"/>
+</sig>
+
+<sig label="this/Submission" ID="44" parentID="33" one="yes">
+   <atom label="Submission$0"/>
+</sig>
+
+<sig label="this/Consolidation" ID="45" parentID="33" one="yes">
+   <atom label="Consolidation$0"/>
+</sig>
+
+<sig label="this/BattleDone" ID="46" parentID="33" one="yes">
+   <atom label="BattleDone$0"/>
+</sig>
+
+<sig label="this/BattleState" ID="33" parentID="2" abstract="yes" enum="yes">
+</sig>
+
+<sig label="this/Student" ID="47" parentID="2">
+   <atom label="Student$0"/>
+   <atom label="Student$1"/>
+   <atom label="Student$2"/>
+</sig>
+
+<field label="receivedInvites" ID="48" parentID="47">
+   <tuple> <atom label="Student$0"/> <atom label="Invite$3"/> </tuple>
+   <tuple> <atom label="Student$0"/> <atom label="Invite$4"/> </tuple>
+   <tuple> <atom label="Student$1"/> <atom label="Invite$2"/> </tuple>
+   <tuple> <atom label="Student$2"/> <atom label="Invite$0"/> </tuple>
+   <tuple> <atom label="Student$2"/> <atom label="Invite$1"/> </tuple>
+   <types> <type ID="47"/> <type ID="49"/> </types>
+</field>
+
+<field label="sentInvites" ID="50" parentID="47">
+   <tuple> <atom label="Student$0"/> <atom label="Invite$1"/> </tuple>
+   <tuple> <atom label="Student$0"/> <atom label="Invite$2"/> </tuple>
+   <tuple> <atom label="Student$1"/> <atom label="Invite$0"/> </tuple>
+   <tuple> <atom label="Student$1"/> <atom label="Invite$3"/> </tuple>
+   <tuple> <atom label="Student$1"/> <atom label="Invite$4"/> </tuple>
+   <types> <type ID="47"/> <type ID="49"/> </types>
+</field>
+
+<field label="subscriptions" ID="51" parentID="47">
+   <tuple> <atom label="Student$0"/> <atom label="TournamentSubscription$2"/> </tuple>
+   <tuple> <atom label="Student$1"/> <atom label="TournamentSubscription$1"/> </tuple>
+   <tuple> <atom label="Student$2"/> <atom label="TournamentSubscription$0"/> </tuple>
+   <types> <type ID="47"/> <type ID="18"/> </types>
+</field>
+
+<field label="partecipations" ID="52" parentID="47">
+   <tuple> <atom label="Student$0"/> <atom label="TeamPartecipation$1"/> </tuple>
+   <tuple> <atom label="Student$0"/> <atom label="TeamPartecipation$2"/> </tuple>
+   <tuple> <atom label="Student$0"/> <atom label="TeamPartecipation$4"/> </tuple>
+   <tuple> <atom label="Student$1"/> <atom label="TeamPartecipation$0"/> </tuple>
+   <tuple> <atom label="Student$1"/> <atom label="TeamPartecipation$3"/> </tuple>
+   <tuple> <atom label="Student$2"/> <atom label="TeamPartecipation$5"/> </tuple>
+   <types> <type ID="47"/> <type ID="53"/> </types>
+</field>
+
+<sig label="this/TournamentSubscription" ID="18" parentID="2">
+   <atom label="TournamentSubscription$0"/>
+   <atom label="TournamentSubscription$1"/>
+   <atom label="TournamentSubscription$2"/>
+</sig>
+
+<field label="student" ID="54" parentID="18">
+   <tuple> <atom label="TournamentSubscription$0"/> <atom label="Student$2"/> </tuple>
+   <tuple> <atom label="TournamentSubscription$1"/> <atom label="Student$1"/> </tuple>
+   <tuple> <atom label="TournamentSubscription$2"/> <atom label="Student$0"/> </tuple>
+   <types> <type ID="18"/> <type ID="47"/> </types>
+</field>
+
+<field label="tournament" ID="55" parentID="18">
+   <tuple> <atom label="TournamentSubscription$0"/> <atom label="Tournament$0"/> </tuple>
+   <tuple> <atom label="TournamentSubscription$1"/> <atom label="Tournament$0"/> </tuple>
+   <tuple> <atom label="TournamentSubscription$2"/> <atom label="Tournament$0"/> </tuple>
+   <types> <type ID="18"/> <type ID="7"/> </types>
+</field>
+
+<field label="subscriptionDate" ID="56" parentID="18">
+   <tuple> <atom label="TournamentSubscription$0"/> <atom label="DateTime$6"/> </tuple>
+   <tuple> <atom label="TournamentSubscription$1"/> <atom label="DateTime$5"/> </tuple>
+   <tuple> <atom label="TournamentSubscription$2"/> <atom label="DateTime$7"/> </tuple>
+   <types> <type ID="18"/> <type ID="4"/> </types>
+</field>
+
+<field label="score" ID="57" parentID="18">
+   <tuple> <atom label="TournamentSubscription$0"/> <atom label="7"/> </tuple>
+   <tuple> <atom label="TournamentSubscription$1"/> <atom label="7"/> </tuple>
+   <tuple> <atom label="TournamentSubscription$2"/> <atom label="6"/> </tuple>
+   <types> <type ID="18"/> <type ID="1"/> </types>
+</field>
+
+<field label="badges" ID="58" parentID="18">
+   <tuple> <atom label="TournamentSubscription$2"/> <atom label="Badge$1"/> </tuple>
+   <types> <type ID="18"/> <type ID="12"/> </types>
+</field>
+
+<sig label="this/Invite" ID="49" parentID="2">
+   <atom label="Invite$0"/>
+   <atom label="Invite$1"/>
+   <atom label="Invite$2"/>
+   <atom label="Invite$3"/>
+   <atom label="Invite$4"/>
+</sig>
+
+<field label="state" ID="59" parentID="49">
+   <tuple> <atom label="Invite$0"/> <atom label="Accepted$0"/> </tuple>
+   <tuple> <atom label="Invite$1"/> <atom label="Rejected$0"/> </tuple>
+   <tuple> <atom label="Invite$2"/> <atom label="Pending$0"/> </tuple>
+   <tuple> <atom label="Invite$3"/> <atom label="Accepted$0"/> </tuple>
+   <tuple> <atom label="Invite$4"/> <atom label="Accepted$0"/> </tuple>
+   <types> <type ID="49"/> <type ID="60"/> </types>
+</field>
+
+<field label="inviter" ID="61" parentID="49">
+   <tuple> <atom label="Invite$0"/> <atom label="Student$1"/> </tuple>
+   <tuple> <atom label="Invite$1"/> <atom label="Student$0"/> </tuple>
+   <tuple> <atom label="Invite$2"/> <atom label="Student$0"/> </tuple>
+   <tuple> <atom label="Invite$3"/> <atom label="Student$1"/> </tuple>
+   <tuple> <atom label="Invite$4"/> <atom label="Student$1"/> </tuple>
+   <types> <type ID="49"/> <type ID="47"/> </types>
+</field>
+
+<field label="invitee" ID="62" parentID="49">
+   <tuple> <atom label="Invite$0"/> <atom label="Student$2"/> </tuple>
+   <tuple> <atom label="Invite$1"/> <atom label="Student$2"/> </tuple>
+   <tuple> <atom label="Invite$2"/> <atom label="Student$1"/> </tuple>
+   <tuple> <atom label="Invite$3"/> <atom label="Student$0"/> </tuple>
+   <tuple> <atom label="Invite$4"/> <atom label="Student$0"/> </tuple>
+   <types> <type ID="49"/> <type ID="47"/> </types>
+</field>
+
+<field label="teamParticipation" ID="63" parentID="49">
+   <tuple> <atom label="Invite$0"/> <atom label="TeamPartecipation$5"/> </tuple>
+   <tuple> <atom label="Invite$1"/> <atom label="TeamPartecipation$4"/> </tuple>
+   <tuple> <atom label="Invite$2"/> <atom label="TeamPartecipation$3"/> </tuple>
+   <tuple> <atom label="Invite$3"/> <atom label="TeamPartecipation$2"/> </tuple>
+   <tuple> <atom label="Invite$4"/> <atom label="TeamPartecipation$1"/> </tuple>
+   <types> <type ID="49"/> <type ID="53"/> </types>
+</field>
+
+<sig label="this/Accepted" ID="64" parentID="60" one="yes">
+   <atom label="Accepted$0"/>
+</sig>
+
+<sig label="this/Rejected" ID="65" parentID="60" one="yes">
+   <atom label="Rejected$0"/>
+</sig>
+
+<sig label="this/Pending" ID="66" parentID="60" one="yes">
+   <atom label="Pending$0"/>
+</sig>
+
+<sig label="this/InviteState" ID="60" parentID="2" abstract="yes" enum="yes">
+</sig>
+
+<sig label="this/TeamPartecipation" ID="53" parentID="2">
+   <atom label="TeamPartecipation$0"/>
+   <atom label="TeamPartecipation$1"/>
+   <atom label="TeamPartecipation$2"/>
+   <atom label="TeamPartecipation$3"/>
+   <atom label="TeamPartecipation$4"/>
+   <atom label="TeamPartecipation$5"/>
+</sig>
+
+<field label="student" ID="67" parentID="53">
+   <tuple> <atom label="TeamPartecipation$0"/> <atom label="Student$1"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$1"/> <atom label="Student$0"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$2"/> <atom label="Student$0"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$3"/> <atom label="Student$1"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$4"/> <atom label="Student$0"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$5"/> <atom label="Student$2"/> </tuple>
+   <types> <type ID="53"/> <type ID="47"/> </types>
+</field>
+
+<field label="invite" ID="68" parentID="53">
+   <tuple> <atom label="TeamPartecipation$1"/> <atom label="Invite$4"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$2"/> <atom label="Invite$3"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$5"/> <atom label="Invite$0"/> </tuple>
+   <types> <type ID="53"/> <type ID="49"/> </types>
+</field>
+
+<field label="team" ID="69" parentID="53">
+   <tuple> <atom label="TeamPartecipation$0"/> <atom label="Team$2"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$1"/> <atom label="Team$1"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$2"/> <atom label="Team$2"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$3"/> <atom label="Team$1"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$4"/> <atom label="Team$0"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$5"/> <atom label="Team$2"/> </tuple>
+   <types> <type ID="53"/> <type ID="70"/> </types>
+</field>
+
+<field label="studentCommits" ID="71" parentID="53">
+   <tuple> <atom label="TeamPartecipation$0"/> <atom label="7"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$1"/> <atom label="7"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$2"/> <atom label="6"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$3"/> <atom label="7"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$4"/> <atom label="7"/> </tuple>
+   <tuple> <atom label="TeamPartecipation$5"/> <atom label="6"/> </tuple>
+   <types> <type ID="53"/> <type ID="1"/> </types>
+</field>
+
+<sig label="this/Team" ID="70" parentID="2">
+   <atom label="Team$0"/>
+   <atom label="Team$1"/>
+   <atom label="Team$2"/>
+</sig>
+
+<field label="partecipation" ID="72" parentID="70">
+   <tuple> <atom label="Team$2"/> <atom label="BattlePartecipation$0"/> </tuple>
+   <types> <type ID="70"/> <type ID="40"/> </types>
+</field>
+
+<field label="teamPartecipations" ID="73" parentID="70">
+   <tuple> <atom label="Team$0"/> <atom label="TeamPartecipation$4"/> </tuple>
+   <tuple> <atom label="Team$1"/> <atom label="TeamPartecipation$1"/> </tuple>
+   <tuple> <atom label="Team$1"/> <atom label="TeamPartecipation$3"/> </tuple>
+   <tuple> <atom label="Team$2"/> <atom label="TeamPartecipation$0"/> </tuple>
+   <tuple> <atom label="Team$2"/> <atom label="TeamPartecipation$2"/> </tuple>
+   <tuple> <atom label="Team$2"/> <atom label="TeamPartecipation$5"/> </tuple>
+   <types> <type ID="70"/> <type ID="53"/> </types>
+</field>
+
+<sig label="this/BattlePartecipation" ID="40" parentID="2">
+   <atom label="BattlePartecipation$0"/>
+</sig>
+
+<field label="team" ID="74" parentID="40">
+   <tuple> <atom label="BattlePartecipation$0"/> <atom label="Team$2"/> </tuple>
+   <types> <type ID="40"/> <type ID="70"/> </types>
+</field>
+
+<field label="battle" ID="75" parentID="40">
+   <tuple> <atom label="BattlePartecipation$0"/> <atom label="Battle$0"/> </tuple>
+   <types> <type ID="40"/> <type ID="10"/> </types>
+</field>
+
+<field label="registrationDate" ID="76" parentID="40">
+   <tuple> <atom label="BattlePartecipation$0"/> <atom label="DateTime$0"/> </tuple>
+   <types> <type ID="40"/> <type ID="4"/> </types>
+</field>
+
+<field label="score" ID="77" parentID="40">
+   <tuple> <atom label="BattlePartecipation$0"/> <atom label="6"/> </tuple>
+   <types> <type ID="40"/> <type ID="1"/> </types>
+</field>
+
+<field label="repo" ID="78" parentID="40">
+   <tuple> <atom label="BattlePartecipation$0"/> <atom label="Repository$0"/> </tuple>
+   <types> <type ID="40"/> <type ID="42"/> </types>
+</field>
+
+<sig label="this/Github" ID="79" parentID="2" one="yes">
+   <atom label="Github$0"/>
+</sig>
+
+<field label="repositories" ID="80" parentID="79">
+   <tuple> <atom label="Github$0"/> <atom label="Repository$0"/> </tuple>
+   <types> <type ID="79"/> <type ID="42"/> </types>
+</field>
+
+<sig label="this/Repository" ID="42" parentID="2">
+   <atom label="Repository$0"/>
+</sig>
+
+<field label="battle" ID="81" parentID="42">
+   <types> <type ID="42"/> <type ID="10"/> </types>
+</field>
+
+<field label="battleParticipation" ID="82" parentID="42">
+   <tuple> <atom label="Repository$0"/> <atom label="BattlePartecipation$0"/> </tuple>
+   <types> <type ID="42"/> <type ID="40"/> </types>
+</field>
+
+<sig label="ordering/Ord" ID="83" parentID="2" one="yes" private="yes">
+   <atom label="ordering/Ord$0"/>
+</sig>
+
+<field label="First" ID="84" parentID="83" private="yes">
+   <tuple> <atom label="ordering/Ord$0"/> <atom label="DateTime$0"/> </tuple>
+   <types> <type ID="83"/> <type ID="4"/> </types>
+</field>
+
+<field label="Next" ID="85" parentID="83" private="yes">
+   <tuple> <atom label="ordering/Ord$0"/> <atom label="DateTime$0"/> <atom label="DateTime$1"/> </tuple>
+   <tuple> <atom label="ordering/Ord$0"/> <atom label="DateTime$1"/> <atom label="DateTime$2"/> </tuple>
+   <tuple> <atom label="ordering/Ord$0"/> <atom label="DateTime$2"/> <atom label="DateTime$3"/> </tuple>
+   <tuple> <atom label="ordering/Ord$0"/> <atom label="DateTime$3"/> <atom label="DateTime$4"/> </tuple>
+   <tuple> <atom label="ordering/Ord$0"/> <atom label="DateTime$4"/> <atom label="DateTime$5"/> </tuple>
+   <tuple> <atom label="ordering/Ord$0"/> <atom label="DateTime$5"/> <atom label="DateTime$6"/> </tuple>
+   <tuple> <atom label="ordering/Ord$0"/> <atom label="DateTime$6"/> <atom label="DateTime$7"/> </tuple>
+   <tuple> <atom label="ordering/Ord$0"/> <atom label="DateTime$7"/> <atom label="DateTime$8"/> </tuple>
+   <tuple> <atom label="ordering/Ord$0"/> <atom label="DateTime$8"/> <atom label="DateTime$9"/> </tuple>
+   <types> <type ID="83"/> <type ID="4"/> <type ID="4"/> </types>
+</field>
+
+<sig label="open$3/Ord" ID="86" parentID="2" one="yes" private="yes">
+   <atom label="open$3/Ord$0"/>
+</sig>
+
+<field label="First" ID="87" parentID="86" private="yes">
+   <tuple> <atom label="open$3/Ord$0"/> <atom label="Subscribing$0"/> </tuple>
+   <types> <type ID="86"/> <type ID="22"/> </types>
+</field>
+
+<field label="Next" ID="88" parentID="86" private="yes">
+   <tuple> <atom label="open$3/Ord$0"/> <atom label="Subscribing$0"/> <atom label="InProgress$0"/> </tuple>
+   <tuple> <atom label="open$3/Ord$0"/> <atom label="InProgress$0"/> <atom label="TournamentDone$0"/> </tuple>
+   <types> <type ID="86"/> <type ID="22"/> <type ID="22"/> </types>
+</field>
+
+<sig label="open$4/Ord" ID="89" parentID="2" one="yes" private="yes">
+   <atom label="open$4/Ord$0"/>
+</sig>
+
+<field label="First" ID="90" parentID="89" private="yes">
+   <tuple> <atom label="open$4/Ord$0"/> <atom label="Registration$0"/> </tuple>
+   <types> <type ID="89"/> <type ID="33"/> </types>
+</field>
+
+<field label="Next" ID="91" parentID="89" private="yes">
+   <tuple> <atom label="open$4/Ord$0"/> <atom label="Registration$0"/> <atom label="Submission$0"/> </tuple>
+   <tuple> <atom label="open$4/Ord$0"/> <atom label="Submission$0"/> <atom label="Consolidation$0"/> </tuple>
+   <tuple> <atom label="open$4/Ord$0"/> <atom label="Consolidation$0"/> <atom label="BattleDone$0"/> </tuple>
+   <types> <type ID="89"/> <type ID="33"/> <type ID="33"/> </types>
+</field>
+
+<sig label="open$5/Ord" ID="92" parentID="2" one="yes" private="yes">
+   <atom label="open$5/Ord$0"/>
+</sig>
+
+<field label="First" ID="93" parentID="92" private="yes">
+   <tuple> <atom label="open$5/Ord$0"/> <atom label="Accepted$0"/> </tuple>
+   <types> <type ID="92"/> <type ID="60"/> </types>
+</field>
+
+<field label="Next" ID="94" parentID="92" private="yes">
+   <tuple> <atom label="open$5/Ord$0"/> <atom label="Accepted$0"/> <atom label="Rejected$0"/> </tuple>
+   <tuple> <atom label="open$5/Ord$0"/> <atom label="Rejected$0"/> <atom label="Pending$0"/> </tuple>
+   <types> <type ID="92"/> <type ID="60"/> <type ID="60"/> </types>
+</field>
+
+<sig label="univ" ID="2" builtin="yes">
+</sig>
+
+<skolem label="$team" ID="95">
+   <tuple> <atom label="BattlePartecipation$0"/> <atom label="Team$2"/> </tuple>
+   <types> <type ID="40"/> <type ID="70"/> </types>
+</skolem>
+
+<skolem label="$b" ID="96">
+   <tuple> <atom label="Battle$0"/> </tuple>
+   <types> <type ID="10"/> </types>
+</skolem>
+
+</instance>
+
+<source filename="D:\Projects\polimi\se2-codekatabattles\rasd\alloy\model.als" content="open util/ordering[DateTime]&#x000a;&#x000a;sig DateTime {}&#x000a;&#x000a;sig Educator {&#x000a;&#x0009;, createdTournaments: set Tournament&#x000a;&#x0009;, allowedTournaments: set Tournament&#x000a;&#x0009;, battles: set Battle&#x000a;&#x0009;, badges: set Badge&#x000a;} {&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all t: Tournament | t in createdTournaments &lt;=&gt; t.creator = this&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all t: Tournament | t in allowedTournaments &lt;=&gt; this in t.authorized&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all b: Battle | b in battles &lt;=&gt; b.creator = this&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all b: Badge | b in badges &lt;=&gt; b.creator = this&#x000a;}&#x000a;&#x000a;sig Badge {&#x000a;&#x0009;, creator: Educator&#x000a;&#x0009;, tournaments: set Tournament&#x000a;&#x0009;, title: String&#x000a;&#x0009;, condition: String&#x000a;&#x0009;, earners: set TournamentSubscription&#x000a;} {&#x000a;&#x0009;title = &quot;Title&quot;&#x000a;&#x0009;condition = &quot;predicate&quot;&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all t: Tournament | t in tournaments &lt;=&gt; this in t.badges&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all ts: TournamentSubscription | ts in earners &lt;=&gt; this in ts.badges&#x000a;}&#x000a;&#x000a;sig Tournament {&#x000a;&#x0009;, creator: Educator&#x000a;&#x0009;, authorized: set Educator&#x000a;&#x0009;, state: TournamentState&#x000a;&#x0009;, subscriptionDeadline: DateTime&#x000a;&#x0009;, battles: set Battle&#x000a;&#x0009;, subscriptions: set TournamentSubscription&#x000a;&#x0009;, badges: set Badge&#x000a;} {&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all b: Battle | (b in battles) &lt;=&gt; (b.tournament = this)&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all s: TournamentSubscription | (s in subscriptions) &lt;=&gt; (s.tournament = this)&#x000a;}&#x000a;&#x000a;enum TournamentState { Subscribing, InProgress, TournamentDone }&#x000a;&#x000a;sig Battle {&#x000a;&#x0009;, creator: Educator&#x000a;&#x0009;, tournament: Tournament&#x000a;&#x0009;, state: BattleState&#x000a;&#x0009;, description: String&#x000a;&#x0009;, minStudents: Int&#x000a;&#x0009;, maxStudents: Int&#x000a;&#x0009;, registrationDeadline: DateTime&#x000a;&#x0009;, submissionDeadline: DateTime&#x000a;&#x0009;, partecipations: set BattlePartecipation&#x000a;&#x0009;, repo: lone Repository&#x000a;} {&#x000a;&#x0009;description = &quot;descr&quot;&#x000a;&#x0009;// Min and max students constraints&#x000a;&#x0009;minStudents &gt; 0 and minStudents &lt;= maxStudents&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all p: BattlePartecipation | (p in partecipations) &lt;=&gt; (p.battle = this)&#x000a;&#x0009;// Repo must exist after the registration state&#x000a;&#x0009;gt[state, Registration] &lt;=&gt; repo != none&#x000a;&#x0009;// creator must be tournament creator or authorized&#x000a;&#x0009;creator = tournament.creator or creator in tournament.authorized&#x000a;}&#x000a;&#x000a;enum BattleState { Registration, Submission, Consolidation, BattleDone }&#x000a;&#x000a;sig Student {&#x000a;&#x0009;, receivedInvites: set Invite&#x000a;&#x0009;, sentInvites: set Invite&#x000a;&#x0009;, subscriptions: set TournamentSubscription&#x000a;&#x0009;, partecipations: set TeamPartecipation&#x000a;} {&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all i: Invite | (i in receivedInvites) &lt;=&gt; i.invitee = this&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all i: Invite | (i in sentInvites) &lt;=&gt; i.inviter = this&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all s: TournamentSubscription | (s in subscriptions) &lt;=&gt; s.student = this&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all p: TeamPartecipation | (p in partecipations) &lt;=&gt; p.student = this&#x000a;}&#x000a;&#x000a;sig TournamentSubscription {&#x000a;&#x0009;, student: Student&#x000a;&#x0009;, tournament: Tournament&#x000a;&#x0009;, subscriptionDate: DateTime&#x000a;&#x0009;, score: Int&#x000a;&#x0009;, badges: set Badge&#x000a;} {&#x000a;&#x0009;// Must be subscribed before the deadline&#x000a;&#x0009;lte[subscriptionDate, tournament.subscriptionDeadline]&#x000a;&#x0009;// If the tournament has not started yet, can&apos;t have badges&#x000a;&#x0009;lte[tournament.state, Subscribing] =&gt; not (some b: Badge | b in badges)&#x000a;&#x0009;// Earned badge must be defined for this tournament&#x000a;&#x0009;all b: Badge | b in badges =&gt; b in tournament.badges&#x000a;}&#x000a;&#x000a;sig Invite {&#x000a;&#x0009;, state: InviteState&#x000a;&#x0009;, inviter: Student&#x000a;&#x0009;, invitee: Student&#x000a;&#x0009;, teamParticipation: TeamPartecipation&#x000a;} {&#x000a;&#x0009;// A student can&apos;t invite itself&#x000a;&#x0009;inviter != invitee&#x000a;&#x0009;// If the student has accepted, he must have a team&#x000a;&#x0009;state = Accepted implies (some t: TeamPartecipation | t.invite = this)&#x000a;}&#x000a;&#x000a;enum InviteState { Accepted, Rejected, Pending }&#x000a;&#x000a;sig TeamPartecipation {&#x000a;&#x0009;, student: Student&#x000a;&#x0009;, invite: lone Invite&#x000a;&#x0009;, team: Team&#x000a;&#x0009;, studentCommits: Int&#x000a;} {&#x000a;&#x0009;// If the student was invited: &#x000a;&#x0009;(invite = none) or (&#x000a;&#x0009;&#x0009;&#x0009;// he must have been invited to this&#x000a;&#x0009;&#x0009;&#x0009;invite.teamParticipation = this&#x000a;&#x0009;&#x0009;&#x0009;&#x0009;// he must have accepted&#x000a;&#x0009;&#x0009;&#x0009;&#x0009;and invite.state = Accepted&#x000a;&#x0009;&#x0009;&#x0009;&#x0009;// the invitee must be the same as the student&#x000a;&#x0009;&#x0009;&#x0009;&#x0009;and invite.invitee = student)&#x000a;}&#x000a;&#x000a;sig Team {&#x000a;&#x0009;, partecipation: lone BattlePartecipation&#x000a;&#x0009;, teamPartecipations: set TeamPartecipation&#x000a;} {&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;all tp: TeamPartecipation | (tp in teamPartecipations) &lt;=&gt; (tp.team = this)&#x000a;&#x0009;// There must be exactly one student which was not invited&#x000a;&#x0009;one p: TeamPartecipation | p.team = this and p.invite = none and (&#x000a;&#x0009;&#x0009;// All invited students must be invited by that student&#x000a;&#x0009;&#x0009;all p1: TeamPartecipation | (&#x000a;&#x0009;&#x0009;&#x0009;&#x0009;p != p1 and p1.team = this&#x000a;&#x0009;&#x0009;&#x0009;) implies (&#x000a;&#x0009;&#x0009;&#x0009;&#x0009;p1.invite != none and p1.invite.inviter = p.student&#x000a;&#x0009;&#x0009;&#x0009;)&#x000a;&#x0009;)&#x000a;&#x0009;&#x000a;&#x0009;// Can&apos;t have the same student twice in the same team&#x000a;&#x0009;all disj p1, p2: TeamPartecipation | (&#x000a;&#x0009;&#x0009;&#x0009;p1.team = this and p2.team = this&#x000a;&#x0009;&#x0009;) implies p1.student != p2.student&#x000a;&#x0009;// If there&apos;s the partecipation, all students must be &#x000a;&#x0009;// subscribed to the tournament&#x000a;&#x0009;(partecipation = none) or (&#x000a;&#x0009;&#x0009;all st: Student, teamPart: TeamPartecipation | (&#x000a;&#x0009;&#x0009;&#x0009;&#x0009;st = teamPart.student and teamPart.team = this&#x000a;&#x0009;&#x0009;&#x0009;) implies (some subscription: TournamentSubscription |&#x000a;&#x0009;&#x0009;&#x0009;&#x0009;subscription.student = st &#x000a;&#x0009;&#x0009;&#x0009;&#x0009;&#x0009;and subscription.tournament = partecipation.battle.tournament&#x000a;&#x0009;&#x0009;&#x0009;)&#x000a;&#x0009;)&#x000a;&#x0009;// If there&apos;s a partecipation, we must respect the battle requirements&#x000a;&#x0009;partecipation = none or (&#x000a;&#x0009;&#x0009;&#x0009;#teamPartecipations &gt;= partecipation.battle.minStudents and &#x000a;&#x0009;&#x0009;&#x0009;&#x0009;#teamPartecipations &lt;= partecipation.battle.maxStudents&#x000a;&#x0009;&#x0009;)&#x000a;}&#x000a;&#x000a;sig BattlePartecipation {&#x000a;&#x0009;, team: Team&#x000a;&#x0009;, battle: Battle&#x000a;&#x0009;, registrationDate: DateTime&#x000a;&#x0009;, score: Int&#x000a;&#x0009;, repo: Repository&#x000a;} {&#x000a;&#x0009;// Sync the two relationships&#x000a;&#x0009;team.partecipation = this&#x000a;&#x0009;// There must be a team for this battle partecipation&#x000a;&#x0009;some team: Team | team.partecipation = this&#x000a;&#x0009;// Must be registered before the deadline&#x000a;&#x0009;lte[registrationDate, battle.registrationDeadline]&#x000a;&#x0009;// Repo can only exist past the battle REGISTRATION state&#x000a;&#x0009;// (if the team created it on their own)&#x000a;&#x0009;repo != none =&gt; gt[battle.state, Registration]&#x000a;}&#x000a;&#x000a;// A student must only be in one team at a time for each battle&#x000a;fact studentInOneTeamPerBattle {&#x000a;&#x0009;all disj p1, p2: TeamPartecipation | (&#x000a;&#x0009;&#x0009;&#x0009;p1.student = p2.student &#x000a;&#x0009;&#x0009;&#x0009;&#x0009;and p1.team.partecipation != none&#x000a;&#x0009;&#x0009;&#x0009;&#x0009;and p2.team.partecipation != none&#x000a;&#x0009;&#x0009;) implies (&#x000a;&#x0009;&#x0009;&#x0009;p1.team.partecipation.battle != p2.team.partecipation.battle&#x000a;&#x0009;&#x0009;)&#x000a;}&#x000a;&#x000a;one sig Github {&#x000a;&#x0009;, repositories: set Repository&#x000a;} {&#x000a;&#x0009;all r: Repository | r in repositories&#x000a;}&#x000a;&#x000a;sig Repository {&#x000a;&#x0009;, battle: lone Battle&#x000a;&#x0009;, battleParticipation: lone BattlePartecipation&#x000a;} {&#x000a;&#x0009;// Sync the two fields&#x000a;&#x0009;battle != none =&gt; battle.repo = this&#x000a;&#x0009;// Sync the two fields&#x000a;&#x0009;battleParticipation != none =&gt; battleParticipation.repo = this&#x000a;&#x0009;// Must be used either by a battle or by a team&#x000a;&#x0009;battle != none or battleParticipation != none&#x000a;}&#x000a;&#x000a;run {&#x000a;&#x0009;some b: Battle | b.minStudents &gt;= 3 and #b.partecipations &gt;= 1&#x000a;} for 10 but exactly 1 Battle, exactly 2 Badge&#x000a;"/>
+
+<source filename="\$alloy4$\models\util\integer.als" content="module util/integer&#x000a;&#x000a;/*&#x000a; * A collection of utility functions for using Integers in Alloy.&#x000a; * Note that integer overflows are silently truncated to the current bitwidth&#x000a; * using the 2&apos;s complement arithmetic, unless the &quot;forbid overfows&quot; option is&#x000a; * turned on, in which case only models that don&apos;t have any overflows are &#x000a; * analyzed. &#x000a; */&#x000a;&#x000a;fun add  [n1, n2: Int] : Int { this/plus[n1, n2] }&#x000a;fun plus [n1, n2: Int] : Int { n1 fun/add n2 }&#x000a;&#x000a;fun sub   [n1, n2: Int] : Int { this/minus[n1, n2] }&#x000a;fun minus [n1, n2: Int] : Int { n1 fun/sub n2 }&#x000a;&#x000a;fun mul [n1, n2: Int] : Int { n1 fun/mul n2 }&#x000a;&#x000a;/**&#x000a; * Performs the division with &quot;round to zero&quot; semantics, except the following 3 cases&#x000a; * 1) if a is 0, then it returns 0&#x000a; * 2) else if b is 0, then it returns 1 if a is negative and -1 if a is positive&#x000a; * 3) else if a is the smallest negative integer, and b is -1, then it returns a&#x000a; */&#x000a;fun div [n1, n2: Int] : Int { n1 fun/div n2 }&#x000a;&#x000a;/** answer is defined to be the unique integer that satisfies &quot;a = ((a/b)*b) + remainder&quot; */&#x000a;fun rem [n1, n2: Int] : Int { n1 fun/rem n2 }&#x000a;&#x000a;/** negate */&#x000a;fun negate [n: Int] : Int { 0 fun/sub n }&#x000a;&#x000a;/** equal to */&#x000a;pred eq [n1, n2: Int] { int[n1] = int[n2] }&#x000a;&#x000a;/** greater than */&#x000a;pred gt [n1, n2: Int] { n1 &gt; n2 }&#x000a;&#x000a;/** less then */&#x000a;pred lt [n1, n2: Int] { n1 &lt; n2 }&#x000a;&#x000a;/** greater than or equal */&#x000a;pred gte [n1, n2: Int] { n1 &gt;= n2 }&#x000a;&#x000a;/** less than or equal */&#x000a;pred lte [n1, n2: Int] { n1 &lt;= n2 }&#x000a;&#x000a;/** integer is zero */&#x000a;pred zero [n: Int] { n = 0 }&#x000a;&#x000a;/** positive */&#x000a;pred pos  [n: Int] { n &gt; 0 }&#x000a;&#x000a;/** negative */&#x000a;pred neg  [n: Int] { n &lt; 0 }&#x000a;&#x000a;/** non-positive */&#x000a;pred nonpos [n: Int] { n &lt;= 0 }&#x000a;&#x000a;/** non-negative */&#x000a;pred nonneg [n: Int] { n &gt;= 0 }&#x000a;&#x000a;/** signum (aka sign or sgn) */&#x000a;fun signum [n: Int] : Int { n&lt;0 =&gt; (0 fun/sub 1) else (n&gt;0 =&gt; 1 else 0) }&#x000a;&#x000a;/**&#x000a; * returns the ith element (zero-based) from the set s&#x000a; * in the ordering of &apos;next&apos;, which is a linear ordering&#x000a; * relation like that provided by util/ordering&#x000a; */&#x000a;fun int2elem[i: Int, next: univ-&gt;univ, s: set univ] : lone s {&#x000a;  {e: s | #^next.e = int i }&#x000a;}&#x000a;&#x000a;/**&#x000a; * returns the index of the element (zero-based) in the&#x000a; * ordering of next, which is a linear ordering relation&#x000a; * like that provided by util/ordering&#x000a; */&#x000a;fun elem2int[e: univ, next: univ-&gt;univ] : lone Int {&#x000a;  Int[#^next.e]&#x000a;}&#x000a;&#x000a;/** returns the largest integer in the current bitwidth */&#x000a;fun max:one Int { fun/max }&#x000a;&#x000a;/** returns the smallest integer in the current bitwidth */&#x000a;fun min:one Int { fun/min }&#x000a;&#x000a;/** maps each integer (except max) to the integer after it */&#x000a;fun next:Int-&gt;Int { fun/next }&#x000a;&#x000a;/** maps each integer (except min) to the integer before it */&#x000a;fun prev:Int-&gt;Int { ~next }&#x000a;&#x000a;/** given a set of integers, return the largest element */&#x000a;fun max [es: set Int]: lone Int { es - es.^prev }&#x000a;&#x000a;/** given a set of integers, return the smallest element */&#x000a;fun min [es: set Int]: lone Int { es - es.^next }&#x000a;&#x000a;/** given an integer, return all integers prior to it */&#x000a;fun prevs [e: Int]: set Int { e.^prev }&#x000a;&#x000a;/** given an integer, return all integers following it */&#x000a;fun nexts [e: Int]: set Int { e.^next }&#x000a;&#x000a;/** returns the larger of the two integers */&#x000a;fun larger [e1, e2: Int]: Int { let a=int[e1], b=int[e2] | (a&lt;b =&gt; b else a) }&#x000a;&#x000a;/** returns the smaller of the two integers */&#x000a;fun smaller [e1, e2: Int]: Int { let a=int[e1], b=int[e2] | (a&lt;b =&gt; a else b) }&#x000a;"/>
+
+<source filename="\$alloy4$\models\util\ordering.als" content="module util/ordering[exactly elem]&#x000a;&#x000a;/*&#x000a; * Creates a single linear ordering over the atoms in elem. It also constrains all&#x000a; * the atoms to exist that are permitted by the scope on elem. That is, if the scope&#x000a; * on a signature S is 5, opening util/ordering[S] will force S to have 5 elements&#x000a; * and create a linear ordering over those five elements. The predicates and&#x000a; * functions below provide access to properties of the linear ordering, such as&#x000a; * which element is first in the ordering, or whether a given element precedes&#x000a; * another. You cannotcreate multiple linear orderings over the same signature with&#x000a; * this model. If you that functionality, try using the util/sequence module instead.&#x000a; *&#x000a; * Technical comment:&#x000a; * An important constraint: elem must contain all atoms permitted by the scope.&#x000a; * This is to let the analyzer optimize the analysis by setting all fields of each&#x000a; * instantiation of Ord to predefined values: e.g. by setting &apos;last&apos; to the highest&#x000a; * atom of elem and by setting &apos;next&apos; to {&lt;T0,T1&gt;,&lt;T1,T2&gt;,...&lt;Tn-1,Tn&gt;}, where n is&#x000a; * the scope of elem. Without this constraint, it might not be true that Ord.last is&#x000a; * a subset of elem, and that the domain and range of Ord.next lie inside elem.&#x000a; *&#x000a; * author: Ilya Shlyakhter&#x000a; * revisions: Daniel jackson&#x000a; */&#x000a;&#x000a;private one sig Ord {&#x000a;   First: set elem,&#x000a;   Next: elem -&gt; elem&#x000a;} {&#x000a;   pred/totalOrder[elem,First,Next]&#x000a;}&#x000a;&#x000a;/** first */&#x000a;fun first: one elem { Ord.First }&#x000a;&#x000a;/** last */&#x000a;fun last: one elem { elem - (next.elem) }&#x000a;&#x000a;/** return a mapping from each element to its predecessor */&#x000a;fun prev : elem-&gt;elem { ~(Ord.Next) }&#x000a;&#x000a;/** return a mapping from each element to its successor */&#x000a;fun next : elem-&gt;elem { Ord.Next }&#x000a;&#x000a;/** return elements prior to e in the ordering */&#x000a;fun prevs [e: elem]: set elem { e.^(~(Ord.Next)) }&#x000a;&#x000a;/** return elements following e in the ordering */&#x000a;fun nexts [e: elem]: set elem { e.^(Ord.Next) }&#x000a;&#x000a;/** e1 is less than e2 in the ordering */&#x000a;pred lt [e1, e2: elem] { e1 in prevs[e2] }&#x000a;&#x000a;/** e1 is greater than e2 in the ordering */&#x000a;pred gt [e1, e2: elem] { e1 in nexts[e2] }&#x000a;&#x000a;/** e1 is less than or equal to e2 in the ordering */&#x000a;pred lte [e1, e2: elem] { e1=e2 || lt [e1,e2] }&#x000a;&#x000a;/** e1 is greater than or equal to e2 in the ordering */&#x000a;pred gte [e1, e2: elem] { e1=e2 || gt [e1,e2] }&#x000a;&#x000a;/** returns the larger of the two elements in the ordering */&#x000a;fun larger [e1, e2: elem]: elem { lt[e1,e2] =&gt; e2 else e1 }&#x000a;&#x000a;/** returns the smaller of the two elements in the ordering */&#x000a;fun smaller [e1, e2: elem]: elem { lt[e1,e2] =&gt; e1 else e2 }&#x000a;&#x000a;/**&#x000a; * returns the largest element in es&#x000a; * or the empty set if es is empty&#x000a; */&#x000a;fun max [es: set elem]: lone elem { es - es.^(~(Ord.Next)) }&#x000a;&#x000a;/**&#x000a; * returns the smallest element in es&#x000a; * or the empty set if es is empty&#x000a; */&#x000a;fun min [es: set elem]: lone elem { es - es.^(Ord.Next) }&#x000a;&#x000a;assert correct {&#x000a;  let mynext = Ord.Next |&#x000a;  let myprev = ~mynext | {&#x000a;     ( all b:elem | (lone b.next) &amp;&amp; (lone b.prev) &amp;&amp; (b !in b.^mynext) )&#x000a;     ( (no first.prev) &amp;&amp; (no last.next) )&#x000a;     ( all b:elem | (b!=first &amp;&amp; b!=last) =&gt; (one b.prev &amp;&amp; one b.next) )&#x000a;     ( !one elem =&gt; (one first &amp;&amp; one last &amp;&amp; first!=last &amp;&amp; one first.next &amp;&amp; one last.prev) )&#x000a;     ( one elem =&gt; (first=elem &amp;&amp; last=elem &amp;&amp; no myprev &amp;&amp; no mynext) )&#x000a;     ( myprev=~mynext )&#x000a;     ( elem = first.*mynext )&#x000a;     (all disj a,b:elem | a in b.^mynext or a in b.^myprev)&#x000a;     (no disj a,b:elem | a in b.^mynext and a in b.^myprev)&#x000a;     (all disj a,b,c:elem | (b in a.^mynext and c in b.^mynext) =&gt;(c in a.^mynext))&#x000a;     (all disj a,b,c:elem | (b in a.^myprev and c in b.^myprev) =&gt;(c in a.^myprev))&#x000a;  }&#x000a;}&#x000a;run {} for exactly 0 elem expect 0&#x000a;run {} for exactly 1 elem expect 1&#x000a;run {} for exactly 2 elem expect 1&#x000a;run {} for exactly 3 elem expect 1&#x000a;run {} for exactly 4 elem expect 1&#x000a;check correct for exactly 0 elem&#x000a;check correct for exactly 1 elem&#x000a;check correct for exactly 2 elem&#x000a;check correct for exactly 3 elem&#x000a;check correct for exactly 4 elem&#x000a;check correct for exactly 5 elem&#x000a;"/>
+
+</alloy>
