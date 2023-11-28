@@ -133,6 +133,46 @@
           \pagebreak
     \item
     \item \textbf{}
+          \begin{table}[H]
+              %\caption*{\textbf{Title}}
+              \centering
+              \begin{tabular}{|l|p{11.9cm}|}
+                  \hline
+                  \textbf{Name}            & The Platform calculates the team battle and personal students score                    \\\hline
+                  \textbf{Actor}           & Student                                                                               \\\hline
+                  \textbf{Entry condition} &
+                  \begin{itemize}
+                      \item Student has pushed new file to the forked battle repository
+                  \end{itemize}                                                \\\hline
+                  \textbf{Event flow}      &
+                  \begin{enumerate}[label=\arabic*.]
+                      \item The student commits project code.
+                      \item The student pushes the commited project code to the Forked group GitHub repository.
+                      \item The platform gets notified about the new push.
+                      \item The platform pull the updated project code.
+                      \item The platform gets info (tournament, group, students, aspects_to_check) regarding the repo that is analyzing.
+                      \item The platform analyzes the code.
+                      \item The platform runs all the test cases associated for that battle.
+                      \item The platform calculates the days that have passed since the start of the battle.
+                      \item The platform runs the static analysis tools.
+                      \item The platform calculates the total scores.
+                      \item The platform update the battle team score.
+                      \item The platform update the personal tournament score for each student in the team.
+                      \item The platform shows a confirmation message.
+                  \end{enumerate} \\\hline
+                  \textbf{Exit condition}  & The battle team and students tournament score are updated                                                             \\\hline
+                  %\textbf{Exception} &                                                                                              \\\hline
+              \end{tabular}
+              \caption{The Platform calculates the team's battle score.}
+              \label{table:Subscribe to tournament from notification}
+          \end{table}
+
+          \begin{figure}[H]
+              \centering
+              \puml{puml/UC6}
+              \caption{The Platform calculates the team's battle score.}
+              \label{fig:Subscribe to tournament from notification}
+          \end{figure}
           \pagebreak
     \item \textbf{}
           \begin{table}[H]
