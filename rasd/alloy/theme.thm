@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Accepted"/>
+   <type name="BattleDone"/>
+   <type name="Consolidation"/>
+   <type name="InProgress"/>
+   <type name="Pending"/>
+   <type name="Registration"/>
+   <type name="Rejected"/>
+   <type name="Submission"/>
+   <type name="Subscribing"/>
+   <type name="TournamentDone"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Black">
+   <type name="Invite"/>
+</node>
+
+<node color="Blue">
+   <type name="Team"/>
+</node>
+
+<node color="Gray">
+   <type name="Tournament"/>
+</node>
+
+<node color="Green">
+   <type name="Student"/>
+</node>
+
+<node color="Red">
+   <type name="TeamPartecipation"/>
+</node>
+
+<node color="White">
+   <type name="TournamentSubscription"/>
+</node>
+
+<node color="Yellow">
+   <type name="Repository"/>
+</node>
+
+<node shape="Box" color="Blue">
+   <type name="BattlePartecipation"/>
+</node>
+
+<node shape="Ellipse" color="Yellow">
+   <type name="Badge"/>
+</node>
+
+<node shape="Hexagon" color="White">
+   <type name="Github"/>
+</node>
+
+<node shape="Lined Diamond" color="Gray">
+   <type name="Educator"/>
+</node>
+
+<node shape="Parallelogram" color="Green">
+   <type name="Battle"/>
+</node>
+
+<node style="Bold">
+   <set name="$b" type="Battle"/>
+</node>
+
+<node visible="no">
+   <type name="BattleState"/>
+   <type name="Int"/>
+   <type name="InviteState"/>
+   <type name="String"/>
+   <type name="TournamentState"/>
+   <type name="open$3/Ord"/>
+   <type name="open$4/Ord"/>
+   <type name="open$5/Ord"/>
+   <type name="ordering/Ord"/>
+</node>
+
+<node visible="no" shape="Inv Triangle" color="Red">
+   <type name="DateTime"/>
+</node>
+
+<edge color="Gray" constraint="no">
+   <relation name="Next"> <type name="open$3/Ord"/> <type name="TournamentState"/> <type name="TournamentState"/> </relation>
+   <relation name="Next"> <type name="open$5/Ord"/> <type name="InviteState"/> <type name="InviteState"/> </relation>
+   <relation name="Next"> <type name="ordering/Ord"/> <type name="DateTime"/> <type name="DateTime"/> </relation>
+</edge>
+
+<edge color="Gray" visible="no" attribute="yes" constraint="no">
+   <relation name="First"> <type name="open$3/Ord"/> <type name="TournamentState"/> </relation>
+   <relation name="First"> <type name="open$5/Ord"/> <type name="InviteState"/> </relation>
+   <relation name="state"> <type name="Invite"/> <type name="InviteState"/> </relation>
+   <relation name="state"> <type name="Tournament"/> <type name="TournamentState"/> </relation>
+</edge>
+
+<edge visible="no" attribute="yes" constraint="no">
+   <relation name="condition"> <type name="Badge"/> <type name="String"/> </relation>
+   <relation name="description"> <type name="Battle"/> <type name="String"/> </relation>
+   <relation name="maxStudents"> <type name="Battle"/> <type name="Int"/> </relation>
+   <relation name="minStudents"> <type name="Battle"/> <type name="Int"/> </relation>
+   <relation name="registrationDate"> <type name="BattlePartecipation"/> <type name="DateTime"/> </relation>
+   <relation name="registrationDeadline"> <type name="Battle"/> <type name="DateTime"/> </relation>
+   <relation name="score"> <type name="BattlePartecipation"/> <type name="Int"/> </relation>
+   <relation name="score"> <type name="TournamentSubscription"/> <type name="Int"/> </relation>
+   <relation name="state"> <type name="Battle"/> <type name="BattleState"/> </relation>
+   <relation name="studentCommits"> <type name="TeamPartecipation"/> <type name="Int"/> </relation>
+   <relation name="submissionDeadline"> <type name="Battle"/> <type name="DateTime"/> </relation>
+   <relation name="subscriptionDate"> <type name="TournamentSubscription"/> <type name="DateTime"/> </relation>
+   <relation name="subscriptionDeadline"> <type name="Tournament"/> <type name="DateTime"/> </relation>
+   <relation name="title"> <type name="Badge"/> <type name="String"/> </relation>
+</edge>
+
+</view>
+
+</alloy>

@@ -437,3 +437,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,microsoftoffice,visualstudiocode,latex,linux
 
+# Alloy theme to export diagrams
+!rasd/alloy/theme.thm
