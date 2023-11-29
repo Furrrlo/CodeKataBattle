@@ -3,10 +3,12 @@
 
 \begin{enumerate}[label=\textbf{R\arabic*}:,leftmargin=1.3cm]
     \item The system shall allow the educator to create a tournament.
-    \item The system shall allow the educator to specify the subscribe deadline of a tournamnent.
-    \item The system shall allow the educator to grant other colleagues the permission to create battles within the context of a specific tournament.
-    \item The system shall notify the students of the new tournament.
-    \item The system shall allow the educator to close a tournament.
+          \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
+              \item The system shall allow the educator to specify the subscribe deadline of a tournament.
+              \item The system shall allow the educator to grant other colleagues the permission to create battles within the context of a specific tournament.
+              \item The system shall notify the students of the new tournament.
+              \item The system shall allow the educator who create the tournament to close it.
+          \end{enumerate}
     \item The system shall allow the educator to create a battle within the context of a specific tournament.
           \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
               \item The system shall allow the educator to set minimum and maximum number of students per group.
@@ -16,18 +18,39 @@
               \item The system shall allow the educator to upload a build automation script.
               \item The system shall allow the educator to set a registration deadline.
               \item The system shall allow the educator to set a final submission deadline.
-              \item The system shall allow the educator to set configurations for scoring. %TODO: spiegare meglio
-              \item The system shall allow the educator to create badges. %TODO: spiegare meglio
+              \item The system shall allow the educator to enable manual evaluation.
+              \item The system shall allow the educator to select aspects that should be evaluated by the static analysis tool, such as security, reliability, and maintainability.
+              \item The system shall notify students subscribed to a tournament of the creation of a new battle.
           \end{enumerate}
-    \item The system shall notify students subscribed to a tournament of the creation of a new battle.
-    \item The system shall allow students to join a battle on his/her own or by inviting other students. %TODO: spiegare meglio
+    \item The system shall allow students to join a battle on his/her own or by inviting other students, respecting the minimum and maximum number of students per group.
     \item When the registration deadline expires, the system shall create a GitHub repository containing the code kata.
     \item The system shall send the link to all students who are members of subscribed teams.
     \item The system shall expose an API that can by called by the GitHub Action platform.
-    \item On each push, the system shall pull the latest sources, analyze them, and run the tests on the corresponding executables to calculate and update the battle score of the team. %TODO: dividere(?)
+    \item On each push, the system shall calculate and update the battle score of the team. In particular: \comment{Non so se vanno bene divisi così, mi sa di no}
+          \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
+              \item The system shall pull the latest sources.
+              \item The system shall analyze quality level of the sources, based on the aspect selected by the educator.
+              \item The system shall run tests uploaded by the educator.
+              \item The system shall measure the time passed between the registration deadline and the last commit.
+          \end{enumerate}
     \item The system shall allow students and educators involved in the battle to see the current rank evolving during the battle.
-    \item When the submission deadline expires, the system shall change the state of the battle to the consolidation stage.
-    \item During the consolidation stage, the system shall allow the educator to go through the sources produced by each team to assign his/her score.
+    \item When the submission deadline expires, if manual evaluation is required, the system shall change the state of the battle to the consolidation stage.
+    \item When the submission deadline expires, if manual evaluation is not required, the system shall close the battle.
+    \item During the consolidation stage, if manual evaluation is required, the system shall allow the educator to go through the sources produced by each team to assign his/her score.
+    \item At the end of a battle, the system shall calculate the final rank.
+    \item When the final rank is available, the system shall notify all students participating in the battle.
+    \item At the end of each battle, the platform updates the personal tournament score of each student, that is the sum of all battle scores received in that tournament.
+    \item The system shall allows users to see the tournament ranks.
+    \item At the end of a tournament, the system shall calculate the final tournament rank.
+    \item When the final tournament rank is available, the system shall notify all students involved in the tournament.
+    \item The system shall allow the educator who create a tournament, to create badges within the context of the tournament.
+    \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
+        \item The system shall allow the educator to specify the title of the badge.
+        \item The system shall allow the educator to create a new variable that represent any piece of information available in the platform relevant for scoring.
+        \item The system shall allow the educator to specify one or more rules that must be fulfilled to achieve the badge, based on variables.
+        \item The system shall allow users to visualize badges collected by a student.
+    \end{enumerate}
+    \item At the end of a tournament, the system shall assign badges to the student who fulfilled the rules.
 \end{enumerate}
 \subsection{Use case diagrams}
 \subsection{Use cases}
@@ -131,18 +154,18 @@
               \label{fig:Create a team}
           \end{figure}
           \pagebreak
-          \item \textbf{}
+    \item \textbf{}
           \begin{table}[H]
               %\caption*{\textbf{Title}}
               \centering
               \begin{tabular}{|l|p{11.9cm}|}
                   \hline
-                  \textbf{Name}            & The Platform creates the GitHub repository                     \\\hline
-                  \textbf{Actor}           & Student                                                                               \\\hline
+                  \textbf{Name}            & The Platform creates the GitHub repository                                        \\\hline
+                  \textbf{Actor}           & Student                                                                           \\\hline
                   \textbf{Entry condition} &
                   \begin{itemize}
                       \item The battle's registration deadline expires
-                  \end{itemize}                                                \\\hline
+                  \end{itemize}                                                              \\\hline
                   \textbf{Event flow}      &
                   \begin{enumerate}[label=\arabic*.]
                       \item When the registration deadline of a battle expires, the platform starts the creation of the repository.
@@ -152,7 +175,7 @@
                       \item The platform gets all the teams registered for the battle.
                       \item The platform notifies all the students that are in a team.
                   \end{enumerate} \\\hline
-                  \textbf{Exit condition}  & The GitHub repository for the battle is created                                                            \\\hline
+                  \textbf{Exit condition}  & The GitHub repository for the battle is created                                   \\\hline
                   %\textbf{Exception} &                                                                                              \\\hline
               \end{tabular}
               \caption{The Platform creates the GitHub repository   .}
@@ -173,11 +196,11 @@
               \begin{tabular}{|l|p{11.9cm}|}
                   \hline
                   \textbf{Name}            & The Platform calculates the team battle and personal students score                    \\\hline
-                  \textbf{Actor}           & Student                                                                               \\\hline
+                  \textbf{Actor}           & Student                                                                                \\\hline
                   \textbf{Entry condition} &
                   \begin{itemize}
                       \item Student has pushed new file to the forked battle repository
-                  \end{itemize}                                                \\\hline
+                  \end{itemize}                                                  \\\hline
                   \textbf{Event flow}      &
                   \begin{enumerate}[label=\arabic*.]
                       \item The student commits project code.
@@ -194,7 +217,7 @@
                       \item The platform update the personal tournament score for each student in the team.
                       \item The platform shows a confirmation message.
                   \end{enumerate} \\\hline
-                  \textbf{Exit condition}  & The battle team and students tournament score are updated                                                             \\\hline
+                  \textbf{Exit condition}  & The battle team and students tournament score are updated                              \\\hline
                   %\textbf{Exception} &                                                                                              \\\hline
               \end{tabular}
               \caption{The Platform calculates the team's battle score.}
@@ -214,7 +237,7 @@
               \centering
               \begin{tabular}{|l|p{11.9cm}|}
                   \hline
-                  \textbf{Name}            & The educator manually evaluate teams                                       \\\hline
+                  \textbf{Name}            & The educator manually evaluate teams                                        \\\hline
                   \textbf{Actor}           & Educator, Students                                                          \\\hline
                   \textbf{Entry condition} &
                   \begin{itemize}
