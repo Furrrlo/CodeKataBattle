@@ -1,0 +1,16 @@
+@startuml use case diagram - student
+title Use case diagram - Student
+
+actor :Student:
+
+Student -- (login): <<initiate>>
+Student -- (invite other students): <<initiate>>
+Student -- (join a tournament): <<initiate>>
+Student -- (join a battle): <<initiate>>
+Student -- (push): <<initiate>>
+
+(invite other students) ..> login: <<include>>
+(join a tournament) ..> login: <<include>>
+(join a battle) ..> login: <<include>>
+(push) ..> login: <<include>>
+@enduml
