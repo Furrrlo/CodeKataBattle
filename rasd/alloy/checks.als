@@ -243,3 +243,35 @@ sig Repository {
 	battle != none or battleParticipation != none
 	not (battle != none and battleParticipation != none)
 }
+
+/*
+run {
+    some b: Battle | b.minStudents >= 3 and #b.partecipations >= 1
+} for 10 but exactly 1 Battle, exactly 2 Badge
+*/
+
+/*
+run {
+	#Battle = 1 
+	some b: Battle | b.minStudents = 3 and 
+					   b.maxStudents = 3 and 
+					   #b.partecipations >= 1
+	#Team = 2
+	#Invite = 4
+	some i: Invite | i.state = Rejected
+	some i: Invite | i.state = Pending
+	#Student = 4
+	#Educator = 1
+	#Badge = 0
+} for 10
+*/
+
+run {
+	#Student = 0 
+	#Tournament = 2
+	#Battle >= 3
+	#Educator >= 3
+	#Badge >= 2
+} for 10
+
+

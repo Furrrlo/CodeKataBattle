@@ -3,6 +3,8 @@
 !DeliveryFolder/*.pdf
 !Assignment RDD AY 2023-2024.pdf
 !rasd/alloy/diagrammone.pdf
+!rasd/alloy/invites.pdf
+!rasd/alloy/manage_tournaments.pdf
 
 # Eclude puml svgs, we generate them on compile
 **/*/puml/*.svg
