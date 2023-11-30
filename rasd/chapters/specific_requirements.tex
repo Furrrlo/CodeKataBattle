@@ -1,3 +1,4 @@
+% !TeX root = ../rasd.tex
 \section{External Interface Requirements}
 
 \subsection{User Interfaces}
@@ -7,35 +8,35 @@
 \subsection{Software Interfaces}
 The system will need to interface with the following software:
 \begin{enumerate}
-    \item \textbf{A git-compatible software} {-} in order to create git repositories for
-          the battles, push them to Github and clone students repositories in order to evaluate
-          them
-    \item \textbf{Language-specific software build systems} {-} in order to be able to build
-          the students projects for evaluation. Different languages have their own
-          requirements for compiling and executing code, so for each supported language
-          the system will need to interact with one or more tools, at minimum with a
-          compiler or interpreter (e.g gcc or clang for C/C++, javac for Java, node for
-          JavaScript) but more likely with more complex tools (such as make for C/C++,
-          Maven or Gradle for Java, npm for JavaScript)
-    \item \textbf{Language-specific test suites} {-} in order to evaluate which
-          tests have been passed or failed. Once again, each supported language
-          will need their own implementation, at best by communicating directly
-          with a testing framework (such as junit for Java or Jest for JavaScript)
-          or a build tool (such as Gradle), at worst by directly parsing the text
-          output of tests.
-    \item \textbf{Static analysis tools} {-} in order to be used for scoring. In this
-          case, a choice can be made between interfacing with more lower-level software
-          specific tools, which can potentially need per-language support (such as
-          Errorprone, SpotBugs for Java or ESLint for Javascript), tools which already
-          support a plethora of languages out of the box (such as Infer), or higher level
-          platforms which already interface on their own the lower-level tools (such as
-          SonarQube)
-    \item \textbf{A language interpreter} {-} to be used to declare variables and evaluate
-          them to be used for the assignment of badges to students. A decision must be made
-          between developing a custom language with its interpreter or the use of an already
-          available interpreted language such as Javascript or Lua, with the consequent
-          integration needed and the additional constraints to apply in order to disallow
-          potential malicious use
+      \item \textbf{A git-compatible software} {-} in order to create git repositories for
+            the battles, push them to Github and clone students repositories in order to evaluate
+            them
+      \item \textbf{Language-specific software build systems} {-} in order to be able to build
+            the students projects for evaluation. Different languages have their own
+            requirements for compiling and executing code, so for each supported language
+            the system will need to interact with one or more tools, at minimum with a
+            compiler or interpreter (e.g gcc or clang for C/C++, javac for Java, node for
+            JavaScript) but more likely with more complex tools (such as make for C/C++,
+            Maven or Gradle for Java, npm for JavaScript)
+      \item \textbf{Language-specific test suites} {-} in order to evaluate which
+            tests have been passed or failed. Once again, each supported language
+            will need their own implementation, at best by communicating directly
+            with a testing framework (such as junit for Java or Jest for JavaScript)
+            or a build tool (such as Gradle), at worst by directly parsing the text
+            output of tests.
+      \item \textbf{Static analysis tools} {-} in order to be used for scoring. In this
+            case, a choice can be made between interfacing with more lower-level software
+            specific tools, which can potentially need per-language support (such as
+            Errorprone, SpotBugs for Java or ESLint for Javascript), tools which already
+            support a plethora of languages out of the box (such as Infer), or higher level
+            platforms which already interface on their own the lower-level tools (such as
+            SonarQube)
+      \item \textbf{A language interpreter} {-} to be used to declare variables and evaluate
+            them to be used for the assignment of badges to students. A decision must be made
+            between developing a custom language with its interpreter or the use of an already
+            available interpreted language such as Javascript or Lua, with the consequent
+            integration needed and the additional constraints to apply in order to disallow
+            potential malicious use
 \end{enumerate}
 Additionally, in order to implement the gamification aspect, additional information
 from each of these tools might be required in order to be able to define variables
@@ -46,81 +47,81 @@ the first/last commit, etc so that educators are able to use those.
 \subsection{Communication Interfaces}
 The system will need to communicate with the following external platforms:
 \begin{enumerate}
-    \item \textbf{GitHub} {-} which is used for code-hosting. The system will need to
-          communicate with GitHub using the git protocol either over HTTP or SSH in order
-          to manage and interact with repositories, but will also need to possibly interact
-          with the GitHub API over HTTP (using their REST API or their GraphQL API) to
-          create new repositories, as well as to collect additional metadata to be used
-          for gamification variables. Additionally, it will also need to receive messages
-          from GitHub workflows, so an API will need to be exposed so that a workflow
-          will be able to notify the system of the push of a new commit by a student
-    \item \textbf{External static analysis platforms} {-} in case they are choosen to
-          implement static analysis. For example if SonarQube is used, the system will
-          need to be able to communicate using its API to receive reports about projects
+      \item \textbf{GitHub} {-} which is used for code-hosting. The system will need to
+            communicate with GitHub using the git protocol either over HTTP or SSH in order
+            to manage and interact with repositories, but will also need to possibly interact
+            with the GitHub API over HTTP (using their REST API or their GraphQL API) to
+            create new repositories, as well as to collect additional metadata to be used
+            for gamification variables. Additionally, it will also need to receive messages
+            from GitHub workflows, so an API will need to be exposed so that a workflow
+            will be able to notify the system of the push of a new commit by a student
+      \item \textbf{External static analysis platforms} {-} in case they are choosen to
+            implement static analysis. For example if SonarQube is used, the system will
+            need to be able to communicate using its API to receive reports about projects
 \end{enumerate}
 
 Therefore, the following communication protocols are used:
 \begin{enumerate}
-    \item \textbf{HyperText Transfer Protocol over Secure Socket Layer (HTTPS)} {-} used
-          for all external communications
-    \item \textbf{Secure Shell (SSH)} {-} used for git communications. This is to be
-          preferred to HTTPS as the use of SSH certificates will also need to more easily
-          and securely authenticate the system to the GitHub platform
-    \item \textbf{GraphQL} {-} on top of HTTPS used for communicating with GitHub
+      \item \textbf{HyperText Transfer Protocol over Secure Socket Layer (HTTPS)} {-} used
+            for all external communications
+      \item \textbf{Secure Shell (SSH)} {-} used for git communications. This is to be
+            preferred to HTTPS as the use of SSH certificates will also need to more easily
+            and securely authenticate the system to the GitHub platform
+      \item \textbf{GraphQL} {-} on top of HTTPS used for communicating with GitHub
 \end{enumerate}
 
 \section{Functional Requirements}
 
 \begin{enumerate}[label=\textbf{R\arabic*}:,leftmargin=1.3cm]
-    \item The system shall allow the educator to create a tournament.
-          \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
-              \item The system shall allow the educator to specify the subscribe deadline of a tournament.
-              \item The system shall allow the educator to grant other colleagues the permission to create battles within the context of a specific tournament.
-              \item The system shall notify the students of the new tournament.
-              \item The system shall allow the educator who create the tournament to close it.
-          \end{enumerate}
-    \item The system shall allow the educator to create a battle within the context of a specific tournament.
-          \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
-              \item The system shall allow the educator to set minimum and maximum number of students per group.
-              \item The system shall allow the educator to set a textual description.
-              \item The system shall allow the educator to set the programming language.
-              \item The system shall allow the educator to upload a set of test cases.
-              \item The system shall allow the educator to upload a build automation script.
-              \item The system shall allow the educator to set a registration deadline.
-              \item The system shall allow the educator to set a final submission deadline.
-              \item The system shall allow the educator to enable manual evaluation.
-              \item The system shall allow the educator to select aspects that should be evaluated by the static analysis tool, such as security, reliability, and maintainability.
-              \item The system shall notify students subscribed to a tournament of the creation of a new battle.
-          \end{enumerate}
-    \item The system shall allow students to join a battle on his/her own or by inviting other students, respecting the minimum and maximum number of students per group.
-    \item When the registration deadline expires, the system shall create a GitHub repository containing the code kata.
-    \item The system shall send the link to all students who are members of subscribed teams.
-    \item The system shall expose an API that can by called by the GitHub Action platform.
-    \item On each push, the system shall calculate and update the battle score of the team. In particular: \comment{Non so se vanno bene divisi così, mi sa di no}
-          \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
-              \item The system shall pull the latest sources.
-              \item The system shall analyze quality level of the sources, based on the aspect selected by the educator.
-              \item The system shall run tests uploaded by the educator.
-              \item The system shall measure the time passed between the registration deadline and the last commit.
-          \end{enumerate}
-    \item The system shall allow students and educators involved in the battle to see the current rank evolving during the battle.
-    \item When the submission deadline expires, if manual evaluation is required, the system shall change the state of the battle to the consolidation stage.
-    \item When the submission deadline expires, if manual evaluation is not required, the system shall close the battle.
-    \item During the consolidation stage, if manual evaluation is required, the system shall allow the educator to go through the sources produced by each team to assign his/her score.
-    \item At the end of a battle, the system shall calculate the final rank.
-    \item When the final rank is available, the system shall notify all students participating in the battle.
-    \item At the end of each battle, the platform updates the personal tournament score of each student, that is the sum of all battle scores received in that tournament.
-    \item The system shall allows users to see the tournament ranks.
-    \item At the end of a tournament, the system shall calculate the final tournament rank.
-    \item When the final tournament rank is available, the system shall notify all students involved in the tournament.
-    \item The system shall allow the educator who create a tournament, to create badges within the context of the tournament.
-          \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
-              \item The system shall allow the educator to specify the title of the badge.
-              \item The system shall allow the educator to create a new variable that represent any piece of information available in the platform relevant for scoring.
-              \item The system shall allow the educator to specify one or more rules that must be fulfilled to achieve the badge, based on variables.
-              \item The system shall allow users to visualize badges collected by a student.
-          \end{enumerate}
-    \item At the end of a tournament, the system shall assign badges to the student who fulfilled the rules.
+      \item The system shall allow the educator to create a tournament.
+            \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
+                  \item The system shall allow the educator to specify the subscribe deadline of a tournament.
+                  \item The system shall allow the educator to grant other colleagues the permission to create battles within the context of a specific tournament.
+                  \item The system shall notify the students of the new tournament.
+                  \item The system shall allow the educator who create the tournament to close it.
+            \end{enumerate}
+      \item The system shall allow the educator to create a battle within the context of a specific tournament.
+            \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
+                  \item The system shall allow the educator to set minimum and maximum number of students per group.
+                  \item The system shall allow the educator to set a textual description.
+                  \item The system shall allow the educator to set the programming language.
+                  \item The system shall allow the educator to upload a set of test cases.
+                  \item The system shall allow the educator to upload a build automation script.
+                  \item The system shall allow the educator to set a registration deadline.
+                  \item The system shall allow the educator to set a final submission deadline.
+                  \item The system shall allow the educator to enable manual evaluation.
+                  \item The system shall allow the educator to select aspects that should be evaluated by the static analysis tool, such as security, reliability, and maintainability.
+                  \item The system shall notify students subscribed to a tournament of the creation of a new battle.
+            \end{enumerate}
+      \item The system shall allow students to join a battle on his/her own or by inviting other students, respecting the minimum and maximum number of students per group.
+      \item When the registration deadline expires, the system shall create a GitHub repository containing the code kata.
+      \item The system shall send the link to all students who are members of subscribed teams.
+      \item The system shall expose an API that can by called by the GitHub Action platform.
+      \item On each push, the system shall calculate and update the battle score of the team. In particular: \comment{Non so se vanno bene divisi così, mi sa di no}
+            \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
+                  \item The system shall pull the latest sources.
+                  \item The system shall analyze quality level of the sources, based on the aspect selected by the educator.
+                  \item The system shall run tests uploaded by the educator.
+                  \item The system shall measure the time passed between the registration deadline and the last commit.
+            \end{enumerate}
+      \item The system shall allow students and educators involved in the battle to see the current rank evolving during the battle.
+      \item When the submission deadline expires, if manual evaluation is required, the system shall change the state of the battle to the consolidation stage.
+      \item When the submission deadline expires, if manual evaluation is not required, the system shall close the battle.
+      \item During the consolidation stage, if manual evaluation is required, the system shall allow the educator to go through the sources produced by each team to assign his/her score.
+      \item At the end of a battle, the system shall calculate the final rank.
+      \item When the final rank is available, the system shall notify all students participating in the battle.
+      \item At the end of each battle, the platform updates the personal tournament score of each student, that is the sum of all battle scores received in that tournament.
+      \item The system shall allows users to see the tournament ranks.
+      \item At the end of a tournament, the system shall calculate the final tournament rank.
+      \item When the final tournament rank is available, the system shall notify all students involved in the tournament.
+      \item The system shall allow the educator who create a tournament, to create badges within the context of the tournament.
+            \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
+                  \item The system shall allow the educator to specify the title of the badge.
+                  \item The system shall allow the educator to create a new variable that represent any piece of information available in the platform relevant for scoring.
+                  \item The system shall allow the educator to specify one or more rules that must be fulfilled to achieve the badge, based on variables.
+                  \item The system shall allow users to visualize badges collected by a student.
+            \end{enumerate}
+      \item At the end of a tournament, the system shall assign badges to the student who fulfilled the rules.
 \end{enumerate}
 \subsection{Use case diagrams}
 \puml{puml/UC-diagram}
@@ -129,260 +130,260 @@ Therefore, the following communication protocols are used:
 %Oppure facciamo tre sezioni separate per tabella, seq diagram e activity diagram,
 % ma così mi sembra più leggibile.
 \begin{enumerate}[label=\textbf{UC\arabic*}:,leftmargin=1.3cm]
-    \item
-    \item \textbf{}
-          \pagebreak
-    \item \textbf{}
-          \begin{table}[H]
-              %\caption*{\textbf{Title}}
-              \centering
-              \begin{tabular}{|l|p{11.9cm}|}
-                  \hline
-                  \textbf{Name}            & Student joins to an existing Tournament by receiving a notication                     \\\hline
-                  \textbf{Actor}           & Student                                                                               \\\hline
-                  \textbf{Entry condition} &
-                  \begin{itemize}
-                      \item Student has enabled the receival of tournament notifications
-                  \end{itemize}                                                \\\hline
-                  \textbf{Event flow}      &
-                  \begin{enumerate}[label=\arabic*.]
-                      \item Upon the creation of a new tournament, the platform sends a notification to all students which enabled them
-                      \item The student receives a notification
-                      \item The student clicks the notification
-                      \item The platform shows the details of the new tournament.
-                      \item The student clicks the \emph{sign up} button.
-                      \item The platform enrolls the student in the tournament.
-                      \item The platform shows a confirmation message.
-                  \end{enumerate} \\\hline
-                  \textbf{Exit condition}  & The student is subscribed                                                             \\\hline
-                  %\textbf{Exception} &                                                                                              \\\hline
-              \end{tabular}
-              \caption{Subscribe to tournament from notification.}
-              \label{table:Subscribe to tournament from notification}
-          \end{table}
+      \item
+      \item \textbf{}
+            \pagebreak
+      \item \textbf{}
+            \begin{table}[H]
+                  %\caption*{\textbf{Title}}
+                  \centering
+                  \begin{tabular}{|l|p{11.9cm}|}
+                        \hline
+                        \textbf{Name}            & Student joins to an existing Tournament by receiving a notication                     \\\hline
+                        \textbf{Actor}           & Student                                                                               \\\hline
+                        \textbf{Entry condition} &
+                        \begin{itemize}
+                              \item Student has enabled the receival of tournament notifications
+                        \end{itemize}                                                \\\hline
+                        \textbf{Event flow}      &
+                        \begin{enumerate}[label=\arabic*.]
+                              \item Upon the creation of a new tournament, the platform sends a notification to all students which enabled them
+                              \item The student receives a notification
+                              \item The student clicks the notification
+                              \item The platform shows the details of the new tournament.
+                              \item The student clicks the \emph{sign up} button.
+                              \item The platform enrolls the student in the tournament.
+                              \item The platform shows a confirmation message.
+                        \end{enumerate} \\\hline
+                        \textbf{Exit condition}  & The student is subscribed                                                             \\\hline
+                        %\textbf{Exception} &                                                                                              \\\hline
+                  \end{tabular}
+                  \caption{Subscribe to tournament from notification.}
+                  \label{table:Subscribe to tournament from notification}
+            \end{table}
 
-          \begin{figure}[H]
-              \centering
-              \puml{puml/UC3}
-              \caption{Subscribe to tournament from notification}
-              \label{fig:Subscribe to tournament from notification}
-          \end{figure}
-          \pagebreak
-    \item \textbf{}
-          \begin{table}[H]
-              %\caption*{\textbf{Title}}
-              \centering
-              \begin{tabular}{|l|p{11.9cm}|}
-                  \hline
-                  \textbf{Name}            & Students create a team for a tournament battle                              \\\hline
-                  \textbf{Actor}           & Inviting student, Invited student 1, Invited student 2                      \\\hline
-                  \textbf{Entry condition} &
-                  \begin{itemize}
-                      \item Students are enrolled in the same tournament
-                      \item Students are logged in
-                      \item Invited student 1 has invitation notifications enabled
-                  \end{itemize}                                            \\\hline
-                  \textbf{Event flow}      &
-                  \begin{enumerate}[label=\arabic*.]
-                      \item The inviting student selects a tournament on \emph{HOMEPAGE}.
-                      \item The platform shows the list of battles in the tournament.
-                      \item The inviting student selects the battle.
-                      \item The platform shows the details of the battle.
-                      \item The inviting student clicks the \emph{create a team} button.
-                      \item The platform creates a new team with the student.
-                      \item The platform returns a confirmation message.
-                      \item The inviting student inserts the name of invited student 1.
-                      \item The platform creates an invitation for invited student 1.
-                      \item The platform sends a notification to invited student 1.
-                      \item Invited student 1 clicks on \emph{accept} on the notification.
-                      \item The platform adds invited student 1 to the team.
-                      \item The platform shows a confirmation message.
-                      \item The inviting student inserts the name of invited student 2.
-                      \item The platform creates an invitation for invited student 2.
-                      \item Invited student 2 visits the \emph{HOMEPAGE}.
-                      \item The platform returns the homepage, with the invites.
-                      \item Invited student 2 clicks the \emph{accept} button of the invitation.
-                      \item The platform adds invited student 2 to the team.
-                      \item The platform shows a confirmation message.
-                      \item The inviting student refreshes the battle page.
-                      \item The platform shows the details of the battle, along with the team information.
-                      \item The inviting student clicks the \emph{partecipate with team} button.
-                      \item The platform signs up the team to the battle.
-                      \item The platform shows a confirmation message.
-                  \end{enumerate}                    \\\hline
-                  \textbf{Exit condition}  & The students are all subscribed in a battle with the same team              \\\hline
-                  \textbf{Exception}       & The team does not respect the partecipant number requirement of the battle.
-                  In that case, the platform returns an error and the student can invite additional members              \\\hline
-              \end{tabular}
-              \caption{Create a team.}
-              \label{table:Create a team}
-          \end{table}
-          \pagebreak
+            \begin{figure}[H]
+                  \centering
+                  \puml{puml/UC3}
+                  \caption{Subscribe to tournament from notification}
+                  \label{fig:Subscribe to tournament from notification}
+            \end{figure}
+            \pagebreak
+      \item \textbf{}
+            \begin{table}[H]
+                  %\caption*{\textbf{Title}}
+                  \centering
+                  \begin{tabular}{|l|p{11.9cm}|}
+                        \hline
+                        \textbf{Name}            & Students create a team for a tournament battle                              \\\hline
+                        \textbf{Actor}           & Inviting student, Invited student 1, Invited student 2                      \\\hline
+                        \textbf{Entry condition} &
+                        \begin{itemize}
+                              \item Students are enrolled in the same tournament
+                              \item Students are logged in
+                              \item Invited student 1 has invitation notifications enabled
+                        \end{itemize}                                            \\\hline
+                        \textbf{Event flow}      &
+                        \begin{enumerate}[label=\arabic*.]
+                              \item The inviting student selects a tournament on \emph{HOMEPAGE}.
+                              \item The platform shows the list of battles in the tournament.
+                              \item The inviting student selects the battle.
+                              \item The platform shows the details of the battle.
+                              \item The inviting student clicks the \emph{create a team} button.
+                              \item The platform creates a new team with the student.
+                              \item The platform returns a confirmation message.
+                              \item The inviting student inserts the name of invited student 1.
+                              \item The platform creates an invitation for invited student 1.
+                              \item The platform sends a notification to invited student 1.
+                              \item Invited student 1 clicks on \emph{accept} on the notification.
+                              \item The platform adds invited student 1 to the team.
+                              \item The platform shows a confirmation message.
+                              \item The inviting student inserts the name of invited student 2.
+                              \item The platform creates an invitation for invited student 2.
+                              \item Invited student 2 visits the \emph{HOMEPAGE}.
+                              \item The platform returns the homepage, with the invites.
+                              \item Invited student 2 clicks the \emph{accept} button of the invitation.
+                              \item The platform adds invited student 2 to the team.
+                              \item The platform shows a confirmation message.
+                              \item The inviting student refreshes the battle page.
+                              \item The platform shows the details of the battle, along with the team information.
+                              \item The inviting student clicks the \emph{partecipate with team} button.
+                              \item The platform signs up the team to the battle.
+                              \item The platform shows a confirmation message.
+                        \end{enumerate}                    \\\hline
+                        \textbf{Exit condition}  & The students are all subscribed in a battle with the same team              \\\hline
+                        \textbf{Exception}       & The team does not respect the partecipant number requirement of the battle.
+                        In that case, the platform returns an error and the student can invite additional members              \\\hline
+                  \end{tabular}
+                  \caption{Create a team.}
+                  \label{table:Create a team}
+            \end{table}
+            \pagebreak
 
-          \begin{figure}[H]
-              \centering
-              \puml{puml/UC4}
-              \caption{Create a team}
-              \label{fig:Create a team}
-          \end{figure}
-          \pagebreak
-    \item \textbf{}
-          \begin{table}[H]
-              %\caption*{\textbf{Title}}
-              \centering
-              \begin{tabular}{|l|p{11.9cm}|}
-                  \hline
-                  \textbf{Name}            & The Platform creates the GitHub repository                                        \\\hline
-                  \textbf{Actor}           & Student                                                                           \\\hline
-                  \textbf{Entry condition} &
-                  \begin{itemize}
-                      \item The battle's registration deadline expires
-                  \end{itemize}                                                              \\\hline
-                  \textbf{Event flow}      &
-                  \begin{enumerate}[label=\arabic*.]
-                      \item When the registration deadline of a battle expires, the platform starts the creation of the repository.
-                      \item The platform gets the battle info.
-                      \item The platform get the CodeKata of the battle.
-                      \item The platform creates the repository GitHub with name, description and the CodeKata
-                      \item The platform gets all the teams registered for the battle.
-                      \item The platform notifies all the students that are in a team.
-                  \end{enumerate} \\\hline
-                  \textbf{Exit condition}  & The GitHub repository for the battle is created                                   \\\hline
-                  %\textbf{Exception} &                                                                                              \\\hline
-              \end{tabular}
-              \caption{The Platform creates the GitHub repository   .}
-              \label{table:Battle registration deadline}
-          \end{table}
+            \begin{figure}[H]
+                  \centering
+                  \puml{puml/UC4}
+                  \caption{Create a team}
+                  \label{fig:Create a team}
+            \end{figure}
+            \pagebreak
+      \item \textbf{}
+            \begin{table}[H]
+                  %\caption*{\textbf{Title}}
+                  \centering
+                  \begin{tabular}{|l|p{11.9cm}|}
+                        \hline
+                        \textbf{Name}            & The Platform creates the GitHub repository                                        \\\hline
+                        \textbf{Actor}           & Student                                                                           \\\hline
+                        \textbf{Entry condition} &
+                        \begin{itemize}
+                              \item The battle's registration deadline expires
+                        \end{itemize}                                                              \\\hline
+                        \textbf{Event flow}      &
+                        \begin{enumerate}[label=\arabic*.]
+                              \item When the registration deadline of a battle expires, the platform starts the creation of the repository.
+                              \item The platform gets the battle info.
+                              \item The platform get the CodeKata of the battle.
+                              \item The platform creates the repository GitHub with name, description and the CodeKata
+                              \item The platform gets all the teams registered for the battle.
+                              \item The platform notifies all the students that are in a team.
+                        \end{enumerate} \\\hline
+                        \textbf{Exit condition}  & The GitHub repository for the battle is created                                   \\\hline
+                        %\textbf{Exception} &                                                                                              \\\hline
+                  \end{tabular}
+                  \caption{The Platform creates the GitHub repository   .}
+                  \label{table:Battle registration deadline}
+            \end{table}
 
-          \begin{figure}[H]
-              \centering
-              \puml{puml/UC5}
-              \caption{The Platform creates the GitHub repository   .}
-              \label{fig:Battle registration deadline}
-          \end{figure}
-          \pagebreak
-    \item \textbf{}
-          \begin{table}[H]
-              %\caption*{\textbf{Title}}
-              \centering
-              \begin{tabular}{|l|p{11.9cm}|}
-                  \hline
-                  \textbf{Name}            & The Platform calculates the team battle and personal students score                    \\\hline
-                  \textbf{Actor}           & Student                                                                                \\\hline
-                  \textbf{Entry condition} &
-                  \begin{itemize}
-                      \item Student has pushed new file to the forked battle repository
-                  \end{itemize}                                                  \\\hline
-                  \textbf{Event flow}      &
-                  \begin{enumerate}[label=\arabic*.]
-                      \item The student commits project code.
-                      \item The student pushes the commited project code to the Forked group GitHub repository.
-                      \item The platform gets notified about the new push.
-                      \item The platform pull the updated project code.
-                      \item The platform gets info (tournament, group, students, aspects_to_check) regarding the repo that is analyzing.
-                      \item The platform analyzes the code.
-                      \item The platform runs all the test cases associated for that battle.
-                      \item The platform calculates the days that have passed since the start of the battle.
-                      \item The platform runs the static analysis tools.
-                      \item The platform calculates the total scores.
-                      \item The platform update the battle team score.
-                      \item The platform update the personal tournament score for each student in the team.
-                      \item The platform shows a confirmation message.
-                  \end{enumerate} \\\hline
-                  \textbf{Exit condition}  & The battle team and students tournament score are updated                              \\\hline
-                  %\textbf{Exception} &                                                                                              \\\hline
-              \end{tabular}
-              \caption{The Platform calculates the team's battle score.}
-              \label{table:Student makes a new push}
-          \end{table}
+            \begin{figure}[H]
+                  \centering
+                  \puml{puml/UC5}
+                  \caption{The Platform creates the GitHub repository   .}
+                  \label{fig:Battle registration deadline}
+            \end{figure}
+            \pagebreak
+      \item \textbf{}
+            \begin{table}[H]
+                  %\caption*{\textbf{Title}}
+                  \centering
+                  \begin{tabular}{|l|p{11.9cm}|}
+                        \hline
+                        \textbf{Name}            & The Platform calculates the team battle and personal students score                    \\\hline
+                        \textbf{Actor}           & Student                                                                                \\\hline
+                        \textbf{Entry condition} &
+                        \begin{itemize}
+                              \item Student has pushed new file to the forked battle repository
+                        \end{itemize}                                                  \\\hline
+                        \textbf{Event flow}      &
+                        \begin{enumerate}[label=\arabic*.]
+                              \item The student commits project code.
+                              \item The student pushes the commited project code to the Forked group GitHub repository.
+                              \item The platform gets notified about the new push.
+                              \item The platform pull the updated project code.
+                              \item The platform gets info (tournament, group, students, aspects_to_check) regarding the repo that is analyzing.
+                              \item The platform analyzes the code.
+                              \item The platform runs all the test cases associated for that battle.
+                              \item The platform calculates the days that have passed since the start of the battle.
+                              \item The platform runs the static analysis tools.
+                              \item The platform calculates the total scores.
+                              \item The platform update the battle team score.
+                              \item The platform update the personal tournament score for each student in the team.
+                              \item The platform shows a confirmation message.
+                        \end{enumerate} \\\hline
+                        \textbf{Exit condition}  & The battle team and students tournament score are updated                              \\\hline
+                        %\textbf{Exception} &                                                                                              \\\hline
+                  \end{tabular}
+                  \caption{The Platform calculates the team's battle score.}
+                  \label{table:Student makes a new push}
+            \end{table}
 
-          \begin{figure}[H]
-              \centering
-              \puml{puml/UC6}
-              \caption{The Platform calculates the team's battle score.}
-              \label{fig:Student makes a new push}
-          \end{figure}
-          \pagebreak
-    \item \textbf{}
-          \begin{table}[H]
-              %\caption*{\textbf{Title}}
-              \centering
-              \begin{tabular}{|l|p{11.9cm}|}
-                  \hline
-                  \textbf{Name}            & The educator manually evaluate teams                                        \\\hline
-                  \textbf{Actor}           & Educator, Students                                                          \\\hline
-                  \textbf{Entry condition} &
-                  \begin{itemize}
-                      \item Educator has logged in
-                      \item Educator has permission to modify the battle
-                  \end{itemize}                                                      \\\hline
-                  \textbf{Event flow}      &
-                  \begin{enumerate}[label=\arabic*.]
-                      \item When the submission deadline expires, the platform opens the comsolidation stage.
-                      \item The educator selects a tournament from the \emph{HOMEPAGE}
-                      \item The platform shows the list of battles in the tournament.
-                      \item The educator selects the battle.
-                      \item The platform shows the details of the battle.
-                      \item The educator clicks the \emph{evaluate} button.
-                      \item The platform shows sources submitted by each team.
-                      \item The educator assigns a score to each team.
-                      \item The educator clicks the \emph{close} button in the battle page.
-                      \item The platform calculates the final battle ranks.
-                      \item The platform notifies students who participated in the battle.
-                  \end{enumerate}                 \\\hline
-                  \textbf{Exit condition}  & The battle is closed                                                        \\\hline
-                  \textbf{Exception}       & The educator clicks the \emph{close} button before evaluating all students.
-                  In this case the platform return an error and the educator can assign the missing grades.              \\\hline
-                  %\textbf{Special reqs}    &                                                      \\\hline
-              \end{tabular}
-              \caption{The educator manually evaluate teams.}
-              \label{table:The educator manually evaluate teams}
-          \end{table}
+            \begin{figure}[H]
+                  \centering
+                  \puml{puml/UC6}
+                  \caption{The Platform calculates the team's battle score.}
+                  \label{fig:Student makes a new push}
+            \end{figure}
+            \pagebreak
+      \item \textbf{}
+            \begin{table}[H]
+                  %\caption*{\textbf{Title}}
+                  \centering
+                  \begin{tabular}{|l|p{11.9cm}|}
+                        \hline
+                        \textbf{Name}            & The educator manually evaluate teams                                        \\\hline
+                        \textbf{Actor}           & Educator, Students                                                          \\\hline
+                        \textbf{Entry condition} &
+                        \begin{itemize}
+                              \item Educator has logged in
+                              \item Educator has permission to modify the battle
+                        \end{itemize}                                                      \\\hline
+                        \textbf{Event flow}      &
+                        \begin{enumerate}[label=\arabic*.]
+                              \item When the submission deadline expires, the platform opens the comsolidation stage.
+                              \item The educator selects a tournament from the \emph{HOMEPAGE}
+                              \item The platform shows the list of battles in the tournament.
+                              \item The educator selects the battle.
+                              \item The platform shows the details of the battle.
+                              \item The educator clicks the \emph{evaluate} button.
+                              \item The platform shows sources submitted by each team.
+                              \item The educator assigns a score to each team.
+                              \item The educator clicks the \emph{close} button in the battle page.
+                              \item The platform calculates the final battle ranks.
+                              \item The platform notifies students who participated in the battle.
+                        \end{enumerate}                 \\\hline
+                        \textbf{Exit condition}  & The battle is closed                                                        \\\hline
+                        \textbf{Exception}       & The educator clicks the \emph{close} button before evaluating all students.
+                        In this case the platform return an error and the educator can assign the missing grades.              \\\hline
+                        %\textbf{Special reqs}    &                                                      \\\hline
+                  \end{tabular}
+                  \caption{The educator manually evaluate teams.}
+                  \label{table:The educator manually evaluate teams}
+            \end{table}
 
-          \begin{figure}[H]
-              \centering
-              \puml{puml/UC7}
-              \caption{The educator manually evaluate teams.}
-              \label{fig:The educator manually evaluate teams}
-          \end{figure}
+            \begin{figure}[H]
+                  \centering
+                  \puml{puml/UC7}
+                  \caption{The educator manually evaluate teams.}
+                  \label{fig:The educator manually evaluate teams}
+            \end{figure}
 
-          \pagebreak
+            \pagebreak
 
-    \item \textbf{}
-          \begin{table}[H]
-              %\caption*{\textbf{Title}}
-              \centering
-              \begin{tabular}{|l|p{11.9cm}|}
-                  \hline
-                  \textbf{Name}            & The educator closes a tournament                     \\\hline
-                  \textbf{Actor}           & Educator, Students                                   \\\hline
-                  \textbf{Entry condition} &
-                  \begin{itemize}
-                      \item Educator has logged in
-                      \item Educator has permission to modify the tournament
-                      \item All battles in the tournament are closed
-                  \end{itemize}                           \\\hline
-                  \textbf{Event flow}      &
-                  \begin{enumerate}[label=\arabic*.]
-                      \item Educator clicks the \emph{close} button in the tournament page.
-                      \item The platform calculates the final tournament rank.
-                      \item The platform assigns badges to the student who fulfilled the rules.
-                      \item The platform notifies students who participated in the tournament.
-                  \end{enumerate}        \\\hline
-                  \textbf{Exit condition}  & The tournament is closed and the bedges are assigned \\\hline
-                  %\textbf{Exception}       &                                                      \\\hline
-                  %\textbf{Special reqs}    &                                                      \\\hline
-              \end{tabular}
-              \caption{The educator closes a tournament.}
-              \label{table:The educator closes a tournament}
-          \end{table}
+      \item \textbf{}
+            \begin{table}[H]
+                  %\caption*{\textbf{Title}}
+                  \centering
+                  \begin{tabular}{|l|p{11.9cm}|}
+                        \hline
+                        \textbf{Name}            & The educator closes a tournament                     \\\hline
+                        \textbf{Actor}           & Educator, Students                                   \\\hline
+                        \textbf{Entry condition} &
+                        \begin{itemize}
+                              \item Educator has logged in
+                              \item Educator has permission to modify the tournament
+                              \item All battles in the tournament are closed
+                        \end{itemize}                           \\\hline
+                        \textbf{Event flow}      &
+                        \begin{enumerate}[label=\arabic*.]
+                              \item Educator clicks the \emph{close} button in the tournament page.
+                              \item The platform calculates the final tournament rank.
+                              \item The platform assigns badges to the student who fulfilled the rules.
+                              \item The platform notifies students who participated in the tournament.
+                        \end{enumerate}        \\\hline
+                        \textbf{Exit condition}  & The tournament is closed and the bedges are assigned \\\hline
+                        %\textbf{Exception}       &                                                      \\\hline
+                        %\textbf{Special reqs}    &                                                      \\\hline
+                  \end{tabular}
+                  \caption{The educator closes a tournament.}
+                  \label{table:The educator closes a tournament}
+            \end{table}
 
-          \begin{figure}[H]
-              \centering
-              \puml{puml/UC8}
-              \caption{The educator closes a tournament.}
-              \label{fig:The educator closes a tournament}
-          \end{figure}
+            \begin{figure}[H]
+                  \centering
+                  \puml{puml/UC8}
+                  \caption{The educator closes a tournament.}
+                  \label{fig:The educator closes a tournament}
+            \end{figure}
 
 \end{enumerate}
 \subsection{Requirements mapping}
@@ -393,28 +394,28 @@ Therefore, the following communication protocols are used:
 The CodeKataBattle (CKB) platform is designed with the goal of strictly adhering to several standards to ensure the quality, security and interoperability of the system.\\ The standards to which CKB adheres include:
 
 \begin{enumerate}
-    \item HTTPS Protocol Compliance\\
-          Implementation of the HTTPS protocol according to the cryptographic standards established by IETF (Internet Engineering Task Force).
+      \item HTTPS Protocol Compliance\\
+            Implementation of the HTTPS protocol according to the cryptographic standards established by IETF (Internet Engineering Task Force).
 
-    \item Accessibility Standards\\
-          Compliance with Web Content Accessibility Guidelines (WCAG) to ensure web accessibility.
+      \item Accessibility Standards\\
+            Compliance with Web Content Accessibility Guidelines (WCAG) to ensure web accessibility.
 
-    \item Security Standards\\
-          Implementation of security best practices as defined by OWASP (Open Web Application Security Project) and NIST (National Institute of Standards and Technology).
-          Such as password storage encryption with HASH512 + Salt, SSL Certificate and end-to-end communication encryption.
-
-
-    \item API Interoperability\\
-          Use of open standards for API design, such as RESTful API and adherence to specifications such as OpenAPI (Swagger).
+      \item Security Standards\\
+            Implementation of security best practices as defined by OWASP (Open Web Application Security Project) and NIST (National Institute of Standards and Technology).
+            Such as password storage encryption with HASH512 + Salt, SSL Certificate and end-to-end communication encryption.
 
 
-    \item Coding Standards\\
-          The platform follows universally accepted coding guidelines for the main programming language used in system development (e.g., Java or Python).
-          Compliance with the coding guidelines for the main programming language (PEP 8 for Python, Java Coding Conventions for Java).
+      \item API Interoperability\\
+            Use of open standards for API design, such as RESTful API and adherence to specifications such as OpenAPI (Swagger).
 
 
-    \item Compliance with Privacy Regulations\\
-          Compliance with privacy laws such as the General Data Protection Regulation (GDPR) for European citizens.
+      \item Coding Standards\\
+            The platform follows universally accepted coding guidelines for the main programming language used in system development (e.g., Java or Python).
+            Compliance with the coding guidelines for the main programming language (PEP 8 for Python, Java Coding Conventions for Java).
+
+
+      \item Compliance with Privacy Regulations\\
+            Compliance with privacy laws such as the General Data Protection Regulation (GDPR) for European citizens.
 \end{enumerate}
 
 \subsection{Hardware limitations}
