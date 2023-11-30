@@ -2,15 +2,52 @@
 title Use case diagram - Student
 
 actor :Student:
+actor :GitHub:
+actor :Static analysis tool: as tool
 
-Student -- (login): <<initiate>>
-Student -- (invite other students): <<initiate>>
-Student -- (join a tournament): <<initiate>>
-Student -- (join a battle): <<initiate>>
+'usecase (view battle\ndetails) as battleDetails
+'usecase (view\ntournament\ndetails) as tournamentDetails
+usecase (join a\ntournament) as joinTournament
+usecase (view\ntournaments) as viewTournaments
+
+Student -- joinTournament: <<initiate>>
+Student --- viewTournaments: <<initiate>>
+joinTournament ..> viewTournaments: <<include>>
+viewTournaments ..> (login): <<include>>
+
+Student --- (join a battle): <<initiate>>
+Student --- (view battles): <<initiate>>
+(join a battle) ..> (view battles): <<include>>
+(view battles) ..> login: <<include>>
+
+
+'Student --- battleDetails: <<initiate>>
+'Student -- tournamentDetails: <<initiate>>
+
+'(join a battle) .> battleDetails: <<include>>
+'battleDetails .> tournamentDetails: <<include>>
+'tournamentDetails .> joinTournament: <<include>>
+
+(invite other\nstudents) ..> (join a battle):: <<extends>>
+(accept\ninvitation) ..> (join a battle):: <<extends>>
+
+Student -- (view final\nbattle rank): <<initiate>>
+(view final\nbattle rank) ..> login: <<include>>
+
+Student -- (view final\ntournament rank): <<initiate>>
+(view final\ntournament rank) ..> login: <<include>>
+
+Student -- (view badges): <<initiate>>
+(view badges) ..> login: <<include>>
+
+
+Student - (view current score): <<initiate>>
+GitHub -- (view current score): <<partecipate>>
+tool -- (view current score): <<partecipate>>
+(view current score) ..> login: <<include>>
+
 Student -- (push): <<initiate>>
+push -- GitHub: <<partecipate>>
 
-(invite other students) ..> login: <<include>>
-(join a tournament) ..> login: <<include>>
-(join a battle) ..> login: <<include>>
-(push) ..> login: <<include>>
+
 @enduml
