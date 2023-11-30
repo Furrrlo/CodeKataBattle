@@ -136,7 +136,44 @@ Therefore, the following communication protocols are used:
 %Oppure facciamo tre sezioni separate per tabella, seq diagram e activity diagram,
 % ma così mi sembra più leggibile.
 \begin{enumerate}[label=\textbf{UC\arabic*}:,leftmargin=1.3cm]
-      \item
+      \item \textbf{}
+      \begin{table}[H]
+          %\caption*{\textbf{Title}}
+          \centering
+          \begin{tabular}{|l|p{11.9cm}|}
+              \hline
+              \textbf{Name}            & Educator creates a new Tournament                     \\\hline
+              \textbf{Actor}           & Educator who wants to create the tournament, Students                                                                             \\\hline
+              \textbf{Entry condition} &
+              \begin{itemize}
+                  \item Educator is logged in
+                  \item Educator is in the homepage
+              \end{itemize}                                                \\\hline
+              \textbf{Event flow}      &
+              \begin{enumerate}[label=\arabic*.]
+                  \item The educator selects the option to create a new tournament.
+                  \item The platform shows the CREATE_TOURNAMENT page.
+                  \item The educator inserts the name of the tournament.
+                  \item The educator inserts the registration deadline of the tournament.
+                  \item The educator selects all the other educators he wants to invite to allow them to create new battles for the tournament.
+                  \item The educator confirms the creation of the tournament.
+                  \item The platform shows a confirmation message.
+                  \item The platform sends a notification to all students in the platform.
+              \end{enumerate} \\\hline
+              \textbf{Exit condition}  & The new tournament is created                                                        \\\hline
+              %\textbf{Exception} &                                                                                              \\\hline
+          \end{tabular}
+          \caption{Educator creates a new Tournament }
+          \label{table:Educator creates a new Tournament }
+      \end{table}
+  
+      \begin{figure}[H]
+          \centering
+          \puml{puml/UC1}
+          \caption{Educator creates a new Tournament }
+          \label{fig:Educator creates a new Tournament }
+      \end{figure}
+      \pagebreak
       \item \textbf{}
             \pagebreak
       \item \textbf{}
