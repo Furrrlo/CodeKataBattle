@@ -1,4 +1,74 @@
 \section{External Interface Requirements}
+
+\subsection{User Interfaces}
+
+\subsection{Hardware Interfaces}
+
+\subsection{Software Interfaces}
+The system will need to interface with the following software:
+\begin{enumerate}
+    \item \textbf{A git-compatible software} {-} in order to create git repositories for
+          the battles, push them to Github and clone students repositories in order to evaluate
+          them
+    \item \textbf{Language-specific software build systems} {-} in order to be able to build
+          the students projects for evaluation. Different languages have their own
+          requirements for compiling and executing code, so for each supported language
+          the system will need to interact with one or more tools, at minimum with a
+          compiler or interpreter (e.g gcc or clang for C/C++, javac for Java, node for
+          JavaScript) but more likely with more complex tools (such as make for C/C++,
+          Maven or Gradle for Java, npm for JavaScript)
+    \item \textbf{Language-specific test suites} {-} in order to evaluate which
+          tests have been passed or failed. Once again, each supported language
+          will need their own implementation, at best by communicating directly
+          with a testing framework (such as junit for Java or Jest for JavaScript)
+          or a build tool (such as Gradle), at worst by directly parsing the text
+          output of tests.
+    \item \textbf{Static analysis tools} {-} in order to be used for scoring. In this
+          case, a choice can be made between interfacing with more lower-level software
+          specific tools, which can potentially need per-language support (such as
+          Errorprone, SpotBugs for Java or ESLint for Javascript), tools which already
+          support a plethora of languages out of the box (such as Infer), or higher level
+          platforms which already interface on their own the lower-level tools (such as
+          SonarQube)
+    \item \textbf{A language interpreter} {-} to be used to declare variables and evaluate
+          them to be used for the assignment of badges to students. A decision must be made
+          between developing a custom language with its interpreter or the use of an already
+          available interpreted language such as Javascript or Lua, with the consequent
+          integration needed and the additional constraints to apply in order to disallow
+          potential malicious use
+\end{enumerate}
+Additionally, in order to implement the gamification aspect, additional information
+from each of these tools might be required in order to be able to define variables
+for badges. For example, we might need to extract more metadata from git
+related to number of commits by each student, lines changed, the dates of
+the first/last commit, etc so that educators are able to use those.
+
+\subsection{Communication Interfaces}
+The system will need to communicate with the following external platforms:
+\begin{enumerate}
+    \item \textbf{GitHub} {-} which is used for code-hosting. The system will need to
+          communicate with GitHub using the git protocol either over HTTP or SSH in order
+          to manage and interact with repositories, but will also need to possibly interact
+          with the GitHub API over HTTP (using their REST API or their GraphQL API) to
+          create new repositories, as well as to collect additional metadata to be used
+          for gamification variables. Additionally, it will also need to receive messages
+          from GitHub workflows, so an API will need to be exposed so that a workflow
+          will be able to notify the system of the push of a new commit by a student
+    \item \textbf{External static analysis platforms} {-} in case they are choosen to
+          implement static analysis. For example if SonarQube is used, the system will
+          need to be able to communicate using its API to receive reports about projects
+\end{enumerate}
+
+Therefore, the following communication protocols are used:
+\begin{enumerate}
+    \item \textbf{HyperText Transfer Protocol over Secure Socket Layer (HTTPS)} {-} used
+          for all external communications
+    \item \textbf{Secure Shell (SSH)} {-} used for git communications. This is to be
+          preferred to HTTPS as the use of SSH certificates will also need to more easily
+          and securely authenticate the system to the GitHub platform
+    \item \textbf{GraphQL} {-} on top of HTTPS used for communicating with GitHub
+\end{enumerate}
+
 \section{Functional Requirements}
 
 \begin{enumerate}[label=\textbf{R\arabic*}:,leftmargin=1.3cm]
@@ -44,12 +114,12 @@
     \item At the end of a tournament, the system shall calculate the final tournament rank.
     \item When the final tournament rank is available, the system shall notify all students involved in the tournament.
     \item The system shall allow the educator who create a tournament, to create badges within the context of the tournament.
-    \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
-        \item The system shall allow the educator to specify the title of the badge.
-        \item The system shall allow the educator to create a new variable that represent any piece of information available in the platform relevant for scoring.
-        \item The system shall allow the educator to specify one or more rules that must be fulfilled to achieve the badge, based on variables.
-        \item The system shall allow users to visualize badges collected by a student.
-    \end{enumerate}
+          \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
+              \item The system shall allow the educator to specify the title of the badge.
+              \item The system shall allow the educator to create a new variable that represent any piece of information available in the platform relevant for scoring.
+              \item The system shall allow the educator to specify one or more rules that must be fulfilled to achieve the badge, based on variables.
+              \item The system shall allow users to visualize badges collected by a student.
+          \end{enumerate}
     \item At the end of a tournament, the system shall assign badges to the student who fulfilled the rules.
 \end{enumerate}
 \subsection{Use case diagrams}
