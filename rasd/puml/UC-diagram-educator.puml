@@ -1,0 +1,49 @@
+@startuml use case diagram - educator
+
+actor :Educator:
+actor :Student:
+actor :GitHub:
+actor :Static analysis tool: as tool
+
+usecase (create a\ntournament) as createTournament
+usecase (view\ntournaments) as viewTournaments
+
+Educator -- createTournament: <<initiate>>
+createTournament -- (insert\ntournament\ninformation): <<include>>
+(create tournament\nwith colleagues) -- createTournament: <<extends>>
+(create badges) -- createTournament: <<extends>>
+(insert\ntournament\ninformation) ..> (login): <<include>>
+
+Educator -- viewTournaments: <<initiate>>
+viewTournaments ..> login: <<include>>
+
+Educator -- (create a battle): <<initiate>>
+(create a battle) -- (insert\nbattle\ninformation): <<include>>
+(insert\nbattle\ninformation) ..> login: <<include>>
+
+Educator -- (view battles): <<initiate>>
+(view battles) ..> login: <<include>>
+
+Educator -- (evaluate): <<initiate>>
+(evaluate) -- (view submitted\nsource code): <<include>>
+(view submitted\nsource code) ..> login: <<include>>
+
+Educator -- (close battle): <<initiate>>
+(close battle) ..> login: <<include>>
+(close battle) -- Student: <<partecipate>>
+
+Educator -- (close tournament): <<initiate>>
+(close tournament) ..> login: <<include>>
+(close tournament) -- Student: <<partecipate>>
+
+Educator -- (view badges): <<initiate>>
+(view badges) ..> login: <<include>>
+
+
+Educator -- (view current score): <<initiate>>
+GitHub -- (view current score): <<partecipate>>
+tool -- (view current score): <<partecipate>>
+(view current score) ..> login: <<include>>
+
+
+@enduml
