@@ -148,10 +148,10 @@ Therefore, the following communication protocols are used:
               \begin{itemize}
                   \item Educator is logged in
                   \item Educator is in the homepage
+                  \item Educator selects the option to create a new tournament
               \end{itemize}                                                \\\hline
               \textbf{Event flow}      &
               \begin{enumerate}[label=\arabic*.]
-                  \item The educator selects the option to create a new tournament.
                   \item The platform shows the CREATE_TOURNAMENT page.
                   \item The educator inserts the name of the tournament.
                   \item The educator inserts the registration deadline of the tournament.
@@ -174,8 +174,10 @@ Therefore, the following communication protocols are used:
           \label{fig:Educator creates a new Tournament }
       \end{figure}
       \pagebreak
+
       \item \textbf{}
             \pagebreak
+
       \item \textbf{}
             \begin{table}[H]
                   %\caption*{\textbf{Title}}
@@ -186,30 +188,32 @@ Therefore, the following communication protocols are used:
                         \textbf{Actor}           & Student                                                                               \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
-                              \item Student has enabled the receival of tournament notifications
+                              \item Student is logged in
+                              \item A new tournament has been created
+                              \item Student has received a notification of the creation of a new tournament
+                              \item Student selects the option to sign up to the tournament
                         \end{itemize}                                                \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
-                              \item Upon the creation of a new tournament, the platform sends a notification to all students which enabled them
-                              \item The student receives a notification
-                              \item The student clicks the notification
+                              \item Upon the creation of a new tournament, the platform sends a notification to all students which have enabled them
+                              \item The student selects a tournament on the \emph{HOMEPAGE}.
                               \item The platform shows the details of the new tournament.
                               \item The student clicks the \emph{sign up} button.
                               \item The platform enrolls the student in the tournament.
-                              \item The platform shows a confirmation message.
+                              \item The platform shows a confirmation message to the student.
                         \end{enumerate} \\\hline
-                        \textbf{Exit condition}  & The student is subscribed                                                             \\\hline
+                        \textbf{Exit condition}  & The student is subscribed to the tournament                                                         \\\hline
                         %\textbf{Exception} &                                                                                              \\\hline
                   \end{tabular}
-                  \caption{Subscribe to tournament from notification.}
-                  \label{table:Subscribe to tournament from notification}
+                  \caption{Student has subscribe to the tournament}
+                  \label{table:Student has subscribe to the tournament}
             \end{table}
 
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC3}
-                  \caption{Subscribe to tournament from notification}
-                  \label{fig:Subscribe to tournament from notification}
+                  \caption{Student has subscribe to the tournament}
+                  \label{fig:Student has subscribe to the tournament}
             \end{figure}
             \pagebreak
       \item \textbf{}
@@ -222,16 +226,15 @@ Therefore, the following communication protocols are used:
                         \textbf{Actor}           & Inviting student, Invited student 1, Invited student 2                      \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
-                              \item Students are enrolled in the same tournament
                               \item Students are logged in
-                              \item Invited student 1 has invitation notifications enabled
+                              \item Students are enrolled in the same tournament
+                              \item Students has invitation notifications enabled
+                              \item The inviting student have selected a tournament
+                              \item The inviting student have selected a battle for the tournament
+                              \item Inviting student selects the option to create a new team for the battle
                         \end{itemize}                                            \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
-                              \item The inviting student selects a tournament on \emph{HOMEPAGE}.
-                              \item The platform shows the list of battles in the tournament.
-                              \item The inviting student selects the battle.
-                              \item The platform shows the details of the battle.
                               \item The inviting student clicks the \emph{create a team} button.
                               \item The platform creates a new team with the student.
                               \item The platform returns a confirmation message.
@@ -258,16 +261,16 @@ Therefore, the following communication protocols are used:
                         \textbf{Exception}       & The team does not respect the partecipant number requirement of the battle.
                         In that case, the platform returns an error and the student can invite additional members              \\\hline
                   \end{tabular}
-                  \caption{Create a team.}
-                  \label{table:Create a team}
+                  \caption{Students create a team for a tournament battle}
+                  \label{table:Students create a team for a tournament battle}
             \end{table}
             \pagebreak
 
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC4}
-                  \caption{Create a team}
-                  \label{fig:Create a team}
+                  \caption{Students create a team for a tournament battle}
+                  \label{fig:Students create a team for a tournament battle}
             \end{figure}
             \pagebreak
       \item \textbf{}
@@ -276,10 +279,11 @@ Therefore, the following communication protocols are used:
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & The Platform creates the GitHub repository                                        \\\hline
+                        \textbf{Name}            & Students are notified about the creation of the GitHub repository for a battle they are participating in                                    \\\hline
                         \textbf{Actor}           & Student                                                                           \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
+                              \item Students are partecipating in a team for the same battle of the same tournament
                               \item The battle's registration deadline expires
                         \end{itemize}                                                              \\\hline
                         \textbf{Event flow}      &
@@ -294,15 +298,15 @@ Therefore, the following communication protocols are used:
                         \textbf{Exit condition}  & The GitHub repository for the battle is created                                   \\\hline
                         %\textbf{Exception} &                                                                                              \\\hline
                   \end{tabular}
-                  \caption{The Platform creates the GitHub repository   .}
-                  \label{table:Battle registration deadline}
+                  \caption{Students are notified about the creation of the GitHub repository for a battle  }
+                  \label{table:Students are notified about the creation of the GitHub repository for a battle}
             \end{table}
 
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC5}
-                  \caption{The Platform creates the GitHub repository   .}
-                  \label{fig:Battle registration deadline}
+                  \caption{Students are notified about the creation of the GitHub repository for a battle}
+                  \label{fig:Students are notified about the creation of the GitHub repository for a battle}
             \end{figure}
             \pagebreak
       \item \textbf{}
@@ -310,17 +314,18 @@ Therefore, the following communication protocols are used:
                   %\caption*{\textbf{Title}}
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
-                        \hline
-                        \textbf{Name}            & The Platform calculates the team battle and personal students score                    \\\hline
-                        \textbf{Actor}           & Student                                                                                \\\hline
+                        \hline 
+                        \textbf{Name}            & Students are notified about the updated team battle and personal students score when a new push to the forked GitHub repository is performed                \\\hline
+                        \textbf{Actor}           & Pushing Student, Students partecipating in the same team                                                                                \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
-                              \item Student has pushed new file to the forked battle repository
+                              \item Pushing Student is partecipating in a battle of a tournament
+                              \item Pushing Student has pushed new files to the forked GitHub battle repository
                         \end{itemize}                                                  \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
                               \item The student commits project code.
-                              \item The student pushes the commited project code to the Forked group GitHub repository.
+                              \item The student pushes the commited project code to the forked GitHub battle repository.
                               \item The platform gets notified about the new push.
                               \item The platform pull the updated project code.
                               \item The platform gets info (tournament, group, students, aspects_to_check) regarding the repo that is analyzing.
@@ -331,20 +336,20 @@ Therefore, the following communication protocols are used:
                               \item The platform calculates the total scores.
                               \item The platform update the battle team score.
                               \item The platform update the personal tournament score for each student in the team.
-                              \item The platform shows a confirmation message.
+                              \item The platform notifies the updated battle team score to all the students of the same team.
                         \end{enumerate} \\\hline
                         \textbf{Exit condition}  & The battle team and students tournament score are updated                              \\\hline
                         %\textbf{Exception} &                                                                                              \\\hline
                   \end{tabular}
-                  \caption{The Platform calculates the team's battle score.}
-                  \label{table:Student makes a new push}
+                  \caption{Students are notified about the updated team battle and personal students score}
+                  \label{table:Students are notified about the updated team battle and personal students score}
             \end{table}
 
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC6}
-                  \caption{The Platform calculates the team's battle score.}
-                  \label{fig:Student makes a new push}
+                  \caption{Students are notified about the updated team battle and personal students score}
+                  \label{fig:Students are notified about the updated team battle and personal students score}
             \end{figure}
             \pagebreak
       \item \textbf{}
@@ -353,16 +358,17 @@ Therefore, the following communication protocols are used:
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & The educator manually evaluate teams                                        \\\hline
+                        \textbf{Name}            & Educator manually evaluate teams                                        \\\hline
                         \textbf{Actor}           & Educator, Students                                                          \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Educator has logged in
-                              \item Educator has permission to modify the battle
+                              \item Educator has permission to modify the battle of the tournament
+                              \item The submission deadline of the battle expires
                         \end{itemize}                                                      \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
-                              \item When the submission deadline expires, the platform opens the comsolidation stage.
+                              \item When the submission deadline expires, the platform opens the consolidation stage.
                               \item The educator selects a tournament from the \emph{HOMEPAGE}
                               \item The platform shows the list of battles in the tournament.
                               \item The educator selects the battle.
@@ -374,20 +380,20 @@ Therefore, the following communication protocols are used:
                               \item The platform calculates the final battle ranks.
                               \item The platform notifies students who participated in the battle.
                         \end{enumerate}                 \\\hline
-                        \textbf{Exit condition}  & The battle is closed                                                        \\\hline
+                        \textbf{Exit condition}  & The battle is closed and the final battle ranks are calculated                                                        \\\hline
                         \textbf{Exception}       & The educator clicks the \emph{close} button before evaluating all students.
                         In this case the platform return an error and the educator can assign the missing grades.              \\\hline
                         %\textbf{Special reqs}    &                                                      \\\hline
                   \end{tabular}
-                  \caption{The educator manually evaluate teams.}
-                  \label{table:The educator manually evaluate teams}
+                  \caption{Educator manually evaluate teams    }
+                  \label{table:Educator manually evaluate teams    }
             \end{table}
 
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC7}
-                  \caption{The educator manually evaluate teams.}
-                  \label{fig:The educator manually evaluate teams}
+                  \caption{Educator manually evaluate teams    }
+                  \label{fig:Educator manually evaluate teams    }
             \end{figure}
 
             \pagebreak
@@ -398,34 +404,36 @@ Therefore, the following communication protocols are used:
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & The educator closes a tournament                     \\\hline
+                        \textbf{Name}            & Educator closes a tournament                     \\\hline
                         \textbf{Actor}           & Educator, Students                                   \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Educator has logged in
                               \item Educator has permission to modify the tournament
                               \item All battles in the tournament are closed
+                              \item Educator selects the option to close a tournament
                         \end{itemize}                           \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
                               \item Educator clicks the \emph{close} button in the tournament page.
                               \item The platform calculates the final tournament rank.
+                              \item The platform gets the information about the available badges for the tournament.
                               \item The platform assigns badges to the student who fulfilled the rules.
                               \item The platform notifies students who participated in the tournament.
                         \end{enumerate}        \\\hline
-                        \textbf{Exit condition}  & The tournament is closed and the bedges are assigned \\\hline
+                        \textbf{Exit condition}  & The tournament is closed and the badges are assigned \\\hline
                         %\textbf{Exception}       &                                                      \\\hline
                         %\textbf{Special reqs}    &                                                      \\\hline
                   \end{tabular}
-                  \caption{The educator closes a tournament.}
-                  \label{table:The educator closes a tournament}
+                  \caption{Educator closes a tournament   }
+                  \label{table:Educator closes a tournament   }
             \end{table}
 
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC8}
-                  \caption{The educator closes a tournament.}
-                  \label{fig:The educator closes a tournament}
+                  \caption{Educator closes a tournament   }
+                  \label{fig:Educator closes a tournament   }
             \end{figure}
 
 \end{enumerate}

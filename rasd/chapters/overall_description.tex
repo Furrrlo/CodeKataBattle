@@ -3,7 +3,7 @@
 \subsection{Scenarios}
 
 \begin{enumerate}
-	\item \textbf{Tournament Creation by an Educator}\\
+	\item \textbf{Educator creates a new Tournament}\\
 	      Luca Proserpio is an educator who works for a famous Italian university and is subscribed to the CKB Platform.\\
 	      Luca wants to create a new tournament on the platform so that students can participate in it to improve their programming skills in Java.\\
 	      Luca logs in, and the \emph{HOMEPAGE} will be shown.\\
@@ -29,7 +29,7 @@
 
 
 
-	\item \textbf{Battle Creation by and Educator for an Existing Tournament}\\
+	\item \textbf{Educator creates a new Battle for an Existing Tournament}\\
 	      Gianpaolo Mariani is an educator registered with the CKB Platform and wants to create a battle for the \emph{"Welcome Tournament School Year 2024"} tournament.\\
 	      After logging in, the \emph{HOMEPAGE} shows the list of tournaments he has created or to which he has been added by other contributors. Gianpaolo clicks on the \emph{"Welcome
 		      Tournament School Year 2024"} line found in the list of tournaments mentioned earlier.\\
@@ -81,21 +81,21 @@
 	      Specifically, Marco logs in and in the \emph{HOMEPAGE} clicks on the tournament from the list of tournaments in which he is registered.\\
 	      Marco is shown the \emph{DETAIL\_TOURNAMENT} page and within it he clicks on the first available battle.\\
 	      He is shown the \emph{DETAIL\_BATTLE} page and clicks on the \emph{"Participate by creating a team"} button.\\
-	      Marco already knows Stefano and decides to invite him to join his team, Stefano receives the a notification of the invitation and
+	      Marco already knows Stefano and decides to invite him to join his team, Stefano receives the notification of the invitation and
 	      clicks it to accept right away.\\
-	      Because the tournament has a minimum requirement of 3 people, Marco leaves the page, in hopes to find the missing element to partecipate.\\
+	      Because the tournament has a minimum requirement of 3 people, Marco leaves the page, in hopes to find another student who wants to partecipate.\\
 	      At a later time, Marco comes back on the page and invites Carlo, which he has just met during a lecture.\\
 	      Carlo misses the notification, so he logs in and in the \emph{HOMEPAGE} finds the invitation. He clicks on the
 	      \emph{accept} button.\\
 	      Once Carlo has accepted, Marco goes back to the \emph{DETAIL\_TOURNAMENT} page, where he can see the team he has formed,
 	      and clicks on the \emph{"Participate with the current team"} button.
 
-	\item \textbf{Platform creates the GitHub repository when a battle's registration deadline expires}\\
+	\item \textbf{Students are notified about the creation of the GitHub repository for a battle they are participating in}\\
 	      Gianpaolo Mariano is an educator on the platform and had created a battle within the \emph{"Welcome Tournament School Year 2024"} tournament context with registration deadline 6/11/2023.\\
 	      The system, when the registration deadline of the battle expires, creates the GitHub repository containing the code kata specified by Gianpaolo for the battle and sends the link of the newly created repository to all students who have registered in teams before the registration deadline expired.
 
 
-	\item \textbf{Calculation of a team battle and personal students score}\\
+	\item \textbf{Students receive a notification about the new team battle and personal students score when a new push to the forked GitHub repository is performed}\\
 	      Marco is a student and is participating in a battle with the team consisting of Stefano and Carlo.\\
 	      Marco edits the project code and commits and pushes to the forked GitHub repository. \\
 	      The platform fetches the code, analyzes it, and runs the prepared tests (test cases) for the battle in which the team is participating.\\
@@ -106,13 +106,14 @@
 		      \item The quality level of the sources extracted from the static analysis tools
 	      \end{enumerate}
 	      The platform also modifies each student's personal tournament score by summing all the battle scores received in that tournament.\\
-	      Therefore, after the update, Marco,Stefano and Carlo go to the \emph{DETAIL\_BATTLE} page and view the new battle and tournament score assigned to them automatically by the platform.\\
+	      Therefore, after the update, Marco, Stefano and Carlo receive a notification of the update.\\
+		  Marco go to the \emph{DETAIL\_BATTLE} and view the new battle and tournament score assigned to him automatically by the platform.\\
 
 
 
 
 
-	\item \textbf{Begin of Consolidation Stage when submission deadline of a battle expires}\\
+	\item \textbf{Educator manually evaluate teams when the Consolidation Stage begins}\\
 	      Gianpaolo Mariano is a platform educator and had created a battle for the \emph{"Welcome Tournament School Year 2024"} with final submission deadline as 23/12/2023.\\
 	      The platform at the end of the final submission deadline declares the start of the consolidation stage due to the fact that Gianpaolo had selected the \emph{"manual evaluation"} option for the battle he created.\\
 	      Gianpaolo proceeds by hand analyzing the code submitted by the various groups and, in particular, decides to increase the score by +2 obtained by the group of students composed of Marco, Stefano and Carlo.\\
@@ -120,7 +121,7 @@
 	      Marco, Stefano and Carlo and all other students who participated in the tournament battle receive a notification with the final battle rank.
 
 
-	\item \textbf{Closing a tournament}\\
+	\item \textbf{Educator closes a tournament}\\
 	      Luca Proserpio is a platform educator who had created the \emph{"Welcome Tournament School Year 2024"} tournament.\\
 	      In March 2024, Luca decides to close the tournament.\\
 	      All students enrolled in the CKB Platform will be notified about the closure of the Tournament.\\

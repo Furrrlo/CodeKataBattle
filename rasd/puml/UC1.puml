@@ -1,17 +1,18 @@
 @startuml UC1
 title UC1 - Educator creates a new Tournament    
 
-
-
 actor Educator
 
 participant System
 actor Student
 
 Educator -> System ++: seeCreateNewTournamentPage()
+activate Educator
 System --> Educator--: createNewTournamentDetails
+deactivate Educator
 
 Educator -> System ++: createNewTournament(name, deadline, lists_of_educators)
+activate Educator
 
 System -> System ++: createNewTournament(name)
 deactivate System
@@ -25,7 +26,7 @@ loop for each educator in a lists_of_educators
 end
 
 System --> Educator : confirmation
-
+deactivate Educator
 
 loop for each student in the platform
     System -> Student : notify()

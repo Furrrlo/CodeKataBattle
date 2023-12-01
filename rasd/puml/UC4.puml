@@ -1,11 +1,12 @@
 @startuml UC4
-title UC4 - Create a team
+title UC4 - Students create a team for a tournament battle   
 actor "Inviting Student" as inviting
 actor "Invited Student 1" as notif
 actor "Invited Student 2" as invited
 participant System
 
 inviting -> System ++ : selectTournament(tournament)
+activate inviting
 inviting <-- System -- : tournamentDetails
 
 inviting -> System ++ : selectBattle(battle)
@@ -15,37 +16,46 @@ inviting -> System ++ : createTeam(battle)
 System -> System ++ : createTeam(battle)
 System -> System -- : addStudentToTeam(team, inviting-student)
 inviting <-- System -- : confirmation
+deactivate inviting
 
 inviting -> System ++ : invite(team, invited-student-1)
+activate inviting
 System -> System ++ : createInvite(team, invited-student-1)
 notif <- System  ++-- : notify(invite)
 inviting <-- System -- : invitationConfirmation
+deactivate inviting
 
 ...
 
-notif -> System --++ : acceptInvite(invite)
+notif -> System ++ : acceptInvite(invite)
 System -> System ++-- : addStudentToTeam(team, invited-student-1)
 notif <-- System -- : confirmation
+deactivate notif
 
 ...
 
 inviting -> System ++ : invite(team, invited-student-2)
+activate inviting
 System -> System ++-- : createInvite(team, invited-student-2)
 inviting <-- System -- : invitationConfirmation
-
+deactivate inviting
 ...
 
 invited -> System ++ : seeHomepage()
+activate invited
 invited <-- System -- : homepageDetails
 
-invited -> System --++ : acceptInvite(invite)
+invited -> System ++ : acceptInvite(invite)
 System -> System ++-- : addStudentToTeam(team, invited-student-1)
 invited <-- System -- : confirmation
+deactivate invited
 
 ...
 
 inviting -> System ++ : partecipate(battle, team)
+activate inviting
 System -> System ++-- : enrollInBattle(battle, team)
 inviting <-- System -- : confirmation
+deactivate inviting
 
 @enduml

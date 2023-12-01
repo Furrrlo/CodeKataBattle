@@ -1,12 +1,13 @@
 @startuml UC7
-title UC7 - Closing a battle
+title UC7 - Educator manually evaluate teams    
 actor Educator
 participant System
 actor Student
 
 note across: The submission deadline expires
 
-Educator -> System ++ : selecTournament(tournament)
+Educator -> System ++ : selectTournament(tournament)
+activate Educator
 Educator <-- System -- : tournamentDetails
 
 Educator -> System ++ : selectBattle(battle)
@@ -28,8 +29,12 @@ Educator -> System ++ : close(battle)
 System -> System ++ : calculateFinalRank()
 deactivate System
 
-System -> Student: notify()
+loop for each student partecipating in the battle
+    System -> Student : notify()
+end
+
+
 
 Educator <-- System -- : outcome
-
+deactivate Educator
 @enduml

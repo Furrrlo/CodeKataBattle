@@ -1,11 +1,15 @@
 @startuml UC3
-title UC3 - Signing up to a tournament
+title UC3 - Student joins to an existing Tournament by receiving a notication      
 actor Student
 participant System
 
-note across: A tournament is created
+note across: Student got a notification about the creation of a new tournament
 
-Student <- System -- : notify(tournament)
+Student -> System ++: getTournaments()
+activate Student
+System --> Student--: list of tournaments
+
+
 
 Student -> System ++ : selectTournament(tournament)
 Student <-- System -- : tournamentDetails
@@ -13,5 +17,5 @@ Student <-- System -- : tournamentDetails
 Student -> System ++ : signup(tournament)
 System -> System ++-- : enrollStudent(student, tournament)
 Student <-- System -- : signupConfirmation
-
+deactivate Student
 @enduml

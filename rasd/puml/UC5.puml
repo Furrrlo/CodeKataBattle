@@ -1,5 +1,5 @@
 @startuml UC5
-title UC5 - Platform creates the GitHub repository when a battle's registration deadline expires
+title UC5 - Students are notified about the updated team battle and personal students score
 
 
 

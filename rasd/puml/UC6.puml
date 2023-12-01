@@ -1,16 +1,19 @@
 @startuml UC6
 title UC6 - Calculation of a team's battle score
 actor Student
+actor OtherStudentsOfTheSameTeam
 actor GitHub
 participant System
 actor StaticAnalysisTool
 
 Student -> GitHub ++ : push(repo,files)
+activate Student
 GitHub --> Student --: pushed
+deactivate Student
 
 GitHub -> System ++ : notifyNewCommit(repo)
 
-System --> GitHub : received
+System --> GitHub --: received
 
 System -> GitHub ++ : pull(repo)
 GitHub --> System --: last commited files
@@ -45,6 +48,11 @@ loop for each student in the team
     deactivate System
 end
 
+System -> Student: notify()
+loop for each other student in the team
+    System -> OtherStudentsOfTheSameTeam: notify()
+    deactivate System
+end
 
-System --> Student --: confirmation
+
 @enduml
