@@ -10,8 +10,8 @@ usecase (view\ntournaments) as viewTournaments
 
 Educator -- createTournament: <<initiate>>
 createTournament -- (insert\ntournament\ninformation): <<include>>
-(create tournament\nwith colleagues) -- createTournament: <<extends>>
-(create badges) -- createTournament: <<extends>>
+(create tournament\nwith colleagues) ..> createTournament: <<extends>>
+(create badges) ..> createTournament: <<extends>>
 (insert\ntournament\ninformation) ..> (login): <<include>>
 
 Educator -- viewTournaments: <<initiate>>
