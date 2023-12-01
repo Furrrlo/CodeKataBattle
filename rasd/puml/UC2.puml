@@ -1,0 +1,44 @@
+@startuml UC2
+title UC2 - Educator creates a new Battle for an Existing Tournament    
+
+actor Educator
+
+participant System
+actor Students
+
+Educator -> System ++: getTournaments()
+activate Educator
+System --> Educator--: list of tournaments
+deactivate Educator
+
+Educator -> System ++: selectTournament(tournament)
+activate Educator
+System --> Educator--: tournamentDetails
+deactivate Educator
+
+Educator -> System ++: seeCreateNewBattlePage(tournament)
+activate Educator
+System --> Educator--: createNewBattleDetails
+deactivate Educator
+
+Educator -> System ++: createNewBattle(tournament, desc, minStudents, maxStudents, registrationDeadline, finalSubmissionDeadline)
+activate Educator
+
+System -> System: addBattle(tournament, desc, minStudents, maxStudents, registrationDeadline, finalSubmissionDeadline)
+
+System --> Educator: confirmation
+deactivate Educator
+
+loop for each student in the tournament
+    System -> Students : notify()
+
+end
+
+
+
+
+
+
+
+
+@enduml
