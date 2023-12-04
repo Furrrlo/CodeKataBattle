@@ -21,7 +21,7 @@ activate Educator
 System --> Educator--: createNewBattleDetails
 deactivate Educator
 
-Educator -> System ++: createNewBattle(tournament, desc, minStudents, maxStudents,\n\t\t\tregistrationDeadline, finalSubmissionDeadline)
+Educator -> System ++: createNewBattle(tournament, desc, minStudents, maxStudents,\n\t\t\tregistrationDeadline, finalSubmissionDeadline,\n\t\t\tbuildAutomationScripts, testCases)
 activate Educator
 
 System -> System: addBattle(tournament, desc, minStudents, maxStudents,\n\t\tregistrationDeadline, finalSubmissionDeadline)
