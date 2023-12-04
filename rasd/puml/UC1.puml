@@ -8,6 +8,8 @@ actor Student
 
 
 Educator -> System ++: createNewTournament(name, deadline, lists_of_educators)
+alt the name is unique
+
 activate Educator
 
 System -> System ++: createNewTournament(name)
@@ -22,11 +24,15 @@ loop for each educator in a lists_of_educators
 end
 
 System --> Educator : confirmation
-deactivate Educator
+
 
 loop for each student in the platform
     System -> Student : notify()
 
+end
+else name of the tournament already exists
+    System --> Educator : error
+    deactivate Educator
 end
 
 

@@ -181,7 +181,8 @@ Therefore, the following communication protocols are used:
                               \item The platform sends a notification to all students in the platform.
                         \end{enumerate} \\\hline
                         \textbf{Exit condition}  & The new tournament is created                                                                     \\\hline
-                        %\textbf{Exception} &                                                                                              \\\hline
+                        \textbf{Exception} & The name of the tournament already exists.    
+                        In that case, the platform returns an error and does not create the tournament.                                                                                        \\\hline
                   \end{tabular}
                   \caption{Educator creates a new Tournament }
                   \label{table:Educator creates a new Tournament }
@@ -225,7 +226,8 @@ Therefore, the following communication protocols are used:
                               \item The platform sends a notification to all students partecipating in the tournament.
                         \end{enumerate}                      \\\hline
                         \textbf{Exit condition}  & The new battle is added to the tournament                                         \\\hline
-                        %\textbf{Exception} &                                                                                              \\\hline
+                        \textbf{Exception} & Some parameters are unfeasible (such as final submission deadline succeed the registration deadline, min number of students > max number of students, ...).
+                        In that case, the platform returns an error and does not create the battle.                                                                                                 \\\hline
                   \end{tabular}
                   \caption{Educator creates a new Battle for an Existing Tournament        }
                   \label{table:Educator creates a new Battle for an Existing Tournament         }
