@@ -72,56 +72,61 @@ Therefore, the following communication protocols are used:
 
 \section{Functional Requirements}
 
-\begin{enumerate}[label=\textbf{R\arabic*}:,leftmargin=1.3cm]
-      \item The system shall allow the educator to create a tournament.
-            \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
-                  \item The system shall allow the educator to specify the subscribe deadline of a tournament.
-                  \item The system shall allow the educator to grant other colleagues the permission to create battles within the context of a specific tournament.
-                  \item The system shall notify the students of the new tournament.
-                  \item The system shall allow the educator who create the tournament to close it.
-            \end{enumerate}
-      \item The system shall allow the educator to create a battle within the context of a specific tournament.
-            \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
-                  \item The system shall allow the educator to set minimum and maximum number of students per group.
-                  \item The system shall allow the educator to set a textual description.
-                  \item The system shall allow the educator to set the programming language.
-                  \item The system shall allow the educator to upload a set of test cases.
-                  \item The system shall allow the educator to upload a build automation script.
-                  \item The system shall allow the educator to set a registration deadline.
-                  \item The system shall allow the educator to set a final submission deadline.
-                  \item The system shall allow the educator to enable manual evaluation.
-                  \item The system shall allow the educator to select aspects that should be evaluated by the static analysis tool, such as security, reliability, and maintainability.
-                  \item The system shall notify students subscribed to a tournament of the creation of a new battle.
-            \end{enumerate}
-      \item The system shall allow students to join a battle on his/her own or by inviting other students, respecting the minimum and maximum number of students per group.
-      \item When the registration deadline expires, the system shall create a GitHub repository containing the code kata.
-      \item The system shall send the link to all students who are members of subscribed teams.
-      \item The system shall expose an API that can by called by the GitHub Action platform.
-      \item On each push, the system shall calculate and update the battle score of the team. In particular: \comment{Non so se vanno bene divisi così, mi sa di no}
-            \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
-                  \item The system shall pull the latest sources.
-                  \item The system shall analyze quality level of the sources, based on the aspect selected by the educator.
-                  \item The system shall run tests uploaded by the educator.
-                  \item The system shall measure the time passed between the registration deadline and the last commit.
-            \end{enumerate}
-      \item The system shall allow students and educators involved in the battle to see the current rank evolving during the battle.
-      \item When the submission deadline expires, if manual evaluation is required, the system shall change the state of the battle to the consolidation stage.
-      \item When the submission deadline expires, if manual evaluation is not required, the system shall close the battle.
-      \item During the consolidation stage, if manual evaluation is required, the system shall allow the educator to go through the sources produced by each team to assign his/her score.
-      \item At the end of a battle, the system shall calculate the final rank.
-      \item When the final rank is available, the system shall notify all students participating in the battle.
-      \item At the end of each battle, the platform updates the personal tournament score of each student, that is the sum of all battle scores received in that tournament.
-      \item The system shall allows users to see the tournament ranks.
-      \item At the end of a tournament, the system shall calculate the final tournament rank.
-      \item When the final tournament rank is available, the system shall notify all students involved in the tournament.
-      \item The system shall allow the educator who create a tournament, to create badges within the context of the tournament.
-            \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:, leftmargin=*]
-                  \item The system shall allow the educator to specify the title of the badge.
-                  \item The system shall allow the educator to create a new variable that represent any piece of information available in the platform relevant for scoring.
-                  \item The system shall allow the educator to specify one or more rules that must be fulfilled to achieve the badge, based on variables.
-                  \item The system shall allow users to visualize badges collected by a student.
-            \end{enumerate}
-      \item At the end of a tournament, the system shall assign badges to the student who fulfilled the rules.
+\begin{enumerate}[label=\textbf{R\arabic*}:,ref=R\arabic*,leftmargin=1.3cm]
+      \labelleditem{The system shall allow the educator to create a tournament.}
+      \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:,ref=R\arabic{enumi}.\arabic*, leftmargin=*]
+            \labelledsubitem{The system shall allow the educator to specify the subscribe deadline of a tournament.}
+            \labelledsubitem{The system shall allow the educator to grant other colleagues the permission to create battles within the context of a specific tournament.}
+            \labelledsubitem{The system shall notify the students of the new tournament.}
+            \labelledsubitem{The system shall allow the educator who create the tournament to close it.}
+      \end{enumerate}
+      \labelleditem{The system shall allow students to subscribe to a tournament.}
+      \labelleditem{The system shall allow the educator to create a battle within the context of a specific tournament.}
+      \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:,ref=R\arabic{enumi}.\arabic*, leftmargin=*]
+            \labelledsubitem{The system shall allow the educator to set minimum and maximum number of students per group.}
+            \labelledsubitem{The system shall allow the educator to set a textual description.}
+            \labelledsubitem{The system shall allow the educator to set the programming language.}
+            \labelledsubitem{The system shall allow the educator to upload a set of test cases.}
+            \labelledsubitem{The system shall allow the educator to upload a build automation script.}
+            \labelledsubitem{The system shall allow the educator to set a registration deadline.}
+            \labelledsubitem{The system shall allow the educator to set a final submission deadline.}
+            \labelledsubitem{The system shall allow the educator to enable manual evaluation.}
+            \labelledsubitem{The system shall allow the educator to select aspects that should be evaluated by the static analysis tool, such as security, reliability, and maintainability.}
+            \labelledsubitem{The system shall notify students subscribed to a tournament of the creation of a new battle.}
+      \end{enumerate}
+      \labelleditem{The system shall allow students to join a battle, respecting the minimum and maximum number of students per group.}
+      \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:,ref=R\arabic{enumi}.\arabic*, leftmargin=*]
+            \labelledsubitem{The system shall allow students to invite other students to join a battle.}
+            \labelledsubitem{The system shall allow students to accept received invitation.}
+      \end{enumerate}
+      \labelleditem{When the registration deadline expires, the system shall create a GitHub repository containing the code kata.}
+      \labelleditem{The system shall send the link to all students who are members of subscribed teams.}
+      \labelleditem{The system shall expose an API that can by called by the GitHub Action platform.}
+      \labelleditem{On each push, the system shall calculate and update the battle score of the team. In particular: \comment{Non so se vanno bene divisi così, mi sa di no}}
+      \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:,ref=R\arabic{enumi}.\arabic*, leftmargin=*]
+            \labelledsubitem{The system shall pull the latest sources.}
+            \labelledsubitem{The system shall analyze quality level of the sources, based on the aspect selected by the educator.}
+            \labelledsubitem{The system shall run tests uploaded by the educator.}
+            \labelledsubitem{The system shall measure the time passed between the registration deadline and the last commit.}
+      \end{enumerate}
+      \labelleditem{The system shall allow students and educators involved in the battle to see the current rank evolving during the battle.}
+      \labelleditem{When the submission deadline expires, if manual evaluation is required, the system shall change the state of the battle to the consolidation stage.}
+      \labelleditem{When the submission deadline expires, if manual evaluation is not required, the system shall close the battle.}
+      \labelleditem{During the consolidation stage, if manual evaluation is required, the system shall allow the educator to go through the sources produced by each team to assign his/her score.}
+      \labelleditem{At the end of a battle, the system shall calculate the final rank.}
+      \labelleditem{When the final rank is available, the system shall notify all students participating in the battle.}
+      \labelleditem{At the end of each battle, the platform updates the personal tournament score of each student, that is the sum of all battle scores received in that tournament.}
+      \labelleditem{The system shall allows users to see the tournament ranks.}
+      \labelleditem{At the end of a tournament, the system shall calculate the final tournament rank.}
+      \labelleditem{When the final tournament rank is available, the system shall notify all students involved in the tournament.}
+      \labelleditem{The system shall allow the educator who create a tournament, to create badges within the context of the tournament.}
+      \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:,ref=R\arabic{enumi}.\arabic*, leftmargin=*]
+            \labelledsubitem{The system shall allow the educator to specify the title of the badge.}
+            \labelledsubitem{The system shall allow the educator to create a new variable that represent any piece of information available in the platform relevant for scoring.}
+            \labelledsubitem{The system shall allow the educator to specify one or more rules that must be fulfilled to achieve the badge, based on variables.}
+            \labelledsubitem{The system shall allow users to visualize badges collected by a student.}
+      \end{enumerate}
+      \labelleditem{At the end of a tournament, the system shall assign badges to the student who fulfilled the rules.}
 \end{enumerate}
 
 \pagebreak
@@ -149,8 +154,9 @@ Therefore, the following communication protocols are used:
 \subsection{Use cases}
 %Oppure facciamo tre sezioni separate per tabella, seq diagram e activity diagram,
 % ma così mi sembra più leggibile.
-\begin{enumerate}[label=\textbf{UC\arabic*}:,leftmargin=1.3cm]
-      \item \textbf{}
+\begin{enumerate}[label=\textbf{UC\arabic*}:,ref=UC\arabic*,leftmargin=1.3cm]
+      \labelleditem{
+            \textbf{}
             \begin{table}[H]
                   %\caption*{\textbf{Title}}
                   \centering
@@ -179,7 +185,6 @@ Therefore, the following communication protocols are used:
                   \caption{Educator creates a new Tournament }
                   \label{table:Educator creates a new Tournament }
             \end{table}
-
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC1}
@@ -187,21 +192,22 @@ Therefore, the following communication protocols are used:
                   \label{fig:Educator creates a new Tournament }
             \end{figure}
             \pagebreak
-
-            \item \textbf{}
+      }
+      \labelleditem{
+            \textbf{}
             \begin{table}[H]
                   %\caption*{\textbf{Title}}
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & Educator creates a new Battle for an Existing Tournament                                                              \\\hline
-                        \textbf{Actor}           & Educator who wants to create the battle, Students partecipating in the tournament                                            \\\hline
+                        \textbf{Name}            & Educator creates a new Battle for an Existing Tournament                          \\\hline
+                        \textbf{Actor}           & Educator who wants to create the battle, Students partecipating in the tournament \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Educator is logged in
                               \item Educator has permission to modify the tournament
                               \item Educator selects the option to create a new battle
-                        \end{itemize}                                                                  \\\hline
+                        \end{itemize}                                                      \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
                               \item The educator select the tournament.
@@ -216,14 +222,13 @@ Therefore, the following communication protocols are used:
                               \item The platform creates the battle for the tournament.
                               \item The platform shows a confirmation message.
                               \item The platform sends a notification to all students partecipating in the tournament.
-                        \end{enumerate} \\\hline
-                        \textbf{Exit condition}  & The new battle is added to the tournament                                                                 \\\hline
+                        \end{enumerate}                      \\\hline
+                        \textbf{Exit condition}  & The new battle is added to the tournament                                         \\\hline
                         %\textbf{Exception} &                                                                                              \\\hline
                   \end{tabular}
                   \caption{Educator creates a new Battle for an Existing Tournament        }
                   \label{table:Educator creates a new Battle for an Existing Tournament         }
             \end{table}
-
             \pagebreak
             \begin{figure}[H]
                   \centering
@@ -232,8 +237,9 @@ Therefore, the following communication protocols are used:
                   \label{fig:Educator creates a new Battle for an Existing Tournament         }
             \end{figure}
             \pagebreak
-
-      \item \textbf{}
+      }
+      \labelleditem{
+            \textbf{}
             \begin{table}[H]
                   %\caption*{\textbf{Title}}
                   \centering
@@ -263,7 +269,6 @@ Therefore, the following communication protocols are used:
                   \caption{Student joins to an existing Tournament by receiving a notication}
                   \label{table:Student joins to an existing Tournament by receiving a notication}
             \end{table}
-
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC3}
@@ -271,7 +276,9 @@ Therefore, the following communication protocols are used:
                   \label{fig:Student joins to an existing Tournament by receiving a notication}
             \end{figure}
             \pagebreak
-      \item \textbf{}
+      }
+      \labelleditem{
+            \textbf{}
             \begin{table}[H]
                   %\caption*{\textbf{Title}}
                   \centering
@@ -320,7 +327,6 @@ Therefore, the following communication protocols are used:
                   \label{table:Students create a team for a tournament battle}
             \end{table}
             \pagebreak
-
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC4}
@@ -328,7 +334,9 @@ Therefore, the following communication protocols are used:
                   \label{fig:Students create a team for a tournament battle}
             \end{figure}
             \pagebreak
-      \item \textbf{}
+      }
+      \labelleditem{
+            \textbf{}
             \begin{table}[H]
                   %\caption*{\textbf{Title}}
                   \centering
@@ -356,7 +364,6 @@ Therefore, the following communication protocols are used:
                   \caption{Students are notified about the creation of the GitHub repository for a battle  }
                   \label{table:Students are notified about the creation of the GitHub repository for a battle}
             \end{table}
-
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC5}
@@ -364,7 +371,9 @@ Therefore, the following communication protocols are used:
                   \label{fig:Students are notified about the creation of the GitHub repository for a battle}
             \end{figure}
             \pagebreak
-      \item \textbf{}
+      }
+      \labelleditem{
+            \textbf{}
             \begin{table}[H]
                   %\caption*{\textbf{Title}}
                   \centering
@@ -399,7 +408,6 @@ Therefore, the following communication protocols are used:
                   \caption{Students are notified about the updated team battle and personal students score}
                   \label{table:Students are notified about the updated team battle and personal students score}
             \end{table}
-
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC6}
@@ -407,7 +415,9 @@ Therefore, the following communication protocols are used:
                   \label{fig:Students are notified about the updated team battle and personal students score}
             \end{figure}
             \pagebreak
-      \item \textbf{}
+      }
+      \labelleditem{
+            \textbf{}
             \begin{table}[H]
                   %\caption*{\textbf{Title}}
                   \centering
@@ -443,17 +453,16 @@ Therefore, the following communication protocols are used:
                   \caption{Educator manually evaluate teams    }
                   \label{table:Educator manually evaluate teams    }
             \end{table}
-
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC7}
                   \caption{Educator manually evaluate teams    }
                   \label{fig:Educator manually evaluate teams    }
             \end{figure}
-
             \pagebreak
-
-      \item \textbf{}
+      }
+      \labelleditem{
+            \textbf{}
             \begin{table}[H]
                   %\caption*{\textbf{Title}}
                   \centering
@@ -483,16 +492,154 @@ Therefore, the following communication protocols are used:
                   \caption{Educator closes a tournament   }
                   \label{table:Educator closes a tournament   }
             \end{table}
-
             \begin{figure}[H]
                   \centering
                   \puml{puml/UC8}
                   \caption{Educator closes a tournament   }
                   \label{fig:Educator closes a tournament   }
             \end{figure}
-
+      }
 \end{enumerate}
 \subsection{Requirements mapping}
+In this section it is shown how the relation $R\land D \models G$ holds.
+In particular, the following traceability matrix associates domain assumptions and requirements to goals.
+After that, to facilitate reading, the text of all the assumptions and all the requirements related to each goal is reported.
+
+\begin{table}[H]
+      %\caption*{\textbf{Title}}
+      \centering
+      \begin{tabular}{|l|p{8cm}|p{5cm}|}
+            \hline
+            \textbf{Goal ID} & \textbf{Requirement ID}                                                                                                                                                                                         & \textbf{Domain assumption ID}                                                      \\\hline
+            \ref{{G1}}       & \ref{{R1}}, \ref{{R1.1}}, \ref{{R1.4}}                                                                                                                                                                          & \ref{{D1}}, \ref{{D2}}                                                             \\\hline
+            \ref{{G2}}       & \ref{{R3}}, \ref{{R3.1}}, \ref{{R3.2}}, \ref{{R3.3}}, \ref{{R3.4}}, \ref{{R3.5}}, \ref{{R3.6}}, \ref{{R3.7}}                                                                                                    & \ref{{D2}}                                                                         \\\hline
+            \ref{{G3}}       & \ref{{R1.2}}                                                                                                                                                                                                    & \ref{{D2}}                                                                         \\\hline
+            \ref{{G4}}       & \ref{{R3.8}}, \ref{{R3.9}}                                                                                                                                                                                      & \ref{{D2}}                                                                         \\\hline
+            \ref{{G5}}       & \ref{{R1.3}}                                                                                                                                                                                                    & \ref{{D1}}, \ref{{D2}}                                                             \\\hline
+            \ref{{G6}}       & \ref{{R2}}                                                                                                                                                                                                      & \ref{{D1}}                                                                         \\\hline
+            \ref{{G7}}       & \ref{{R3.10}}                                                                                                                                                                                                   & \ref{{D1}}                                                                         \\\hline
+            \ref{{G8}}       & \ref{{R4.1}}, \ref{{R4.2}}                                                                                                                                                                                      & \ref{{D1}}                                                                         \\\hline
+            \ref{{G9}}       & \ref{{R4}}, \ref{{R5}}, \ref{{R6}}                                                                                                                                                                              & \ref{{D1}}, \ref{{D3}}                                                             \\\hline
+            \ref{{G10}}      & \ref{{R7}}, \ref{{R8}}, \ref{{R8.1}}, \ref{{R8.2}}, \ref{{R8.3}}, \ref{{R8.4}}, \ref{{R9}}, \ref{{R10}}, \ref{{R11}}, \ref{{R12}}, \ref{{R13}}, \ref{{R14}}, \ref{{R15}}, \ref{{R16}}, \ref{{R17}}, \ref{{R18}} & \ref{{D1}}, \ref{{D3}}, \ref{{D4}}, \ref{{D5}}, \ref{{D6}}, \ref{{D7}}, \ref{{D8}} \\\hline
+            \ref{{G11}}      & \ref{{R19}}, \ref{{R19.1}}, \ref{{R19.2}}, \ref{{R19.3}}                                                                                                                                                        & \ref{{D2}}                                                                         \\\hline
+            \ref{{G12}}      & \ref{{R20}}                                                                                                                                                                                                     & \ref{{D1}}                                                                         \\\hline
+            \ref{{G13}}      & \ref{{R19.4}}                                                                                                                                                                                                   & \ref{{D1}}, \ref{{D2}}                                                             \\\hline
+      \end{tabular}
+      \caption{Traceability matrix}
+      \label{table:Traceability matrix}
+\end{table}
+
+\begin{enumerate}[leftmargin=1.3cm]
+      \printitem{G1}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R1}
+            \printitem{R1.1}
+            \printitem{R1.4}
+            \printitem{D1}
+            \printitem{D2}
+      \end{enumerate}
+
+      \printitem{G2}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R3}
+            \printitem{R3.1}
+            \printitem{R3.2}
+            \printitem{R3.3}
+            \printitem{R3.4}
+            \printitem{R3.5}
+            \printitem{R3.6}
+            \printitem{R3.7}
+            \printitem{D2}
+      \end{enumerate}
+      \printitem{G3}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R1.2}
+            \printitem{D2}
+      \end{enumerate}
+      \printitem{G4}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R3.8}
+            \printitem{R3.9}
+            \printitem{D2}
+      \end{enumerate}
+      \printitem{G5}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R1.3}
+            \printitem{D1}
+            \printitem{D2}
+      \end{enumerate}
+      \printitem{G6}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R2}
+            \printitem{D1}
+      \end{enumerate}
+      \printitem{G7}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R3.10}
+            \printitem{D1}
+      \end{enumerate}
+      \printitem{G8}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R4.1}
+            \printitem{R4.2}
+            \printitem{D1}
+      \end{enumerate}
+      \printitem{G9}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R4}
+            \printitem{R5}
+            \printitem{R6}
+            \printitem{D1}
+            \printitem{D3}
+      \end{enumerate}
+      \printitem{G10}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R7}
+            \printitem{R8}
+            \printitem{R8.1}
+            \printitem{R8.2}
+            \printitem{R8.3}
+            \printitem{R8.4}
+            \printitem{R9}
+            \printitem{R10}
+            \printitem{R11}
+            \printitem{R12}
+            \printitem{R13}
+            \printitem{R14}
+            \printitem{R15}
+            \printitem{R16}
+            \printitem{R17}
+            \printitem{R18}
+            \printitem{D1}
+            \printitem{D3}
+            \printitem{D4}
+            \printitem{D5}
+            \printitem{D6}
+            \printitem{D7}
+            \printitem{D8}
+      \end{enumerate}
+      \printitem{G11}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R19}
+            \printitem{R19.1}
+            \printitem{R19.2}
+            \printitem{R19.3}
+            \printitem{D2}
+      \end{enumerate}
+      \printitem{G12}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R20}
+            \printitem{D1}
+      \end{enumerate}
+      \printitem{G13}
+      \begin{enumerate}[leftmargin=1.3cm]
+            \printitem{R19.4}
+            \printitem{D1}
+            \printitem{D2}
+      \end{enumerate}
+\end{enumerate}
+
+
 \section{Performance Requirements}
 
 \section{Design Constraints}

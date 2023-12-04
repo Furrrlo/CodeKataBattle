@@ -115,6 +115,19 @@
     \fi
 }
 
+\newcommand*{\labelleditem}[1]{
+    \item \expandafter\gdef\csname \theenumi\endcsname{#1} \label{\theenumi} #1
+}
+
+\newcommand*{\labelledsubitem}[1]{
+    \item \expandafter\gdef\csname \theenumii\endcsname{#1} \label{\theenumii} #1
+}
+
+\newcommand{\printitem}[1] {
+	\item[\textbf{\ref{{#1}}}:] \csname {#1}\endcsname
+}
+
+
 % EXAMPLES OF NEW COMMANDS
 \newcommand{\bea}{\begin{eqnarray}} % Shortcut for equation arrays
 \newcommand{\eea}{\end{eqnarray}}
