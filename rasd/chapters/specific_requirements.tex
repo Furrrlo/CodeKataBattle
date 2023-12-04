@@ -715,6 +715,14 @@ The following traceability matrix associates requirements to use cases.
 
 
 \section{Performance Requirements}
+The system must be sized considering the number of users who will use it.
+Indeed, the grade assigned by the platform must not depend on the number of students pushing at the same time.
+
+The automatic evaluation must be done within 10 minutes of the push.
+If this does not happen, the platform can assume that the tests are deadlocked and kill the process.
+
+The system must have disk space to store information of tournaments and battles, such as teams and ranks.
+Students' code is hosted on GitHub, but it has to be cloned to the server disk to run tests.
 
 \section{Design Constraints}
 \subsection{Standards Compliance}
