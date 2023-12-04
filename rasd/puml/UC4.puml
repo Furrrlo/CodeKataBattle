@@ -55,11 +55,14 @@ invited <-- System -- : confirmation
 deactivate invited
 
 ...
-
 inviting -> System ++ : partecipate(battle, team)
-activate inviting
-System -> System ++-- : enrollInBattle(battle, team)
-inviting <-- System -- : confirmation
+alt number of participants satisfied
+    activate inviting
+    System -> System ++-- : enrollInBattle(battle, team)
+    inviting <-- System -- : confirmation
+else minimum number of partecipants not satisfied
+    inviting <-- System -- : error
+end
 deactivate inviting
 
 @enduml
