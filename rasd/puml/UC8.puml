@@ -4,8 +4,18 @@ actor Educator
 participant System
 actor Student
 
-Educator -> System ++ : close(tournament)
+
+Educator -> System ++: getTournaments()
 activate Educator
+System --> Educator--: list of tournaments
+
+
+
+Educator -> System ++ : selectTournament(tournament)
+Educator <-- System -- : tournamentDetails
+
+Educator -> System ++ : close(tournament)
+
 
 System -> System ++ : calculateFinalRank()
 deactivate System

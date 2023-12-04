@@ -3,25 +3,34 @@ title UC7 - Educator manually evaluate teams
 actor Educator
 participant System
 actor Student
+actor GitHub
 
 note across: The submission deadline expires
 
-Educator -> System ++ : selectTournament(tournament)
+
+Educator -> System ++: getTournaments()
 activate Educator
+System --> Educator--: list of tournaments
+
+
+
+Educator -> System ++ : selectTournament(tournament)
 Educator <-- System -- : tournamentDetails
 
 Educator -> System ++ : selectBattle(battle)
 Educator <-- System -- : battleDetails
 
-Educator -> System ++ : evaluate()
-Educator <-- System -- : teamList
+Educator -> System ++ : evaluate(battle)
+Educator <-- System -- : list of teams
 
 loop for each team
     Educator -> System ++ : getSource(team)
+    System -> GitHub ++: Pull(repo)
+    System <- GitHub --: source code
     Educator <-- System -- : source
 
     Educator -> System ++ : assignGrade(team, grade)
-    Educator <-- System -- : outcome
+    Educator <-- System -- : confirmation
 end
 
 Educator -> System ++ : close(battle)

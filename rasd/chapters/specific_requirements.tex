@@ -168,16 +168,16 @@ Therefore, the following communication protocols are used:
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Educator is logged in
-                              \item Educator selects the option to create a new tournament
                         \end{itemize}                                                                  \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
-                              \item The platform shows the \emph{CREATE_TOURNAMENT} page.
+                              \item The educator selects the option to create a new tournament
                               \item The educator inserts the name of the tournament.
                               \item The educator inserts the registration deadline of the tournament.
                               \item The educator selects all the other educators he wants to invite to allow them to create new battles for the tournament.
                               \item The educator confirms the creation of the tournament.
-                              \item The platform shows a confirmation message.
+                              \item The platform creates the new tournament.
+                              \item The platform sends to the educator a confirmation message.
                               \item The platform sends a notification to all students in the platform.
                         \end{enumerate} \\\hline
                         \textbf{Exit condition}  & The new tournament is created                                                                     \\\hline
@@ -207,22 +207,21 @@ Therefore, the following communication protocols are used:
                         \begin{itemize}
                               \item Educator is logged in
                               \item Educator has permission to modify the tournament
-                              \item Educator selects the option to create a new battle
                         \end{itemize}                                                      \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
-                              \item The educator select the tournament.
-                              \item The platform shows the \emph{DETAIL\_TOURNAMENT} page.
-                              \item The educator clicks on the \emph{"Create New Battle"} button.
-                              \item The platform shows the \emph{CREATE\_BATTLE} page.
+                              \item The educator asks the platform the list of available tournaments.
+                              \item The platform sends to the educator the list of available tournaments.
+                              \item The educator selects the tournament.
+                              \item The platform shows the detail of the selected tournament.
                               \item The educator inserts the Battle Description field.
                               \item The educator uploads test cases and build and automation scripts.
                               \item The educator inserts the minimum and maximum number of students per group.
                               \item The educator inserts the registration deadline.
                               \item The educator inserts the final submission deadline.
-                              \item The educator clicks on the \emph{"Create Battle"} button.
+                              \item The educator selects the option to create the new battle.
                               \item The platform creates the battle for the tournament.
-                              \item The platform shows a confirmation message.
+                              \item The platform sends to the educator a confirmation message.
                               \item The platform sends a notification to all students partecipating in the tournament.
                         \end{enumerate}                      \\\hline
                         \textbf{Exit condition}  & The new battle is added to the tournament                                         \\\hline
@@ -254,16 +253,17 @@ Therefore, the following communication protocols are used:
                               \item Student is logged in
                               \item A new tournament has been created
                               \item Student has received a notification of the creation of a new tournament
-                              \item Student selects the option to sign up to the tournament
                         \end{itemize}                                          \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
                               \item Upon the creation of a new tournament, the platform sends a notification to all students which have enabled them
-                              \item The student selects a tournament on the \emph{HOMEPAGE}.
-                              \item The platform shows the details of the new tournament.
-                              \item The student clicks the \emph{sign up} button.
+                              \item The student asks the platform the list of available tournaments.
+                              \item The platform sends to the student the list of available tournaments.
+                              \item The student selects the tournament.
+                              \item The platform sends to the student the detail of the selected tournament.
+                              \item The student selects the option to sign up to the tournament.
                               \item The platform enrolls the student in the tournament.
-                              \item The platform shows a confirmation message to the student.
+                              \item The platform sends to the student a confirmation message.
                         \end{enumerate} \\\hline
                         \textbf{Exit condition}  & The student is subscribed to the tournament                                                \\\hline
                         %\textbf{Exception} &                                                                                              \\\hline
@@ -293,33 +293,36 @@ Therefore, the following communication protocols are used:
                               \item Students are logged in
                               \item Students are enrolled in the same tournament
                               \item Students has invitation notifications enabled
-                              \item The inviting student have selected a tournament
-                              \item The inviting student have selected a battle for the tournament
-                              \item Inviting student selects the option to create a new team for the battle
+                              \item 
                         \end{itemize}                           \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
-                              \item The inviting student clicks the \emph{create a team} button.
-                              \item The platform creates a new team with the student.
-                              \item The platform returns a confirmation message.
-                              \item The inviting student inserts the name of invited student 1.
+                              \item The inviting student asks the platform the list of available tournaments.
+                              \item The platform sends to the inviting student the list of available tournaments.
+                              \item The inviting student selects the tournament.
+                              \item The platform sends to the inviting student the detail of the selected tournament (including the battles available for the tournament).
+                              \item The inviting student selects the battle in the tournament.
+                              \item The platform sends to the inviting student the detail of the selected battle within the tournament.
+                              \item The inviting student selects the option to create a new team for the battle.
+                              \item The platform creates a new team for the battle.
+                              \item The platform add the inviting student to the created team.
+                              \item The platform returns to the inviting student a confirmation message.
+                              \item The inviting student selects the option to invite "invited student 1".
                               \item The platform creates an invitation for invited student 1.
                               \item The platform sends a notification to invited student 1.
-                              \item Invited student 1 clicks on \emph{accept} on the notification.
+                              \item Invited student 1 receives the notification and accepts.
                               \item The platform adds invited student 1 to the team.
-                              \item The platform shows a confirmation message.
-                              \item The inviting student inserts the name of invited student 2.
+                              \item The platform returns to invited student 1 a confirmation message.
+                              \item The inviting student selects the option to invite "invited student 2".
                               \item The platform creates an invitation for invited student 2.
-                              \item Invited student 2 visits the \emph{HOMEPAGE}.
-                              \item The platform returns the homepage, with the invites.
-                              \item Invited student 2 clicks the \emph{accept} button of the invitation.
+                              \item Invited student 2 asks the platform the list of invites.
+                              \item The platform returns to Invited student 2 the list of his invites.
+                              \item Invited student 2 accepts the invite for the battle.
                               \item The platform adds invited student 2 to the team.
-                              \item The platform shows a confirmation message.
-                              \item The inviting student refreshes the battle page.
-                              \item The platform shows the details of the battle, along with the team information.
-                              \item The inviting student clicks the \emph{partecipate with team} button.
+                              \item The platform returns to invited student 2 a confirmation message.
+                              \item The inviting student selects the option to partecipate in the battle with the new created team.
                               \item The platform signs up the team to the battle.
-                              \item The platform shows a confirmation message.
+                              \item The platform returns to inviting student a confirmation message.
                         \end{enumerate}                    \\\hline
                         \textbf{Exit condition}  & The students are all subscribed in a battle with the same team              \\\hline
                         \textbf{Exception}       & The team does not respect the partecipant number requirement of the battle.
@@ -345,20 +348,19 @@ Therefore, the following communication protocols are used:
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
                         \textbf{Name}            & Students are notified about the creation of the GitHub repository for a battle they are participating in \\\hline
-                        \textbf{Actor}           & Student                                                                                                  \\\hline
+                        \textbf{Actor}           & Students                                                                                             \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Students are participating in a team for the same battle of the same tournament
-                              \item The battle's registration deadline expires
                         \end{itemize}                                                \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
                               \item When the registration deadline of a battle expires, the platform starts the creation of the repository.
                               \item The platform gets the battle info.
-                              \item The platform get the CodeKata of the battle.
-                              \item The platform creates the repository GitHub with name, description and the CodeKata
+                              \item The platform gets the CodeKata of the battle.
+                              \item The platform creates the repository GitHub with name, description and the CodeKata.
                               \item The platform gets all the teams registered for the battle.
-                              \item The platform notifies all the students that are in a team.
+                              \item The platform notifies all the students that are partecipating in a team for the battle.
                         \end{enumerate}                        \\\hline
                         \textbf{Exit condition}  & The GitHub repository for the battle is created                                                          \\\hline
                         %\textbf{Exception} &                                                                                              \\\hline
@@ -386,22 +388,22 @@ Therefore, the following communication protocols are used:
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Pushing Student is partecipating in a battle of a tournament
-                              \item Pushing Student has pushed new files to the forked GitHub battle repository
+                              \item Pushing Student has forked the GitHub repository of the battle
                         \end{itemize}                                                                                        \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
-                              \item The student commits project code.
-                              \item The student pushes the commited project code to the forked GitHub battle repository.
+                              \item The pushing Student commits project code.
+                              \item The pushing Student pushes the commited project code to the forked GitHub battle repository.
                               \item The platform gets notified about the new push.
-                              \item The platform pull the updated project code.
+                              \item The platform pulls the updated project code.
                               \item The platform gets info (tournament, group, students, aspects_to_check) regarding the repo that is analyzing.
                               \item The platform analyzes the code.
-                              \item The platform runs all the test cases associated for that battle.
+                              \item The platform runs all the test cases associated for the battle.
                               \item The platform calculates the days that have passed since the start of the battle.
                               \item The platform runs the static analysis tools.
-                              \item The platform calculates the total scores.
-                              \item The platform update the battle team score.
-                              \item The platform update the personal tournament score for each student in the team.
+                              \item The platform calculates the total score.
+                              \item The platform updates the battle team score.
+                              \item The platform updates the personal tournament score for each student in the team.
                               \item The platform notifies the updated battle team score to all the students of the same team.
                         \end{enumerate}                                                       \\\hline
                         \textbf{Exit condition}  & The battle team and students tournament score are updated                                                                                    \\\hline
@@ -425,27 +427,31 @@ Therefore, the following communication protocols are used:
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & Educator manually evaluate teams                                            \\\hline
+                        \textbf{Name}            & Educator manually evaluates teams                                            \\\hline
                         \textbf{Actor}           & Educator, Students                                                          \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Educator has logged in
                               \item Educator has permission to modify the battle of the tournament
-                              \item The submission deadline of the battle expires
                         \end{itemize}                                    \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
                               \item When the submission deadline expires, the platform opens the consolidation stage.
-                              \item The educator selects a tournament from the \emph{HOMEPAGE}
-                              \item The platform shows the list of battles in the tournament.
+                              \item The educator asks the platform the the list of available tournaments.
+                              \item The platform sends to the educator the list of available tournaments.
+                              \item The educator selects the tournament.
+                              \item The platform shows the detail of the selected tournament (including the list of battles).
                               \item The educator selects the battle.
                               \item The platform shows the details of the battle.
-                              \item The educator clicks the \emph{evaluate} button.
-                              \item The platform shows sources submitted by each team.
+                              \item The educator selects the option to evaluate teams.
+                              \item The platform returns the list of teams within the battle.
+                              \item The educator asks for the source code for each team.
+                              \item The platform returns to the educator the source code for each team.
                               \item The educator assigns a score to each team.
-                              \item The educator clicks the \emph{close} button in the battle page.
+                              \item The educator selects the option to close the battle.
                               \item The platform calculates the final battle ranks.
                               \item The platform notifies students who participated in the battle.
+                              \item The platform sends to the educator a confirmation message.
                         \end{enumerate}                 \\\hline
                         \textbf{Exit condition}  & The battle is closed and the final battle ranks are calculated              \\\hline
                         \textbf{Exception}       & The educator clicks the \emph{close} button before evaluating all students.
@@ -477,11 +483,14 @@ Therefore, the following communication protocols are used:
                               \item Educator has logged in
                               \item Educator has permission to modify the tournament
                               \item All battles in the tournament are closed
-                              \item Educator selects the option to close a tournament
                         \end{itemize}                                \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
-                              \item Educator clicks the \emph{close} button in the tournament page.
+                              \item The educator asks the platform the list of available tournaments.
+                              \item The platform sends to the educator the list of available tournaments.
+                              \item The educator selects the tournament.
+                              \item The platform shows the detail of the selected tournament.
+                              \item Educator selects the option to close the tournament.
                               \item The platform calculates the final tournament rank.
                               \item The platform gets the information about the available badges for the tournament.
                               \item The platform assigns badges to the student who fulfilled the rules.

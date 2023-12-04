@@ -5,8 +5,12 @@ actor "Invited Student 1" as notif
 actor "Invited Student 2" as invited
 participant System
 
-inviting -> System ++ : selectTournament(tournament)
+inviting -> System ++: getTournaments()
 activate inviting
+System --> inviting--: list of tournaments
+
+inviting -> System ++ : selectTournament(tournament)
+
 inviting <-- System -- : tournamentDetails
 
 inviting -> System ++ : selectBattle(battle)

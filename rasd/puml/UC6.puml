@@ -11,12 +11,14 @@ activate Student
 GitHub --> Student --: pushed
 deactivate Student
 
+
 GitHub -> System ++ : notifyNewCommit(repo)
 
-System --> GitHub --: received
+System --> GitHub : received
 
 System -> GitHub ++ : pull(repo)
 GitHub --> System --: last commited files
+
 
 System -> System ++: getInfo(repo)
 deactivate System

@@ -9,7 +9,6 @@ actor Student
 
 note across: The registration deadline expires
 
-
 System -> System ++: getBattleInfo()
 
 

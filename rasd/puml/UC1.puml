@@ -6,10 +6,6 @@ actor Educator
 participant System
 actor Student
 
-Educator -> System ++: seeCreateNewTournamentPage()
-activate Educator
-System --> Educator--: createNewTournamentDetails
-deactivate Educator
 
 Educator -> System ++: createNewTournament(name, deadline, lists_of_educators)
 activate Educator
