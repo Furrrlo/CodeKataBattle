@@ -325,8 +325,12 @@ Therefore, the following communication protocols are used:
                               \item The platform returns to inviting student a confirmation message.
                         \end{enumerate}                    \\\hline
                         \textbf{Exit condition}  & The students are all subscribed in a battle with the same team              \\\hline
-                        \textbf{Exception}       & The team does not meet the number of participants requirement of the battle.
-                        In that case, the platform returns an error and the student can invite additional members              \\\hline
+                        \textbf{Exception}       & \begin{itemize}
+                              \item Inviting student wants to invite another student but the maximum number of students has been reached.
+                              In that case, the platform returns an error.
+                              \item The team wants to partecipate in a battle but the number of participants requirement of the battle is not satisfied.
+                        In that case, the platform returns an error and the student can invite additional members.
+                        \end{itemize}            \\\hline
                   \end{tabular}
                   \caption{Students create a team for a tournament battle}
                   \label{table:Students create a team for a tournament battle}

@@ -39,27 +39,34 @@ deactivate notif
 ...
 
 inviting -> System ++ : invite(team, invited-student-2)
-activate inviting
-System -> System ++-- : createInvite(team, invited-student-2)
-inviting <-- System -- : invitationConfirmation
-deactivate inviting
-...
+alt maximum number of students not violated
+        activate inviting
+        System -> System ++-- : createInvite(team, invited-student-2)
+        inviting <-- System  : invitationConfirmation
+        
+    else maximum number of students reached for the battle
+        inviting <-- System -- : error
+        deactivate inviting
+end
+    ...
 
-invited -> System ++ : seeHomepage()
-activate invited
-invited <-- System -- : homepageDetails
+alt Invited Student 2 successfully invited
+    invited -> System ++ : seeHomepage()
+    activate invited
+    invited <-- System -- : homepageDetails
 
-invited -> System ++ : acceptInvite(invite)
-System -> System ++-- : addStudentToTeam(team, invited-student-1)
-invited <-- System -- : confirmation
-deactivate invited
+    invited -> System ++ : acceptInvite(invite)
+    System -> System ++-- : addStudentToTeam(team, invited-student-1)
+    invited <-- System -- : confirmation
+    deactivate invited
+end
 
 ...
 inviting -> System ++ : partecipate(battle, team)
 alt number of participants satisfied
     activate inviting
     System -> System ++-- : enrollInBattle(battle, team)
-    inviting <-- System -- : confirmation
+    inviting <-- System : confirmation
 else minimum number of partecipants not satisfied
     inviting <-- System -- : error
 end
