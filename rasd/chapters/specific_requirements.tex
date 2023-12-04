@@ -73,6 +73,7 @@ Therefore, the following communication protocols are used:
 \section{Functional Requirements}
 
 \begin{enumerate}[label=\textbf{R\arabic*}:,ref=R\arabic*,leftmargin=1.3cm]
+      \labelleditem{The system shall allow users to login with SSO}
       \labelleditem{The system shall allow the educator to create a tournament.}
       \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:,ref=R\arabic{enumi}.\arabic*, leftmargin=*]
             \labelledsubitem{The system shall allow the educator to specify the subscribe deadline of a tournament.}
@@ -511,20 +512,20 @@ After that, to facilitate reading, the text of all the assumptions and all the r
       \centering
       \begin{tabular}{|l|p{8cm}|p{5cm}|}
             \hline
-            \textbf{Goal ID} & \textbf{Requirement ID}                                                                                                                                                                                         & \textbf{Domain assumption ID}                                                      \\\hline
-            \ref{{G1}}       & \ref{{R1}}, \ref{{R1.1}}, \ref{{R1.4}}                                                                                                                                                                          & \ref{{D1}}, \ref{{D2}}                                                             \\\hline
-            \ref{{G2}}       & \ref{{R3}}, \ref{{R3.1}}, \ref{{R3.2}}, \ref{{R3.3}}, \ref{{R3.4}}, \ref{{R3.5}}, \ref{{R3.6}}, \ref{{R3.7}}                                                                                                    & \ref{{D2}}                                                                         \\\hline
-            \ref{{G3}}       & \ref{{R1.2}}                                                                                                                                                                                                    & \ref{{D2}}                                                                         \\\hline
-            \ref{{G4}}       & \ref{{R3.8}}, \ref{{R3.9}}                                                                                                                                                                                      & \ref{{D2}}                                                                         \\\hline
-            \ref{{G5}}       & \ref{{R1.3}}                                                                                                                                                                                                    & \ref{{D1}}, \ref{{D2}}                                                             \\\hline
-            \ref{{G6}}       & \ref{{R2}}                                                                                                                                                                                                      & \ref{{D1}}                                                                         \\\hline
-            \ref{{G7}}       & \ref{{R3.10}}                                                                                                                                                                                                   & \ref{{D1}}                                                                         \\\hline
-            \ref{{G8}}       & \ref{{R4.1}}, \ref{{R4.2}}                                                                                                                                                                                      & \ref{{D1}}                                                                         \\\hline
-            \ref{{G9}}       & \ref{{R4}}, \ref{{R5}}, \ref{{R6}}                                                                                                                                                                              & \ref{{D1}}, \ref{{D3}}                                                             \\\hline
-            \ref{{G10}}      & \ref{{R7}}, \ref{{R8}}, \ref{{R8.1}}, \ref{{R8.2}}, \ref{{R8.3}}, \ref{{R8.4}}, \ref{{R9}}, \ref{{R10}}, \ref{{R11}}, \ref{{R12}}, \ref{{R13}}, \ref{{R14}}, \ref{{R15}}, \ref{{R16}}, \ref{{R17}}, \ref{{R18}} & \ref{{D1}}, \ref{{D3}}, \ref{{D4}}, \ref{{D5}}, \ref{{D6}}, \ref{{D7}}, \ref{{D8}} \\\hline
-            \ref{{G11}}      & \ref{{R19}}, \ref{{R19.1}}, \ref{{R19.2}}, \ref{{R19.3}}                                                                                                                                                        & \ref{{D2}}                                                                         \\\hline
-            \ref{{G12}}      & \ref{{R20}}                                                                                                                                                                                                     & \ref{{D1}}                                                                         \\\hline
-            \ref{{G13}}      & \ref{{R19.4}}                                                                                                                                                                                                   & \ref{{D1}}, \ref{{D2}}                                                             \\\hline
+            \textbf{Goal ID} & \textbf{Requirement ID}                                                                                                                                                                                                      & \textbf{Domain assumption ID}                                                      \\\hline
+            \ref{{G1}}       & \ref{{R1}}, \ref{{R2}}, \ref{{R2.1}}, \ref{{R2.4}}                                                                                                                                                                           & \ref{{D1}}, \ref{{D2}}                                                             \\\hline
+            \ref{{G2}}       & \ref{{R1}}, \ref{{R4}}, \ref{{R4.1}}, \ref{{R4.2}}, \ref{{R4.3}}, \ref{{R4.4}}, \ref{{R4.5}}, \ref{{R4.6}}, \ref{{R4.7}}                                                                                                     & \ref{{D2}}                                                                         \\\hline
+            \ref{{G3}}       & \ref{{R1}}, \ref{{R2.2}}                                                                                                                                                                                                     & \ref{{D2}}                                                                         \\\hline
+            \ref{{G4}}       & \ref{{R1}}, \ref{{R4.8}}, \ref{{R4.9}}                                                                                                                                                                                       & \ref{{D2}}                                                                         \\\hline
+            \ref{{G5}}       & \ref{{R1}}, \ref{{R2.3}}                                                                                                                                                                                                     & \ref{{D1}}, \ref{{D2}}                                                             \\\hline
+            \ref{{G6}}       & \ref{{R1}}, \ref{{R3}}                                                                                                                                                                                                       & \ref{{D1}}                                                                         \\\hline
+            \ref{{G7}}       & \ref{{R1}}, \ref{{R4.10}}                                                                                                                                                                                                    & \ref{{D1}}                                                                         \\\hline
+            \ref{{G8}}       & \ref{{R1}}, \ref{{R5.1}}, \ref{{R5.2}}                                                                                                                                                                                       & \ref{{D1}}                                                                         \\\hline
+            \ref{{G9}}       & \ref{{R1}}, \ref{{R5}}, \ref{{R6}}, \ref{{R7}}                                                                                                                                                                               & \ref{{D1}}, \ref{{D3}}                                                             \\\hline
+            \ref{{G10}}      & \ref{{R1}}, \ref{{R8}}, \ref{{R9}}, \ref{{R9.1}}, \ref{{R9.2}}, \ref{{R9.3}}, \ref{{R9.4}}, \ref{{R10}}, \ref{{R11}}, \ref{{R12}}, \ref{{R13}}, \ref{{R14}}, \ref{{R15}}, \ref{{R16}}, \ref{{R17}}, \ref{{R18}}, \ref{{R19}} & \ref{{D1}}, \ref{{D3}}, \ref{{D4}}, \ref{{D5}}, \ref{{D6}}, \ref{{D7}}, \ref{{D8}} \\\hline
+            \ref{{G11}}      & \ref{{R1}}, \ref{{R20}}, \ref{{R20.1}}, \ref{{R20.2}}, \ref{{R20.3}}                                                                                                                                                         & \ref{{D2}}                                                                         \\\hline
+            \ref{{G12}}      & \ref{{R1}}, \ref{{R21}}                                                                                                                                                                                                      & \ref{{D1}}                                                                         \\\hline
+            \ref{{G13}}      & \ref{{R1}}, \ref{{R20.4}}                                                                                                                                                                                                    & \ref{{D1}}, \ref{{D2}}                                                             \\\hline
       \end{tabular}
       \caption{Traceability matrix}
       \label{table:Traceability matrix}
@@ -534,74 +535,83 @@ After that, to facilitate reading, the text of all the assumptions and all the r
       \printitem{G1}
       \begin{enumerate}[leftmargin=1.3cm]
             \printitem{R1}
-            \printitem{R1.1}
-            \printitem{R1.4}
+            \printitem{R2}
+            \printitem{R2.1}
+            \printitem{R2.4}
             \printitem{D1}
             \printitem{D2}
       \end{enumerate}
 
       \printitem{G2}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R3}
-            \printitem{R3.1}
-            \printitem{R3.2}
-            \printitem{R3.3}
-            \printitem{R3.4}
-            \printitem{R3.5}
-            \printitem{R3.6}
-            \printitem{R3.7}
+            \printitem{R1}
+            \printitem{R4}
+            \printitem{R4.1}
+            \printitem{R4.2}
+            \printitem{R4.3}
+            \printitem{R4.4}
+            \printitem{R4.5}
+            \printitem{R4.6}
+            \printitem{R4.7}
             \printitem{D2}
       \end{enumerate}
       \printitem{G3}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R1.2}
+            \printitem{R1}
+            \printitem{R2.2}
             \printitem{D2}
       \end{enumerate}
       \printitem{G4}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R3.8}
-            \printitem{R3.9}
+            \printitem{R1}
+            \printitem{R4.8}
+            \printitem{R4.9}
             \printitem{D2}
       \end{enumerate}
       \printitem{G5}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R1.3}
+            \printitem{R1}
+            \printitem{R2.3}
             \printitem{D1}
             \printitem{D2}
       \end{enumerate}
       \printitem{G6}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R2}
+            \printitem{R1}
+            \printitem{R3}
             \printitem{D1}
       \end{enumerate}
       \printitem{G7}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R3.10}
+            \printitem{R1}
+            \printitem{R4.10}
             \printitem{D1}
       \end{enumerate}
       \printitem{G8}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R4.1}
-            \printitem{R4.2}
+            \printitem{R1}
+            \printitem{R5.1}
+            \printitem{R5.2}
             \printitem{D1}
       \end{enumerate}
       \printitem{G9}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R4}
+            \printitem{R1}
             \printitem{R5}
             \printitem{R6}
+            \printitem{R7}
             \printitem{D1}
             \printitem{D3}
       \end{enumerate}
       \printitem{G10}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R7}
+            \printitem{R1}
             \printitem{R8}
-            \printitem{R8.1}
-            \printitem{R8.2}
-            \printitem{R8.3}
-            \printitem{R8.4}
             \printitem{R9}
+            \printitem{R9.1}
+            \printitem{R9.2}
+            \printitem{R9.3}
+            \printitem{R9.4}
             \printitem{R10}
             \printitem{R11}
             \printitem{R12}
@@ -611,6 +621,7 @@ After that, to facilitate reading, the text of all the assumptions and all the r
             \printitem{R16}
             \printitem{R17}
             \printitem{R18}
+            \printitem{R19}
             \printitem{D1}
             \printitem{D3}
             \printitem{D4}
@@ -621,20 +632,23 @@ After that, to facilitate reading, the text of all the assumptions and all the r
       \end{enumerate}
       \printitem{G11}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R19}
-            \printitem{R19.1}
-            \printitem{R19.2}
-            \printitem{R19.3}
+            \printitem{R1}
+            \printitem{R20}
+            \printitem{R20.1}
+            \printitem{R20.2}
+            \printitem{R20.3}
             \printitem{D2}
       \end{enumerate}
       \printitem{G12}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R20}
+            \printitem{R1}
+            \printitem{R21}
             \printitem{D1}
       \end{enumerate}
       \printitem{G13}
       \begin{enumerate}[leftmargin=1.3cm]
-            \printitem{R19.4}
+            \printitem{R1}
+            \printitem{R20.4}
             \printitem{D1}
             \printitem{D2}
       \end{enumerate}
@@ -650,50 +664,51 @@ The following traceability matrix associates requirements to use cases.
             \hline
                                    & \textbf{\ref{{UC1}}} & \textbf{\ref{{UC2}}} & \textbf{\ref{{UC3}}} & \textbf{\ref{{UC4}}} & \textbf{\ref{{UC5}}} & \textbf{\ref{{UC6}}} & \textbf{\ref{{UC7}}} & \textbf{\ref{{UC8}}} \\\hline
             \endhead
-            \textbf{\ref{{R1}}}    & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R1.1}}}  & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R1.2}}}  & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R1.3}}}  & \checkmark           &                      & \checkmark           &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R1.4}}}  &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
-            \textbf{\ref{{R2}}}    &                      &                      & \checkmark           &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R3}}}    &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R3.1}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R3.2}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R3.3}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R3.4}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R3.5}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R3.6}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R3.7}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R3.8}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R3.9}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R3.10}}} &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4}}}    &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.1}}}  &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.2}}}  &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
-            \textbf{\ref{{R5}}}    &                      &                      &                      &                      & \checkmark           &                      &                      &                      \\
+            \textbf{\ref{{R1}}}    & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           \\
+            \textbf{\ref{{R2}}}    & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R2.1}}}  & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R2.2}}}  & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R2.3}}}  & \checkmark           &                      & \checkmark           &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R2.4}}}  &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
+            \textbf{\ref{{R3}}}    &                      &                      & \checkmark           &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4}}}    &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.1}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.2}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.3}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.4}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.5}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.6}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.7}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.8}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.9}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.10}}} &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R5}}}    &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
+            \textbf{\ref{{R5.1}}}  &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
+            \textbf{\ref{{R5.2}}}  &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
             \textbf{\ref{{R6}}}    &                      &                      &                      &                      & \checkmark           &                      &                      &                      \\
-            \textbf{\ref{{R7}}}    &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R7}}}    &                      &                      &                      &                      & \checkmark           &                      &                      &                      \\
             \textbf{\ref{{R8}}}    &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R8.1}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R8.2}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R8.3}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R8.4}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
             \textbf{\ref{{R9}}}    &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R10}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
+            \textbf{\ref{{R9.1}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R9.2}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R9.3}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R9.4}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R10}}}   &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
             \textbf{\ref{{R11}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
             \textbf{\ref{{R12}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
             \textbf{\ref{{R13}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
             \textbf{\ref{{R14}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
             \textbf{\ref{{R15}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
-            \textbf{\ref{{R16}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
+            \textbf{\ref{{R16}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
             \textbf{\ref{{R17}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
             \textbf{\ref{{R18}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
-            \textbf{\ref{{R19}}}   &                      &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R19.1}}} &                      &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R19.2}}} &                      &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R19.3}}} &                      &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R19.4}}} &                      &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R20}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
+            \textbf{\ref{{R19}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
+            \textbf{\ref{{R20}}}   &                      &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R20.1}}} &                      &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R20.2}}} &                      &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R20.3}}} &                      &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R20.4}}} &                      &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R21}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
             \hline
       \end{longtable}
 \end{center}
