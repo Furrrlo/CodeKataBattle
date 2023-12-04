@@ -266,7 +266,8 @@ Therefore, the following communication protocols are used:
                               \item The platform sends to the student a confirmation message.
                         \end{enumerate} \\\hline
                         \textbf{Exit condition}  & The student is subscribed to the tournament                                                \\\hline
-                        %\textbf{Exception} &                                                                                              \\\hline
+                        \textbf{Exception} & The student selects the option to sign up to the tournament when the registration deadline has expired.
+                        In that case, the platform returns an error.                                                                                        \\\hline
                   \end{tabular}
                   \caption{Student joins to an existing Tournament by receiving a notication}
                   \label{table:Student joins to an existing Tournament by receiving a notication}
@@ -325,7 +326,7 @@ Therefore, the following communication protocols are used:
                               \item The platform returns to inviting student a confirmation message.
                         \end{enumerate}                    \\\hline
                         \textbf{Exit condition}  & The students are all subscribed in a battle with the same team              \\\hline
-                        \textbf{Exception}       & \begin{itemize}
+                        \textbf{Exception}       &  \begin{itemize}
                               \item Inviting student wants to invite another student but the maximum number of students has been reached.
                               In that case, the platform returns an error.
                               \item The team wants to partecipate in a battle but the number of participants requirement of the battle is not satisfied.

@@ -15,7 +15,11 @@ Student -> System ++ : selectTournament(tournament)
 Student <-- System -- : tournamentDetails
 
 Student -> System ++ : signup(tournament)
-System -> System ++-- : enrollStudent(student, tournament)
-Student <-- System -- : signupConfirmation
+alt the registration deadline has not expired
+    System -> System ++-- : enrollStudent(student, tournament)
+    Student <-- System : signupConfirmation
+else the registration deadline has expired
+    Student <-- System -- : error
+end
 deactivate Student
 @enduml
