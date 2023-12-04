@@ -33,17 +33,27 @@ loop for each team
     Educator <-- System -- : confirmation
 end
 
+
+
+
 Educator -> System ++ : close(battle)
 
-System -> System ++ : calculateFinalRank()
-deactivate System
+alt all the teams have been evaluated
 
-loop for each student partecipating in the battle
-    System -> Student : notify()
+    System -> System ++ : calculateFinalRank()
+    deactivate System
+
+    loop for each student partecipating in the battle
+        System -> Student : notify()
+    end
+
+
+
+    Educator <-- System  : outcome
+else 
+Educator <-- System -- : error
+
+
 end
-
-
-
-Educator <-- System -- : outcome
 deactivate Educator
 @enduml
