@@ -156,6 +156,8 @@ Therefore, the following communication protocols are used:
 %Oppure facciamo tre sezioni separate per tabella, seq diagram e activity diagram,
 % ma così mi sembra più leggibile.
 \begin{enumerate}[label=\textbf{UC\arabic*}:,ref=UC\arabic*,leftmargin=1.3cm]
+      \newcounter{resumeEnumeration}
+
       \labelleditem{
             \textbf{}
             \begin{table}[H]
@@ -290,60 +292,62 @@ Therefore, the following communication protocols are used:
       }
       \labelleditem{
             \textbf{}
-            \begin{table}[H]
-                  %\caption*{\textbf{Title}}
-                  \centering
-                  \begin{tabular}{|l|p{11.9cm}|}
-                        \hline
-                        \textbf{Name}            & Students create a team for a tournament battle                                                                            \\\hline
-                        \textbf{Actor}           & Inviting student, Invited student 1, Invited student 2                                                                    \\\hline
-                        \textbf{Entry condition} &
-                        \begin{itemize}
-                              \item Students are logged in
-                              \item Students are enrolled in the same tournament
-                              \item Students has invitation notifications enabled
-                              \item
-                        \end{itemize}                                                                                                   \\\hline
-                        \textbf{Event flow}      &
-                        \begin{enumerate}[label=\arabic*.]
-                              \item The inviting student asks the platform the list of available tournaments.
-                              \item The platform sends to the inviting student the list of available tournaments.
-                              \item The inviting student selects the tournament.
-                              \item The platform sends to the inviting student the detail of the selected tournament (including the battles available for the tournament).
-                              \item The inviting student selects the battle in the tournament.
-                              \item The platform sends to the inviting student the detail of the selected battle within the tournament.
-                              \item The inviting student selects the option to create a new team for the battle.
-                              \item The platform creates a new team for the battle.
-                              \item The platform add the inviting student to the created team.
-                              \item The platform returns to the inviting student a confirmation message.
-                              \item The inviting student selects the option to invite "invited student 1".
-                              \item The platform creates an invitation for invited student 1.
-                              \item The platform sends a notification to invited student 1.
-                              \item Invited student 1 receives the notification and accepts.
-                              \item The platform adds invited student 1 to the team.
-                              \item The platform returns to invited student 1 a confirmation message.
-                              \item The inviting student selects the option to invite "invited student 2".
-                              \item The platform creates an invitation for invited student 2.
-                              \item Invited student 2 asks the platform the list of invites.
-                              \item The platform returns to Invited student 2 the list of his invites.
-                              \item Invited student 2 accepts the invite for the battle.
-                              \item The platform adds invited student 2 to the team.
-                              \item The platform returns to invited student 2 a confirmation message.
-                              \item The inviting student selects the option to partecipate in the battle with the new created team.
-                              \item The platform signs up the team to the battle.
-                              \item The platform returns to inviting student a confirmation message.
-                        \end{enumerate}          \\\hline
-                        \textbf{Exit condition}  & The students are all subscribed in a battle with the same team                                                            \\\hline
-                        \textbf{Exception}       & \begin{itemize}
-                                                         \item Inviting student wants to invite another student but the maximum number of students has been reached.
-                                                               In that case, the platform returns an error.
-                                                         \item The team wants to partecipate in a battle but the number of participants requirement of the battle is not satisfied.
-                                                               In that case, the platform returns an error and the student can invite additional members.
-                                                   \end{itemize} \\\hline
-                  \end{tabular}
+            \begin{longtable}{|l|p{11.9cm}|}
                   \caption{Students create a team for a tournament battle}
                   \label{table:Students create a team for a tournament battle}
-            \end{table}
+                  \endlastfoot
+                  \hline
+                  \textbf{Name}            & Students create a team for a tournament battle                                                                            \\\hline
+                  \textbf{Actor}           & Inviting student, Invited student 1, Invited student 2                                                                    \\\hline
+                  \textbf{Entry condition} &
+                  \begin{itemize}
+                        \item Students are logged in
+                        \item Students are enrolled in the same tournament
+                        \item Students has invitation notifications enabled
+                  \end{itemize}                                                                                                   \\\hline
+                  \textbf{Event flow}      &
+                  \begin{enumerate}[label=\arabic*.]
+                        \item The inviting student asks the platform the list of available tournaments.
+                        \item The platform sends to the inviting student the list of available tournaments.
+                        \item The inviting student selects the tournament.
+                        \item The platform sends to the inviting student the detail of the selected tournament (including the battles available for the tournament).
+                        \item The inviting student selects the battle in the tournament.
+                        \item The platform sends to the inviting student the detail of the selected battle within the tournament.
+                        \item The inviting student selects the option to create a new team for the battle.
+                        \item The platform creates a new team for the battle.
+                        \item The platform add the inviting student to the created team.
+                        \item The platform returns to the inviting student a confirmation message.
+                        \item The inviting student selects the option to invite "invited student 1".
+                        \item The platform creates an invitation for invited student 1.
+                        \item The platform sends a notification to invited student 1.
+                        \item Invited student 1 receives the notification and accepts.
+                        \item The platform adds invited student 1 to the team.
+                        \item The platform returns to invited student 1 a confirmation message.
+                        \item The inviting student selects the option to invite "invited student 2".
+                        \item The platform creates an invitation for invited student 2.
+                        \item Invited student 2 asks the platform the list of invites.
+                        \item The platform returns to Invited student 2 the list of his invites.
+                        \item Invited student 2 accepts the invite for the battle.
+                              \setcounter{resumeEnumeration}{\value{enumii}}
+                              % Manually split the cell cause longtable cannot do it
+                  \end{enumerate}          \\\hline
+                                           &
+                  \begin{enumerate}[label=\arabic*.]
+                        \setcounter{enumii}{\value{resumeEnumeration}}
+                        \item The platform adds invited student 2 to the team.
+                        \item The platform returns to invited student 2 a confirmation message.
+                        \item The inviting student selects the option to partecipate in the battle with the new created team.
+                        \item The platform signs up the team to the battle.
+                        \item The platform returns to inviting student a confirmation message.
+                  \end{enumerate}                                                 \\\hline
+                  \textbf{Exit condition}  & The students are all subscribed in a battle with the same team                                                            \\\hline
+                  \textbf{Exception}       & \begin{itemize}
+                                                   \item Inviting student wants to invite another student but the maximum number of students has been reached.
+                                                         In that case, the platform returns an error.
+                                                   \item The team wants to partecipate in a battle but the number of participants requirement of the battle is not satisfied.
+                                                         In that case, the platform returns an error and the student can invite additional members.
+                                             \end{itemize} \\\hline
+            \end{longtable}
             \pagebreak
             \begin{adjustbox}{
                         max size={\textwidth}{\textheightwithcaption{1}},
