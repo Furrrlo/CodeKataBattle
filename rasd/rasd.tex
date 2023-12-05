@@ -116,6 +116,14 @@
     \fi
 }
 
+\newcommand*{\textheightwithcaption}[1]{%
+    \dimexpr\textheight
+    -\parskip%
+    -\abovecaptionskip%
+    -\belowcaptionskip%
+    -(\baselineskip*#1)\relax
+}
+
 \newcommand*{\labelleditem}[1]{
     \item \expandafter\gdef\csname \theenumi\endcsname{#1} \label{\theenumi} #1
 }
