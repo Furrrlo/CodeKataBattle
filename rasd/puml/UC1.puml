@@ -7,7 +7,7 @@ participant System
 actor Student
 
 
-Educator -> System ++: createNewTournament(name, deadline, lists_of_educators)
+Educator -> System ++: createNewTournament(name, deadline, lists_of_educators,\n\t\t\t\t\tlist_of_badges)
 alt the name is unique
 
 activate Educator
@@ -20,6 +20,11 @@ deactivate System
 
 loop for each educator in a lists_of_educators
     System -> System ++: addEducator(newtournament, educator)
+    deactivate System
+end
+
+loop for badge in a lists_of_badges
+    System -> System ++: createBadge(badge.title, badge.rules)
     deactivate System
 end
 
