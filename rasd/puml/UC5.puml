@@ -1,31 +1,75 @@
-@startuml UC5
-title UC5 - Students are notified about the updated team battle and personal students score
-
-
-
-actor GitHub
+@startuml UC4
+title UC4 - Students create a team for a tournament battle   
+actor "Inviting Student" as inviting
+actor "Invited Student 1" as notif
+actor "Invited Student 2" as invited
 participant System
-actor Student
 
-note across: The registration deadline expires
+inviting -> System ++: getTournaments()
+activate inviting
+System --> inviting--: list of tournaments
 
-System -> System ++: getBattleInfo()
+inviting -> System ++ : selectTournament(tournament)
 
+inviting <-- System -- : tournamentDetails
 
-System -> System ++: getCodeKata(tournament, battle)
-deactivate System
+inviting -> System ++ : selectBattle(battle)
+inviting <-- System -- : battleDetails
 
-System -> GitHub ++: createRepository(name, desc, codeKata)
-GitHub --> System --: link 
+inviting -> System ++ : createTeam(battle)
+System -> System ++ : createTeam(battle)
+System -> System -- : addStudentToTeam(team, inviting-student)
+inviting <-- System -- : confirmation
+deactivate inviting
 
-System -> System ++: getTeams(battle)
-deactivate System
+inviting -> System ++ : invite(team, invited-student-1)
+activate inviting
+System -> System ++ : createInvite(team, invited-student-1)
+notif <- System  ++-- : notify(invite)
+inviting <-- System -- : invitationConfirmation
+deactivate inviting
 
+...
 
-loop for each student in a team
-    System -> Student : notify()
+notif -> System ++ : acceptInvite(invite)
+System -> System ++-- : addStudentToTeam(team, invited-student-1)
+notif <-- System -- : confirmation
+deactivate notif
 
+...
+
+inviting -> System ++ : invite(team, invited-student-2)
+alt maximum number of students not violated
+        activate inviting
+        System -> System ++-- : createInvite(team, invited-student-2)
+        inviting <-- System  : invitationConfirmation
+        
+    else maximum number of students reached for the battle
+        inviting <-- System -- : error
+        deactivate inviting
 end
-deactivate System
+    ...
+
+alt Invited Student 2 successfully invited
+    invited -> System ++ : seeHomepage()
+    activate invited
+    invited <-- System -- : homepageDetails
+
+    invited -> System ++ : acceptInvite(invite)
+    System -> System ++-- : addStudentToTeam(team, invited-student-1)
+    invited <-- System -- : confirmation
+    deactivate invited
+end
+
+...
+inviting -> System ++ : partecipate(battle, team)
+alt number of participants satisfied
+    activate inviting
+    System -> System ++-- : enrollInBattle(battle, team)
+    inviting <-- System : confirmation
+else minimum number of partecipants not satisfied
+    inviting <-- System -- : error
+end
+deactivate inviting
 
 @enduml

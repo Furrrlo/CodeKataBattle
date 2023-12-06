@@ -1,0 +1,37 @@
+@startuml UC8
+title UC8 - Educator closes a tournament   
+actor Educator
+participant System
+actor Student
+
+
+Educator -> System ++: getTournaments()
+activate Educator
+System --> Educator--: list of tournaments
+
+
+
+Educator -> System ++ : selectTournament(tournament)
+Educator <-- System -- : tournamentDetails
+
+Educator -> System ++ : close(tournament)
+
+
+System -> System ++ : calculateFinalRank()
+deactivate System
+
+System -> System ++ : getBadges(tournament)
+deactivate System
+
+System -> System ++ : assignBadges()
+deactivate System
+
+loop for each student partecipating in the tournament
+    System -> Student : notify()
+
+end
+
+
+System --> Educator --: outcome
+deactivate Educator
+@enduml

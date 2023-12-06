@@ -1,75 +1,25 @@
-@startuml UC4
-title UC4 - Students create a team for a tournament battle   
-actor "Inviting Student" as inviting
-actor "Invited Student 1" as notif
-actor "Invited Student 2" as invited
+@startuml UC3
+title UC3 - Student joins to an existing Tournament by receiving a notication      
+actor Student
 participant System
 
-inviting -> System ++: getTournaments()
-activate inviting
-System --> inviting--: list of tournaments
+note across: Student got a notification about the creation of a new tournament
 
-inviting -> System ++ : selectTournament(tournament)
+Student -> System ++: getTournaments()
+activate Student
+System --> Student--: list of tournaments
 
-inviting <-- System -- : tournamentDetails
 
-inviting -> System ++ : selectBattle(battle)
-inviting <-- System -- : battleDetails
 
-inviting -> System ++ : createTeam(battle)
-System -> System ++ : createTeam(battle)
-System -> System -- : addStudentToTeam(team, inviting-student)
-inviting <-- System -- : confirmation
-deactivate inviting
+Student -> System ++ : selectTournament(tournament)
+Student <-- System -- : tournamentDetails
 
-inviting -> System ++ : invite(team, invited-student-1)
-activate inviting
-System -> System ++ : createInvite(team, invited-student-1)
-notif <- System  ++-- : notify(invite)
-inviting <-- System -- : invitationConfirmation
-deactivate inviting
-
-...
-
-notif -> System ++ : acceptInvite(invite)
-System -> System ++-- : addStudentToTeam(team, invited-student-1)
-notif <-- System -- : confirmation
-deactivate notif
-
-...
-
-inviting -> System ++ : invite(team, invited-student-2)
-alt maximum number of students not violated
-        activate inviting
-        System -> System ++-- : createInvite(team, invited-student-2)
-        inviting <-- System  : invitationConfirmation
-        
-    else maximum number of students reached for the battle
-        inviting <-- System -- : error
-        deactivate inviting
+Student -> System ++ : signup(tournament)
+alt the registration deadline has not expired
+    System -> System ++-- : enrollStudent(student, tournament)
+    Student <-- System : signupConfirmation
+else the registration deadline has expired
+    Student <-- System -- : error
 end
-    ...
-
-alt Invited Student 2 successfully invited
-    invited -> System ++ : seeHomepage()
-    activate invited
-    invited <-- System -- : homepageDetails
-
-    invited -> System ++ : acceptInvite(invite)
-    System -> System ++-- : addStudentToTeam(team, invited-student-1)
-    invited <-- System -- : confirmation
-    deactivate invited
-end
-
-...
-inviting -> System ++ : partecipate(battle, team)
-alt number of participants satisfied
-    activate inviting
-    System -> System ++-- : enrollInBattle(battle, team)
-    inviting <-- System : confirmation
-else minimum number of partecipants not satisfied
-    inviting <-- System -- : error
-end
-deactivate inviting
-
+deactivate Student
 @enduml

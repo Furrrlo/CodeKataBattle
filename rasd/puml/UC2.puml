@@ -1,46 +1,39 @@
 @startuml UC2
-title UC2 - Educator creates a new Battle for an Existing Tournament    
+title UC2 - Educator creates a new badge
 
 actor Educator
-
 participant System
-actor Students
 
-Educator -> System ++: getTournaments()
-activate Educator
-System --> Educator--: list of tournaments
-deactivate Educator
 
-Educator -> System ++: selectTournament(tournament)
-activate Educator
-System --> Educator--: tournamentDetails
-deactivate Educator
+Educator -> System ++: createNewbadge(title, variables, rules)
+note right
+    variables and rules
+    are javascript code
+end note
 
-Educator -> System ++: createNewBattle(tournament, desc, minStudents, maxStudents,\n\t\t\tregistrationDeadline, finalSubmissionDeadline,\n\t\t\tbuildAutomationScripts, testCases)
+alt the rule is valid
 
-alt all parameters are fasible
     activate Educator
 
-    System -> System: addBattle(tournament, desc, minStudents, maxStudents,\n\t\tregistrationDeadline, finalSubmissionDeadline)
+    System -> System ++: createNewBadge(title)
+    deactivate System
 
-    System --> Educator: confirmation
-    
-
-    loop for each student in the tournament
-        System -> Students : notify()
-
+    loop for each variable in variables
+        System -> System ++--: createNewVariable(variable)
     end
 
-else some parameters are unfeasible
-    System --> Educator: error
+    loop for each rule in a rules
+        System -> System ++--: addRule(badge, rule)
+    end
+
+    System --> Educator : confirmation
+
+
+else
+    System --> Educator : error
     deactivate Educator
+    deactivate System
 end
-
-
-
-
-
-
 
 
 @enduml

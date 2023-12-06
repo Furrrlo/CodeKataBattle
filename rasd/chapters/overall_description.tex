@@ -19,32 +19,32 @@
 
 	      Luca enters the name \emph{"Welcome Tournament School Year 2024"} in the Name field and sets the date 30/09/2023 in the Deadline field.\\
 	      Next, he clicks on the list of educators selecting educators Gianpaolo Mariani, Mario Rossi, and Rosa Ballabio as he wants to allow them also to be able to create new
-	      battles for the tournament he is creating.
-
-	      Luca also wants to create three badges, to encourage students to participate.
-	      He clicks the \emph{"Create badges"} button to create the first badge.
-	      He enters the title \emph{"Start2024_with_the_right_foot"} and he does not enter any particular rule because he wants the badge to be assigned to all enrolled students.
-	      Luca clicks the \emph{"add"} button to create the second badge.
-	      He enters the title \emph{"Participant_2024"} and he write a rule specifying that the predefined variable \emph{tot_commits_student} >= 1.
-	      Luca clicks the \emph{"add"} button another time and enter the title \emph{"Best_Participants_2024"} to award students who won at least 2 battles.
-	      The platform provides an array variable \emph{"final_positions_student"} that represent the final position of the student in each battle.
-	      For simplicity, Luca decide to create a new variable defined as
-		  %Dove sono i colorini :(
-	      \begin{lstlisting}
-let battleWons = 0;
-for(let pos : final_positions_student)
-	if(pos == 1)
-		battleWons++;
-		  \end{lstlisting}
-	      Then he create a rule specifying the condition \emph{battleWons >= 2}.
-	      Luca clicks the confirmation button.
+	      battles for the tournament he is creating.\\
 	      Accordingly, he clicks on the Create Tournament button and the platform shows a message of successful tournament creation.
 	      Luca will be shown the \emph{DETAIL\_TOURNAMENT} page of the newly created \emph{"Welcome Tournament School Year 2024"} for which, at the moment, as an empty list of
 	      available
 	      battles.
 	      All students enrolled in the CKB Platform will be notified about the new creation of the tournament created by educator Luca.
 
-
+	\item \textbf{Educator creates new badges}\\
+	      Luca Proserpio is an educator and he is creating the \emph{"Welcome Tournament School Year 2024"} tournament.
+	      Luca wants to create three badges, to encourage students to participate.\\
+	      He clicks the \emph{"Create badges"} button to create the first badge.
+	      He enters the title \emph{"Start2024_with_the_right_foot"} and he does not enter any particular rule because he wants the badge to be assigned to all enrolled students.\\
+	      Luca clicks the \emph{"add"} button to create the second badge.
+	      He enters the title \emph{"Participant_2024"} and he write a rule specifying that the predefined variable \emph{tot_commits_student} >= 1.\\
+	      Luca clicks the \emph{"add"} button another time and enter the title \emph{"Best_Participants_2024"} to award students who won at least 2 battles.
+	      The platform provides a predefined array variable \emph{"final_positions_student"} that represent the final position of the student in each battle.
+	      For simplicity, Luca decide to create a new variable \emph{battlesWon} defined as
+	      % Js non esiste :/
+	      \begin{lstlisting}[language=java, morekeywords={var, let, of}, keywordstyle=\color{blue}]
+var battlesWon = 0;
+for (let pos of final_positions_student)
+	if (pos == 1)
+		battlesWon++;
+		  \end{lstlisting}
+	      Then he create a rule specifying the condition \emph{battlesWon >= 2}.
+	      Luca clicks the confirmation button to create the badges.
 
 
 	\item \textbf{Educator creates a new Battle for an Existing Tournament}\\

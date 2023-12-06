@@ -180,7 +180,7 @@ Therefore, the following communication protocols are used:
                               \item The educator inserts the name of the tournament.
                               \item The educator inserts the registration deadline of the tournament.
                               \item The educator selects all the other educators he wants to invite to allow them to create new battles for the tournament.
-                              \item The educator creates a set of badges providing a title and a set of rules.
+                              \item The educator \hyperref[{{UC2}}]{creates a set of badges}.
                               \item The educator confirms the creation of the tournament.
                               \item The platform creates the new tournament.
                               \item The platform sends to the educator a confirmation message.
@@ -200,6 +200,48 @@ Therefore, the following communication protocols are used:
                         figure=H}
                   \centering
                   \puml{puml/UC1}
+            \end{adjustbox}
+            \pagebreak
+      }
+      \labelleditem{
+            \textbf{}
+            \begin{table}[H]
+                  %\caption*{\textbf{Title}}
+                  \centering
+                  \begin{tabular}{|l|p{11.9cm}|}
+                        \hline
+                        \textbf{Name}            & Educator creates a new badge                        \\\hline
+                        \textbf{Actor}           & Educator who wants to create badges                 \\\hline
+                        \textbf{Entry condition} &
+                        \begin{itemize}
+                              \item Educator is logged in
+                              \item Educator is creating a tournament
+                        \end{itemize}                                         \\\hline
+                        \textbf{Event flow}      &
+                        \begin{enumerate}[label=\arabic*.]
+                              \item The educator selects the option to create a new badge
+                              \item The educator inserts the title of the badge.
+                              \item The educator write Javascript code to create new variables.
+                              \item The educator write one or more rules.
+                              \item The educator click the confirmation button.
+                              \item The platform create the new badge in the current tournament.
+                              \item The platform shows a confirmation massage.
+                        \end{enumerate}              \\\hline
+                        \textbf{Exit condition}  & The new badges is created in the current tournament \\\hline
+                        \textbf{Exception}       & The rules contains undefined variables.
+                        In that case, the platform returns an error and does not create the badge.
+                        \comment{Se il js è sbagliato?}                                                \\\hline
+                  \end{tabular}
+                  \caption{Educator creates a new badge }
+                  \label{table:Educator creates a new badge }
+            \end{table}
+            \begin{adjustbox}{
+                        max size={\textwidth}{\textheightwithcaption{1}},
+                        caption={Educator creates a new badge},
+                        label={fig:Educator creates a new badge},
+                        figure=H}
+                  \centering
+                  \puml{puml/UC2}
             \end{adjustbox}
             \pagebreak
       }
@@ -247,7 +289,7 @@ Therefore, the following communication protocols are used:
                         label={fig:Educator creates a new Battle for an Existing Tournament},
                         figure=H}
                   \centering
-                  \puml{puml/UC2}
+                  \puml{puml/UC3}
             \end{adjustbox}
             \pagebreak
       }
@@ -290,7 +332,7 @@ Therefore, the following communication protocols are used:
                         label={fig:Student joins to an existing Tournament by receiving a notication},
                         figure=H}
                   \centering
-                  \puml{puml/UC3}
+                  \puml{puml/UC4}
             \end{adjustbox}
             \pagebreak
       }
@@ -359,7 +401,7 @@ Therefore, the following communication protocols are used:
                         label={fig:Students create a team for a tournament battle},
                         figure=H}
                   \centering
-                  \puml{puml/UC4}
+                  \puml{puml/UC5}
             \end{adjustbox}
             \pagebreak
       }
@@ -397,7 +439,7 @@ Therefore, the following communication protocols are used:
                         label={fig:Students are notified about the creation of the GitHub repository for a battle},
                         figure=H}
                   \centering
-                  \puml{puml/UC5}
+                  \puml{puml/UC6}
             \end{adjustbox}
             \pagebreak
       }
@@ -445,7 +487,7 @@ Therefore, the following communication protocols are used:
                         label={fig:Students are notified about the updated team battle and personal students score},
                         figure=H}
                   \centering
-                  \puml{puml/UC6}
+                  \puml{puml/UC7}
             \end{adjustbox}
             \pagebreak
       }
@@ -496,7 +538,7 @@ Therefore, the following communication protocols are used:
                         label={fig:Educator manually evaluate teams},
                         figure=H}
                   \centering
-                  \puml{puml/UC7}
+                  \puml{puml/UC8}
             \end{adjustbox}
             \pagebreak
       }
@@ -540,7 +582,7 @@ Therefore, the following communication protocols are used:
                         label={fig:Educator closes a tournament},
                         figure=H}
                   \centering
-                  \puml{puml/UC8}
+                  \puml{puml/UC9}
             \end{adjustbox}
       }
 \end{enumerate}
@@ -701,58 +743,58 @@ After that, to facilitate reading, the text of all the assumptions and all the r
 The following traceability matrix associates requirements to use cases.
 \begin{center}
       %\caption*{\textbf{Title}}
-      \begin{longtable}{|l|cccccccc|}
+      \begin{longtable}{|l|ccccccccc|}
             \caption{Use cases traceability matrix}
             \label{table:Use cases traceability matrix}
             \endlastfoot
             \hline
-                                   & \textbf{\ref{{UC1}}} & \textbf{\ref{{UC2}}} & \textbf{\ref{{UC3}}} & \textbf{\ref{{UC4}}} & \textbf{\ref{{UC5}}} & \textbf{\ref{{UC6}}} & \textbf{\ref{{UC7}}} & \textbf{\ref{{UC8}}} \\\hline
+                                   & \textbf{\ref{{UC1}}} & \textbf{\ref{{UC2}}} & \textbf{\ref{{UC3}}} & \textbf{\ref{{UC4}}} & \textbf{\ref{{UC5}}} & \textbf{\ref{{UC6}}} & \textbf{\ref{{UC7}}} & \textbf{\ref{{UC8}}} & \textbf{\ref{{UC9}}} \\\hline
             \endhead
-            \textbf{\ref{{R1}}}    & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           \\
-            \textbf{\ref{{R2}}}    & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R2.1}}}  & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R2.2}}}  & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R2.3}}}  & \checkmark           &                      & \checkmark           &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R2.4}}}  &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
-            \textbf{\ref{{R3}}}    &                      &                      & \checkmark           &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4}}}    &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.1}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.2}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.3}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.4}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.5}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.6}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.7}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.8}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.9}}}  &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R4.10}}} &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R5}}}    &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
-            \textbf{\ref{{R5.1}}}  &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
-            \textbf{\ref{{R5.2}}}  &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
-            \textbf{\ref{{R6}}}    &                      &                      &                      &                      & \checkmark           &                      &                      &                      \\
-            \textbf{\ref{{R7}}}    &                      &                      &                      &                      & \checkmark           &                      &                      &                      \\
-            \textbf{\ref{{R8}}}    &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R9}}}    &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R9.1}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R9.2}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R9.3}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R9.4}}}  &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R10}}}   &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
-            \textbf{\ref{{R11}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
-            \textbf{\ref{{R12}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
-            \textbf{\ref{{R13}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
-            \textbf{\ref{{R14}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
-            \textbf{\ref{{R15}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
-            \textbf{\ref{{R16}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
-            \textbf{\ref{{R17}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
-            \textbf{\ref{{R18}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
-            \textbf{\ref{{R19}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
-            \textbf{\ref{{R20}}}   & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R20.1}}} & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R20.2}}} & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R20.3}}} & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
-            \textbf{\ref{{R20.4}}} &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
-            \textbf{\ref{{R21}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
+            \textbf{\ref{{R1}}}    & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           & \checkmark           \\
+            \textbf{\ref{{R2}}}    & \checkmark           &                      &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R2.1}}}  & \checkmark           &                      &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R2.2}}}  & \checkmark           &                      &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R2.3}}}  & \checkmark           &                      &                      & \checkmark           &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R2.4}}}  &                      &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
+            \textbf{\ref{{R3}}}    &                      &                      &                      & \checkmark           &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4}}}    &                      &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.1}}}  &                      &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.2}}}  &                      &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.3}}}  &                      &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.4}}}  &                      &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.5}}}  &                      &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.6}}}  &                      &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.7}}}  &                      &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.8}}}  &                      &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.9}}}  &                      &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R4.10}}} &                      &                      & \checkmark           &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R5}}}    &                      &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
+            \textbf{\ref{{R5.1}}}  &                      &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
+            \textbf{\ref{{R5.2}}}  &                      &                      &                      &                      & \checkmark           &                      &                      &                      &                      \\
+            \textbf{\ref{{R6}}}    &                      &                      &                      &                      &                      & \checkmark           &                      &                      &                      \\
+            \textbf{\ref{{R7}}}    &                      &                      &                      &                      &                      & \checkmark           &                      &                      &                      \\
+            \textbf{\ref{{R8}}}    &                      &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R9}}}    &                      &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R9.1}}}  &                      &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R9.2}}}  &                      &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R9.3}}}  &                      &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R9.4}}}  &                      &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R10}}}   &                      &                      &                      &                      &                      &                      & \checkmark           &                      &                      \\
+            \textbf{\ref{{R11}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
+            \textbf{\ref{{R12}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
+            \textbf{\ref{{R13}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
+            \textbf{\ref{{R14}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
+            \textbf{\ref{{R15}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
+            \textbf{\ref{{R16}}}   &                      &                      &                      &                      &                      &                      &                      & \checkmark           &                      \\
+            \textbf{\ref{{R17}}}   &                      &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
+            \textbf{\ref{{R18}}}   &                      &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
+            \textbf{\ref{{R19}}}   &                      &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
+            \textbf{\ref{{R20}}}   &                      & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R20.1}}} &                      & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R20.2}}} &                      & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R20.3}}} &                      & \checkmark           &                      &                      &                      &                      &                      &                      &                      \\
+            \textbf{\ref{{R20.4}}} &                      &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
+            \textbf{\ref{{R21}}}   &                      &                      &                      &                      &                      &                      &                      &                      & \checkmark           \\
             \hline
       \end{longtable}
 \end{center}

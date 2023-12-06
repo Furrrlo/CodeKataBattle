@@ -1,60 +1,31 @@
-@startuml UC6
-title UC6 - Calculation of a team's battle score
-actor Student
-actor OtherStudentsOfTheSameTeam
+@startuml UC5
+title UC5 - Students are notified about the updated team battle and personal students score
+
+
+
 actor GitHub
 participant System
-actor StaticAnalysisTool
+actor Student
 
-Student -> GitHub ++ : push(repo,files)
-activate Student
-GitHub --> Student --: pushed
-deactivate Student
+note across: The registration deadline expires
 
-
-GitHub -> System ++ : notifyNewCommit(repo)
-
-System --> GitHub : received
-
-System -> GitHub ++ : pull(repo)
-GitHub --> System --: last commited files
+System -> System ++: getBattleInfo()
 
 
-System -> System ++: getInfo(repo)
+System -> System ++: getCodeKata(tournament, battle)
 deactivate System
 
-System -> System ++: analyzeCode()
+System -> GitHub ++: createRepository(name, desc, codeKata)
+GitHub --> System --: link 
+
+System -> System ++: getTeams(battle)
 deactivate System
 
 
-loop for each test case
-    System -> System ++: runTests(test, files)
-    deactivate System
+loop for each student in a team
+    System -> Student : notify()
+
 end
-
-System -> System ++: calculateDaysPassed(battle, repo)
 deactivate System
-
-System -> StaticAnalysisTool ++: runStaticAnalysisTools(files, aspects)
-StaticAnalysisTool --> System -- : outcame
-
-
-System -> System ++: calculateScore()
-deactivate System
-
-System -> System ++: modifyBattleTeamScore(battle, team, score)
-deactivate System
-
-loop for each student in the team
-    System -> System ++: updatePersonalTournamentScore(tournament, student, score)
-    deactivate System
-end
-
-System -> Student: notify()
-loop for each other student in the team
-    System -> OtherStudentsOfTheSameTeam: notify()
-    deactivate System
-end
-
 
 @enduml

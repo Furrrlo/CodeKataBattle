@@ -1,5 +1,6 @@
 @startuml UC1
 title UC1 - Educator creates a new Tournament    
+skinparam sequenceReferenceBackgroundColor #F6DD68
 
 actor Educator
 
@@ -23,9 +24,8 @@ loop for each educator in a lists_of_educators
     deactivate System
 end
 
-loop for badge in a lists_of_badges
-    System -> System ++: createBadge(badge.title, badge.rules)
-    deactivate System
+loop for each badge
+    ref over Educator, System: create badge
 end
 
 System --> Educator : confirmation

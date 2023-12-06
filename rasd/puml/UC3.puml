@@ -1,25 +1,46 @@
-@startuml UC3
-title UC3 - Student joins to an existing Tournament by receiving a notication      
-actor Student
+@startuml UC2
+title UC2 - Educator creates a new Battle for an Existing Tournament    
+
+actor Educator
+
 participant System
+actor Students
 
-note across: Student got a notification about the creation of a new tournament
+Educator -> System ++: getTournaments()
+activate Educator
+System --> Educator--: list of tournaments
+deactivate Educator
 
-Student -> System ++: getTournaments()
-activate Student
-System --> Student--: list of tournaments
+Educator -> System ++: selectTournament(tournament)
+activate Educator
+System --> Educator--: tournamentDetails
+deactivate Educator
 
+Educator -> System ++: createNewBattle(tournament, desc, minStudents, maxStudents,\n\t\t\tregistrationDeadline, finalSubmissionDeadline,\n\t\t\tbuildAutomationScripts, testCases)
 
+alt all parameters are fasible
+    activate Educator
 
-Student -> System ++ : selectTournament(tournament)
-Student <-- System -- : tournamentDetails
+    System -> System: addBattle(tournament, desc, minStudents, maxStudents,\n\t\tregistrationDeadline, finalSubmissionDeadline)
 
-Student -> System ++ : signup(tournament)
-alt the registration deadline has not expired
-    System -> System ++-- : enrollStudent(student, tournament)
-    Student <-- System : signupConfirmation
-else the registration deadline has expired
-    Student <-- System -- : error
+    System --> Educator: confirmation
+    
+
+    loop for each student in the tournament
+        System -> Students : notify()
+
+    end
+
+else some parameters are unfeasible
+    System --> Educator: error
+    deactivate Educator
 end
-deactivate Student
+
+
+
+
+
+
+
+
 @enduml

@@ -1,8 +1,11 @@
-@startuml UC8
-title UC8 - Educator closes a tournament   
+@startuml UC7
+title UC7 - Educator manually evaluate teams    
 actor Educator
 participant System
 actor Student
+actor GitHub
+
+note across: The submission deadline expires
 
 
 Educator -> System ++: getTournaments()
@@ -14,24 +17,43 @@ System --> Educator--: list of tournaments
 Educator -> System ++ : selectTournament(tournament)
 Educator <-- System -- : tournamentDetails
 
-Educator -> System ++ : close(tournament)
+Educator -> System ++ : selectBattle(battle)
+Educator <-- System -- : battleDetails
 
+Educator -> System ++ : evaluate(battle)
+Educator <-- System -- : list of teams
 
-System -> System ++ : calculateFinalRank()
-deactivate System
+loop for each team
+    Educator -> System ++ : getSource(team)
+    System -> GitHub ++: Pull(repo)
+    System <- GitHub --: source code
+    Educator <-- System -- : source
 
-System -> System ++ : getBadges(tournament)
-deactivate System
-
-System -> System ++ : assignBadges()
-deactivate System
-
-loop for each student partecipating in the tournament
-    System -> Student : notify()
-
+    Educator -> System ++ : assignGrade(team, grade)
+    Educator <-- System -- : confirmation
 end
 
 
-System --> Educator --: outcome
+
+
+Educator -> System ++ : close(battle)
+
+alt all the teams have been evaluated
+
+    System -> System ++ : calculateFinalRank()
+    deactivate System
+
+    loop for each student partecipating in the battle
+        System -> Student : notify()
+    end
+
+
+
+    Educator <-- System  : outcome
+else 
+Educator <-- System -- : error
+
+
+end
 deactivate Educator
 @enduml
