@@ -22,7 +22,7 @@ alt the rule is valid
         System -> System ++--: createNewVariable(variable)
     end
 
-    loop for each rule in a rules
+    loop for each rule in rules
         System -> System ++--: addRule(badge, rule)
     end
 

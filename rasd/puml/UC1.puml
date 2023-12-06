@@ -1,6 +1,5 @@
 @startuml UC1
 title UC1 - Educator creates a new Tournament    
-skinparam sequenceReferenceBackgroundColor #F6DD68
 
 actor Educator
 
@@ -25,7 +24,9 @@ loop for each educator in a lists_of_educators
 end
 
 loop for each badge
+    ||10||
     ref over Educator, System: create badge
+    ||5||
 end
 
 System --> Educator : confirmation
