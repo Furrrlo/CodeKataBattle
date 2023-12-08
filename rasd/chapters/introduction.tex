@@ -44,8 +44,14 @@ After all battles in a tournaments are closed, the educator who create the tourn
 
 The creator of the tournament can also create badges.
 Each badge has a set of rules that must be fulfilled to achieve it.
-The rules are written using a language \comment{capire come funziona sta roba} and are based on variables.
-When writing a rule, educators can use predefined variables, or create new ones that represent any piece of information available in the platform relevant for scoring.
+The rules are simple expressions on variables that returns a boolean value.
+For example: \lstinline{tot_attended_battles > 0} or \lstinline{tot_commits_student == max_tot_commits}, 
+where \lstinline{tot_attended_battles}, \lstinline{tot_commits_student} and \lstinline{max_tot_commits} are pre-defined variables.\\
+To create more complex rule and avoid duplicated code, educators can create new variables.
+In particular, they can use an interpreted language to define new variables based on the existing ones.
+For example, if the platform provides the variables \lstinline{tot_attended_battles} and \lstinline{tot_battles}, 
+educators can create a new variable \lstinline{tot_non_attended_battles} as\\
+\lstinline{var tot_non_attended_battles = tot_battles - tot_attended_battles;}.
 
 The following table describes world, shared and machine phenomena.
 \begin{center} %Limits the scope of \rowcolors
