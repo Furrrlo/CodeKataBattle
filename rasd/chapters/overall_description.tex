@@ -204,10 +204,23 @@ in the model.
 			      label={fig:Battle state diagram},
 			      figure=H}
 		      \centering
-		      % \puml{puml/battle_state}
+		      \puml{puml/battle-state}
 	      \end{adjustbox}
 
+	      When a battle is created by an authorized educator, it starts in the Registration state.
+	      During this phase, teams of students can register to the battle so that they will
+	      be able to make submissions once it starts.\\
+	      When the registration deadline which was set by the educator at the creation of
+	      the battle expires, it enters the Submission state. During this phase,
+	      students can fork and clone the GH repo of the battle and make submissions. \\
+	      When the submissions deadline, which was also set by the educator at the creation time,
+	      expires the battle enters either the Consolidation or the Done state, depending on
+	      whether manual evaluation is required. \\
+	      In the Consolidation state, the educator manually grades the final submission of each
+	      team. Once that is done, it can manually close the battle, so that it goes in the
+	      Done state.
 \end{enumerate}
+\pagebreak
 
 \section{Product functions}
 

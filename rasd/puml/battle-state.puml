@@ -1,0 +1,36 @@
+@startuml Battle State
+hide empty description
+skinparam state {
+  BackgroundColor<<spacer>> #00000000
+  BorderColor<<spacer>> #00000000
+  FontColor<<spacer>> #00000000
+}
+
+[*] -> Registration
+Registration --> Submission : <U+00A0>registrationDeadline\nexpires
+Registration -> Registration : Team subscribes\nto the battle
+Submission -> Submission : Team makes a submission 
+Submission : GH repo link
+
+state c <<choice>>
+Submission --> c : <U+00A0>submissionDeadline\nexpires
+c -> Done : requiresManualEvalutation\nis false
+c -> Consolidation : requiresManualEvalutation\nis true
+
+Consolidation : Partial battle results
+state Consolidation {
+   [*] --> Grading
+   Grading -> Grading : Educator grades\nthe final submission\nof a team
+   Grading --> Graded : Educator has graded\nall the final submissions
+   
+   state "<U+00A0>" as ConsolidationExit <<expansionOutput>>
+   Graded --> ConsolidationExit : Educator closes\nthe battle
+   
+   state "<U+00A0>" as spacer <<spacer>> : very long message so that it takes up more space
+   [*] -left[norank,hidden]-> spacer
+}
+
+ConsolidationExit -> Done
+Done : Battle results
+
+@enduml
