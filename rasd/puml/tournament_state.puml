@@ -1,0 +1,27 @@
+@startuml Tournament State
+
+[*] -> Subscribing
+Subscribing --> InProgress : <U+00A0>subscriptionDeadline\nexpires
+Subscribing -> Subscribing : Student subscribes\nto the tournament
+
+state InProgress {
+   [*] --> Started
+
+   Battling <-- Started  : <U+00A0>New battle created
+   Battling <-- Idle : <U+00A0>New battle created
+   Idle : Finalized battles results
+
+   Battling -> Battling : Battle ends\nbut more battles
+   Battling --> Idle : Battle ends and\t\nno more battles\t
+   Battling -[hidden]-> Started
+   Battling : Finalized battles results
+
+   state "<U+00A0>" as inProgressExit <<expansionOutput>>
+   Idle --> inProgressExit
+   Started --> inProgressExit
+}
+
+inProgressExit --> Done : <U+00A0>creator closes\n<U+00A0>the tournament
+Done : Tournament results
+
+@enduml

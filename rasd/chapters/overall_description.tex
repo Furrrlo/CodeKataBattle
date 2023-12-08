@@ -164,11 +164,49 @@ for (let pos of final_positions_student)
 	\centering
 	\puml{puml/class-diagram}
 \end{adjustbox}
+\pagebreak
 
 \subsection{Statecharts}
 
+The following discusses how the state of a tournament and a of a battle
+evolves in time, in order to have a better understanding of their lifecycle
+in the model.
 
+\begin{enumerate}[label=\textbf{SD\arabic*}:,ref=SD\arabic*,leftmargin=1.3cm]
+	\item \textbf{Tournament}
+	      \begin{adjustbox}{
+			      max size={\textwidth}{\textheightwithcaption{1}},
+			      caption={Tournament state diagram},
+			      label={fig:Tournament state diagram},
+			      figure=H}
+		      \centering
+		      \puml{puml/tournament_state}
+	      \end{adjustbox}
 
+	      When a tournament is created by an educator, it starts in a Subscribing state.
+	      During this phase, students can subscribe to the tournament so that they will
+	      be able to partecipate to its battles once it starts.\\
+	      When the submissiond deadline which was set by the creator at the creation of
+	      the tournament expires, it enters the InProgress state. During this phase,
+	      authorized educators can create new battles and students which previously
+	      subscribed are able to take part into them. \\
+	      Once there are no more battles in progress (in the picture the Idle substate
+	      of the InProgress state), the educator which created the tournament can decide
+	      to close the tournament: once that is done, the tournament results and score
+	      is calculated and finalized.
+	      \pagebreak
+
+	\item \textbf{Battle}
+	      \begin{adjustbox}{
+			      max size={\textwidth}{\textheightwithcaption{1}},
+			      caption={Battle state diagram},
+			      label={fig:Battle state diagram},
+			      figure=H}
+		      \centering
+		      % \puml{puml/battle_state}
+	      \end{adjustbox}
+
+\end{enumerate}
 
 \section{Product functions}
 
