@@ -1,4 +1,5 @@
 @startuml Tournament State
+hide empty description
 
 [*] -> Subscribing
 Subscribing --> InProgress : <U+00A0>subscriptionDeadline\nexpires
