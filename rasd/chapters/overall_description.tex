@@ -224,6 +224,20 @@ in the model.
 
 \section{Product functions}
 
+The main function of the system is to allow student solving programming exercises, evaluating their solutions.
+After joining a battle, students can clone the forked repository and start programming using the favorite text editor or IDE.
+The forked repo contains build automation scripts and some test cases \comment{??} uploaded by the educator, so that students can try running their code.
+When they want to be evaluated they can commit and push their work. In this way, the GitHub action will start and trigger the CKB platform.
+The platform will clone the repository, run test and assign a grade, that students can see in their personal area.
+The GitHub repository also allows students to collaborate with their teammates, possibly using different branches to implement the required features.
+\begin{adjustbox}{
+	max size={\textwidth}{\textheightwithcaption{1}},
+	caption={Activity diagram},
+	label={fig:Activity diagram},
+	figure=H}
+\centering
+\puml{puml/activity-diagram}
+\end{adjustbox}
 
 
 \section{User characteristics}
