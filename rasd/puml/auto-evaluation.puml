@@ -1,0 +1,33 @@
+@startuml
+
+|Student|
+start
+:write code;
+:commit;
+:push;
+
+|GitHub|
+:Trigger;
+
+|System|
+:clone repo;
+:build;
+if(build succeed) then (yes)
+    fork
+        :run tests;
+    fork again
+        :compute elapsed time;
+    fork again
+        |Static analysis tool|
+        :analize code;
+        |System|
+    endfork
+else(no)
+endif
+|System|
+:assign score;
+
+
+stop
+
+@enduml

@@ -223,20 +223,46 @@ in the model.
 \pagebreak
 
 \section{Product functions}
-
+\subsection{Automatic evaluation}
 The main function of the system is to allow student solving programming exercises, evaluating their solutions.
 After joining a battle, students can clone the forked repository and start programming using the favorite text editor or IDE.
 The forked repo contains build automation scripts and some test cases \comment{??} uploaded by the educator, so that students can try running their code.
 When they want to be evaluated they can commit and push their work. In this way, the GitHub action will start and trigger the CKB platform.
-The platform will clone the repository, run test and assign a grade, that students can see in their personal area.
+The platform will clone the repository and build the program using the build automation script.
+If the build succeed, the system starts the automated evaluation tasks:
+\begin{itemize}
+	\item Run tests
+	\item Compute the time elapsed since the start of the battle
+	\item Analyze code with a static analysis tool
+\end{itemize} 
+Based on the results of this steps, the system assign a grade, that students can see in their personal area.
 The GitHub repository also allows students to collaborate with their teammates, possibly using different branches to implement the required features.
 \begin{adjustbox}{
 	max size={\textwidth}{\textheightwithcaption{1}},
-	caption={Activity diagram},
-	label={fig:Activity diagram},
+	caption={Automatic evaluation activity diagram},
+	label={fig:Automatic evaluation activity diagram},
 	figure=H}
 \centering
-\puml{puml/activity-diagram}
+\puml{puml/auto-evaluation}
+\end{adjustbox}
+
+\subsection{Battle evaluation}
+During the consolidation stage, the educator can access the GitHub repository of each team.
+The git repository also allow the educator to see who write each line of code, through the git blame tool.
+This allow the educator to assign different grades to students of the same team, based on the work done by each student.
+The educator uses the CKB platform to manually insert the grades.
+After grading all groups, he can close the consolidation stage.
+Otherwise, if manual evaluation is not required, when the submission deadline expires,
+the battle is automatically closed.
+After the battle is closed, the platform calculates the final ranks and notifies participating students.
+Tha platform also updates the personal tournament score of each students, adding the score of the current battle.
+\begin{adjustbox}{
+	max size={\textwidth}{\textheightwithcaption{1}},
+	caption={ Battle evaluation activity diagram},
+	label={fig:Battle evaluation activity diagram},
+	figure=H}
+\centering
+\puml{puml/battle-evaluation}
 \end{adjustbox}
 
 

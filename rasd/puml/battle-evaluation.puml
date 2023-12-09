@@ -1,0 +1,29 @@
+@startuml
+
+|Educator|
+|System|
+start
+:submission deadline expires;
+if(manual evaluation required) then (yes)
+    |Educator|
+    repeat
+        :evaluate;
+    repeat while (more students?) is (yes)
+    ->no;
+    :close consolidation stage;
+else(no)
+endif
+
+|System|
+:calculate final rank;
+fork
+    :update personal tournament score;
+fork again
+    |Student|
+    :notify;
+    |System|
+endfork
+
+stop
+
+@enduml
