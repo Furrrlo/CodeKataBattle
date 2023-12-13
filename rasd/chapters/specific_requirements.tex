@@ -11,7 +11,7 @@ of the platform.
 \subsection{Software Interfaces}
 The system will need to interface with the following software:
 \begin{enumerate}
-      \item \textbf{A git-compatible software} {-} in order to create git repositories for
+      \item \textbf{A git-compatible software~\cite{EmbeddingGit},~\cite{JGit}} {-} in order to create git repositories for
             the battles, push them to Github and clone students repositories in order to evaluate
             them
       \item \textbf{Language-specific software build systems} {-} in order to be able to build
@@ -27,13 +27,14 @@ The system will need to interface with the following software:
             with a testing framework (such as junit for Java or Jest for JavaScript)
             or a build tool (such as Gradle), at worst by directly parsing the text
             output of tests.
-      \item \textbf{Static analysis tools} {-} in order to be used for scoring. In this
+      \item \textbf{Static analysis tools} {-} in order to be used for scoring
+            (\cite{WikipediaStaticAnalysis}, \cite{GhStaticAnalysis}). In this
             case, a choice can be made between interfacing with more lower-level software
             specific tools, which can potentially need per-language support (such as
             Errorprone, SpotBugs for Java or ESLint for Javascript), tools which already
             support a plethora of languages out of the box (such as Infer), or higher level
             platforms which already interface on their own the lower-level tools (such as
-            SonarQube)
+            SonarQube \cite{SonarQube})
       \item \textbf{A language interpreter} {-} to be used to declare variables and evaluate
             them to be used for the assignment of badges to students. A decision must be made
             between developing a custom language with its interpreter or the use of an already
@@ -53,14 +54,15 @@ The system will need to communicate with the following external platforms:
       \item \textbf{GitHub} {-} which is used for code-hosting. The system will need to
             communicate with GitHub using the git protocol either over HTTP or SSH in order
             to manage and interact with repositories, but will also need to possibly interact
-            with the GitHub API over HTTP (using their REST API or their GraphQL API) to
+            with the GitHub API over HTTP (using their REST API \cite{GitHubRest}
+            or their GraphQL API \cite{GitHubGraphQL}) to
             create new repositories, as well as to collect additional metadata to be used
             for gamification variables. Additionally, it will also need to receive messages
             from GitHub workflows, so an API will need to be exposed so that a workflow
             will be able to notify the system of the push of a new commit by a student
       \item \textbf{External static analysis platforms} {-} in case they are choosen to
             implement static analysis. For example if SonarQube is used, the system will
-            need to be able to communicate using its API to receive reports about projects
+            need to be able to communicate using its API to receive reports about projects \cite{SonarQubeExt}
 \end{enumerate}
 
 Therefore, the following communication protocols are used:
@@ -69,8 +71,8 @@ Therefore, the following communication protocols are used:
             for all external communications
       \item \textbf{Secure Shell (SSH)} {-} used for git communications. This is to be
             preferred to HTTPS as the use of SSH certificates will also need to more easily
-            and securely authenticate the system to the GitHub platform
-      \item \textbf{GraphQL} {-} on top of HTTPS used for communicating with GitHub
+            and securely authenticate the system to the GitHub platform \cite{GitHubSSH}
+      \item \textbf{GraphQL~\cite{GraphQL}} {-} on top of HTTPS used for communicating with GitHub
 \end{enumerate}
 
 \section{Functional Requirements}
