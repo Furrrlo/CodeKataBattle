@@ -84,9 +84,9 @@ for (let pos of final_positions_student) {
 	      All students who had signed up for the tournament will receive a notification of the newly added battle created by educator Gianpaolo.
 
 	\item \textbf{Student joins to an existing Tournament by receiving a notification}\\
-	      Marco is an University student and thus is registered on the CKB Platform (ASSUMPTION). 
-		  He wants to sign up for a tournament to improve his programming skills in Java as he notices that he has difficulty writing code using Object Oriented Programming. 
-		  In the afternoon Marco receives a notification of a new tournament creation called \emph{"The Basics of Object-Oriented Programming in Java"}, he decides to take the opportunity and sign up.\\
+	      Marco is an University student and thus is registered on the CKB Platform (ASSUMPTION).
+	      He wants to sign up for a tournament to improve his programming skills in Java as he notices that he has difficulty writing code using Object Oriented Programming.
+	      In the afternoon Marco receives a notification of a new tournament creation called \emph{"The Basics of Object-Oriented Programming in Java"}, he decides to take the opportunity and sign up.\\
 	      Therefore, he accesses the platform by logging in and the platform redirect him to the list of available tournaments. Marco clicks on the tournament \emph{"The Basics of Object-Oriented Programming in Java"}, for which he is not subscribed.\\
 	      The platform shows Marco the information about the name and the description of the selected tournament. \\
 	      Marco clicks on the Subscribe button, and the platform enrolls Marco in the tournament showing a confirmation registration message.
@@ -96,7 +96,7 @@ for (let pos of final_positions_student) {
 	      They want to participate in one of the available tournament battles by creating a team.
 	      Specifically, Marco logs in and clicks on the tournament from the list of tournaments in which he is registered.\\
 	      Marco is shown the details of the tournaments and the list of available battles within it.\\
-		  He select the first available battle and clicks on the \emph{"Participate by creating a team"} button.\\
+	      He select the first available battle and clicks on the \emph{"Participate by creating a team"} button.\\
 	      Marco already knows Stefano and decides to invite him to join his team, Stefano receives the notification of the invitation and
 	      clicks it to accept right away.\\
 	      Because the tournament has a minimum requirement of 3 people, Marco leaves the page, in hopes to find another student who wants to participate.\\
@@ -105,10 +105,13 @@ for (let pos of final_positions_student) {
 	      Once Carlo has accepted, Marco goes back to the previous page, where he can see the team he has formed,
 	      and clicks on the \emph{"Participate with the current team"} button.
 
-	\item \textbf{Students are notified about the creation of the GitHub repository for a battle they are participating in}\\
-	      Gianpaolo Mariano is an educator on the platform and had created a battle within the \emph{"Welcome Tournament School Year 2024"} tournament context with registration deadline 6/11/2023.\\
-	      The system, when the registration deadline of the battle expires, creates the GitHub repository containing the code kata specified by Gianpaolo for the battle and sends the link of the newly created repository to all students who have registered in teams before the registration deadline expired.
-
+	\item \textbf{Student forks the repository}\\
+	      Marco is a student and is participating in a battle in \emph{"Welcome Tournament School Year 2024"} with his team.
+	      The system, when the registration deadline of the battle expires, creates the GitHub repository containing the code kata specified by the educator and sends the link of the newly created repository to all students who have registered.
+		  Marco receives the notification and decides, in agreement with his team, to fork the repository.
+		  Then he adds his teammates as collaborators in the GitHub repository.\\
+		  To make automatic evaluation work, he enables GitHub Action. 
+		  Then he logs in to the CKB platform and inserts the link of his group's repository.
 
 	\item \textbf{Students receive a notification about the new team battle and personal students score when a new push to the forked GitHub repository is performed}\\
 	      Marco is a student and is participating in a battle with the team consisting of Stefano and Carlo.\\
@@ -225,16 +228,16 @@ If the build succeed, the system starts the automated evaluation tasks:
 	\item Run tests
 	\item Compute the time elapsed since the start of the battle
 	\item Analyze code with a static analysis tool
-\end{itemize} 
+\end{itemize}
 Based on the results of this steps, the system assign a grade, that students can see in their personal area.
 The GitHub repository also allows students to collaborate with their teammates, possibly using different branches to implement the required features.
 \begin{adjustbox}{
-	max size={\textwidth}{\textheightwithcaption{1}},
-	caption={Automatic evaluation activity diagram},
-	label={fig:Automatic evaluation activity diagram},
-	figure=H}
-\centering
-\puml{puml/auto-evaluation}
+		max size={\textwidth}{\textheightwithcaption{1}},
+		caption={Automatic evaluation activity diagram},
+		label={fig:Automatic evaluation activity diagram},
+		figure=H}
+	\centering
+	\puml{puml/auto-evaluation}
 \end{adjustbox}
 
 \subsection{Battle evaluation}
@@ -248,12 +251,12 @@ the battle is automatically closed.
 After the battle is closed, the platform calculates the final ranks and notifies participating students.
 Tha platform also updates the personal tournament score of each students, adding the score of the current battle.
 \begin{adjustbox}{
-	max size={\textwidth}{\textheightwithcaption{1}},
-	caption={ Battle evaluation activity diagram},
-	label={fig:Battle evaluation activity diagram},
-	figure=H}
-\centering
-\puml{puml/battle-evaluation}
+		max size={\textwidth}{\textheightwithcaption{1}},
+		caption={ Battle evaluation activity diagram},
+		label={fig:Battle evaluation activity diagram},
+		figure=H}
+	\centering
+	\puml{puml/battle-evaluation}
 \end{adjustbox}
 
 
