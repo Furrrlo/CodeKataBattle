@@ -108,7 +108,7 @@ Therefore, the following communication protocols are used:
       \labelleditem{When the registration deadline expires, the system shall create a GitHub repository containing the code kata.}
       \labelleditem{The system shall send the link to all students who are members of subscribed teams.}
       \labelleditem{The system shall expose an API that can by called by the GitHub Action platform.}
-      \labelleditem{On each push, the system shall calculate and update the battle score of the team. In particular: \comment{Non so se vanno bene divisi così, mi sa di no}}
+      \labelleditem{On each push, the system shall calculate and update the battle score of the team.}
       \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:,ref=R\arabic{enumi}.\arabic*, leftmargin=*]
             \labelledsubitem{The system shall pull the latest sources.}
             \labelledsubitem{The system shall analyze quality level of the sources, based on the aspect selected by the educator.}
@@ -232,7 +232,6 @@ Therefore, the following communication protocols are used:
                         \textbf{Exit condition}  & The new badges is created in the current tournament \\\hline
                         \textbf{Exception}       & The rules contains undefined variables.
                         In that case, the platform returns an error and does not create the badge.
-                        \comment{Se il js è sbagliato?}                                                \\\hline
                   \end{tabular}
                   \caption{Educator creates a new badge }
                   \label{table:Educator creates a new badge }
