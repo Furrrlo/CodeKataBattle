@@ -33,6 +33,13 @@ The platform interact with an existing login system (SSO), responsible for authe
 The platform will allow an educator to create tournaments and battles within the context of a tournament he have created.
 The educator can also grant other colleagues the permission to create battles within the context of his tournaments.
 
+When the registration deadline of a battle expires, the platform creates a GitHub repository containing build automation scripts\comment{Tutti?} and tests provided by the educator.
+All subscribed students receive a notification.
+One student per group forks the repository and adds his teammates as collaborators.\\
+The forked repository contains also a workflows that triggers the CKB platform on each push.
+The student needs to enable the GitHub Actions to make it work.
+The student also have to insert the link of his repository in the CKB platform, so that only authorized repositories can trigger the platform.
+
 When the submission deadline of a battle expires, if the educator enabled manual evaluation, there is a consolidation stage.
 During this stage, the educator who create the battle uses the platform to go through the sources produced by each team to assign his/her score.
 After grading all groups, he can close the consolidation stage.\\
