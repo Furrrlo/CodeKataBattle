@@ -414,31 +414,33 @@ Therefore, the following communication protocols are used:
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & Students are notified about the creation of the GitHub repository for a battle they are participating in \\\hline
-                        \textbf{Actor}           & Students                                                                                                 \\\hline
+                        \textbf{Name}            & Student forks the repository \\\hline
+                        \textbf{Actor}           & Forking student, teammates                                                                                                 \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
-                              \item Students are participating in a team for the same battle of the same tournament
+                              \item Students have created a team
+                              \item The team is subscribed to a battle
                         \end{itemize}                                                \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
-                              \item When the registration deadline of a battle expires, the platform starts the creation of the repository.
-                              \item The platform gets the battle info.
-                              \item The platform gets the CodeKata of the battle.
-                              \item The platform creates the repository GitHub with name, description and the CodeKata.
-                              \item The platform gets all the teams registered for the battle.
-                              \item The platform notifies all the students that are partecipating in a team for the battle.
+                              \item When the registration deadline of a battle expires, the platform creates the repository GitHub with name and description of the battle.
+                              \item The platform uploads to the repository the build automation scripts and the tests \comment{Tutti?}
+                              \item The platform notifies all students subscribed to the battle.
+                              \item The student fork the repository.
+                              \item The student adds his teammates as collaborators in the repository.
+                              \item The student enables GitHub Action \comment{Deve fare altro?}.
+                              \item The student insert in the platform the link to his repository.
                         \end{enumerate}                        \\\hline
                         \textbf{Exit condition}  & The GitHub repository for the battle is created                                                          \\\hline
                         %\textbf{Exception} &                                                                                              \\\hline
                   \end{tabular}
-                  \caption{Students are notified about the creation of the GitHub repository for a battle  }
-                  \label{table:Students are notified about the creation of the GitHub repository for a battle}
+                  \caption{Student forks the repository}
+                  \label{table:Student forks the repository}
             \end{table}
             \begin{adjustbox}{
                         max size={\textwidth}{\textheightwithcaption{1}},
-                        caption={Students are notified about the creation of the GitHub repository for a battle},
-                        label={fig:Students are notified about the creation of the GitHub repository for a battle},
+                        caption={Student forks the repository},
+                        label={fig:Student forks the repository},
                         figure=H}
                   \centering
                   \puml{puml/UC6}
@@ -459,7 +461,7 @@ Therefore, the following communication protocols are used:
                               \item Pushing Student is partecipating in a battle of a tournament
                               \item Pushing Student has forked the GitHub repository of the battle
                               \item Pushing Student has set up the GitHub action on the forked repository
-                                    \comment{The user should also probably enter the repo link somewhere on the website?}
+                              \item Pushing Student has inserted the repository link in the platform
                         \end{itemize}                                                                                    \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]

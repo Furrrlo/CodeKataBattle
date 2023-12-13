@@ -1,31 +1,37 @@
-@startuml UC5
-title UC5 - Students are notified about the updated team battle and personal students score
+@startuml UC6
+title UC6 - Student forks the repository
 
-
-
-actor GitHub
 participant System
-actor Student
+actor ForkingStudent
+actor GitHub
+actor Teammate
 
+activate System
 note across: The registration deadline expires
 
-System -> System ++: getBattleInfo()
-
-
-System -> System ++: getCodeKata(tournament, battle)
-deactivate System
-
 System -> GitHub ++: createRepository(name, desc, codeKata)
-GitHub --> System --: link 
+GitHub --> System --: link
 
-System -> System ++: getTeams(battle)
+System -> GitHub ++: upload(scripts, tests)
+GitHub --> System --: confirmation
+
+System -> ForkingStudent : notify()
+System -> Teammate : notify()
+
 deactivate System
 
+ForkingStudent -> GitHub ++ : fork(repo)
+GitHub --> ForkingStudent --: link
 
-loop for each student in a team
-    System -> Student : notify()
+ForkingStudent -> GitHub ++ : addCollaborator(repo, user)
+GitHub -> Teammate: invite()
+GitHub --> ForkingStudent -- : confirmation
 
-end
-deactivate System
+
+ForkingStudent -> GitHub ++: enableActions(repo)
+GitHub --> ForkingStudent --: confirmation
+
+ForkingStudent -> System ++: insertLink(repoLink)
+System --> ForkingStudent --: confirmation
 
 @enduml
