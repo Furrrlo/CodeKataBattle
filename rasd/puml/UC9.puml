@@ -1,5 +1,5 @@
-@startuml UC8
-title UC8 - Educator closes a tournament   
+@startuml UC9
+title UC9 - Educator closes a tournament   
 actor Educator
 participant System
 actor Student

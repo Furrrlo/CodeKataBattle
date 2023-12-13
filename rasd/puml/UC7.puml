@@ -1,5 +1,5 @@
-@startuml UC6
-title UC6 - Calculation of a team's battle score
+@startuml UC7
+title UC7 - Calculation of a team's battle score
 actor Student
 actor OtherStudentsOfTheSameTeam
 actor GitHub

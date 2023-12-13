@@ -1,5 +1,5 @@
-@startuml UC3
-title UC3 - Student joins to an existing Tournament by receiving a notication      
+@startuml UC4
+title UC4 - Student joins to an existing Tournament by receiving a notication      
 actor Student
 participant System
 

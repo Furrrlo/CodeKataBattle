@@ -1,5 +1,5 @@
-@startuml UC2
-title UC2 - Educator creates a new Battle for an Existing Tournament    
+@startuml UC3
+title UC3 - Educator creates a new Battle for an Existing Tournament    
 
 actor Educator
 

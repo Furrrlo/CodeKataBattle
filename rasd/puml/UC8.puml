@@ -1,5 +1,5 @@
-@startuml UC7
-title UC7 - Educator manually evaluate teams    
+@startuml UC8
+title UC8 - Educator manually evaluate teams    
 actor Educator
 participant System
 actor Student

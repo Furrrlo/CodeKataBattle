@@ -1,5 +1,5 @@
-@startuml UC4
-title UC4 - Students create a team for a tournament battle   
+@startuml UC5
+title UC5 - Students create a team for a tournament battle   
 actor "Inviting Student" as inviting
 actor "Invited Student 1" as notif
 actor "Invited Student 2" as invited
