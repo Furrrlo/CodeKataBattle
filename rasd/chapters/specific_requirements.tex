@@ -414,13 +414,13 @@ Therefore, the following communication protocols are used:
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & Student forks the repository \\\hline
-                        \textbf{Actor}           & Forking student, teammates                                                                                                 \\\hline
+                        \textbf{Name}            & Student forks the repository                                                                                      \\\hline
+                        \textbf{Actor}           & Forking student, teammates, GitHub                                                                                \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Students have created a team
                               \item The team is subscribed to a battle
-                        \end{itemize}                                                \\\hline
+                        \end{itemize}                                                                                                      \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
                               \item When the registration deadline of a battle expires, the platform creates the repository GitHub with name and description of the battle.
@@ -430,8 +430,8 @@ Therefore, the following communication protocols are used:
                               \item The student adds his teammates as collaborators in the repository.
                               \item The student enables GitHub Action \comment{Deve fare altro?}.
                               \item The student insert in the platform the link to his repository.
-                        \end{enumerate}                        \\\hline
-                        \textbf{Exit condition}  & The GitHub repository for the battle is created                                                          \\\hline
+                        \end{enumerate} \\\hline
+                        \textbf{Exit condition}  & The GitHub repository for the battle is created                                                                   \\\hline
                         %\textbf{Exception} &                                                                                              \\\hline
                   \end{tabular}
                   \caption{Student forks the repository}
@@ -454,20 +454,20 @@ Therefore, the following communication protocols are used:
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & Students are notified about the updated team battle and personal students score when a new push to the forked GitHub repository is performed \\\hline
-                        \textbf{Actor}           & Pushing Student, Students partecipating in the same team                                                                                     \\\hline
+                        \textbf{Name}            & Students pushes and triggers automatic evaluation                                      \\\hline
+                        \textbf{Actor}           & Pushing Student, Students participating in the same team, GitHub, Static analysis tool \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
-                              \item Pushing Student is partecipating in a battle of a tournament
+                              \item Pushing Student is participating in a battle of a tournament
                               \item Pushing Student has forked the GitHub repository of the battle
                               \item Pushing Student has set up the GitHub action on the forked repository
                               \item Pushing Student has inserted the repository link in the platform
-                        \end{itemize}                                                                                    \\\hline
+                        \end{itemize}                                        \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
                               \item The pushing Student commits project code.
-                              \item The pushing Student pushes the commited project code to the forked GitHub battle repository.
-                              \item The platform gets notified about the new push.
+                              \item The pushing Student pushes the committed project code to the forked GitHub battle repository.
+                              \item The GitHub Action platform notifies the CKB platform about the new push.
                               \item The platform pulls the updated project code.
                               \item The platform gets info (tournament, group, students, aspects_to_check) regarding the repo that is analyzing.
                               \item The platform analyzes the code.
@@ -478,8 +478,8 @@ Therefore, the following communication protocols are used:
                               \item The platform updates the battle team score.
                               \item The platform updates the personal tournament score for each student in the team.
                               \item The platform notifies the updated battle team score to all the students of the same team.
-                        \end{enumerate}                                                       \\\hline
-                        \textbf{Exit condition}  & The battle team and students tournament score are updated                                                                                    \\\hline
+                        \end{enumerate} \\\hline
+                        \textbf{Exit condition}  & The battle team and students tournament score are updated                              \\\hline
                         %\textbf{Exception} &                                                                                              \\\hline
                   \end{tabular}
                   \caption{Students are notified about the updated team battle and personal students score}
@@ -503,7 +503,7 @@ Therefore, the following communication protocols are used:
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
                         \textbf{Name}            & Educator manually evaluates teams                                                   \\\hline
-                        \textbf{Actor}           & Educator, Students                                                                  \\\hline
+                        \textbf{Actor}           & Educator, Students, GitHub                                                          \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Educator has logged in
