@@ -454,15 +454,15 @@ Therefore, the following communication protocols are used:
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & Students pushes and triggers automatic evaluation                                      \\\hline
-                        \textbf{Actor}           & Pushing Student, Students participating in the same team, GitHub, Static analysis tool \\\hline
+                        \textbf{Name}            & Students pushes and triggers automatic evaluation                                                                 \\\hline
+                        \textbf{Actor}           & Pushing Student, Students participating in the same team, GitHub, Static analysis tool                            \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Pushing Student is participating in a battle of a tournament
                               \item Pushing Student has forked the GitHub repository of the battle
                               \item Pushing Student has set up the GitHub action on the forked repository
                               \item Pushing Student has inserted the repository link in the platform
-                        \end{itemize}                                        \\\hline
+                        \end{itemize}                                                                   \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
                               \item The pushing Student commits project code.
@@ -476,8 +476,10 @@ Therefore, the following communication protocols are used:
                               \item The platform calculates the total score.
                               \item The platform updates the battle team score.
                               \item The platform notifies the updated battle team score to all the students of the same team.
-                        \end{enumerate}                \\\hline
-                        \textbf{Exit condition}  & The battle team score is updated                                                       \\\hline
+                        \end{enumerate}                                           \\\hline
+                        \textbf{Exit condition}  & The battle team score is updated                                                                                  \\\hline
+                        \textbf{Exception}       & The platform receives a push notification from an unauthorized repository. In this case the request is discarded. \\\hline
+                        \textbf{Special reqs}    & The platform must evaluate the project within 10 minutes of the push.                                             \\\hline
                   \end{tabular}
                   \caption{Students pushes and triggers automatic evaluation}
                   \label{table:Students pushes and triggers automatic evaluation}
