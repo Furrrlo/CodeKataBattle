@@ -1,5 +1,5 @@
 @startuml UC7
-title UC7 - Calculation of a team's battle score
+title UC7 - Students pushes and triggers automatic evaluation
 actor Student
 actor OtherStudentsOfTheSameTeam
 actor GitHub
@@ -19,36 +19,21 @@ System --> GitHub : received
 System -> GitHub ++ : pull(repo)
 GitHub --> System --: last commited files
 
-
-System -> System ++: getInfo(repo)
-deactivate System
-
-System -> System ++: analyzeCode()
-deactivate System
-
+System -> System ++--: buildProject()
 
 loop for each test case
-    System -> System ++: runTests(test, files)
-    deactivate System
+    System -> System ++--: runTests(test, files)
 end
 
-System -> System ++: calculateDaysPassed(battle, repo)
-deactivate System
+System -> System ++--: calculateElapsedDays(battle, repo)
 
 System -> StaticAnalysisTool ++: runStaticAnalysisTools(files, aspects)
 StaticAnalysisTool --> System -- : outcame
 
 
-System -> System ++: calculateScore()
-deactivate System
+System -> System ++--: calculateScore()
 
-System -> System ++: modifyBattleTeamScore(battle, team, score)
-deactivate System
-
-loop for each student in the team
-    System -> System ++: updatePersonalTournamentScore(tournament, student, score)
-    deactivate System
-end
+System -> System ++--: modifyBattleTeamScore(battle, team, score)
 
 System -> Student: notify()
 loop for each other student in the team

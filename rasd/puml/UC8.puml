@@ -1,5 +1,5 @@
 @startuml UC8
-title UC8 - Educator manually evaluate teams    
+title UC8 - Educator manually evaluate teams
 actor Educator
 participant System
 actor Student
@@ -11,7 +11,6 @@ note across: The submission deadline expires
 Educator -> System ++: getTournaments()
 activate Educator
 System --> Educator--: list of tournaments
-
 
 
 Educator -> System ++ : selectTournament(tournament)
@@ -34,26 +33,22 @@ loop for each team
 end
 
 
-
-
 Educator -> System ++ : close(battle)
 
 alt all the teams have been evaluated
 
-    System -> System ++ : calculateFinalRank()
-    deactivate System
+    System -> System ++-- : calculateFinalRank()
 
     loop for each student partecipating in the battle
+        System -> System ++--: updatePersonalTournamentScore(tournament, student, score)
+
         System -> Student : notify()
     end
 
-
-
     Educator <-- System  : outcome
-else 
-Educator <-- System -- : error
-
-
+else
+    Educator <-- System -- : error
 end
+
 deactivate Educator
 @enduml

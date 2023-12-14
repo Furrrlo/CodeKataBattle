@@ -392,7 +392,7 @@ Therefore, the following communication protocols are used:
                   \textbf{Exception}       & \begin{itemize}
                                                    \item Inviting student wants to invite another student but the maximum number of students has been reached.
                                                          In that case, the platform returns an error.
-                                                   \item The team wants to partecipate in a battle but the number of participants requirement of the battle is not satisfied.
+                                                   \item The team wants to participate in a battle but the number of participants requirement of the battle is not satisfied.
                                                          In that case, the platform returns an error and the student can invite additional members.
                                              \end{itemize} \\\hline
             \end{longtable}
@@ -469,26 +469,23 @@ Therefore, the following communication protocols are used:
                               \item The pushing Student pushes the committed project code to the forked GitHub battle repository.
                               \item The GitHub Action platform notifies the CKB platform about the new push.
                               \item The platform pulls the updated project code.
-                              \item The platform gets info (tournament, group, students, aspects_to_check) regarding the repo that is analyzing.
-                              \item The platform analyzes the code.
-                              \item The platform runs all the test cases associated for the battle.
+                              \item The platform builds the project.
+                              \item The platform runs all the test cases associated with the battle.
                               \item The platform calculates the days that have passed since the start of the battle.
-                              \item The platform runs the static analysis tools.
+                              \item The platform runs the static analysis tool.
                               \item The platform calculates the total score.
                               \item The platform updates the battle team score.
-                              \item The platform updates the personal tournament score for each student in the team.
                               \item The platform notifies the updated battle team score to all the students of the same team.
-                        \end{enumerate} \\\hline
-                        \textbf{Exit condition}  & The battle team and students tournament score are updated                              \\\hline
-                        %\textbf{Exception} &                                                                                              \\\hline
+                        \end{enumerate}                \\\hline
+                        \textbf{Exit condition}  & The battle team score is updated                                                       \\\hline
                   \end{tabular}
-                  \caption{Students are notified about the updated team battle and personal students score}
-                  \label{table:Students are notified about the updated team battle and personal students score}
+                  \caption{Students pushes and triggers automatic evaluation}
+                  \label{table:Students pushes and triggers automatic evaluation}
             \end{table}
             \begin{adjustbox}{
                         max size={\textwidth}{\textheightwithcaption{2}},
-                        caption={Students are notified about the updated team battle and personal students score},
-                        label={fig:Students are notified about the updated team battle and personal students score},
+                        caption={Students pushes and triggers automatic evaluation},
+                        label={fig:Students pushes and triggers automatic evaluation},
                         figure=H}
                   \centering
                   \puml{puml/UC7}
@@ -502,13 +499,13 @@ Therefore, the following communication protocols are used:
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & Educator manually evaluates teams                                                   \\\hline
-                        \textbf{Actor}           & Educator, Students, GitHub                                                          \\\hline
+                        \textbf{Name}            & Educator manually evaluates teams                                                                          \\\hline
+                        \textbf{Actor}           & Educator, Students, GitHub                                                                                 \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Educator has logged in
                               \item Educator has permission to modify the battle of the tournament
-                        \end{itemize}                                            \\\hline
+                        \end{itemize}                                                                   \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
                               \item When the submission deadline expires, the platform opens the consolidation stage.
@@ -525,12 +522,13 @@ Therefore, the following communication protocols are used:
                               \item The educator assigns a score to each team.
                               \item The educator selects the option to close the battle.
                               \item The platform calculates the final battle ranks.
+                              \item The platform updates the personal tournament score of each student.
                               \item The platform notifies students who participated in the battle.
                               \item The platform sends to the educator a confirmation message.
-                        \end{enumerate}                 \\\hline
-                        \textbf{Exit condition}  & The battle is closed and the final battle ranks are calculated                      \\\hline
+                        \end{enumerate}                                        \\\hline
+                        \textbf{Exit condition}  & The battle is closed, the final battle ranks are calculated and the personal tournament scores are updated \\\hline
                         \textbf{Exception}       & The educator selects the option to close the battle before evaluating all students.
-                        In this case the platform return an error and the educator can assign the missing grades.                      \\\hline
+                        In this case the platform return an error and the educator can assign the missing grades.                                             \\\hline
                         %\textbf{Special reqs}    &                                                      \\\hline
                   \end{tabular}
                   \caption{Educator manually evaluate teams    }
