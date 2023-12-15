@@ -220,12 +220,12 @@ in the model.
 \subsection{Automatic evaluation}
 The main function of the system is to allow student solving programming exercises, evaluating their solutions.
 After joining a battle, students can clone the forked repository and start programming using the favorite text editor or IDE.
-The forked repo contains build automation scripts and some test cases \comment{??} uploaded by the educator, so that students can try running their code.
+The forked repo contains build automation scripts and public test cases uploaded by the educator, so that students can try running their code.
 When they want to be evaluated they can commit and push their work. In this way, the GitHub action will start and trigger the CKB platform.
 The platform will clone the repository and build the program using the build automation script.
 If the build succeed, the system starts the automated evaluation tasks:
 \begin{itemize}
-	\item Run tests
+	\item Run public and private tests
 	\item Compute the time elapsed since the start of the battle
 	\item Analyze code with a static analysis tool
 \end{itemize}
@@ -239,6 +239,8 @@ The GitHub repository also allows students to collaborate with their teammates, 
 	\centering
 	\puml{puml/auto-evaluation}
 \end{adjustbox}
+
+\pagebreak
 
 \subsection{Battle evaluation}
 During the consolidation stage, the educator can access the GitHub repository of each team.
