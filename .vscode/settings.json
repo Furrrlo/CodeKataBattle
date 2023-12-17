@@ -6,7 +6,8 @@
     "latex-workshop.latex.autoClean.run": "onFailed",
     "latex-workshop.latex.build.forceRecipeUsage": false,
     "latex-workshop.latex.search.rootFiles.include": [
-        "rasd/rasd.tex"
+        "rasd/rasd.tex",
+        "dd/dd.tex",
     ],
     "latex-workshop.latex.recipes": [
         {
