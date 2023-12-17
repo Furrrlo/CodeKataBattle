@@ -33,10 +33,30 @@ The platform interact with an existing login system (SSO), responsible for authe
 The platform will allow an educator to create tournaments and battles within the context of a tournament he have created.
 The educator can also grant other colleagues the permission to create battles within the context of his tournaments.
 
+The creator of the tournament can also create badges.
+Each badge has a set of rules that must be fulfilled to achieve it.
+The rules are simple expressions on variables that returns a boolean value.
+For example: 
+\begin{lstlisting}
+    tot_attended_battles > 0
+\end{lstlisting}
+or 
+\begin{lstlisting}
+    tot_commits_student == max_tot_commits
+\end{lstlisting}
+where \lstinline{tot_attended_battles}, \lstinline{tot_commits_student} and \lstinline{max_tot_commits} are pre-defined variables.\\
+To create more complex rule and avoid duplicated code, educators can create new variables.
+In particular, they can use an interpreted language to define new variables based on the existing ones.
+For example, if the platform provides the variables \lstinline{tot_attended_battles} and \lstinline{tot_battles}, 
+educators can create a new variable \lstinline{tot_missed_battles} as
+\begin{lstlisting}[language=java, morekeywords={var}, keywordstyle=\color{blue}]
+    var tot_missed_battles = tot_battles - tot_attended_battles;
+\end{lstlisting}
+
 To create a battle, the educator needs to upload test cases and build automation scripts.
-Uploading test cases they can decide if each test is public or private.
+Uploading test cases he can decide if each test is public or private.
 Public tests are provided to students, so that they can run them locally.
-Private tests are used used for automatic evaluation, but they are not provided to students.
+Private tests are used for automatic evaluation, but they are not provided to students.
 In this way educator are sure that students are not writing code that only pass specific tests, but actually solves the exercise.
 
 When the registration deadline of a battle expires, the platform creates a GitHub repository containing build automation scripts and public tests provided by the educator.
@@ -54,17 +74,6 @@ Otherwise, if manual evaluation is not required, when the submission deadline ex
 After the battle is closed, the final battle rank becomes available and all students who participated are notified.
 
 After all battles in a tournaments are closed, the educator who create the tournament can close it.
-
-The creator of the tournament can also create badges.
-Each badge has a set of rules that must be fulfilled to achieve it.
-The rules are simple expressions on variables that returns a boolean value.
-For example: \lstinline{tot_attended_battles > 0} or \lstinline{tot_commits_student == max_tot_commits}, 
-where \lstinline{tot_attended_battles}, \lstinline{tot_commits_student} and \lstinline{max_tot_commits} are pre-defined variables.\\
-To create more complex rule and avoid duplicated code, educators can create new variables.
-In particular, they can use an interpreted language to define new variables based on the existing ones.
-For example, if the platform provides the variables \lstinline{tot_attended_battles} and \lstinline{tot_battles}, 
-educators can create a new variable \lstinline{tot_non_attended_battles} as\\
-\lstinline{var tot_non_attended_battles = tot_battles - tot_attended_battles;}.
 
 The following table describes world, shared and machine phenomena.
 \begin{center} %Limits the scope of \rowcolors
