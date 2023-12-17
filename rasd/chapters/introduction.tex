@@ -36,18 +36,18 @@ The educator can also grant other colleagues the permission to create battles wi
 The creator of the tournament can also create badges.
 Each badge has a set of rules that must be fulfilled to achieve it.
 The rules are simple expressions on variables that returns a boolean value.
-For example: 
+For example:
 \begin{lstlisting}
     tot_attended_battles > 0
 \end{lstlisting}
-or 
+or
 \begin{lstlisting}
     tot_commits_student == max_tot_commits
 \end{lstlisting}
 where \lstinline{tot_attended_battles}, \lstinline{tot_commits_student} and \lstinline{max_tot_commits} are pre-defined variables.\\
 To create more complex rule and avoid duplicated code, educators can create new variables.
 In particular, they can use an interpreted language to define new variables based on the existing ones.
-For example, if the platform provides the variables \lstinline{tot_attended_battles} and \lstinline{tot_battles}, 
+For example, if the platform provides the variables \lstinline{tot_attended_battles} and \lstinline{tot_battles},
 educators can create a new variable \lstinline{tot_missed_battles} as
 \begin{lstlisting}[language=java, morekeywords={var}, keywordstyle=\color{blue}]
     var tot_missed_battles = tot_battles - tot_attended_battles;
@@ -179,19 +179,7 @@ The following table describes world, shared and machine phenomena.
 \subsection{Acronyms}
 \begin{description}[labelwidth=4em, leftmargin=5em, style=nextline]
     \item \textbf{CKB:} CodeKataBattle
-    \item \textbf{Kata:} Exercise in karate applied to software development
-    \item \textbf{GitHub:} Web-based platform for version control using Git
     \item \textbf{API:} Application Programming Interface
-    \item \textbf{Tournament:} Series of code kata battles
-    \item \textbf{Battle:} Coding exercise with test cases and build automation scripts
-    \item \textbf{Score:} Numerical representation of team performance
-    \item \textbf{Rank:} Position relative to others
-    \item \textbf{Notification:} Message or alert informing users
-    \item \textbf{Collaborators:} Educators granted permission to create battles
-\end{description}
-
-\subsection{Abbreviations}
-\begin{description}[labelwidth=4em, leftmargin=5em, style=nextline]
     \item \textbf{SAT:} Static Analysis Tools
     \item \textbf{GAB:} Gamification Badges
     \item \textbf{BAS:} Build Automation Scripts
@@ -201,6 +189,18 @@ The following table describes world, shared and machine phenomena.
     \item \textbf{DR:} Dynamic Ranking
     \item \textbf{DL:} Deadline
     \item \textbf{TDD:} Test-Driven Development
+
+\end{description}
+
+\subsection{Abbreviations}
+\begin{description}[labelwidth=4em, leftmargin=5em, style=nextline]
+    \item \textbf{e.g.} For example
+    \item \textbf{e.g.} that is
+    \item \textbf{repo} Repository
+    \item \textbf{Gn} Goal number n
+    \item \textbf{Dn} Domain assumption number n
+    \item \textbf{Rn} Requirement number n
+    \item \textbf{UCn} Use case number n
 \end{description}
 
 \section{Revision history}
