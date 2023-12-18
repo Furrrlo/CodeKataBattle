@@ -1,0 +1,98 @@
+@startuml Component View
+
+interface HTTP
+
+interface "User Interface" as IUser
+
+component "API Gateway"
+interface "API" as IGateway
+
+interface "User Interface" as IUser
+component "User Service"
+
+cloud {
+  component "University SSO 1"
+}
+
+cloud {
+  component "University SSO 2"
+}
+
+cloud {
+    component "Website CDN"
+}
+
+interface "Platform Interface" as IPlatform
+component Platform {
+    portin "<U+00A0>" as PlatformPortIn
+    portout "<U+00A0>" as PlatformPortOut
+    component "Platform Service"
+    database "Platform DB"
+}
+
+interface "Notification Interface" as INotification
+component Notification {
+    portin "<U+00A0>" as NotificationPortIn
+    portout "<U+00A0>" as NotificationPortOut
+    queue "Notification Queue"
+    component "Notification Service"
+}
+
+interface "Badge Interface" as IBadge
+component Badge {
+    portin "<U+00A0>" as BadgePort
+    component "Badge Service"
+    database "Badge DB"
+}
+
+interface "Build and Test Interface" as IBuild
+component "Build and Test Service"
+
+interface "Static Analysis Interface" as ISat
+component "Static Analysis Service"
+cloud {
+  component SonarCloud
+}
+
+HTTP -- IGateway
+IGateway -- [API Gateway]
+HTTP --- [Website CDN]
+
+[API Gateway] -- IUser
+IUser -- [User Service]
+[User Service] -- [University SSO 1]
+[User Service] -- [University SSO 2]
+
+[API Gateway] -- IPlatform
+IPlatform -- PlatformPortIn
+PlatformPortIn - [Platform Service]
+[Platform Service] - PlatformPortOut
+[Platform Service] - [Platform DB]
+
+[API Gateway] -- ISat
+ISat -- [Static Analysis Service]
+[Static Analysis Service] -- [SonarCloud]
+
+[API Gateway] -- IBuild
+IBuild -- [Build and Test Service]
+
+[API Gateway] -- IBadge
+IBadge -- BadgePort
+BadgePort - [Badge Service]
+[Badge Service] -- [Badge DB]
+
+NotificationPortIn - [Notification Queue]
+[Notification Queue] -- [Notification Service]
+[Notification Service] - NotificationPortOut
+HTTP <- NotificationPortOut
+
+PlatformPortOut -- INotification
+INotification -- NotificationPortIn
+
+' Hidden links to distribute stuff better
+IPlatform -r[hidden]-- ISat : \t\t\t\t\t
+ISat -r[hidden]-- IUser : \t\t\t\t\t
+IUser -r[hidden]-- IBuild : \t\t\t\t\t
+IBuild -r[hidden]-- IBadge : \t\t\t\t\t
+
+@enduml
