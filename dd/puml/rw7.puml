@@ -1,0 +1,41 @@
+@startuml RW7 - Students pushes and triggers automatic evaluation
+
+entity "GH Action" as gha
+participant "API\nGateway" as gateway
+participant "User\nService" as auth
+participant "Platform\nService" as platform
+database "Platform DB" as platformDb
+participant "Build And\nTest Service" as build
+participant "Static Analysis\nService" as sta
+
+gha --> gateway ++ : newPush(repoSlug)
+
+gateway -> platform ++ : findBattleAndTeamFor(repoSlug)
+platform -> platformDb ++ : SELECT ...  
+platform <- platformDb -- : (battleId, teamId)?
+alt unregistered or invalid repoSlug
+    gateway <- platform : false
+else
+    gateway <- platform -- : { battleId, teamId }
+
+    par
+        gateway -> build ++ : buildAndTest(repoSlug)
+        ...
+        gateway <- build -- : testsReport
+    else
+        gateway -> sta ++ : analyse(repoSlug)
+        ...
+        gateway <- sta -- : stReport
+    end
+
+    gateway -> platform ++ : calculateNewScore(battleId,\n  teamId, testsReport, stReport) 
+    platform -> platform : calculate score
+    platform -> platformDb ++ : UPDATE SET score ...
+    platform <- platformDb -- : 
+    gateway <- platform --
+    deactivate gateway
+end
+
+deactivate gateway
+
+@enduml

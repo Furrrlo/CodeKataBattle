@@ -1,0 +1,80 @@
+@startuml RW1 - Educator creates a new Tournament
+
+actor Browser
+participant CDN
+participant "API Gateway" as gateway
+participant "User Service" as auth
+participant "Badge Service" as badges
+database "Badge DB" as badgesDb
+participant "Platform Service" as platform
+database "Platform DB" as platformDb
+
+activate Browser
+Browser -> CDN ++ : GET index.html
+Browser <- CDN -- : index.html
+
+Browser -> Browser : input(tournamentInfo)
+Browser -> Browser : input(authorizedEducators)
+
+loop authorizedEducators
+    Browser -> gateway ++ : searchEducator(authToken, name?, surname?, ...)
+    gateway -> auth ++ : validateEducatorToken(authToken)
+    alt invalid token
+        gateway <- auth : false
+        Browser <- gateway : 401 Unauthorized
+    else
+        gateway <- auth -- : educatorId
+        gateway -> auth ++ : searchEducator(name?, surname?, ...)
+        gateway <- auth -- : authorizedEducatorId?
+        Browser <- gateway -- : authorizedEducatorId?
+        Browser -> Browser : tournamentInfo.authorizedEducators[] =\n  authorizedEducatorId
+    end
+end
+
+Browser -> Browser : input(existingBadges)
+Browser -> Browser : input(newBadges)
+
+loop newBadges
+    Browser -> gateway ++ : createBadge(authToken, badgeInfo)
+    gateway -> auth ++ : validateEducatorToken(authToken)
+    alt invalid token
+        gateway <- auth : false
+        Browser <- gateway : 401 Unauthorized
+    else
+        gateway <- auth -- : educatorId
+        gateway -> badges ++ : createBadge(educatorId, badgeInfo)
+
+        alt invalid badge code
+            gateway <- badges : invalid badge
+            Browser <- gateway : invalid badge
+        else
+            badges -> badgesDb ++ : INSERT ...
+            badges <- badgesDb -- : newBadgeId
+            gateway <- badges -- : newBadgeId
+            Browser <- gateway -- : newBadgeId
+            Browser -> Browser : newBadgeIds[] = newBadgeId
+        end
+    end
+end
+
+Browser -> Browser : tournamentInfo.badges =\n  [...existingBadges, ...newBadgeIds]
+Browser -> gateway ++ : createTournament(authToken, tournamentInfo)
+
+gateway -> auth ++ : validateEducatorToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : educatorId
+    gateway -> auth ++ : checkEducatorIds(autorizedEducatorsIds)
+    gateway <- auth -- : true
+    gateway -> platform ++ : createTournament(educatorId, tournamentInfo, autorizedEducatorIds, badgeIds)
+    platform -> platformDb ++ : INSERT ...
+    platform <- platformDb -- : newTournamentId
+    gateway <- platform -- : newTournamentId
+    Browser <- gateway -- : newTournamentId
+end
+
+deactivate Browser
+
+@enduml
