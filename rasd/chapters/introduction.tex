@@ -85,41 +85,42 @@ The following table describes world, shared and machine phenomena.
         \hline
         \rowcolor{gray!50}
         \textbf{Phenomena}                                                                                                                    & \textbf{Controlled by} & \textbf{Shared} \\ \hline
+        A user wants to log in to the platform                                                                                                & W                      & N               \\ \hline
         An educator wants to create a tournament                                                                                              & W                      & N               \\ \hline
         A student wants to take part in a tournament                                                                                          & W                      & N               \\ \hline
         A student wants to invite other students in a tournament                                                                              & W                      & N               \\ \hline
         A student wants to see the ranking in a battle                                                                                        & W                      & N               \\ \hline
         An educator wants to see the ranking in a battle                                                                                      & W                      & N               \\ \hline
-        login and registration?                                                                                                               & W                      & Y               \\ \hline
+        A user logs in                                                                                                                        & W                      & Y               \\ \hline
         An educator creates a tournament                                                                                                      & W                      & Y               \\ \hline
         The system notifies students about a new tournament                                                                                   & M                      & Y               \\ \hline
         An educator grants permissions for a tournament to another educator                                                                   & W                      & Y               \\ \hline
         A student subscribes to a tournament                                                                                                  & W                      & Y               \\ \hline
         An educator creates a battle as part of a tournament he has permissions for                                                           & W                      & Y               \\ \hline
         The system notifies students subscribed to a tournament about a new battle in said tournament                                         & M                      & Y               \\ \hline
-        A student invites another student to take part in a battle with them                                                                  & W                      & Y               \\ \hline
-        A student accepts the invite of another student to take part in a battle with them                                                    & W                      & Y               \\ \hline
+        A student invites another student to take part in a battle with him                                                                   & W                      & Y               \\ \hline
+        A student accepts the invitation of another student to take part in a battle with him                                                 & W                      & Y               \\ \hline
         A student joins a battle on their own                                                                                                 & W                      & Y               \\ \hline
         The registration deadline of a battle expires                                                                                         & W                      & N               \\ \hline
         The system sends the link to a GitHub repository containing the code for a battle to all students who are members of subscribed teams & M                      & Y               \\ \hline
         A student forks the GitHub repository                                                                                                 & W                      & N               \\ \hline
         A student sets up the automated workflow                                                                                              & W                      & N               \\ \hline
-        Student writes code                                                                                                                   & W                      & N               \\ \hline
+        A student writes code                                                                                                                 & W                      & N               \\ \hline
         A student pushes a new commit in their repository main branch                                                                         & W                      & Y               \\ \hline
-        CKB platform pulls the latest sources, analyses them, and runs the tests                                                              & M                      & N               \\ \hline
-        Platform calculates the battle score of the team.                                                                                     & M                      & N               \\ \hline
+        The system pulls the latest sources, analyses them, and runs the tests                                                                & M                      & N               \\ \hline
+        The system calculates the battle score of the team.                                                                                   & M                      & N               \\ \hline
         A student or an educator visualize the current rank of a battle                                                                       & W                      & Y               \\ \hline
         The submission deadline expires and the consolidation stage starts                                                                    & W                      & N               \\ \hline
         An educator manually evaluates the submission of a team for a battle he has created                                                   & W                      & Y               \\ \hline
         An educator closes the consolidation stage                                                                                            & W                      & Y               \\ \hline
-        The system notifies students taking part in a battle that is over                                                                     & M                      & Y               \\ \hline
+        The system notifies students taking part in a battle that the final battle rank is available                                          & M                      & Y               \\ \hline
         An educator closes a tournament                                                                                                       & W                      & Y               \\ \hline
         The platform updates the personal tournament score of each student                                                                    & M                      & N               \\ \hline
-        The system notifies students taking part in a tournament that it was closed                                                           & M                      & Y               \\ \hline
+        The system notifies students taking part in a tournament that the final tournament rank is available                                  & M                      & Y               \\ \hline
         Any subscribed user visualizes the list of current tournaments                                                                        & W                      & Y               \\ \hline
         Any subscribed user visualizes the ranking of a tournament                                                                            & W                      & Y               \\ \hline
-        Educator defines a badge                                                                                                              & W                      & Y               \\ \hline
-        Student achieves a badge                                                                                                              & W                      & Y               \\ \hline
+        An educator defines a badge                                                                                                           & W                      & Y               \\ \hline
+        A student achieves a badge                                                                                                            & W                      & Y               \\ \hline
         Any subscribed user visualizes the badges achieved by a student                                                                       & W                      & Y               \\ \hline
     \end{longtable}
 \end{center}
