@@ -1,14 +1,14 @@
 % !TeX root = ../rasd.tex
 \section{Purpose}
-The purpose of the system is to help students improve their software development skills by joining code kata battles.
-A code kata battle is a programming exercise created by an educator that contains a set of test cases.
-Students have to provide a solution that pass the test, using a test-driven approach.
+The purpose of the system is to help students improve their software development skills by joining Code Kata Battles.
+A Code Kata Battle is a programming exercise created by an educator that contains a set of test cases.
+Students have to provide a solution that passes the tests, using a test-driven approach.
 Students can try as many times as they want, each time a solution is submitted, the tests are executed and the score is calculated.
 
 The goals of the CKB platform are:
 
 \begin{enumerate}[label=\textbf{G\arabic*}:,ref=G\arabic*,leftmargin=1.3cm]
-    \labelleditem{Educators can organize tournaments of programming exercises aimed at improving their students skills.}
+    \labelleditem{Educators can organize tournaments of programming exercises aimed at improving their students' skills.}
     \labelleditem{Educators can organize battles in a tournament they have created.}
     \labelleditem{Educators can aid their colleagues in creating battles.}
     \labelleditem{Educator can decide how to score a battle they have created.}
@@ -47,7 +47,7 @@ or
 where \lstinline{tot_attended_battles}, \lstinline{tot_commits_student} and \lstinline{max_tot_commits} are pre-defined variables.\\
 To create more complex rule and avoid duplicated code, educators can create new variables.
 In particular, they can use an interpreted language to define new variables based on the existing ones.
-For example, if the platform provides the variables \lstinline{tot_attended_battles} and \lstinline{tot_battles},
+For example, if the platform provides the variables \lstinline{tot_attended_battles}and \lstinline{tot_battles},
 educators can create a new variable \lstinline{tot_missed_battles} as
 \begin{lstlisting}[language=java, morekeywords={var}, keywordstyle=\color{blue}]
     var tot_missed_battles = tot_battles - tot_attended_battles;
@@ -144,7 +144,7 @@ The following table describes world, shared and machine phenomena.
 
     \item \textbf{Gamification Badges:} In the context of the CKB platform, these are rewards representing individual achievements within tournaments. Educators define badges with titles and rules.
 
-    \item \textbf{Tournament:} A series of code kata battles organized by educators on the CKB platform, providing students with opportunities to compete and improve their coding skills.
+    \item \textbf{Tournament:} A series of Code Kata Battles organized by educators on the CKB platform, providing students with opportunities to compete and improve their coding skills.
 
     \item \textbf{Battle:} A coding exercise within a tournament that includes a textual description, a software project with test cases, and build automation scripts. Teams aim to complete the project by following a test-first approach.
 
@@ -194,13 +194,13 @@ The following table describes world, shared and machine phenomena.
 
 \subsection{Abbreviations}
 \begin{description}[labelwidth=4em, style=nextline]
-    \item \textbf{e.g.} For example
-    \item \textbf{e.g.} that is
-    \item \textbf{repo} Repository
-    \item \textbf{Gn} Goal number n
-    \item \textbf{Dn} Domain assumption number n
-    \item \textbf{Rn} Requirement number n
-    \item \textbf{UCn} Use case number n
+    \item \textbf{e.g.:} For example
+    \item \textbf{e.g.:} That is
+    \item \textbf{repo:} Repository
+    \item \textbf{Gn:} Goal number n
+    \item \textbf{Dn:} Domain assumption number n
+    \item \textbf{Rn:} Requirement number n
+    \item \textbf{UCn:} Use case number n
 \end{description}
 
 \section{Revision history}
@@ -235,12 +235,12 @@ The following table describes world, shared and machine phenomena.
           including assumptions that must hold true, as well as how its state changes in time
           and possible usage scenarios.
     \item \textbf{Section 1: Specific Requirements} \\
-          This section describes the specific requirements of the system. It provides a detailed analysys
+          This section describes the specific requirements of the system. It provides a detailed analysis
           of the external interfaces, both user-facing as well as hardware and software, and presents the
           performance requirements, standards compliance and software system attributes.
           Additionally, it describes in depth the functional requirements of the system and details the
           use cases by means of diagrams, mapping goals, requirements and domains and tracing each use
-          case to the requirements it satifies
+          case to the requirements it satisfies.
     \item \textbf{Section 1: Formal Analysis through Alloy} \\
           This section provides a formal analysis using the alloy language, in order
           to prove the correctness and soundness of the system described in the previous sections.
