@@ -3,7 +3,7 @@ This section describes the entire model formally using the alloy language.
 In particular, we aim to:
 \begin{enumerate}
       \item model the interaction between students
-            in order to create teams which can partecipate to battles
+            in order to create teams which can participate to battles
       \item model the interactions related to the creation and management
             of tournaments as well as battles, in order to prove that
             authorization is represented properly by the model
@@ -16,7 +16,7 @@ In particular, we aim to:
 \section{Models}
 
 \begin{enumerate}[label=,leftmargin=0cm]
-      \item \textbf{Team of students partecipate in a battle}
+      \item \textbf{Team of students participate in a battle}
 
             This model was generated using:
             \begin{lstlisting}[language=alloy]
@@ -24,7 +24,7 @@ In particular, we aim to:
                 #Battle = 1 
                 some b: Battle | b.minStudents = 3 and 
                                 b.maxStudents = 3 and 
-                                #b.partecipations >= 1
+                                #b.participations >= 1
                 #Team = 2
                 #Invite = 4
                 some i: Invite | i.state = Rejected

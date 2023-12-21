@@ -59,14 +59,14 @@ sig Battle {
 	, maxStudents: Int
 	, registrationDeadline: DateTime
 	, submissionDeadline: DateTime
-	, partecipations: set BattlePartecipation
+	, participations: set BattleParticipation
 	, repo: lone Repository
 } {
 	description = "descr"
 	// Min and max students constraints
 	minStudents > 0 and minStudents <= maxStudents
 	// Sync the two relationships
-	all p: BattlePartecipation | (p in partecipations) <=> (p.battle = this)
+	all p: BattleParticipation | (p in participations) <=> (p.battle = this)
 	// Repo must exist after the registration state
 	gt[state, Registration] <=> repo != none
 	// creator must be tournament creator or authorized
@@ -81,7 +81,7 @@ sig Student {
 	, receivedInvites: set Invite
 	, sentInvites: set Invite
 	, subscriptions: set TournamentSubscription
-	, partecipations: set TeamPartecipation
+	, participations: set TeamParticipation
 } {
 	// Sync the two relationships
 	all i: Invite | (i in receivedInvites) <=> i.invitee = this
@@ -90,7 +90,7 @@ sig Student {
 	// Sync the two relationships
 	all s: TournamentSubscription | (s in subscriptions) <=> s.student = this
 	// Sync the two relationships
-	all p: TeamPartecipation | (p in partecipations) <=> p.student = this
+	all p: TeamParticipation | (p in participations) <=> p.student = this
 }
 
 sig TournamentSubscription {
@@ -112,13 +112,13 @@ sig Invite {
 	, state: InviteState
 	, inviter: Student
 	, invitee: Student
-	, teamParticipation: TeamPartecipation
+	, teamParticipation: TeamParticipation
 } {
 	// A student can't invite itself
 	inviter != invitee
 	// If the student has accepted, he must have a team
-	state = Accepted implies (some t: TeamPartecipation | t.invite = this)
-	// The invited student must be the same partecipating
+	state = Accepted implies (some t: TeamParticipation | t.invite = this)
+	// The invited student must be the same participating
 	teamParticipation.student = invitee
 }
 
@@ -132,16 +132,16 @@ fact {
 			i2.state != Accepted and i2.state != Pending
 		)
 	// If a student invited someone to a team, he must be the team creator
-	all i: Invite | (some tp: TeamPartecipation | 
+	all i: Invite | (some tp: TeamParticipation | 
 				tp != i.teamParticipation and 
-					tp in i.teamParticipation.team.teamPartecipations and
+					tp in i.teamParticipation.team.teamParticipations and
 					tp.invite = none and
 					tp.student = i.inviter)
 }
 
 enum InviteState { Accepted, Rejected, Pending }
 
-sig TeamPartecipation {
+sig TeamParticipation {
 	, student: Student
 	, invite: lone Invite
 	, team: Team
@@ -152,21 +152,21 @@ sig TeamPartecipation {
 			// he must have been invited to this
 			invite.teamParticipation = this
 				// if already subscribed to a battle, he must have accepted
-				and (team.partecipation != none => invite.state = Accepted)
+				and (team.participation != none => invite.state = Accepted)
 				// the invitee must be the same as the student
 				and invite.invitee = student)
 }
 
 sig Team {
-	, partecipation: lone BattlePartecipation
-	, teamPartecipations: set TeamPartecipation
+	, participation: lone BattleParticipation
+	, teamParticipations: set TeamParticipation
 } {
 	// Sync the two relationships
-	all tp: TeamPartecipation | (tp in teamPartecipations) <=> (tp.team = this)
+	all tp: TeamParticipation | (tp in teamParticipations) <=> (tp.team = this)
 	// There must be exactly one student which was not invited
-	one p: TeamPartecipation | p.team = this and p.invite = none and (
+	one p: TeamParticipation | p.team = this and p.invite = none and (
 		// All invited students must be invited by that student
-		all p1: TeamPartecipation | (
+		all p1: TeamParticipation | (
 				p != p1 and p1.team = this
 			) implies (
 				p1.invite != none and p1.invite.inviter = p.student
@@ -174,27 +174,27 @@ sig Team {
 	)
 	
 	// Can't have the same student twice in the same team
-	all disj p1, p2: TeamPartecipation | (
+	all disj p1, p2: TeamParticipation | (
 			p1.team = this and p2.team = this
 		) implies p1.student != p2.student
-	// If there's the partecipation, all students must be 
+	// If there's the participation, all students must be 
 	// subscribed to the tournament
-	(partecipation = none) or (
-		all st: Student, teamPart: TeamPartecipation | (
+	(participation = none) or (
+		all st: Student, teamPart: TeamParticipation | (
 				st = teamPart.student and teamPart.team = this
 			) implies (some subscription: TournamentSubscription |
 				subscription.student = st 
-					and subscription.tournament = partecipation.battle.tournament
+					and subscription.tournament = participation.battle.tournament
 			)
 	)
-	// If there's a partecipation, we must respect the battle requirements
-	partecipation = none or (
-			#teamPartecipations >= partecipation.battle.minStudents and 
-				#teamPartecipations <= partecipation.battle.maxStudents
+	// If there's a participation, we must respect the battle requirements
+	participation = none or (
+			#teamParticipations >= participation.battle.minStudents and 
+				#teamParticipations <= participation.battle.maxStudents
 		)
 }
 
-sig BattlePartecipation {
+sig BattleParticipation {
 	, team: Team
 	, battle: Battle
 	, registrationDate: DateTime
@@ -202,9 +202,9 @@ sig BattlePartecipation {
 	, repo: lone Repository
 } {
 	// Sync the two relationships
-	team.partecipation = this
-	// There must be a team for this battle partecipation
-	some team: Team | team.partecipation = this
+	team.participation = this
+	// There must be a team for this battle participation
+	some team: Team | team.participation = this
 	// Must be registered before the deadline
 	lte[registrationDate, battle.registrationDeadline]
 	// Repo can only exist past the battle REGISTRATION state
@@ -216,12 +216,12 @@ sig BattlePartecipation {
 
 // A student must only be in one team at a time for each battle
 fact studentInOneTeamPerBattle {
-	all disj p1, p2: TeamPartecipation | (
+	all disj p1, p2: TeamParticipation | (
 			p1.student = p2.student 
-				and p1.team.partecipation != none
-				and p2.team.partecipation != none
+				and p1.team.participation != none
+				and p2.team.participation != none
 		) implies (
-			p1.team.partecipation.battle != p2.team.partecipation.battle
+			p1.team.participation.battle != p2.team.participation.battle
 		)
 }
 
@@ -233,7 +233,7 @@ one sig Github {
 
 sig Repository {
 	, battle: lone Battle
-	, battleParticipation: lone BattlePartecipation
+	, battleParticipation: lone BattleParticipation
 } {
 	// Sync the two fields
 	battle != none <=> battle.repo = this

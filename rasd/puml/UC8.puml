@@ -1,5 +1,5 @@
 @startuml UC8
-title UC8 - Educator manually evaluate teams
+title UC8 - Educator manually evaluates teams
 actor Educator
 participant System
 actor Student

@@ -1,5 +1,5 @@
 @startuml UC7
-title UC7 - Students pushes and triggers automatic evaluation
+title UC7 - Student pushes and triggers automatic evaluation
 actor Student
 actor OtherStudentsOfTheSameTeam
 actor GitHub

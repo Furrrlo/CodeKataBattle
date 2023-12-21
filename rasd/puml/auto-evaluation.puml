@@ -12,14 +12,14 @@ start
 |System|
 :clone repo;
 :build;
-if(build succeed) then (yes)
+if(build succeeds) then (yes)
     fork
         :run tests;
     fork again
         :compute elapsed time;
     fork again
         |Static analysis tool|
-        :analize code;
+        :analyze code;
         |System|
     endfork
 else(no)

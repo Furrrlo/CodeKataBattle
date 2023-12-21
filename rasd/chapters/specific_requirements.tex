@@ -36,41 +36,41 @@ of the platform.
 The system will need to interface with the following software:
 \begin{enumerate}
       \item \textbf{A git-compatible software~\cite{EmbeddingGit},~\cite{JGit}} {-} in order to create git repositories for
-            the battles, push them to Github and clone students repositories in order to evaluate
-            them
+            the battles, push them to GitHub and clone students' repositories in order to evaluate
+            them.
       \item \textbf{Language-specific software build systems} {-} in order to be able to build
             the students projects for evaluation. Different languages have their own
             requirements for compiling and executing code, so for each supported language
             the system will need to interact with one or more tools, at minimum with a
-            compiler or interpreter (e.g gcc or clang for C/C++, javac for Java, node for
+            compiler or interpreter (e.g. GCC or clang for C/C++, javac for Java, node for
             JavaScript) but more likely with more complex tools (such as make for C/C++,
-            Maven or Gradle for Java, npm for JavaScript)
+            Maven or Gradle for Java, npm for JavaScript).
       \item \textbf{Language-specific test suites} {-} in order to evaluate which
             tests have been passed or failed. Once again, each supported language
             will need their own implementation, at best by communicating directly
-            with a testing framework (such as junit for Java or Jest for JavaScript)
+            with a testing framework (such as JUnit for Java or Jest for JavaScript)
             or a build tool (such as Gradle), at worst by directly parsing the text
             output of tests.
       \item \textbf{Static analysis tools} {-} in order to be used for scoring
             (\cite{WikipediaStaticAnalysis}, \cite{GhStaticAnalysis}). In this
             case, a choice can be made between interfacing with more lower-level software
             specific tools, which can potentially need per-language support (such as
-            Errorprone, SpotBugs for Java or ESLint for Javascript), tools which already
+            Errorprone, SpotBugs for Java or ESLint for JavaScript), tools which already
             support a plethora of languages out of the box (such as Infer), or higher level
             platforms which already interface on their own the lower-level tools (such as
-            SonarQube \cite{SonarQube})
+            SonarQube \cite{SonarQube}).
       \item \textbf{A language interpreter} {-} to be used to declare variables and evaluate
             them to be used for the assignment of badges to students. A decision must be made
             between developing a custom language with its interpreter or the use of an already
-            available interpreted language such as Javascript or Lua, with the consequent
+            available interpreted language such as JavaScript or Lua, with the consequent
             integration needed and the additional constraints to apply in order to disallow
-            potential malicious use
+            potential malicious use.
 \end{enumerate}
 Additionally, in order to implement the gamification aspect, additional information
 from each of these tools might be required in order to be able to define variables
 for badges. For example, we might need to extract more metadata from git
 related to number of commits by each student, lines changed, the dates of
-the first/last commit, etc so that educators are able to use those.
+the first/last commit, etc. so that educators are able to use those.
 
 \subsection{Communication Interfaces}
 The system will need to communicate with the following external platforms:
@@ -84,7 +84,7 @@ The system will need to communicate with the following external platforms:
             for gamification variables. Additionally, it will also need to receive messages
             from GitHub workflows, so an API will need to be exposed so that a workflow
             will be able to notify the system of the push of a new commit by a student
-      \item \textbf{External static analysis platforms} {-} in case they are choosen to
+      \item \textbf{External static analysis platforms} {-} in case they are chosen to
             implement static analysis. For example if SonarQube is used, the system will
             need to be able to communicate using its API to receive reports about projects \cite{SonarQubeExt}
       \item \textbf{3rd party SSO API} {-} in order to integrate automatically with the
@@ -106,10 +106,10 @@ Therefore, the following communication protocols are used:
 \section{Functional Requirements}
 
 \begin{enumerate}[label=\textbf{R\arabic*}:,ref=R\arabic*,leftmargin=1.3cm]
-      \labelleditem{The system shall allow users to login with SSO}
+      \labelleditem{The system shall allow users to log in with SSO.}
       \labelleditem{The system shall allow the educator to create a tournament.}
       \begin{enumerate}[label=\textbf{R\arabic{enumi}.\arabic*}:,ref=R\arabic{enumi}.\arabic*, leftmargin=*]
-            \labelledsubitem{The system shall allow the educator to specify the subscribe deadline of a tournament.}
+            \labelledsubitem{The system shall allow the educator to specify the subscription deadline of a tournament.}
             \labelledsubitem{The system shall allow the educator to grant other colleagues the permission to create battles within the context of a specific tournament.}
             \labelledsubitem{The system shall notify the students of the new tournament.}
             \labelledsubitem{The system shall allow the educator who create the tournament to close it.}
@@ -150,7 +150,7 @@ Therefore, the following communication protocols are used:
       \labelleditem{At the end of a battle, the system shall calculate the final rank.}
       \labelleditem{When the final rank is available, the system shall notify all students participating in the battle.}
       \labelleditem{At the end of each battle, the platform updates the personal tournament score of each student, that is the sum of all battle scores received in that tournament.}
-      \labelleditem{The system shall allows users to see the tournament ranks.}
+      \labelleditem{The system shall allow users to see the tournament ranks.}
       \labelleditem{At the end of a tournament, the system shall calculate the final tournament rank.}
       \labelleditem{When the final tournament rank is available, the system shall notify all students involved in the tournament.}
       \labelleditem{The system shall allow the educator who create a tournament, to create badges within the context of the tournament.}
@@ -240,26 +240,26 @@ Therefore, the following communication protocols are used:
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & Educator creates a new badge                        \\\hline
-                        \textbf{Actor}           & Educator who wants to create badges                 \\\hline
+                        \textbf{Name}            & Educator creates a new badge                       \\\hline
+                        \textbf{Actor}           & Educator who wants to create the badge             \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Educator is logged in
                               \item Educator is creating a tournament
-                        \end{itemize}                                         \\\hline
+                        \end{itemize}                                        \\\hline
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
-                              \item The educator selects the option to create a new badge
+                              \item The educator selects the option to create a new badge.
                               \item The educator inserts the title of the badge.
-                              \item The educator write Javascript code to create new variables.
-                              \item The educator write one or more rules.
-                              \item The educator click the confirmation button.
-                              \item The platform create the new badge in the current tournament.
+                              \item The educator writes JavaScript code to create new variables.
+                              \item The educator writes one or more rules.
+                              \item The educator clicks the confirmation button.
+                              \item The platform creates the new badge in the current tournament.
                               \item The platform shows a confirmation massage.
-                        \end{enumerate}              \\\hline
-                        \textbf{Exit condition}  & The new badges is created in the current tournament \\\hline
-                        \textbf{Exception}       & The rules contains undefined variables.
-                        In that case, the platform returns an error and does not create the badge.     \\\hline
+                        \end{enumerate}            \\\hline
+                        \textbf{Exit condition}  & The new badge is created in the current tournament \\\hline
+                        \textbf{Exception}       & The rules contain undefined variables.
+                        In that case, the platform returns an error and does not create the badge.    \\\hline
                   \end{tabular}
                   \caption{Educator creates a new badge }
                   \label{table:Educator creates a new badge }
@@ -282,7 +282,7 @@ Therefore, the following communication protocols are used:
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
                         \textbf{Name}            & Educator creates a new Battle for an Existing Tournament                                                                                                    \\\hline
-                        \textbf{Actor}           & Educator who wants to create the battle, Students partecipating in the tournament                                                                           \\\hline
+                        \textbf{Actor}           & Educator who wants to create the battle, Students participating in the tournament                                                                           \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
                               \item Educator is logged in
@@ -302,7 +302,7 @@ Therefore, the following communication protocols are used:
                               \item The educator selects the option to create the new battle.
                               \item The platform creates the battle for the tournament.
                               \item The platform sends to the educator a confirmation message.
-                              \item The platform sends a notification to all students partecipating in the tournament.
+                              \item The platform sends a notification to all students participating in the tournament.
                         \end{enumerate}                                                                                                \\\hline
                         \textbf{Exit condition}  & The new battle is added to the tournament                                                                                                                   \\\hline
                         \textbf{Exception}       & Some parameters are unfeasible (such as final submission deadline succeed the registration deadline, min number of students > max number of students, ...).
@@ -352,13 +352,13 @@ Therefore, the following communication protocols are used:
                         \textbf{Exception}       & The student selects the option to sign up to the tournament when the registration deadline has expired.
                         In that case, the platform returns an error.                                                                                       \\\hline
                   \end{tabular}
-                  \caption{Student joins to an existing Tournament by receiving a notication}
-                  \label{table:Student joins to an existing Tournament by receiving a notication}
+                  \caption{Student joins to an existing Tournament by receiving a notification}
+                  \label{table:Student joins to an existing Tournament by receiving a notification}
             \end{table}
             \begin{adjustbox}{
                         max size={\textwidth}{\textheightwithcaption{1}},
-                        caption={Student joins to an existing Tournament by receiving a notication},
-                        label={fig:Student joins to an existing Tournament by receiving a notication},
+                        caption={Student joins to an existing Tournament by receiving a notification},
+                        label={fig:Student joins to an existing Tournament by receiving a notification},
                         figure=H}
                   \centering
                   \puml{puml/UC4}
@@ -372,14 +372,14 @@ Therefore, the following communication protocols are used:
                   \label{table:Students create a team for a tournament battle}
                   \endlastfoot
                   \hline
-                  \textbf{Name}            & Students create a team for a tournament battle                                                                            \\\hline
-                  \textbf{Actor}           & Inviting student, Invited student 1, Invited student 2                                                                    \\\hline
+                  \textbf{Name}            & Students create a team for a tournament battle                                                                             \\\hline
+                  \textbf{Actor}           & Inviting student, Invited student 1, Invited student 2                                                                     \\\hline
                   \textbf{Entry condition} &
                   \begin{itemize}
                         \item Students are logged in
                         \item Students are enrolled in the same tournament
                         \item Students has invitation notifications enabled
-                  \end{itemize}                                                                                                   \\\hline
+                  \end{itemize}                                                                                                    \\\hline
                   \textbf{Event flow}      &
                   \begin{enumerate}[label=\arabic*.]
                         \item The inviting student asks the platform the list of available tournaments.
@@ -390,7 +390,7 @@ Therefore, the following communication protocols are used:
                         \item The platform sends to the inviting student the detail of the selected battle within the tournament.
                         \item The inviting student selects the option to create a new team for the battle.
                         \item The platform creates a new team for the battle.
-                        \item The platform add the inviting student to the created team.
+                        \item The platform adds the inviting student to the created team.
                         \item The platform returns to the inviting student a confirmation message.
                         \item The inviting student selects the option to invite "invited student 1".
                         \item The platform creates an invitation for invited student 1.
@@ -403,7 +403,7 @@ Therefore, the following communication protocols are used:
                         \item Invited student 2 asks the platform the list of invites.
                               \setcounter{resumeEnumeration}{\value{enumii}}
                               % Manually split the cell cause longtable cannot do it
-                  \end{enumerate}          \\\hline
+                  \end{enumerate}           \\\hline
                                            &
                   \begin{enumerate}[label=\arabic*.]
                         \setcounter{enumii}{\value{resumeEnumeration}}
@@ -411,15 +411,15 @@ Therefore, the following communication protocols are used:
                         \item Invited student 2 accepts the invite for the battle.
                         \item The platform adds invited student 2 to the team.
                         \item The platform returns to invited student 2 a confirmation message.
-                        \item The inviting student selects the option to partecipate in the battle with the new created team.
+                        \item The inviting student selects the option to participate in the battle with the new created team.
                         \item The platform signs up the team to the battle.
                         \item The platform returns to inviting student a confirmation message.
-                  \end{enumerate}                                                 \\\hline
-                  \textbf{Exit condition}  & The students are all subscribed in a battle with the same team                                                            \\\hline
+                  \end{enumerate}                                                  \\\hline
+                  \textbf{Exit condition}  & The students are all subscribed in a battle with the same team                                                             \\\hline
                   \textbf{Exception}       & \begin{itemize}
-                                                   \item Inviting student wants to invite another student but the maximum number of students has been reached.
+                                                   \item Inviting student wants to invite another student, but the maximum number of students has been reached.
                                                          In that case, the platform returns an error.
-                                                   \item The team wants to participate in a battle but the number of participants requirement of the battle is not satisfied.
+                                                   \item The team wants to participate in a battle, but the number of participants requirement of the battle is not satisfied.
                                                          In that case, the platform returns an error and the student can invite additional members.
                                              \end{itemize} \\\hline
             \end{longtable}
@@ -453,10 +453,10 @@ Therefore, the following communication protocols are used:
                               \item When the registration deadline of a battle expires, the platform creates the repository GitHub with name and description of the battle.
                               \item The platform uploads to the repository the build automation scripts and public tests
                               \item The platform notifies all students subscribed to the battle.
-                              \item The student fork the repository.
+                              \item The student forks the repository.
                               \item The student adds his teammates as collaborators in the repository.
                               \item The student enables GitHub Action.
-                              \item The student insert in the platform the link to his repository.
+                              \item The student inserts in the platform the link to his repository.
                         \end{enumerate} \\\hline
                         \textbf{Exit condition}  & The GitHub repository for the battle is created                                                                   \\\hline
                         %\textbf{Exception} &                                                                                              \\\hline
@@ -481,7 +481,7 @@ Therefore, the following communication protocols are used:
                   \centering
                   \begin{tabular}{|l|p{11.9cm}|}
                         \hline
-                        \textbf{Name}            & Students pushes and triggers automatic evaluation                                                                 \\\hline
+                        \textbf{Name}            & Student pushes and triggers automatic evaluation                                                                  \\\hline
                         \textbf{Actor}           & Pushing Student, Students participating in the same team, GitHub, Static analysis tool                            \\\hline
                         \textbf{Entry condition} &
                         \begin{itemize}
@@ -508,13 +508,13 @@ Therefore, the following communication protocols are used:
                         \textbf{Exception}       & The platform receives a push notification from an unauthorized repository. In this case the request is discarded. \\\hline
                         \textbf{Special reqs}    & The platform must evaluate the project within 10 minutes of the push.                                             \\\hline
                   \end{tabular}
-                  \caption{Students pushes and triggers automatic evaluation}
-                  \label{table:Students pushes and triggers automatic evaluation}
+                  \caption{Student pushes and triggers automatic evaluation}
+                  \label{table:Student pushes and triggers automatic evaluation}
             \end{table}
             \begin{adjustbox}{
                         max size={\textwidth}{\textheightwithcaption{2}},
-                        caption={Students pushes and triggers automatic evaluation},
-                        label={fig:Students pushes and triggers automatic evaluation},
+                        caption={Student pushes and triggers automatic evaluation},
+                        label={fig:Student pushes and triggers automatic evaluation},
                         figure=H}
                   \centering
                   \puml{puml/UC7}
@@ -539,7 +539,7 @@ Therefore, the following communication protocols are used:
                         \textbf{Event flow}      &
                         \begin{enumerate}[label=\arabic*.]
                               \item When the submission deadline expires, the platform opens the consolidation stage.
-                              \item The educator asks the platform the the list of available tournaments.
+                              \item The educator asks the platform the list of available tournaments.
                               \item The platform sends to the educator the list of available tournaments.
                               \item The educator selects the tournament.
                               \item The platform shows the detail of the selected tournament (including the list of battles).
@@ -558,16 +558,16 @@ Therefore, the following communication protocols are used:
                         \end{enumerate}                                        \\\hline
                         \textbf{Exit condition}  & The battle is closed, the final battle ranks are calculated and the personal tournament scores are updated \\\hline
                         \textbf{Exception}       & The educator selects the option to close the battle before evaluating all students.
-                        In this case the platform return an error and the educator can assign the missing grades.                                             \\\hline
+                        In this case the platform returns an error and the educator can assign the missing grades.                                            \\\hline
                         %\textbf{Special reqs}    &                                                      \\\hline
                   \end{tabular}
-                  \caption{Educator manually evaluate teams    }
-                  \label{table:Educator manually evaluate teams    }
+                  \caption{Educator manually evaluates teams    }
+                  \label{table:Educator manually evaluates teams    }
             \end{table}
             \begin{adjustbox}{
                         max size={\textwidth}{\textheightwithcaption{1}},
-                        caption={Educator manually evaluate teams},
-                        label={fig:Educator manually evaluate teams},
+                        caption={Educator manually evaluates teams},
+                        label={fig:Educator manually evaluates teams},
                         figure=H}
                   \centering
                   \puml{puml/UC8}
@@ -914,7 +914,7 @@ It is therefore reasonable to have a failure rate around 1\%.
 
 \subsection{Availability}
 The platform should have the lowest downtime possible during the day.
-A few hours of downtime are allowed between 1am and 5am, when student are usually not studying.
+A few hours of downtime are allowed between 1am and 5am, when students are usually not studying.
 The platform shall therefore guarantee 99\% (two-nines) of availability, so that 3.65 days of downtime per year are allowed.
 
 \subsection{Security}

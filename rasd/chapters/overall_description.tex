@@ -31,7 +31,7 @@
 	      He clicks the \emph{"Create badges"} button to create the first badge.
 	      He enters the title \emph{"Start2024_with_the_right_foot"} and he does not enter any particular rule because he wants the badge to be assigned to all enrolled students.\\
 	      Luca clicks the \emph{"add"} button to create the second badge.
-	      He enters the title \emph{"Participant_2024"} and he write a rule specifying that the predefined variable \emph{tot_commits_student} >= 1.\\
+	      He enters the title \emph{"Participant_2024"} and he writes a rule specifying that the predefined variable \emph{tot_commits_student} >= 1.\\
 	      Luca clicks the \emph{"add"} button another time and enter the title \emph{"Best_Participants_2024"} to award students who won at least 2 battles.
 	      The platform provides a predefined array variable \emph{"final_positions_student"} that represent the final position of the student in each battle.
 	      For simplicity, Luca decide to create a new variable \emph{battlesWon} defined as
@@ -43,7 +43,7 @@ for (let pos of final_positions_student) {
 		battlesWon++;
 }
 		  \end{lstlisting}
-	      Then he create a rule specifying the condition \emph{battlesWon >= 2}.
+	      Then he creates a rule specifying the condition \emph{battlesWon >= 2}.
 	      Luca clicks the confirmation button to create the badges.
 
 
@@ -84,8 +84,8 @@ for (let pos of final_positions_student) {
 	      All students who had signed up for the tournament will receive a notification of the newly added battle created by educator Gianpaolo.
 
 	\item \textbf{Student joins to an existing Tournament by receiving a notification}\\
-	      Marco is an University student and thus he is registered on the CKB Platform.
-	      He wants to sign up for a tournament to improve his programming skills in Java as he notices that he has difficulty writing code using Object Oriented Programming.
+	      Marco is a university student and thus he is registered on the CKB Platform.
+	      He wants to sign up for a tournament to improve his programming skills in Java as he notices that he has difficulty writing code using Object-Oriented Programming.
 	      In the afternoon Marco receives a notification of a new tournament creation called \emph{"The Basics of Object-Oriented Programming in Java"}, he decides to take the opportunity and sign up.\\
 	      Therefore, he accesses the platform by logging in and the platform redirect him to the list of available tournaments. Marco clicks on the tournament \emph{"The Basics of Object-Oriented Programming in Java"}, for which he is not subscribed.\\
 	      The platform shows Marco the information about the name and the description of the selected tournament. \\
@@ -96,7 +96,7 @@ for (let pos of final_positions_student) {
 	      They want to participate in one of the available tournament battles by creating a team.
 	      Specifically, Marco logs in and clicks on the tournament from the list of tournaments in which he is registered.\\
 	      Marco is shown the details of the tournaments and the list of available battles within it.\\
-	      He select the first available battle and clicks on the \emph{"Participate by creating a team"} button.\\
+	      He selects the first available battle and clicks on the \emph{"Participate by creating a team"} button.\\
 	      Marco already knows Stefano and decides to invite him to join his team, Stefano receives the notification of the invitation and
 	      clicks it to accept right away.\\
 	      Because the tournament has a minimum requirement of 3 people, Marco leaves the page, in hopes to find another student who wants to participate.\\
@@ -164,7 +164,7 @@ for (let pos of final_positions_student) {
 
 \subsection{Statecharts}
 
-The following discusses how the state of a tournament and a of a battle
+The following discusses how the state of a tournament and of a battle
 evolves in time, in order to have a better understanding of their lifecycle
 in the model.
 
@@ -208,7 +208,7 @@ in the model.
 	      When the registration deadline which was set by the educator at the creation of
 	      the battle expires, it enters the Submission state. During this phase,
 	      students can fork and clone the GH repo of the battle and make submissions. \\
-	      When the submissions deadline, which was also set by the educator at the creation time,
+	      When the submission deadline, which was also set by the educator at the creation time,
 	      expires the battle enters either the Consolidation or the Done state, depending on
 	      whether manual evaluation is required. \\
 	      In the Consolidation state, the educator manually grades the final submission of each
@@ -222,15 +222,15 @@ in the model.
 The main function of the system is to allow student solving programming exercises, evaluating their solutions.
 After joining a battle, students can clone the forked repository and start programming using the favorite text editor or IDE.
 The forked repo contains build automation scripts and public test cases uploaded by the educator, so that students can try running their code.
-When they want to be evaluated they can commit and push their work. In this way, the GitHub action will start and trigger the CKB platform.
+When they want to be evaluated, they can commit and push their work. In this way, the GitHub action will start and trigger the CKB platform.
 The platform will clone the repository and build the program using the build automation script.
-If the build succeed, the system starts the automated evaluation tasks:
+If the build succeeds, the system starts the automated evaluation tasks:
 \begin{itemize}
 	\item Run public and private tests
 	\item Compute the time elapsed since the start of the battle
 	\item Analyze code with a static analysis tool
 \end{itemize}
-Based on the results of this steps, the system assign a grade, that students can see in their personal area.
+Based on the results of these steps, the system assigns a grade, that students can see in their personal area.
 The GitHub repository also allows students to collaborate with their teammates, possibly using different branches to implement the required features.
 \begin{adjustbox}{
 		max size={\textwidth}{\textheightwithcaption{1}},
@@ -245,14 +245,14 @@ The GitHub repository also allows students to collaborate with their teammates, 
 
 \subsection{Battle evaluation}
 During the consolidation stage, the educator can access the GitHub repository of each team.
-The git repo also allow the educator to see who write each line of code, through the git blame tool.
-This allow the educator to assign different grades to students of the same team, based on the work done by each student.
+The git repo also allows the educator to see who write each line of code, through the git blame tool.
+This allows the educator to assign different grades to students of the same team, based on the work done by each student.
 The educator uses the CKB platform to manually insert the grades.
 After grading all groups, he can close the consolidation stage.
 Otherwise, if manual evaluation is not required, when the submission deadline expires,
 the battle is automatically closed.
 After the battle is closed, the platform calculates the final ranks and notifies participating students.
-Tha platform also updates the personal tournament score of each students, adding the score of the current battle.
+The platform also updates the personal tournament score of each student, adding the score of the current battle.
 \begin{adjustbox}{
 		max size={\textwidth}{\textheightwithcaption{1}},
 		caption={ Battle evaluation activity diagram},
@@ -265,7 +265,7 @@ Tha platform also updates the personal tournament score of each students, adding
 
 \section{User characteristics}
 \subsection{Student}
-The Student is a Client, i.e. a person who is able to access the CKB Platform.\\
+The student is a client, i.e. a person who is able to access the CKB Platform.\\
 They use the platform with the goal of honing their software development skills. Their participation takes place through several stages: they begin by signing up for tournaments and code kata battles, where they form or join teams of developers. Once involved, teams tackle a series of programming exercises in different languages. \\
 Each student participates in tournaments within which he or she conducts battles and obtains scores.\\
 They receive updates on battle scores, view final standings and personal tournament scores. Can also view and collect badges obtained during competitions.
@@ -282,14 +282,14 @@ His or her participation in the CKB Platform contributes to a challenging and co
 The following domain assumptions must hold in the world:
 
 \begin{enumerate}[label=\textbf{D\arabic*}:,ref=D\arabic*,leftmargin=1.3cm]
-	\labelleditem{Students are enrolled in the school}
-	\labelleditem{Educators teach in the school}
-	\labelleditem{The school has an existing authentication system that can be used by the CKB platform}
-	\labelleditem{Students and educators have an account on the existing authentication system}
-	\labelleditem{Students correctly fork the GitHub repository of the code kata battle}
-	\labelleditem{Students correctly set up an automated workflow through GitHub Actions}
-	\labelleditem{The grade assigned manually by the teachers reflects the work done}
-	\labelleditem{The GitHub Action platform is working properly}
-	\labelleditem{Test cases and build automation scripts uploaded by educators are correct}
-	\labelleditem{The static analysis tool is working}
+	\labelleditem{Students are enrolled in the school.}
+	\labelleditem{Educators teach in the school.}
+	\labelleditem{The school has an existing authentication system that can be used by the CKB platform.}
+	\labelleditem{Students and educators have an account on the existing authentication system.}
+	\labelleditem{Students correctly fork the GitHub repository of the code kata battle.}
+	\labelleditem{Students correctly set up an automated workflow through GitHub Actions.}
+	\labelleditem{The grade assigned manually by the teachers reflects the work done.}
+	\labelleditem{The GitHub Action platform is working properly.}
+	\labelleditem{Test cases and build automation scripts uploaded by educators are correct.}
+	\labelleditem{The static analysis tool is working.}
 \end{enumerate}

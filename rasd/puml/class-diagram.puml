@@ -14,7 +14,7 @@ class Student {
 Student "1" - inviteDiamond
 inviteDiamond -* "0...n" Invite: > sends
 inviteDiamond -* "0...n" Invite: > receives<U+00A0><U+00A0>
-Invite "0...n" -* "1" TeamPartecipation: > to join
+Invite "0...n" -* "1" TeamParticipation: > to join
 
 Invite -- InviteState
 
@@ -28,31 +28,31 @@ enum InviteState {
     PENDING
 }
 
-Student "1" -down- "0...1" TeamPartecipation: > takes part
+Student "1" -down- "0...1" TeamParticipation: > takes part
 
-class TeamPartecipation {
+class TeamParticipation {
   +studentCommits: Int
 }
 
-note as TeamPartecipationToTeam
+note as TeamParticipationToTeam
 One student must have sent invites
 and the others must have accepted them
 end note
-TeamPartecipation "1...n" -down- TeamPartecipationToTeam: > form
-TeamPartecipationToTeam -down-* "1" Team
+TeamParticipation "1...n" -down- TeamParticipationToTeam: > form
+TeamParticipationToTeam -down-* "1" Team
 
 class Team {
 }
 
-note as TeamToBattlePartecipation
+note as TeamToBattleParticipation
 All students must be subscribed to the tournament
 Must respect min/max students contraints
 A student must only be in one team at a time for each battle
 end note
-Team "1" -d- TeamToBattlePartecipation: > takes part
-TeamToBattlePartecipation -d- "0...1" BattlePartecipation
+Team "1" -d- TeamToBattleParticipation: > takes part
+TeamToBattleParticipation -d- "0...1" BattleParticipation
 
-class BattlePartecipation {
+class BattleParticipation {
   +registrationDate: Date
   +score: int
 }
@@ -82,12 +82,12 @@ enum TournamentState {
   DONE
 }
 
-note as BattlePartecipationToBattle
+note as BattleParticipationToBattle
 Must have 
 registrationDate <= registrationDeadline
 end note
-BattlePartecipation "0...n" -down- BattlePartecipationToBattle: > referred to
-BattlePartecipationToBattle -down- "1" Battle
+BattleParticipation "0...n" -down- BattleParticipationToBattle: > referred to
+BattleParticipationToBattle -down- "1" Battle
 
 class Battle {
   +state: BattleState
@@ -110,7 +110,7 @@ enum BattleState {
 
 class Repository {
 }
-note bottom of Repository: Either refers to a Battle or a BattlePartecipation
+note bottom of Repository: Either refers to a Battle or a BattleParticipation
 
 class Github {
 }
@@ -139,13 +139,13 @@ note on link
 Exists only past the REGISTRATION state
 end note
 
-note as BattlePartecipationToRepository
+note as BattleParticipationToRepository
 Exists only past the battle 
 REGISTRATION state and if 
 the team created it on their own
 end note
-BattlePartecipation "0...1" - BattlePartecipationToRepository
-BattlePartecipationToRepository -* "0...1" Repository
+BattleParticipation "0...1" - BattleParticipationToRepository
+BattleParticipationToRepository -* "0...1" Repository
 
 Github "1" - "0...n" Repository: hosts
 
