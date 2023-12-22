@@ -4,7 +4,7 @@ With the term client we are referring to either a Student or an Educator.\\
 Users interact with the system by interfacing with a Content Delivery Network (CDN) that's a Single Page App (SPA) site which enables the forwarding of appropriate requests to an API Gateway.
 The user is completely unaware of the microservices structure used to operate the system.\\
 Each microservice realizes a service useful for the fulfillment of the single functionality that the CKB Platform is to provide.
-Microservices do not communicate directly with each other but instead use an API Gateway. 
+Microservices do not communicate directly with each other but instead use an API Gateway.
 All requests go through the API Gateway which realizes complex services by sending requests to the several available microservices.\\
 The CKB platform can be abstracted into 5 main areas:
 \begin{enumerate}
@@ -22,7 +22,7 @@ The CKB platform can be abstracted into 5 main areas:
 These sections contain modules with functionality related to the same domain independent of each other, consequently the areas will be implemented by different microservices ensuring low coupling and high cohesion.\\
 The choice to use microservice architecture allows flexibility and scalability because all services can be duplicated by not having to interact with databases shared among microservices that could become bottlenecks of the system.
 In particular, the API Gateway is responsible for performing load balancing and being stateless, more or less resources can be dynamically allocated depending on the load of requests that are received.\\
-In addition, the components involved in sending notifications, compiling sources, running tests, and analyzing them perform more or less complex operations that may take a few moments of execution time. 
+In addition, the components involved in sending notifications, compiling sources, running tests, and analyzing them perform more or less complex operations that may take a few moments of execution time.
 Consequently, they will be implemented in such a way as to be asynchronous with the use of message queues avoiding making users wait for a long time (more details in later sections).
 
 
