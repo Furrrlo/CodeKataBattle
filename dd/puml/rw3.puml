@@ -1,0 +1,112 @@
+@startuml RW3 - Educator creates a new Battle for an Existing Tournament
+
+actor Browser
+participant CDN
+participant "API Gateway" as gateway
+participant "User Service" as auth
+
+database "Badge DB" as badgesDb
+participant "Platform Service" as platform
+database "Platform DB" as platformDb
+
+queue  "Notification Queue" as notificationQueue
+participant "Notification Service" as notification
+
+activate Browser
+Browser -> CDN ++ : GET index.html
+Browser <- CDN -- : index.html
+
+
+Browser -> gateway ++ : getListOfTournaments(authToken, ...)
+gateway -> auth ++ : validateEducatorToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : educatorId
+    gateway -> platform ++ : getListOfTournaments(educatorId, ...)
+    platform -> platformDb ++ : GET ...
+    platform <- platformDb -- : listOfTourmanetsObj
+    gateway <- platform -- : listOfTourmanetsObj
+    Browser <- gateway -- : listOfTourmanetsObj
+end
+
+
+
+
+Browser -> gateway ++ : detailTournament(authToken, tournementId)
+gateway -> auth ++ : validateEducatorToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : educatorId
+    gateway -> platform ++ : detailTournament(educatorId, tournementId, ...)
+
+    platform -> platformDb ++ : GET ...
+
+    alt invalid tournamentId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid tournament id
+        Browser <- gateway : invalid tournament id
+    else
+        platform <- platformDb -- : tournamentObj
+        gateway <- platform -- : tournamentObj
+        Browser <- gateway -- : tournamentObj
+    end
+end
+
+
+Browser -> Browser : input(descriptionBattle)
+Browser -> Browser : input(testCases)
+Browser -> Browser : input(minAndMaxNumberOfStudents)
+Browser -> Browser : input(registrationDeadline)
+Browser -> Browser : input(submissionDeadline)
+
+Browser -> gateway ++ : createNewBattle(authToken, tournementId, battleInfo, ...)
+
+gateway -> auth ++ : validateEducatorToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : educatorId
+    gateway -> platform ++ : createNewBattle(tournementId, battleInfo, ...)
+
+    platform -> platformDb ++ : INSERT ...
+
+    alt invalid field or unauthorized operation
+        platform <- platformDb : NULL
+        gateway <- platform : invalid operation
+        Browser <- gateway : invalid operation
+    else
+        platform <- platformDb -- : newBattleId
+        gateway <- platform  : newBattleId
+        Browser <- gateway -- : newBattleId
+        deactivate Browser
+
+        platform -> notificationQueue ++ : addRequest(send_to_all,textInfo)
+        
+        platform <- notificationQueue --: added
+        deactivate platform
+    end
+    
+
+end
+
+notification -> notification ++ : lifecyle()
+notification -> notificationQueue ++: popOperations()
+notification <- notificationQueue --:listOfOperations
+
+
+loop for each element in listOfOperations
+    notification -> notification ++: perform(operation)
+end
+deactivate notification
+deactivate notification
+...
+notification -> notification ++ : lifecyle()
+
+
+
+@enduml
