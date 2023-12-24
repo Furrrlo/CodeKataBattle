@@ -28,10 +28,133 @@ Consequently, they will be implemented in such a way as to be asynchronous with 
 
 
 \section{Component view}
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={Component view diagram},
+        label={fig:Component view diagram},
+        figure=H}
+    \centering
+    \puml{puml/component-view}
+\end{adjustbox}
+\pagebreak
 
 \section{Deployment view}
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={Deployment view diagram},
+        label={fig:Deployment view diagram},
+        figure=H}
+    \centering
+    \puml{puml/deployment-diagram}
+\end{adjustbox}
+\pagebreak
 
 \section{Runtime view}
+
+\begin{enumerate}[label=\textbf{RW\arabic*}:,ref=UC\arabic*,leftmargin=1.3cm]
+    \labelleditem{
+        \textbf{}
+        \begin{adjustbox}{
+                max size={\textwidth}{\textheightwithcaption{1}},
+                caption={Educator creates a new Tournament},
+                label={fig:Educator creates a new Tournament},
+                figure=H}
+            \centering
+            \puml{puml/rw1}
+        \end{adjustbox}
+        \pagebreak
+    }
+    \labelleditem{
+        \textbf{}
+        \begin{adjustbox}{
+                max size={\textwidth}{\textheightwithcaption{1}},
+                caption={Educator creates a new badge},
+                label={fig:Educator creates a new badge},
+                figure=H}
+            \centering
+        \end{adjustbox}
+        \pagebreak
+    }
+    \labelleditem{
+        \textbf{}
+        \begin{adjustbox}{
+                max size={\textwidth}{\textheightwithcaption{1}},
+                caption={Educator creates a new Battle for an Existing Tournament},
+                label={fig:Educator creates a new Battle for an Existing Tournament},
+                figure=H}
+            \centering
+            \puml{puml/rw3}
+        \end{adjustbox}
+        \pagebreak
+    }
+    \labelleditem{
+        \textbf{}
+        \begin{adjustbox}{
+                max size={\textwidth}{\textheightwithcaption{1}},
+                caption={Student joins to an existing Tournament by receiving a notification},
+                label={fig:Student joins to an existing Tournament by receiving a notification},
+                figure=H}
+            \centering
+        \end{adjustbox}
+        \pagebreak
+    }
+    \labelleditem{
+        \textbf{}
+        \begin{adjustbox}{
+                max size={\textwidth}{\textheightwithcaption{1}},
+                caption={Students create a team for a tournament battle},
+                label={fig:Students create a team for a tournament battle},
+                figure=H}
+            \centering
+        \end{adjustbox}
+        \pagebreak
+    }
+    \labelleditem{
+        \textbf{}
+        \begin{adjustbox}{
+                max size={\textwidth}{\textheightwithcaption{1}},
+                caption={Student forks the repository},
+                label={fig:Student forks the repository},
+                figure=H}
+            \centering
+        \end{adjustbox}
+        \pagebreak
+    }
+    \labelleditem{
+        \textbf{}
+        \begin{adjustbox}{
+                max size={\textwidth}{\textheightwithcaption{2}},
+                caption={Student pushes and triggers automatic evaluation},
+                label={fig:Student pushes and triggers automatic evaluation},
+                figure=H}
+            \centering
+            \puml{puml/rw7}
+        \end{adjustbox}
+        \pagebreak
+    }
+    \labelleditem{
+        \textbf{}
+        \begin{adjustbox}{
+                max size={\textwidth}{\textheightwithcaption{1}},
+                caption={Educator manually evaluates teams},
+                label={fig:Educator manually evaluates teams},
+                figure=H}
+            \centering
+        \end{adjustbox}
+        \pagebreak
+    }
+    \labelleditem{
+        \textbf{}
+        \begin{adjustbox}{
+                max size={\textwidth}{\textheightwithcaption{1}},
+                caption={Educator closes a tournament},
+                label={fig:Educator closes a tournament},
+                figure=H}
+            \centering
+        \end{adjustbox}
+        \pagebreak
+    }
+\end{enumerate}
 
 \section{Component interfaces}
 
