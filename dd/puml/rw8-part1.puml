@@ -1,0 +1,81 @@
+@startuml RW3 - Educator creates a new Battle for an Existing Tournament
+
+actor Browser
+participant CDN
+participant "API Gateway" as gateway
+participant "User Service" as auth
+
+participant "Platform Service" as platform
+database "Platform DB" as platformDb
+
+queue  "Notification Queue" as notificationQueue
+
+activate Browser
+Browser -> CDN ++ : GET index.html
+Browser <- CDN -- : index.html
+
+
+Browser -> gateway ++ : getListOfTournaments(authToken, ...)
+gateway -> auth ++ : validateEducatorToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : educatorId
+    gateway -> platform ++ : getListOfTournaments(educatorId, ...)
+    platform -> platformDb ++ : GET ...
+    platform <- platformDb -- : listOfTourmanetsObj
+    gateway <- platform -- : listOfTourmanetsObj
+    Browser <- gateway -- : listOfTourmanetsObj
+end
+
+
+
+
+Browser -> gateway ++ : getTournamentDetails(authToken, tournementId)
+gateway -> auth ++ : validateEducatorToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : educatorId
+    gateway -> platform ++ : getTournamentDetails(tournementId)
+
+    platform -> platformDb ++ : GET ...
+
+    alt invalid tournamentId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid tournament id
+        Browser <- gateway : invalid tournament id
+    else
+        platform <- platformDb -- : tournamentObj
+        gateway <- platform -- : tournamentObj
+        Browser <- gateway -- : tournamentObj
+    end
+end
+
+Browser -> gateway ++ : getBattleDetails(authToken, battleId)
+gateway -> auth ++ : validateEducatorToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : educatorId
+    gateway -> platform ++ : getBattleDetails(battleId)
+
+    platform -> platformDb ++ : GET ...
+
+    alt invalid battleId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid battle id
+        Browser <- gateway : invalid battle id
+    else
+        platform <- platformDb -- : battleObj
+        gateway <- platform -- : battleObj
+        Browser <- gateway -- : battleObj
+    end
+end
+
+...
+
+@enduml

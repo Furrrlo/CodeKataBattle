@@ -1,0 +1,72 @@
+@startuml RW3 - Educator creates a new Battle for an Existing Tournament
+
+actor Browser
+participant CDN
+participant "API Gateway" as gateway
+participant "User Service" as auth
+
+participant "Platform Service" as platform
+database "Platform DB" as platformDb
+
+queue  "Notification Queue" as notificationQueue
+
+activate Browser
+...
+loop battleObj.teams
+    Browser -> Browser : input(grade)
+
+    Browser -> gateway ++ : assignGrade(authToken, battleId, teamId)
+    gateway -> auth ++ : validateEducatorToken(authToken)
+    alt invalid token
+        gateway <- auth : false
+        Browser <- gateway : 401 Unauthorized
+    else
+        gateway <- auth -- : educatorId
+        gateway -> platform ++ : assignGrade(battleId, teamId)
+
+        platform -> platformDb ++ : UPDATE ...
+
+        alt invalid battleId
+            platform <- platformDb : 0 rows updated
+            gateway <- platform : invalid battle id
+            Browser <- gateway : invalid battle id
+        else
+            platform <- platformDb -- : 1 row updated
+            gateway <- platform -- : ok
+            Browser <- gateway -- : ok
+        end
+    end
+
+end
+
+Browser -> gateway ++ : closeBattle(authToken, battleId)
+gateway -> auth ++ : validateEducatorToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : educatorId
+    gateway -> platform ++ : closeBattle(battleId)
+
+    platform -> platformDb ++ : SELECT ...
+
+    alt invalid battleId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid battle id
+        Browser <- gateway : invalid battle id
+    else
+        platform <- platformDb -- : battleObj
+        platform -> platformDb ++ : UPDATE ...
+        platform <- platformDb -- : 1 row updated
+
+        loop battle.students
+            platform -> notificationQueue ++ : addRequest(studentId, textInfo)
+            platform <- notificationQueue --: added
+        end
+
+        gateway <- platform -- : ok
+        Browser <- gateway -- : ok
+    end
+end
+
+@enduml
