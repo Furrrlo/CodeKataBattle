@@ -54,22 +54,22 @@ alt invalid token
     gateway <- auth : false
     Browser <- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : educatorId
+    gateway <- auth -- : studentId
     gateway -> auth ++ : searchStudent(name?, surname?, ...)
-    gateway <- auth -- : invidedStudentId?
-    Browser <- gateway -- : invidedStudentId?
+    gateway <- auth -- : invitedStudentId?
+    Browser <- gateway -- : invitedStudentId?
 end
 
-Browser -> gateway ++ : invite(authToken, newTeamId, invidedStudentId)
+Browser -> gateway ++ : invite(authToken, newTeamId, invitedStudentId)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
     gateway <- auth : false
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId
-    gateway -> auth ++ : checkStudentId(invidedStudentId)
+    gateway -> auth ++ : checkStudentId(invitedStudentId)
     gateway <- auth -- : true
-    gateway -> platform ++ : invite(newTeamId, studentId)
+    gateway -> platform ++ : invite(newTeamId, invitedStudentId)
     platform -> platformDb ++ : GET ...
 
     alt invalid teamId
@@ -80,7 +80,7 @@ else
         platform <- platformDb -- : teamObj
         platform -> platformDb ++ : INSERT ...
         platform <- platformDb -- : 1 row inserted
-        platform -> notificationQueue ++ : addRequest(invidedStudentId, textInfo)
+        platform -> notificationQueue ++ : addRequest(invitedStudentId, textInfo)
         platform <- notificationQueue -- : added
         gateway <- platform -- : ok
         Browser <- gateway -- : ok

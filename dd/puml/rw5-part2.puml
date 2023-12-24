@@ -23,7 +23,7 @@ alt invalid token
     gateway <- auth : false
     Browser <- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : educatorId
+    gateway <- auth -- : studentId
     gateway -> auth ++ : searchStudent(name?, surname?, ...)
     gateway <- auth -- : invitedStudentId?
     Browser <- gateway -- : invitedStudentId?
@@ -38,7 +38,7 @@ else
     gateway <- auth -- : studentId
     gateway -> auth ++ : checkStudentId(invitedStudentId)
     gateway <- auth -- : true
-    gateway -> platform ++ : invite(newTeamId, studentId)
+    gateway -> platform ++ : invite(newTeamId, invitedStudentId)
     platform -> platformDb ++ : GET ...
 
     alt invalid teamId
