@@ -35,26 +35,10 @@ Browser -> Browser : input(existingBadges)
 Browser -> Browser : input(newBadges)
 
 loop newBadges
-    Browser -> gateway ++ : createBadge(authToken, badgeInfo)
-    gateway -> auth ++ : validateEducatorToken(authToken)
-    alt invalid token
-        gateway <- auth : false
-        Browser <- gateway : 401 Unauthorized
-    else
-        gateway <- auth -- : educatorId
-        gateway -> badges ++ : createBadge(educatorId, badgeInfo)
-
-        alt invalid badge code
-            gateway <- badges : invalid badge
-            Browser <- gateway : invalid badge
-        else
-            badges -> badgesDb ++ : INSERT ...
-            badges <- badgesDb -- : newBadgeId
-            gateway <- badges -- : newBadgeId
-            Browser <- gateway -- : newBadgeId
+    ||10||
+    ref over Browser, gateway, auth, badges, badgesDb: RW2: create badge
             Browser -> Browser : newBadgeIds[] = newBadgeId
-        end
-    end
+    ||5||
 end
 
 Browser -> Browser : tournamentInfo.badges =\n  [...existingBadges, ...newBadgeIds]
