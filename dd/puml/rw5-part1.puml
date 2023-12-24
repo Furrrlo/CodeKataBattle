@@ -1,0 +1,118 @@
+@startuml RW4 - Students create a team for a tournament battle
+
+actor "Browser\nInviting Student" as Browser
+actor "Browser\nInvited Student 1" as Browser1
+actor "Browser\nInvited Student 2" as Browser2
+participant CDN
+participant "API Gateway" as gateway
+participant "User\nService" as auth
+
+participant "Platform\nService" as platform
+database "Platform DB" as platformDb
+
+queue  "Notification\nQueue" as notificationQueue
+participant "Notification\nService" as notification
+
+
+activate Browser
+Browser -> CDN ++ : GET index.html
+Browser <- CDN -- : index.html
+
+ref over Browser, gateway, auth, platform, platformDb: RW0.1: get list of tournaments
+ref over Browser, gateway, auth, platform, platformDb: RW0.2: get tournament detials
+ref over Browser, gateway, auth, platform, platformDb: RW0.3: get battle details
+
+Browser -> gateway ++ : createTeam(authToken, battleId)
+gateway -> auth ++ : validateStudentToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : studentId
+    gateway -> platform ++ : createTeam(battleId, studentId)
+    platform -> platformDb ++ : GET ...
+
+    alt invalid battleId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid battle id
+        Browser <- gateway : invalid battle id
+    else
+        platform <- platformDb -- : battleObj
+        platform -> platformDb ++ : INSERT ...
+        platform <- platformDb -- : 1 row inserted
+        gateway <- platform -- : newTeamId
+        Browser <- gateway -- : newTeamId
+    end
+end
+
+'INVITE STUDENT 1
+Browser -> Browser : input(name, surname)
+
+Browser -> gateway ++ : searchStudent(authToken, name?, surname?, ...)
+gateway -> auth ++ : validateStudentToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : educatorId
+    gateway -> auth ++ : searchStudent(name?, surname?, ...)
+    gateway <- auth -- : invidedStudentId?
+    Browser <- gateway -- : invidedStudentId?
+end
+
+Browser -> gateway ++ : invite(authToken, newTeamId, invidedStudentId)
+gateway -> auth ++ : validateStudentToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : studentId
+    gateway -> auth ++ : checkStudentId(invidedStudentId)
+    gateway <- auth -- : true
+    gateway -> platform ++ : invite(newTeamId, studentId)
+    platform -> platformDb ++ : GET ...
+
+    alt invalid teamId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid team id
+        Browser <- gateway : invalid team id
+    else
+        platform <- platformDb -- : teamObj
+        platform -> platformDb ++ : INSERT ...
+        platform <- platformDb -- : 1 row inserted
+        platform -> notificationQueue ++ : addRequest(invidedStudentId, textInfo)
+        platform <- notificationQueue -- : added
+        gateway <- platform -- : ok
+        Browser <- gateway -- : ok
+    end
+end
+
+'STUDENT 1 ACCEPTS NOTIFICATION
+notification -> notificationQueue ++ : popRequest()
+notification <- notificationQueue -- : request
+notification -> Browser1 ++ : notifyNewInvitation(invitation)
+Browser1 -> gateway ++ : acceptInvitation(authToken, invitation)
+gateway -> auth ++ : validateStudentToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser1 <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : studentId
+    gateway -> platform ++ : acceptInvitation(invitation)
+    platform -> platformDb ++ : GET ...
+
+    alt invalid invitation
+        platform <- platformDb : NULL
+        gateway <- platform : invalid invitation
+        Browser1 <- gateway : invalid invitation
+    else
+        platform <- platformDb -- : invitationObj
+        platform -> platformDb ++ : INSERT ...
+        platform <- platformDb -- : 1 row inserted
+        gateway <- platform -- : ok
+        Browser1 <- gateway -- : ok
+    end
+end
+deactivate Browser1
+
+@enduml

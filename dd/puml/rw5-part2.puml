@@ -1,0 +1,127 @@
+@startuml RW4 - Students create a team for a tournament battle
+
+actor "Browser\nInviting Student" as Browser
+actor "Browser\nInvited Student 1" as Browser1
+actor "Browser\nInvited Student 2" as Browser2
+participant CDN
+participant "API Gateway" as gateway
+participant "User\nService" as auth
+
+participant "Platform\nService" as platform
+database "Platform DB" as platformDb
+
+queue  "Notification\nQueue" as notificationQueue
+participant "Notification\nService" as notification
+
+'INVITE STUDENT 2
+activate Browser
+Browser -> Browser : input(name, surname)
+
+Browser -> gateway ++ : searchStudent(authToken, name?, surname?, ...)
+gateway -> auth ++ : validateStudentToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : educatorId
+    gateway -> auth ++ : searchStudent(name?, surname?, ...)
+    gateway <- auth -- : invitedStudentId?
+    Browser <- gateway -- : invitedStudentId?
+end
+
+Browser -> gateway ++ : invite(authToken, newTeamId, invitedStudentId)
+gateway -> auth ++ : validateStudentToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : studentId
+    gateway -> auth ++ : checkStudentId(invitedStudentId)
+    gateway <- auth -- : true
+    gateway -> platform ++ : invite(newTeamId, studentId)
+    platform -> platformDb ++ : GET ...
+
+    alt invalid teamId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid team id
+        Browser <- gateway : invalid team id
+    else
+        platform <- platformDb -- : teamObj
+
+        alt maximum number of students not violated
+            platform -> platformDb ++ : INSERT ...
+            platform <- platformDb -- : 1 row inserted
+            platform -> notificationQueue ++ : addRequest(invitedStudentId, textInfo)
+            platform <- notificationQueue -- : added
+            gateway <- platform : ok
+            Browser <- gateway : ok
+        else
+            gateway <- platform -- : error
+            Browser <- gateway -- : error
+
+        end
+    end
+end
+
+'STUDENT 2 ACCEPTS INVITATION
+Browser2 -> CDN ++ : GET index.html
+activate Browser2
+Browser2 <- CDN -- : index.html
+Browser2 -> Browser2 : acceptInvitation(invitation)
+Browser2 -> gateway ++ : acceptInvitation(authToken, invitation)
+gateway -> auth ++ : validateStudentToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser2 <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : studentId
+    gateway -> platform ++ : acceptInvitation(invitation)
+    platform -> platformDb ++ : GET ...
+
+    alt invalid invitation
+        platform <- platformDb : NULL
+        gateway <- platform : invalid invitation
+        Browser2 <- gateway : invalid invitation
+    else
+        platform <- platformDb -- : invitationObj
+        platform -> platformDb ++ : INSERT ...
+        platform <- platformDb -- : 1 row inserted
+        gateway <- platform -- : ok
+        Browser2 <- gateway -- : ok
+    end
+end
+deactivate Browser2
+
+'PARTECIPATE
+Browser -> gateway ++ : partecipate(authToken, teamId)
+gateway -> auth ++ : validateStudentToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : studentId
+    gateway -> platform ++ : enrollInBattle(teamId)
+    platform -> platformDb ++ : GET ...
+
+    alt invalid teamId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid team ID
+        Browser <- gateway : invalid team ID
+    else
+        platform <- platformDb -- : teamObj
+
+        alt number of participants satisfied
+            platform -> platformDb ++ : INSERT ...
+            platform <- platformDb -- : 1 row inserted
+            gateway <- platform : ok
+            Browser <- gateway : ok
+        else
+            gateway <- platform -- : error
+            Browser <- gateway -- : error
+        end
+    end
+end
+
+deactivate Browser
+
+@enduml
