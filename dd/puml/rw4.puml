@@ -1,0 +1,63 @@
+@startuml RW4 - Student joins to an existing Tournament by receiving a notification
+
+actor Browser
+participant "Notification Service" as notifs
+participant CDN
+participant "API Gateway" as gateway
+participant "User Service" as auth
+participant "Platform Service" as platform
+database "Platform DB" as platformDb
+
+notifs --> Browser ++ : notifyNewTournament(tournamentId)
+Browser -> CDN ++ : GET index.html
+Browser <- CDN -- : index.html
+
+Browser -> gateway ++ : detailTournament(authToken, tournementId)
+
+gateway -> auth ++ : validateStudentToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : studentId
+    gateway -> platform ++ : detailTournament(tournementId)
+    
+    platform -> platformDb ++ : GET ...
+
+    alt invalid tournamentId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid tournament id
+        Browser <- gateway : invalid tournament id
+    else
+        platform <- platformDb -- : tournamentObj
+        gateway <- platform -- : tournamentObj
+        Browser <- gateway -- : tournamentObj
+    end
+end
+
+Browser -> gateway ++ : enrollInTournament(authToken, tournementId)
+gateway -> auth ++ : validateStudentToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : studentId
+    gateway -> platform ++ : enrollInTournament(studentId, tournementId)
+    
+    platform -> platformDb ++ : GET ...
+    alt invalid tournamentId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid tournament id
+        Browser <- gateway : invalid tournament id
+    else
+        platform <- platformDb -- : tournamentObj
+        platform -> platformDb ++ : INSERT ...
+        platform <- platformDb -- : 1 row inserted
+        gateway <- platform -- : ok
+        Browser <- gateway -- : ok
+    end
+end
+
+deactivate Browser
+
+@enduml
