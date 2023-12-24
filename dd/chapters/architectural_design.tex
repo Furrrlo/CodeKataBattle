@@ -50,120 +50,154 @@ Consequently, they will be implemented in such a way as to be asynchronous with 
 \pagebreak
 
 \section{Runtime view}
+The following sequence diagrams represent the dynamics of interaction between components.\\
+Sequence diagrams from \ref{{RW1}} to \ref{{RW9}} are the realizations of the corresponding use cases in the RASD document.\\
+Sequence diagrams from \ref{{RW0.1}} to \ref{{RW0.3}} are common part that have been extracted for simplicity and are not shown in other diagrams.\\
+In the first three sequence diagrams, the user could be a student or an educator.
 
-\begin{enumerate}[label=\textbf{RW\arabic*}:,ref=UC\arabic*,leftmargin=1.3cm]
-    \labelleditem{
-        \textbf{}
-        \begin{adjustbox}{
-                max size={\textwidth}{\textheightwithcaption{1}},
-                caption={Educator creates a new Tournament},
-                label={fig:Educator creates a new Tournament},
-                figure=H}
-            \centering
-            \puml{puml/rw1}
-        \end{adjustbox}
-        \pagebreak
-    }
-    \labelleditem{
-        \textbf{}
-        \begin{adjustbox}{
-                max size={\textwidth}{\textheightwithcaption{1}},
-                caption={Educator creates a new badge},
-                label={fig:Educator creates a new badge},
-                figure=H}
-            \centering
-            \puml{puml/rw2}
-        \end{adjustbox}
-        \pagebreak
-    }
-    \labelleditem{
-        \textbf{}
-        \begin{adjustbox}{
-                max size={\textwidth}{\textheightwithcaption{1}},
-                caption={Educator creates a new Battle for an Existing Tournament},
-                label={fig:Educator creates a new Battle for an Existing Tournament},
-                figure=H}
-            \centering
-            \puml{puml/rw3}
-        \end{adjustbox}
-        \pagebreak
-    }
-    \labelleditem{
-        \textbf{}
-        \begin{adjustbox}{
-                max size={\textwidth}{\textheightwithcaption{1}},
-                caption={Student joins to an existing Tournament by receiving a notification},
-                label={fig:Student joins to an existing Tournament by receiving a notification},
-                figure=H}
-            \centering
-            \puml{puml/rw4}
-        \end{adjustbox}
-        \pagebreak
-    }
-    \labelleditem{
-        \textbf{}
-        \begin{adjustbox}{
-                max size={\textwidth}{\textheightwithcaption{1}},
-                caption={Students create a team for a tournament battle},
-                label={fig:Students create a team for a tournament battle},
-                figure=H}
-            \centering
-        \end{adjustbox}
-        \pagebreak
-    }
-    \labelleditem{
-        \textbf{}
-        \begin{adjustbox}{
-                max size={\textwidth}{\textheightwithcaption{1}},
-                caption={Student forks the repository},
-                label={fig:Student forks the repository},
-                figure=H}
-            \centering
-        \end{adjustbox}
-        \pagebreak
-    }
-    \labelleditem{
-        \textbf{}
-        \begin{adjustbox}{
-                max size={\textwidth}{\textheightwithcaption{2}},
-                caption={Student pushes and triggers automatic evaluation},
-                label={fig:Student pushes and triggers automatic evaluation},
-                figure=H}
-            \centering
-            \puml{puml/rw7}
-        \end{adjustbox}
-        \pagebreak
-    }
-    \labelleditem{
-        \textbf{}
-        \begin{adjustbox}{
-                max size={\textwidth}{\textheightwithcaption{1}},
-                figure=H}
-            \centering
-            \puml{puml/rw8-part1}
-        \end{adjustbox}
-        \pagebreak
-        \begin{adjustbox}{
-                max size={\textwidth}{\textheightwithcaption{1}},
-                caption={Educator manually evaluates teams},
-                label={fig:Educator manually evaluates teams},
-                figure=H}
-            \centering
-            \puml{puml/rw8-part2}
-        \end{adjustbox}
-        \pagebreak
-    }
-    \labelleditem{
-        \textbf{}
-        \begin{adjustbox}{
-                max size={\textwidth}{\textheightwithcaption{1}},
-                caption={Educator closes a tournament},
-                label={fig:Educator closes a tournament},
-                figure=H}
-            \centering
-        \end{adjustbox}
-        \pagebreak
-    }
+\begin{enumerate}[label=\textbf{RW\arabic*}:,ref=RW\arabic*,leftmargin=1.3cm]
+    \item[]
+          \begin{enumerate}[label=\textbf{RW\arabic{enumi}.\arabic*}:,ref=RW\arabic{enumi}.\arabic*,leftmargin=0.5cm]
+              \labelledsubitem{
+                  \textbf{}
+                  \begin{adjustbox}{
+                          max size={\textwidth}{\textheightwithcaption{1}},
+                          caption={User gets list of tournaments},
+                          label={fig:User gets list of tournaments},
+                          figure=H}
+                      \centering
+                      \puml{puml/rw0.1}
+                  \end{adjustbox}
+                  \pagebreak
+              }
+              \labelledsubitem{
+                  \textbf{}
+                  \begin{adjustbox}{
+                          max size={\textwidth}{\textheightwithcaption{1}},
+                          caption={User gets tournament details},
+                          label={fig:User gets tournament details},
+                          figure=H}
+                      \centering
+                      \puml{puml/rw0.2}
+                  \end{adjustbox}
+              }
+              \labelledsubitem{
+                  \textbf{}
+                  \begin{adjustbox}{
+                          max size={\textwidth}{\textheightwithcaption{1}},
+                          caption={User gets battle details},
+                          label={fig:User gets battle details},
+                          figure=H}
+                      \centering
+                      \puml{puml/rw0.3}
+                  \end{adjustbox}
+                  \pagebreak
+              }
+          \end{enumerate}
+
+          \labelleditem{
+              \textbf{}
+              \begin{adjustbox}{
+                      max size={\textwidth}{\textheightwithcaption{1}},
+                      caption={Educator creates a new Tournament},
+                      label={fig:Educator creates a new Tournament},
+                      figure=H}
+                  \centering
+                  \puml{puml/rw1}
+              \end{adjustbox}
+              \pagebreak
+          }
+          \labelleditem{
+              \textbf{}
+              \begin{adjustbox}{
+                      max size={\textwidth}{\textheightwithcaption{1}},
+                      caption={Educator creates a new badge},
+                      label={fig:Educator creates a new badge},
+                      figure=H}
+                  \centering
+                  \puml{puml/rw2}
+              \end{adjustbox}
+              \pagebreak
+          }
+          \labelleditem{
+              \textbf{}
+              \begin{adjustbox}{
+                      max size={\textwidth}{\textheightwithcaption{1}},
+                      caption={Educator creates a new Battle for an Existing Tournament},
+                      label={fig:Educator creates a new Battle for an Existing Tournament},
+                      figure=H}
+                  \centering
+                  \puml{puml/rw3}
+              \end{adjustbox}
+              \pagebreak
+          }
+          \labelleditem{
+              \textbf{}
+              \begin{adjustbox}{
+                      max size={\textwidth}{\textheightwithcaption{1}},
+                      caption={Student joins to an existing Tournament by receiving a notification},
+                      label={fig:Student joins to an existing Tournament by receiving a notification},
+                      figure=H}
+                  \centering
+                  \puml{puml/rw4}
+              \end{adjustbox}
+              \pagebreak
+          }
+          \labelleditem{
+              \textbf{}
+              \begin{adjustbox}{
+                      max size={\textwidth}{\textheightwithcaption{1}},
+                      caption={Students create a team for a tournament battle},
+                      label={fig:Students create a team for a tournament battle},
+                      figure=H}
+                  \centering
+              \end{adjustbox}
+              \pagebreak
+          }
+          \labelleditem{
+              \textbf{}
+              \begin{adjustbox}{
+                      max size={\textwidth}{\textheightwithcaption{1}},
+                      caption={Student forks the repository},
+                      label={fig:Student forks the repository},
+                      figure=H}
+                  \centering
+              \end{adjustbox}
+              \pagebreak
+          }
+          \labelleditem{
+              \textbf{}
+              \begin{adjustbox}{
+                      max size={\textwidth}{\textheightwithcaption{2}},
+                      caption={Student pushes and triggers automatic evaluation},
+                      label={fig:Student pushes and triggers automatic evaluation},
+                      figure=H}
+                  \centering
+                  \puml{puml/rw7}
+              \end{adjustbox}
+              \pagebreak
+          }
+          \labelleditem{
+              \textbf{}
+              \begin{adjustbox}{
+                      max size={\textwidth}{\textheightwithcaption{1}},
+                      figure=H}
+                  \centering
+                  \puml{puml/rw8}
+              \end{adjustbox}
+              \pagebreak
+          }
+          \labelleditem{
+              \textbf{}
+              \begin{adjustbox}{
+                      max size={\textwidth}{\textheightwithcaption{1}},
+                      caption={Educator closes a tournament},
+                      label={fig:Educator closes a tournament},
+                      figure=H}
+                  \centering
+              \end{adjustbox}
+              \pagebreak
+          }
 \end{enumerate}
 
 \section{Component interfaces}

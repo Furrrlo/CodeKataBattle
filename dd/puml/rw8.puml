@@ -1,4 +1,4 @@
-@startuml RW3 - Educator creates a new Battle for an Existing Tournament
+@startuml RW8 - Educator manually evaluates teams
 
 actor Browser
 participant CDN
@@ -11,7 +11,14 @@ database "Platform DB" as platformDb
 queue  "Notification Queue" as notificationQueue
 
 activate Browser
-...
+Browser -> CDN ++ : GET index.html
+Browser <- CDN -- : index.html
+
+ref over Browser, gateway, auth, platform, platformDb: RW0.1: get list of tournaments
+ref over Browser, gateway, auth, platform, platformDb: RW0.2: get tournament detials
+ref over Browser, gateway, auth, platform, platformDb: RW0.3: get battle details
+
+
 loop battleObj.teams
     Browser -> Browser : input(grade)
 
@@ -68,5 +75,6 @@ else
         Browser <- gateway -- : ok
     end
 end
+
 
 @enduml

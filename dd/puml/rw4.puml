@@ -12,28 +12,7 @@ notifs --> Browser ++ : notifyNewTournament(tournamentId)
 Browser -> CDN ++ : GET index.html
 Browser <- CDN -- : index.html
 
-Browser -> gateway ++ : detailTournament(authToken, tournementId)
-
-gateway -> auth ++ : validateStudentToken(authToken)
-alt invalid token
-    gateway <- auth : false
-    Browser <- gateway : 401 Unauthorized
-else
-    gateway <- auth -- : studentId
-    gateway -> platform ++ : detailTournament(tournementId)
-    
-    platform -> platformDb ++ : GET ...
-
-    alt invalid tournamentId
-        platform <- platformDb : NULL
-        gateway <- platform : invalid tournament id
-        Browser <- gateway : invalid tournament id
-    else
-        platform <- platformDb -- : tournamentObj
-        gateway <- platform -- : tournamentObj
-        Browser <- gateway -- : tournamentObj
-    end
-end
+ref over Browser, gateway, auth, platform, platformDb: RW0.1: get list of tournaments
 
 Browser -> gateway ++ : enrollInTournament(authToken, tournementId)
 gateway -> auth ++ : validateStudentToken(authToken)

@@ -15,46 +15,8 @@ activate Browser
 Browser -> CDN ++ : GET index.html
 Browser <- CDN -- : index.html
 
-
-Browser -> gateway ++ : getListOfTournaments(authToken, ...)
-gateway -> auth ++ : validateEducatorToken(authToken)
-alt invalid token
-    gateway <- auth : false
-    Browser <- gateway : 401 Unauthorized
-else
-    gateway <- auth -- : educatorId
-    gateway -> platform ++ : getListOfTournaments(educatorId, ...)
-    platform -> platformDb ++ : GET ...
-    platform <- platformDb -- : listOfTourmanetsObj
-    gateway <- platform -- : listOfTourmanetsObj
-    Browser <- gateway -- : listOfTourmanetsObj
-end
-
-
-
-
-Browser -> gateway ++ : getTournamentDetails(authToken, tournementId)
-gateway -> auth ++ : validateEducatorToken(authToken)
-alt invalid token
-    gateway <- auth : false
-    Browser <- gateway : 401 Unauthorized
-else
-    gateway <- auth -- : educatorId
-    gateway -> platform ++ : getTournamentDetails(tournementId)
-
-    platform -> platformDb ++ : GET ...
-
-    alt invalid tournamentId
-        platform <- platformDb : NULL
-        gateway <- platform : invalid tournament id
-        Browser <- gateway : invalid tournament id
-    else
-        platform <- platformDb -- : tournamentObj
-        gateway <- platform -- : tournamentObj
-        Browser <- gateway -- : tournamentObj
-    end
-end
-
+ref over Browser, gateway, auth, platform, platformDb: RW0.1: get list of tournaments
+ref over Browser, gateway, auth, platform, platformDb: RW0.2: get tournament details
 
 Browser -> Browser : input(descriptionBattle)
 Browser -> Browser : input(testCases)
@@ -85,11 +47,11 @@ else
         deactivate Browser
 
         platform -> notificationQueue ++ : addRequest(send_to_all,textInfo)
-        
+
         platform <- notificationQueue --: added
         deactivate platform
     end
-    
+
 
 end
 
