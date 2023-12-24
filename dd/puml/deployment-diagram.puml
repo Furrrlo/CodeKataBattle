@@ -1,0 +1,152 @@
+@startuml Deployment Diagram
+
+node Client <<device>> #APPLICATION{
+    node "Windows" <<OS>> #IMPLEMENTATION{
+        node "Chrome" <<web browser>>{
+        }
+    }
+}
+
+cloud "CloudFlare CDN" as CDN #APPLICATION{
+    artifact "Single Page App"
+    component "Website CDN"
+    "Single Page App" ..> "Website CDN": <<manifest>>
+}
+
+Client ---> CDN: HTTPS
+
+node Firewall
+Client --> Firewall: HTTPS
+
+frame "API Gateway"{
+    node "gw0: Application server" <<device>> as GatewayDevice #APPLICATION{
+        node "Linux" <<OS>> as gwos #IMPLEMENTATION{
+            'https://spring.io/projects/spring-cloud-gateway/
+            node "Webflux" <<Execution Environment>> #white{
+                artifact "APIGateway.war"
+                component "API Gateway" as gw
+                "APIGateway.war" ..> gw : <<manifest>>
+            }
+        }
+    }
+}
+
+Firewall --> GatewayDevice: HTTPS
+
+frame "Platform Service"{
+    node "psrv-1: Application server" <<device>> as PlatformDevice #APPLICATION{
+        node "Linux" <<OS>> as plos #IMPLEMENTATION{
+            node "Tomcat" <<Execution Environment>> as plee #white{
+                artifact "PlatformService.war"
+                component "Platform Service" as ps
+                "PlatformService.war" ..> ps : <<manifest>>
+            }
+        }
+    }
+    node "dbsrv-1: Database server" <<device>> as PlatformDBDevice #APPLICATION{
+        node "Linux" <<OS>> as pldbos #IMPLEMENTATION{
+            node "Amazon RDS" <<Database System>> as pldb #white{
+                database "Platform\ndatabase"
+            }
+        }
+    }
+
+    GatewayDevice ----> PlatformDevice : HTTPS
+    PlatformDevice ---> PlatformDBDevice: TCP/IP
+}
+
+
+frame "User Service"{
+    node "psrv-2: Application server" <<device>> as UserSrvDevice #APPLICATION{
+        node "Linux" <<OS>> as usos #IMPLEMENTATION{
+            node "Tomcat" <<Execution Environment>> as usee #white{
+                artifact "UserService.war"
+                component "User Service" as usc
+                "UserService.war" ..> usc : <<manifest>>
+            }
+        }
+    }
+    node "dbsrv-2: Database server" <<device>> as UserDBDevice #APPLICATION{
+        node "Linux" <<OS>> as usdbos #IMPLEMENTATION{
+            node "Amazon RDS" <<Database System>> as usdb #white{
+                database "Users\ndatabase"
+            }
+        }
+    }
+
+    GatewayDevice ---> UserSrvDevice : HTTPS
+    UserSrvDevice ---> UserDBDevice: TCP/IP
+}
+PlatformDBDevice -[hidden] UserDBDevice
+
+frame "Badge Service"{
+    node "psrv-3: Application server" <<device>> as BadgesDevice #APPLICATION{
+        node "Linux" <<OS>> as bdos #IMPLEMENTATION{
+            node "Tomcat" <<Execution Environment>> as bdee #white{
+                artifact "BadgeService.war"
+                component "Badge Service" as bs
+                "BadgeService.war" ..> bs : <<manifest>>
+            }
+        }
+    }
+    node "dbsrv-3: Database server" <<device>> as BadgeDBDevice #APPLICATION{
+        node "Linux" <<OS>> as bddbos #IMPLEMENTATION{
+            node "Amazon RDS" <<Database System>> as bddb #white{
+                database "Badge\ndatabase"
+            }
+        }
+    }
+
+    GatewayDevice ---> BadgesDevice : HTTPS
+    BadgesDevice ---> BadgeDBDevice: TCP/IP
+
+}
+PlatformDBDevice -[hidden] BadgeDBDevice
+
+frame "Build and Test Service"{
+    node "psrv-4: Application server" <<device>> as BuildDevice #APPLICATION{
+        node "Linux" <<OS>> as bos #IMPLEMENTATION{
+            node "Java Virtual Machine" <<Execution Environment>> as bee #white{
+                artifact "Jenkins"
+                component "Build and Test Service" as bts
+                "Jenkins" ..> bts : <<manifest>>
+            }
+        }
+    }
+}
+
+GatewayDevice ----> BuildDevice : HTTPS
+
+frame "Static Analysis Service"{
+    node "psrv-5: Application server" <<device>> as SADevice #APPLICATION{
+        node "Linux" <<OS>> as saos #IMPLEMENTATION{
+            node "Tomcat" <<Execution Environment>> as saee #white{
+                artifact "StaticAnalysis.war"
+                component "Static Analysis Service" as sas
+                "StaticAnalysis.war" ..> sas : <<manifest>>
+            }
+        }
+    }
+}
+
+GatewayDevice ----> SADevice : HTTPS
+
+frame "Notification Service"{
+    node "psrv-6: Application server" <<device>> as NotificationDevice #APPLICATION{
+        node "Linux" <<OS>> as nos #IMPLEMENTATION{
+            node "Tomcat" <<Execution Environment>> as nee #white{
+                artifact "NotificationService.war"
+                component "Notification Service" as ns
+                "NotificationService.war" ..> ns : <<manifest>>
+            }
+        }
+    }
+}
+
+GatewayDevice ----> NotificationDevice : HTTPS
+NotificationDevice ----> GatewayDevice : HTTPS
+
+
+PlatformDevice -> NotificationDevice : HTTPS
+
+@enduml
