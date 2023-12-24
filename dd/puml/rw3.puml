@@ -5,7 +5,6 @@ participant CDN
 participant "API Gateway" as gateway
 participant "User Service" as auth
 
-database "Badge DB" as badgesDb
 participant "Platform Service" as platform
 database "Platform DB" as platformDb
 
