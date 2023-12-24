@@ -34,14 +34,14 @@ end
 
 
 
-Browser -> gateway ++ : detailTournament(authToken, tournementId)
+Browser -> gateway ++ : getTournamentDetails(authToken, tournementId)
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
     gateway <- auth : false
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : educatorId
-    gateway -> platform ++ : detailTournament(educatorId, tournementId, ...)
+    gateway -> platform ++ : getTournamentDetails(tournementId)
 
     platform -> platformDb ++ : GET ...
 
