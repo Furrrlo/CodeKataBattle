@@ -281,55 +281,104 @@ seen in the previous diagrams:
     \item \textbf{API Gateway}
           \begin{itemize}
               \item \textbf{getListOfTournaments(authToken: String): List<SimpleTournament>}
-              \item \textbf{getBattleDetails(authToken: String, battleId: ID): List<Battle>}
+                    given a valid educator auth token, returns the list of tournaments which he has created
+                    or he has permissions to add battles to
+              \item \textbf{getTournamentDetails(authToken: String, tournamentId: ID): Tournament}
+                    returns the detailed tournament info for the given id
+              \item \textbf{getBattleDetails(authToken: String, battleId: ID): Battle}
+                    returns the detailed battle info for the given id
               \item \textbf{searchEducator(authToken: String, name: String?, surname: String?, \ldots): ID?}
+                    search for an educator matching the given name and/or surname
               \item \textbf{searchStudent(authToken: String, name: String?, surname: String?, \ldots): ID?}
+                    search for a student matching the given name and/or surname
               \item \textbf{createTournament(authToken: String, tournamentInfo: NewTournament): ID}
+                    create a new tournament with the given info and return its id
               \item \textbf{createBadge(authToken: String, badgeInfo: NewBadge): ID}
+                    create a new badge with the given info and return its id
               \item \textbf{createNewBattle(authToken: String, tournementId: ID, battleInfo: Battle): ID}
+                    create a new battle with the given info and return its id
               \item \textbf{enrollInTournament(authToken: String, tournementId: ID): void}
+                    enroll the student owning the given token in the given tournament
               \item \textbf{createTeam(authToken: String, battleId: ID): ID}
+                    create a new team to take part in the given battle and assign the student owning the given token
+                    to it, returning the id of the created team
               \item \textbf{invite(authToken: String, newTeamId: ID, invitedStudentId: ID): void}
+                    send an invitation for the given team to the invitedStudentId, with the student owning the given token
+                    as the invite sender
               \item \textbf{acceptInvitation(authToken: String, invitation: ID): void}
+                    accept the given invitation
               \item \textbf{rejectInvitation(authToken: String, invitation: ID): void}
+                    reject the given invitation
               \item \textbf{insertRepoSlug(authToken: String, battleId: ID, repo: Slug): void }
+                    associate the given GH repository to the team of the student owning the given token for the
+                    specified battle
               \item \textbf{newPush(repo: Slug): void }
+                    triggered by the GHA on a new push to the specified repository
               \item \textbf{assignGrade(authToken: String, battleId: ID, teamId: ID, grade: Int): void }
+                    assign this gradle to the submission of the specified team in the given battle
               \item \textbf{closeTournament(authToken: String, tournamentId: ID): void }
+                    close the given tournament
               \item \textbf{closeBattle(authToken: String, battleId: ID): void }
+                    close the given battle while it's in its consolidation phase
           \end{itemize}
     \item \textbf{User Interface}
           \begin{itemize}
               \item \textbf{validateEducatorToken(authToken: String): ID?}
+                    validate that the given token is a valid educator token and return its educator id
               \item \textbf{validateStudentToken(authToken: String): ID?}
+                    validate that the given token is a valid student token and return its student id
               \item \textbf{searchEducator(name: String?, surname: String?, \ldots): ID?}
+                    search for an educator matching the given name and/or surname
               \item \textbf{searchStudent(name: String?, surname: String?, \ldots): ID?}
+                    search for a student matching the given name and/or surname
               \item \textbf{checkEducatorIds(educatorsIds: ID[]): Bool}
+                    checks that the given ids are all associated to an existing educator
               \item \textbf{checkStudentId(studentId: ID): Bool}
+                    checks that the given id is associated to an existing student
           \end{itemize}
     \item \textbf{Platform Interface}
           \begin{itemize}
               \item \textbf{getListOfTournaments(educatorId: ID): List<SimpleTournament>}
-              \item \textbf{getTournamentDetails(tournamentId: ID): List<Tournament>}
-              \item \textbf{getBattleDetails(battleId: ID): List<Battle>}
+                    given an educator id, returns the list of tournaments which he has created
+                    or he has permissions to add battles to
+              \item \textbf{getTournamentDetails(tournamentId: ID): Tournament}
+                    returns the detailed tournament info for the given id
+              \item \textbf{getBattleDetails(battleId: ID): Battle}
+                    returns the detailed battle info for the given id
               \item \textbf{createTournament(creatorId: ID, tournamentInfo: NewTournament): ID}
+                    create a new tournament with the given info and return its id
               \item \textbf{createNewBattle(tournementId: ID, battleInfo: NewBattle): ID}
+                    create a new battle with the given info and return its id
               \item \textbf{enrollInTournament(studentId: ID, tournementId: ID): void}
+                    enroll the given student in the given tournament
               \item \textbf{createTeam(battleId: ID, studentId: ID): ID}
+                    create a new team to take part in the given battle and assign the student owning the given token
+                    to it, returning the id of the created team
               \item \textbf{invite(newTeamId: ID, invitedStudentId: ID): void}
+                    send an invitation for the given team to the specified student, with the student owning the given token
+                    as the invite sender
               \item \textbf{acceptInvitation(invitation: ID): void}
+                    accept the given invitation
               \item \textbf{rejectInvitation(invitation: ID): void}
+                    reject the given invitation
               \item \textbf{insertRepoSlug(studentId: ID, battleId: ID, repo: Slug): void }
+                    associate the given GH repository to the team of the student owning the given token for the
+                    specified battle
               \item \textbf{findBattleAndTeamFor(repo: Slug): {battleId: ID, teamId: ID}? }
               \item \textbf{calculateNewScore(battleId: ID, teamId: ID, testsReport: TestReport, stReport: StaReport): void }
               \item \textbf{assignGrade(battleId: ID, teamId: ID, grade: Int): void }
+                    assign this gradle to the submission of the specified team in the given battle
               \item \textbf{closeTournament(tournamentId: ID): void }
+                    close the given tournament
               \item \textbf{closeBattle(battleId: ID): void }
+                    close the given battle while it's in its consolidation phase
           \end{itemize}
     \item \textbf{Badge Interface}
           \begin{itemize}
               \item \textbf{createBadge(creatorId: ID, badgeInfo: NewBadge): ID}
+                    create a new badge with the given info and return its id
               \item \textbf{assignBadges(tournament: Tournament): void}
+                    evaluate and assign badges to all the students that took part in the given tournament
           \end{itemize}
     \item \textbf{Notification Interface}
           \begin{itemize}
@@ -338,10 +387,12 @@ seen in the previous diagrams:
     \item \textbf{Static Analysis Interface}
           \begin{itemize}
               \item \textbf{buildAndTest(repo: Slug): TestReport}
+                    build the given repository, run its tests and produce a report
           \end{itemize}
     \item \textbf{Build and Test Interface}
           \begin{itemize}
               \item \textbf{analyse(repo: Slug): StaReport}
+                    run static analysis on the given repository and produce a report
           \end{itemize}
 \end{itemize}
 
