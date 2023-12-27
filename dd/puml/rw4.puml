@@ -17,7 +17,7 @@ ref over Browser, gateway, auth, platform, platformDb: RW0.1: get list of tourna
 Browser -> gateway ++ : enrollInTournament(authToken, tournementId)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId

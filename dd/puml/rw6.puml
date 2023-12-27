@@ -53,14 +53,14 @@ gha --> gateway ++ : newPush(repoSlug)
 gateway -> platform ++ : findBattleAndTeamFor(repoSlug)
 platform -> platformDb ++ : SELECT ...  
 platform <- platformDb -- : NULL
-gateway <- platform -- : false
+gateway <- platform -- : null
 deactivate gateway
 ...
 
 Browser -> gateway ++ : insertRepoSlug(authToken, battleId, repoSlug)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId

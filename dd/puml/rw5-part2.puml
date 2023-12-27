@@ -20,7 +20,7 @@ Browser -> Browser : input(name, surname)
 Browser -> gateway ++ : searchStudent(authToken, name?, surname?, ...)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId
@@ -32,7 +32,7 @@ end
 Browser -> gateway ++ : invite(authToken, newTeamId, invitedStudentId)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId
@@ -71,7 +71,7 @@ Browser2 -> Browser2 : acceptInvitation(invitation)
 Browser2 -> gateway ++ : acceptInvitation(authToken, invitation)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser2 <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId
@@ -96,7 +96,7 @@ deactivate Browser2
 Browser -> gateway ++ : partecipate(authToken, teamId)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId

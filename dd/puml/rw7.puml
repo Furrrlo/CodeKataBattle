@@ -14,7 +14,7 @@ gateway -> platform ++ : findBattleAndTeamFor(repoSlug)
 platform -> platformDb ++ : SELECT ...  
 platform <- platformDb -- : (battleId, teamId)?
 alt unregistered or invalid repoSlug
-    gateway <- platform : false
+    gateway <- platform : null
 else
     gateway <- platform -- : { battleId, teamId }
 

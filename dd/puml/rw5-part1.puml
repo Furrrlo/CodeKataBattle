@@ -25,7 +25,7 @@ ref over Browser, gateway, auth, platform, platformDb: RW0.3: get battle details
 Browser -> gateway ++ : createTeam(authToken, battleId)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId
@@ -51,7 +51,7 @@ Browser -> Browser : input(name, surname)
 Browser -> gateway ++ : searchStudent(authToken, name?, surname?, ...)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId
@@ -63,7 +63,7 @@ end
 Browser -> gateway ++ : invite(authToken, newTeamId, invitedStudentId)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId
@@ -94,7 +94,7 @@ notification -> Browser1 ++ : notifyNewInvitation(invitation)
 Browser1 -> gateway ++ : acceptInvitation(authToken, invitation)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser1 <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId

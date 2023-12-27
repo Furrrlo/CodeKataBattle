@@ -20,7 +20,7 @@ loop authorizedEducators
     Browser -> gateway ++ : searchEducator(authToken, name?, surname?, ...)
     gateway -> auth ++ : validateEducatorToken(authToken)
     alt invalid token
-        gateway <- auth : false
+        gateway <- auth : null
         Browser <- gateway : 401 Unauthorized
     else
         gateway <- auth -- : educatorId
@@ -46,7 +46,7 @@ Browser -> gateway ++ : createTournament(authToken, tournamentInfo)
 
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : educatorId

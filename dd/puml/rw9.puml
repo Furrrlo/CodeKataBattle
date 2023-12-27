@@ -23,7 +23,7 @@ ref over Browser, gateway, auth, platform, platformDb, badges, badgesDb: RW0.2: 
 Browser -> gateway ++ : closeTournament(authToken, tournamentId)
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : educatorId

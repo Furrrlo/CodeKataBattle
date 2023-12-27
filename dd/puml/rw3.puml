@@ -28,7 +28,7 @@ Browser -> gateway ++ : createNewBattle(authToken, tournementId, battleInfo, ...
 
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
-    gateway <- auth : false
+    gateway <- auth : null
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : educatorId
