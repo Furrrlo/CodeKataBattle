@@ -275,6 +275,150 @@ In the first three sequence diagrams, the user could be a student or an educator
 \end{enumerate}
 
 \section{Component interfaces}
+Here the most relevant interfaces exposed by components are described, including all the operations
+seen in the previous diagrams:
+\begin{itemize}
+    \item \textbf{API Gateway}
+          \begin{itemize}
+              \item \textbf{getListOfTournaments(authToken: String): List<SimpleTournament>}
+              \item \textbf{getBattleDetails(authToken: String, battleId: ID): List<Battle>}
+              \item \textbf{searchEducator(authToken: String, name: String?, surname: String?, \ldots): ID?}
+              \item \textbf{searchStudent(authToken: String, name: String?, surname: String?, \ldots): ID?}
+              \item \textbf{createTournament(authToken: String, tournamentInfo: NewTournament): ID}
+              \item \textbf{createBadge(authToken: String, badgeInfo: NewBadge): ID}
+              \item \textbf{createNewBattle(authToken: String, tournementId: ID, battleInfo: Battle): ID}
+              \item \textbf{enrollInTournament(authToken: String, tournementId: ID): void}
+              \item \textbf{createTeam(authToken: String, battleId: ID): ID}
+              \item \textbf{invite(authToken: String, newTeamId: ID, invitedStudentId: ID): void}
+              \item \textbf{acceptInvitation(authToken: String, invitation: ID): void}
+              \item \textbf{rejectInvitation(authToken: String, invitation: ID): void}
+              \item \textbf{insertRepoSlug(authToken: String, battleId: ID, repo: Slug): void }
+              \item \textbf{newPush(repo: Slug): void }
+              \item \textbf{assignGrade(authToken: String, battleId: ID, teamId: ID, grade: Int): void }
+              \item \textbf{closeTournament(authToken: String, tournamentId: ID): void }
+              \item \textbf{closeBattle(authToken: String, battleId: ID): void }
+          \end{itemize}
+    \item \textbf{User Interface}
+          \begin{itemize}
+              \item \textbf{validateEducatorToken(authToken: String): ID}
+              \item \textbf{validateStudentToken(authToken: String): ID}
+              \item \textbf{searchEducator(name: String?, surname: String?, \ldots): ID?}
+              \item \textbf{searchStudent(name: String?, surname: String?, \ldots): ID?}
+              \item \textbf{checkEducatorIds(educatorsIds: ID[]): Bool}
+              \item \textbf{checkStudentId(studentId: ID): Bool}
+          \end{itemize}
+    \item \textbf{Platform Interface}
+          \begin{itemize}
+              \item \textbf{getListOfTournaments(educatorId: ID): List<SimpleTournament>}
+              \item \textbf{getTournamentDetails(tournamentId: ID): List<Tournament>}
+              \item \textbf{getBattleDetails(battleId: ID): List<Battle>}
+              \item \textbf{createTournament(creatorId: ID, tournamentInfo: NewTournament): ID}
+              \item \textbf{createNewBattle(tournementId: ID, battleInfo: NewBattle): ID}
+              \item \textbf{enrollInTournament(studentId: ID, tournementId: ID): void}
+              \item \textbf{createTeam(battleId: ID, studentId: ID): ID}
+              \item \textbf{invite(newTeamId: ID, invitedStudentId: ID): void}
+              \item \textbf{acceptInvitation(invitation: ID): void}
+              \item \textbf{rejectInvitation(invitation: ID): void}
+              \item \textbf{insertRepoSlug(studentId: ID, battleId: ID, repo: Slug): void }
+              \item \textbf{findBattleAndTeamFor(repo: Slug): {battleId: ID, teamId: ID}? }
+              \item \textbf{calculateNewScore(battleId: ID, teamId: ID, testsReport: TestReport, stReport: StaReport): void }
+              \item \textbf{assignGrade(battleId: ID, teamId: ID, grade: Int): void }
+              \item \textbf{closeTournament(tournamentId: ID): void }
+              \item \textbf{closeBattle(battleId: ID): void }
+          \end{itemize}
+    \item \textbf{Badge Interface}
+          \begin{itemize}
+              \item \textbf{createBadge(creatorId: ID, badgeInfo: NewBadge): ID}
+              \item \textbf{assignBadges(tournament: Tournament): void}
+          \end{itemize}
+    \item \textbf{Notification Interface}
+          \begin{itemize}
+              \item
+          \end{itemize}
+    \item \textbf{Static Analysis Interface}
+          \begin{itemize}
+              \item \textbf{buildAndTest(repo: Slug): TestReport}
+          \end{itemize}
+    \item \textbf{Build and Test Interface}
+          \begin{itemize}
+              \item \textbf{analyse(repo: Slug): StaReport}
+          \end{itemize}
+\end{itemize}
+
+Types:
+\begin{itemize}
+    \item \textbf{ID} {-} a unique identifier for a given object, could be a self-incrementing integer or a UUID (depends on the choosen DBMS)
+    \item \textbf{Slug} {-} a String identifying a specific GitHub repository, in the format '<username>/<repository>' as can be seen
+          in a GitHub project URL
+    \item \textbf{SimpleTournament}
+          \begin{lstlisting}
+{
+    id: ID,
+    name: String,
+    status: Subscribing | InProgress | Closed,
+} 
+          \end{lstlisting}
+    \item \textbf{Tournament}
+          \begin{lstlisting}
+{
+    id: ID,
+    name: String,
+    status: Subscribing | InProgress | Closed,
+    subscriptionDeadline: DateTime,
+    enrolledStudents: { id: ID, name: String, score: Int }[],
+    battles: { id: ID }[],
+} 
+          \end{lstlisting}
+    \item \textbf{NewTournament}
+          \begin{lstlisting}
+{
+    name: String,
+    subscriptionDeadline: DateTime,
+    authorizedEducators: { id: ID },
+    badges: { id: ID }[],
+} 
+          \end{lstlisting}
+    \item \textbf{Battle}
+          \begin{lstlisting}
+{
+    name: String,
+    description: String,
+    status: Registration | Submission | Consolidation | Done,
+    minStudents: Int,
+    maxStudents: Int,
+    registrationDeadline: DateTime,
+    submissionDeadline: DateTime,
+    requiresManualEvaluation: Bool,
+    repo: Slug?,
+    teams: { id: ID, students: { id: ID }[], score: Int }[],
+} 
+          \end{lstlisting}
+    \item \textbf{NewBattle}
+          \begin{lstlisting}
+{
+    title: String,
+    condition: String,
+} 
+          \end{lstlisting}
+    \item \textbf{NewBadge}
+          \begin{lstlisting}
+{
+    title: String,
+    condition: String,
+} 
+          \end{lstlisting}
+    \item \textbf{TestReport}
+          \begin{lstlisting}
+{
+    passed: Int,
+    failed: Int,
+} 
+          \end{lstlisting}
+    \item \textbf{StaReport}
+          \begin{lstlisting}
+Map<{ metricName: String }, { score: Int }> 
+          \end{lstlisting}
+\end{itemize}
 
 \section{Selected architectural styles and patterns}
 

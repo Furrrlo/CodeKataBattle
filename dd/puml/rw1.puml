@@ -52,7 +52,7 @@ else
     gateway <- auth -- : educatorId
     gateway -> auth ++ : checkEducatorIds(autorizedEducatorsIds)
     gateway <- auth -- : true
-    gateway -> platform ++ : createTournament(educatorId, tournamentInfo, autorizedEducatorIds, badgeIds)
+    gateway -> platform ++ : createTournament(educatorId, tournamentInfo)
     platform -> platformDb ++ : INSERT ...
     platform <- platformDb -- : newTournamentId
     gateway <- platform -- : newTournamentId

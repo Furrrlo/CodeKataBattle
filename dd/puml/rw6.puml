@@ -64,7 +64,7 @@ alt invalid token
     Browser <- gateway : 401 Unauthorized
 else
     gateway <- auth -- : studentId
-    gateway -> platform ++ : insertRepoSlug(battleId, repoSlug)
+    gateway -> platform ++ : insertRepoSlug(studentId, battleId, repoSlug)
 
     platform -> platformDb ++ : INSERT ...
 

@@ -22,14 +22,14 @@ ref over Browser, gateway, auth, platform, platformDb: RW0.3: get battle details
 loop battleObj.teams
     Browser -> Browser : input(grade)
 
-    Browser -> gateway ++ : assignGrade(authToken, battleId, teamId)
+    Browser -> gateway ++ : assignGrade(authToken, battleId, teamId, grade)
     gateway -> auth ++ : validateEducatorToken(authToken)
     alt invalid token
         gateway <- auth : false
         Browser <- gateway : 401 Unauthorized
     else
         gateway <- auth -- : educatorId
-        gateway -> platform ++ : assignGrade(battleId, teamId)
+        gateway -> platform ++ : assignGrade(battleId, teamId, grade)
 
         platform -> platformDb ++ : UPDATE ...
 

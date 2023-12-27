@@ -37,6 +37,7 @@ entity BattleParticipation {
 }
 
 entity TournamentSubscription {
+  *name: String,
   *score: Int
   *subscriptionDate: DateTime
 }
@@ -57,6 +58,7 @@ entity Battle {
   *maxStudents: Int
   *registrationDeadline: DateTime
   *submissionDeadline: DateTime
+  *closed: Bool
   *requiresManualEvaluation: Bool
   *repoSlug: String?
 }
