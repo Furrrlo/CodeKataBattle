@@ -8,7 +8,12 @@ component "API Gateway"
 interface "API" as IGateway
 
 interface "User Interface" as IUser
-component "User Service"
+component User {
+    portin "<U+00A0>" as UserPortIn
+    portout "<U+00A0>" as UserPortOut
+    component "User Service"
+    database "User DB"
+}
 
 cloud {
   component "University SSO 1"
@@ -58,10 +63,13 @@ HTTP -- IGateway
 IGateway -- [API Gateway]
 HTTP --- [Website CDN]
 
-[API Gateway] -- IUser
-IUser -- [User Service]
-[User Service] -- [University SSO 1]
-[User Service] -- [University SSO 2]
+[API Gateway] --- IUser
+IUser -- UserPortIn
+UserPortIn -- [User Service]
+[User Service] - UserPortOut
+[User Service] - [User DB]
+UserPortOut -- [University SSO 1]
+UserPortOut -- [University SSO 2]
 
 [API Gateway] -- IPlatform
 IPlatform -- PlatformPortIn
@@ -92,7 +100,7 @@ INotification -- NotificationPortIn
 ' Hidden links to distribute stuff better
 IPlatform -r[hidden]-- ISat : \t\t\t\t\t
 ISat -r[hidden]-- IUser : \t\t\t\t\t
-IUser -r[hidden]-- IBuild : \t\t\t\t\t
+' IUser -r[hidden]-- IBuild : \t\t\t\t\t
 IBuild -r[hidden]-- IBadge : \t\t\t\t\t
 
 @enduml

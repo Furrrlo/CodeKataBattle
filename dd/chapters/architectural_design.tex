@@ -28,7 +28,6 @@ Consequently, they will be implemented in such a way as to be asynchronous with 
 
 
 \section{Component view}
-\subsection{Server Components}
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
         caption={Component view diagram},
@@ -38,24 +37,67 @@ Consequently, they will be implemented in such a way as to be asynchronous with 
     \puml{puml/component-view}
 \end{adjustbox}
 
-\subsection{Data Components}
-\begin{adjustbox}{
-        max size={\textwidth}{\textheightwithcaption{1}},
-        caption={Platform ER},
-        label={fig:Platform ER},
-        figure=H}
-    \centering
-    \puml{puml/platform-db}
-\end{adjustbox}
+\subsection{Server Components}
+The server components contain the business logic needed to provide the functionalities of the application to the clients,
+by responding to requests made by Client Components as well as perform tasks based on interaction with the external
+platforms used by the clients (such as GitHub). There are 5 main components, which corresponds to the main areas identified
+above, as well as a few additional components:
+\begin{itemize}
+    \item \textbf{User Service} {-} implements the authentication as well as keeps track of both students and educators by making
+          use of 3rd-party authentication services provided by the institutions.
+    \item \textbf{Platform Service} {-} implements all the logic related to creating and managing battles and tournaments, including
+          calculating the score and keeping track of the leaderboards
+    \item \textbf{Badge Service} {-} implements all the logic related to the evaluation and assignment of badges, including the gathering
+          of information needed in order to do that (for example Git or GH metadata such as number of commits by students, etc)
+          as well as the actual evaluation of JavaScript code which gets used by educators in order to express the logic of
+          specific badges
+    \item \textbf{Build and Test Service} {-} implements the Continuous Integration aspect, by building students projects and
+          running them againsts tests for each push
+    \item \textbf{Static Analysis Service} {-} abstracts away the interaction with SonarCloud, the 3rd party service which will
+          perform the actual static analysis. While SonarCloud already exposes their own API for interaction, it is cumbersome
+          (as it requires registering a webhook \cite{SonarCloudWh}, importing the project from the GH slug \cite{SonarCloudGh},
+          specifying the required analysis metrics in a quality profile \cite{SonarCloudQp} and waiting for a response on the hook).
+          Therefore, by abstracting it away we can use it much more easily and, additionally, make it much less inconvenient to
+          replace it should the need arise.
+    \item \textbf{Notification Service} {-} responsible for contacting external notification APIs
+          (such as Google's Firebase Cloud Messaging or Apple Push Notification Service) in order to deliver push notifications
+          to client devices
+    \item \textbf{Website CDN} {-} responsible for serving the static files of the SPA to the clients
+    \item \textbf{API Gateway} {-} responsible for connecting together all microservices, it is the component that provides a REST
+          interface externally, which the clients will send requests to, which will be implemented by a series of internal calls
+          using gRPC \cite{gRPC} to all the other microservices in order to make responses. The component does not implement a specific
+          functionality per se, but is in charge of providing an interface to the clients as well as enforcing the correct usage
+          of said interface.
+\end{itemize}
 
-\begin{adjustbox}{
-        max size={\textwidth}{\textheightwithcaption{1}},
-        caption={Badges ER},
-        label={fig:Badges ER},
-        figure=H}
-    \centering
-    \puml{puml/badges-db}
-\end{adjustbox}
+\subsection{Data Components}
+Server Components make use of 3 distinct DBMSes, each with its own schema.
+\begin{itemize}
+    \item \textbf{User DB} {-} saves data related to the users of the platform. Its ER schema is not shown
+          here as it would depend on the 3rd-party service, but it would at leats require for each student and
+          educator a unique identifier, as well as human readable identifier to allow users to lookup each other
+          (so name and surname or an email). Educators and Students are saved in different tables.
+          \pagebreak
+    \item \textbf{Platform DB}
+          \begin{adjustbox}{
+                  max size={\textwidth}{\textheightwithcaption{1}},
+                  caption={Platform ER},
+                  label={fig:Platform ER},
+                  figure=H}
+              \centering
+              \puml{puml/platform-db}
+          \end{adjustbox}
+          \pagebreak
+    \item \textbf{Badge DB}
+          \begin{adjustbox}{
+                  max size={\textwidth}{\textheightwithcaption{1}},
+                  caption={Badges ER},
+                  label={fig:Badges ER},
+                  figure=H}
+              \centering
+              \puml{puml/badges-db}
+          \end{adjustbox}
+\end{itemize}
 \pagebreak
 
 \section{Deployment view}
