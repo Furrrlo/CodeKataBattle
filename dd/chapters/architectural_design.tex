@@ -399,7 +399,7 @@ seen in the previous diagrams:
 Types:
 \begin{itemize}
     \item \textbf{ID} {-} a unique identifier for a given object, could be a self-incrementing integer or a UUID (depends on the choosen DBMS)
-    \item \textbf{Slug} {-} a String identifying a specific GitHub repository, in the format '<username>/<repository>' as can be seen
+    \item \textbf{Slug} {-} a String identifying a specific GitHub repository, in the format `<username>/<repository>' as can be seen
           in a GitHub project URL
     \item \textbf{SimpleTournament}
           \begin{lstlisting}
@@ -472,5 +472,51 @@ Map<{ metricName: String }, { score: Int }>
 \end{itemize}
 
 \section{Selected architectural styles and patterns}
+\begin{description}[leftmargin=0pt]
+    \item[Fat client:]
+          fat clients allow offering a wide variety of functionalities independent from the central server, as well as
+          to move part of the business logic off of the server and into the clients.
+          The main advantages it offers are greater decoupling of frontend and backend as well as a better interactive
+          experience, especially in conditions where the client is on an unstable network.
+          Additionally, with the adoption of a single-page applications, there are many cross-platform frameworks
+          which allow to reuse code partially or entirely on multiple platforms.
+          The single-page web application can also be served by a dedicated static webserver, as all its interactivity is
+          implemented client-side, further reducing the burden on the server by delegating its serving to a CDN, which is
+          highly optimized for this specific use case.
+    \item[REST API:] an architectural style defined on top of HTTP centered around the definition of a standardized
+          set of stateless operations. Its main advantages are its simplicity, its use of widely adopted standards which
+          facilitate adoption, and its ease of scalability given by its stateless nature. It allows to have a single API
+          interface against which a heterogeneous set of clients can make requests.
+    \item[Microservices architecture:]
+          an architectural style where a single application is developed as a suite of small services,
+          each running in its own process and each dealing with a single bounded context in the target domain. The use of
+          this architecture allows us a more fine-grained scaling strategy, as we can clearly select in our system CPU-bound
+          services (such as the Build and Test Service) which will need to have many more resources allocated to it compared
+          to the rest of the system.
+    \item[API Gateway:]
+          a mediator which sits between clients and a service being invoked, which allows to implement cross-cutting concerns
+          such as authentication mechanism common for all microservices.
+    \item[RPC:] an interaction style where remote calls resembles procedure call in a local setting. In particular, we have
+          choosen to use gRPC and adopt its philosophy, centered around ``coarse-grained message exchange while avoiding the
+          pitfalls of distributed objects and the fallacies of ignoring the network'' \cite{gRPCPrinciples}, therefore
+          avoiding many of the issues normally stemming from RPC/RMI. Additionally, its support out-of-the-box for many
+          languages, load-balancing, blocking \& non-blocking support and HTTP transport make it a perfect fit for use in a
+          microservice architecture.
+    \item[Pub-sub/Message queueing:] a messaging pattern which allows to obtain a high degree of decoupling among components
+          in both space and time: a publisher does not need to know of the existance of a subscriber and can continue to
+          operate indipendently even if there is none.
+    \item[Tiered architecture:] the separation of the architecture in layers, such as presentation, business and data,
+          offers great flexibility, maintainability and scalability. In particular, by separating the business from the data
+          and having communication between components always go through a predefined API, we do not have to worry about
+          each knowing the internal representation of the others.
+    \item[Stateless components:] the use of stateless components, which do not have memory of interactions they have previously
+          received, allows to decouple successive calls to services and facilitates the horizontal scaling of the system.
+\end{description}
 
 \section{Other design decisions}
+\begin{description}[leftmargin=0pt]
+    \item[Relational DBMS:]
+          a relational database is the traditional choice because of their guarantees given by ACID properties
+          enforcing consistency on the data, as well as their fixed schema with well defined entities which fits
+          well with the well-defined model we have identified
+\end{description}
