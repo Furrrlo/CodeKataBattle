@@ -1,0 +1,24 @@
+@startuml Badges DB
+
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam linetype ortho 
+
+entity Student {
+  *id: Int <<external>>
+}
+
+entity Educator {
+  *id: Int <<external>>
+}
+
+entity Badge {
+  *id: Int <<generated>>
+  *title: String
+  *condition: String
+}
+
+Student }o--o{ Badge : > earns
+Educator ||--o{ Badge : > creates
+
+@enduml

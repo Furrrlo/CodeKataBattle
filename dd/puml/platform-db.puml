@@ -1,0 +1,95 @@
+@startuml Platform DB
+
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam linetype ortho 
+
+entity Educator {
+  *id: Int <<external>>
+}
+
+entity Student {
+  *id: Int <<external>>
+}
+
+entity TeamParticipation {
+  *studentCommits: Int
+}
+
+entity Invite {
+  *state: InviteState
+}
+
+enum InviteState {
+  ACCEPTED
+  REJECTED
+  PENDING
+}
+
+entity Team {
+  *id: Int <<generated>>
+}
+
+entity BattleParticipation {
+  *registrationDate: DateTime
+  *score: int
+  repoSlug: String
+}
+
+entity TournamentSubscription {
+  *score: Int
+  *subscriptionDate: DateTime
+}
+
+entity Tournament {
+  *id: Int <<generated>>
+  ---
+  *subscriptionDeadline: DateTime
+  *closed: Bool
+}
+
+entity Battle {
+  *id: Int <<generated>>
+  ---
+  *description: String
+  *softwareProjectPath: String
+  *minStudents: Int
+  *maxStudents: Int
+  *registrationDeadline: DateTime
+  *submissionDeadline: DateTime
+  *requiresManualEvaluation: Bool
+  *repoSlug: String?
+}
+
+entity Badge {
+  id: Int <<external>>
+}
+
+Student ||.o{ Invite: > sends
+Student ||.o{ Invite: > receives
+Invite }o.|| TeamParticipation: > to join
+
+Invite -- InviteState
+
+Student ||-down-o| TeamParticipation: > takes part
+
+TeamParticipation }|-down-|| Team: > form
+
+Team ||-d-o| "0...1" BattleParticipation: > takes part
+
+
+Student }o-down-o{ TournamentSubscription: subscribes
+
+TournamentSubscription }o-down-|| Tournament: > referred to
+
+BattleParticipation }o-down-|| Battle: > referred to
+
+Educator ||-o{ Tournament: > creates
+Educator }o-|| Tournament : > is allowed
+Educator ||--o{ Battle : < created by
+
+Tournament ||--o{ Battle: > formed by
+
+Badge }o--o{ Tournament : > is assigned
+
+@enduml
