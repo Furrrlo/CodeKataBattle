@@ -1,0 +1,62 @@
+@startuml RW9 - Educator closes a tournament
+
+actor Browser
+participant CDN
+participant "API Gateway" as gateway
+participant "User Service" as auth
+
+participant "Platform Service" as platform
+database "Platform DB" as platformDb
+
+queue  "Notification Queue" as notificationQueue
+
+participant "Badge Service" as badges
+database "Badge DB" as badgesDb
+
+activate Browser
+Browser -> CDN ++ : GET index.html
+Browser <- CDN -- : index.html
+
+ref over Browser, gateway, auth, platform, platformDb, badges, badgesDb: RW0.1: get list of tournaments
+ref over Browser, gateway, auth, platform, platformDb, badges, badgesDb: RW0.2: get tournament details
+
+Browser -> gateway ++ : closeTournament(authToken, tournamentId)
+gateway -> auth ++ : validateEducatorToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : educatorId
+    gateway -> platform ++ : closeTournament(battleId)
+
+    platform -> platformDb ++ : SELECT ...
+
+    alt invalid tournamentId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid tournament id
+        Browser <- gateway : invalid tournament id
+    else
+        platform <- platformDb -- : tournamentObj
+        platform -> platformDb ++ : UPDATE ...
+        platform <- platformDb -- : 1 row updated
+
+        loop battle.students
+            platform -> notificationQueue ++ : addRequest(studentId, textInfo)
+            platform <- notificationQueue --: added
+        end
+
+        gateway <- platform -- : tournamentObj
+        gateway -> badges ++ : assignBadges(tournamentObj)
+        
+        loop tournamentObj.enrolledStudents
+            badges -> badgesDb ++ : INSERT ...
+            badges <- badgesDb -- : Inserted 1 row
+        end
+
+        gateway <- badges -- : ok
+        Browser <- gateway -- : ok
+    end
+end
+
+
+@enduml

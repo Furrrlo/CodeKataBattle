@@ -1,0 +1,86 @@
+@startuml RW9 - Educator closes a tournament
+
+actor Browser
+actor "GitHub" as gh
+entity "GH Action" as gha
+participant CDN
+participant "API Gateway" as gateway
+participant "User Service" as auth
+
+participant "Platform Service" as platform
+database "Platform DB" as platformDb
+
+participant "Platform Service" as platform
+database "Platform DB" as platformDb
+
+queue  "Notification Queue" as notificationQueue
+participant "Notification Service" as notification
+
+note across: The registration deadline expires
+
+activate platform
+platform -> gh ++ : push(tournamentFiles)
+platform <- gh -- : newRepoSlug
+platform -> platformDb ++ : UPDATE ...
+platform <- platformDb -- : 1 row updated
+
+loop tournamentObj.enrolledStudents
+    platform -> notificationQueue ++ : addRequest(studentId, textInfo)
+    platform <- notificationQueue --: added
+end
+deactivate platform
+
+...
+notification -> notification ++ : lifecyle()
+notification -> notificationQueue ++: popOperations()
+notification <- notificationQueue --:listOfOperations
+
+loop listOfOperations
+    notification -> Browser ++: notifyNewBattle()
+end
+deactivate notification
+
+activate Browser
+Browser -> CDN ++ : GET index.html
+Browser <- CDN -- : index.html
+
+ref over Browser, gateway, auth, platform, platformDb: RW0.1: get list of tournaments
+ref over Browser, gateway, auth, platform, platformDb: RW0.2: get tournament details
+ref over Browser, gateway, auth, platform, platformDb: RW0.3: get battle details
+
+...
+gha --> gateway ++ : newPush(repoSlug)
+gateway -> platform ++ : findBattleAndTeamFor(repoSlug)
+platform -> platformDb ++ : SELECT ...  
+platform <- platformDb -- : NULL
+gateway <- platform -- : false
+deactivate gateway
+...
+
+Browser -> gateway ++ : insertRepoSlug(authToken, battleId, repoSlug)
+gateway -> auth ++ : validateStudentToken(authToken)
+alt invalid token
+    gateway <- auth : false
+    Browser <- gateway : 401 Unauthorized
+else
+    gateway <- auth -- : studentId
+    gateway -> platform ++ : insertRepoSlug(battleId, repoSlug)
+
+    platform -> platformDb ++ : INSERT ...
+
+    alt invalid battleId
+        platform <- platformDb : NULL
+        gateway <- platform : invalid battle id
+        Browser <- gateway : invalid battle id
+    else
+        platform <- platformDb -- : battleObj
+        platform -> platformDb ++ : UPDATE ...
+        platform <- platformDb -- : 1 row updated
+
+        gateway <- platform -- : ok
+        Browser <- gateway -- : ok
+    end
+end
+
+
+@enduml
