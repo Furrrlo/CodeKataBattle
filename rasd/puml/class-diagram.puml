@@ -14,7 +14,7 @@ class Student {
 Student "1" - inviteDiamond
 inviteDiamond -* "0...n" Invite: > sends
 inviteDiamond -* "0...n" Invite: > receives<U+00A0><U+00A0>
-Invite "0...n" -* "1" TeamParticipation: > to join
+Invite "0...1" -* "1" TeamParticipation: > to join
 
 Invite -- InviteState
 
@@ -28,7 +28,7 @@ enum InviteState {
     PENDING
 }
 
-Student "1" -down- "0...1" TeamParticipation: > takes part
+Student "1" -down- "0...n" TeamParticipation: > takes part
 
 class TeamParticipation {
   +studentCommits: Int
@@ -57,7 +57,7 @@ class BattleParticipation {
   +score: int
 }
 
-Student "0...n" -down-* "0...n" TournamentSubscription: subscribes
+Student "1" -down-* "0...n" TournamentSubscription: subscribes
 
 class TournamentSubscription {
   +score: Int
