@@ -451,10 +451,29 @@ Types:
     \item \textbf{NewBattle}
           \begin{lstlisting}
 {
-    title: String,
-    condition: String,
-} 
+    name: String,
+    description: String,
+    minStudents: Int,
+    maxStudents: Int,
+    registrationDeadline: DateTime,
+    submissionDeadline: DateTime,
+    requiresManualEvaluation: Bool,
+    zippedProject: Blob,
+    privateProjectFiles: Path[],
+    sonarRules: {
+        key: String,
+        parameters: {
+            key: String,
+            value: String,
+        }[],
+    }[],
+}
           \end{lstlisting}
+          The zippedProject field is a binary blob which contains all project files and tests, both public and private.
+          The privateProjectFiles is in charge of defining which files from this zip will be hidden from the students,
+          so that educators can specify private tests. Care must be taken by educators so that the project build script 
+          can also work in the absence of those files. The sonarRules field lists all the rules to be applied by 
+          SonarCloud when scanning.
     \item \textbf{NewBadge}
           \begin{lstlisting}
 {
