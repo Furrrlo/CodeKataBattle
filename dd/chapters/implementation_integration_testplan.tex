@@ -1,1 +1,56 @@
 % !TeX root = ../dd.tex
+
+The choosen architecture guarantees high decoupling between components, so that most of them
+can be developed and unit tested cpmpletely independently, without the need to mock other
+components. Once those are developed, we can integrate them at the end and do additional
+integration testing. We can identify a few different types components:
+
+\begin{description}[leftmargin=0pt]
+     \item[Independent components:] these are back-end components that can be developed fully independently
+           from one another and do not need to directly integrate with any other service
+     \item[External components:] these are the components provided by third-parties, which are supposed
+           to be already reliable, but may need to be stubbed when unit testing our own services
+     \item[Integrating components:] these are the back-end components whose sole role is of allowing
+           communication between other services and therefore need to be directly integrated with those
+     \item[Front-end components:] these are the presentational components that belong to the client layer
+           which rely on the back-end REST API, they can therefore be unit tested by mocking it
+\end{description}
+
+In order to visualize how much each component will need to be tested and plan accordingly, we can use
+the following table, where we associate to each piece of functionality the difficulty of its 
+implementation and its importance for the final user experience:
+
+\begin{table}[H]
+     %\caption*{\textbf{Title}}
+     \centering
+     \begin{tabular}{|l|l|l|}
+          \hline
+          \textbf{Feature}                    & \textbf{Importance} & \textbf{Difficulty} \\\hline
+          Login                               & High                & Medium              \\
+          Tournament and Battle Management    & High                & Low                 \\
+          Tournament and Battle Participation & High                & Medium              \\
+          Automatic evaluation                & High                & High                \\
+          Manual evaluation                   & High                & Low                 \\
+          Tournament rankings                 & Medium              & Low                 \\
+          Battle rankings                     & Medium              & Low                 \\
+          Notifications                       & Medium              & High                \\
+          Badges Management                   & Low                 & Medium              \\
+          Badges Assignment                   & Low                 & High                \\
+          Badges Visualization                & Low                 & High                \\
+     \end{tabular}
+     \caption{Importance and difficulty of features}
+     \label{table:Importance and difficulty of features}
+\end{table}
+
+\subsection{Development and Test Plan}
+All the components will be developed and tested using a bottom-up approach, in order to reduce as
+much as possible stubs and mocks, which would add additional overhead to the development.
+All the indipendent microservices can be developed first and in parallel, prioritizing components 
+of high importance which need to be tested more thoroughly as outlined by the table above.
+Development can also start on front-end components, which can mock the REST API during testing.
+Lastly, integrating components such as the API Gateway can be developed, after which everything
+can be integration tested. After that is completed, adherence to the specified requirements
+needs to be verified.
+
+\subsection{Components integration}
+
