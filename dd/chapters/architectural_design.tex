@@ -527,7 +527,7 @@ Map<{ metricName: String }, { score: Int }>
           microservice architecture.
     \item[Pub-sub/Message queueing:] a messaging pattern which allows to obtain a high degree of decoupling among components
           in both space and time: a publisher does not need to know of the existance of a subscriber and can continue to
-          operate indipendently even if there is none.
+          operate indipendently even if there is none. By doing so, asynchronous communication is implemented.
     \item[Tiered architecture:] the separation of the architecture in layers, such as presentation, business and data,
           offers great flexibility, maintainability and scalability. In particular, by separating the business from the data
           and having communication between components always go through a predefined API, we do not have to worry about
