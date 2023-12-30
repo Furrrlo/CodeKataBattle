@@ -62,10 +62,10 @@ alt Invited Student 2 successfully invited
 end
 
 ...
-inviting -> System ++ : partecipate(battle, team)
+inviting -> System ++ : enrollInBattle(team)
 alt number of participants satisfied
     activate inviting
-    System -> System ++-- : enrollInBattle(battle, team)
+    System -> System ++-- : enrollInBattle(team)
     inviting <-- System : confirmation
 else minimum number of partecipants not satisfied
     inviting <-- System -- : error
