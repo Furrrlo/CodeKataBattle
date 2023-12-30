@@ -19,7 +19,7 @@ node Firewall
 Client --> Firewall: HTTPS
 
 frame "API Gateway"{
-    node "gw0: Application server" <<device>> as GatewayDevice #APPLICATION{
+    node "gw0: EC2" <<device>> as GatewayDevice #APPLICATION{
         node "Linux" <<OS>> as gwos #IMPLEMENTATION{
             'https://spring.io/projects/spring-cloud-gateway/
             node "Webflux" <<Execution Environment>> #white{
@@ -34,7 +34,7 @@ frame "API Gateway"{
 Firewall --> GatewayDevice: HTTPS
 
 frame "Platform Service"{
-    node "psrv-1: Application server" <<device>> as PlatformDevice #APPLICATION{
+    node "psrv-1: EC2" <<device>> as PlatformDevice #APPLICATION{
         node "Linux" <<OS>> as plos #IMPLEMENTATION{
             node "Tomcat" <<Execution Environment>> as plee #white{
                 artifact "PlatformService.war"
@@ -43,9 +43,9 @@ frame "Platform Service"{
             }
         }
     }
-    node "dbsrv-1: Database server" <<device>> as PlatformDBDevice #APPLICATION{
-        node "Linux" <<OS>> as pldbos #IMPLEMENTATION{
-            node "Amazon RDS" <<Database System>> as pldb #white{
+    node "dbsrv-1: AWS (Database server)" <<device>> as PlatformDBDevice #APPLICATION{
+        node "Amazon RDS" <<Database System>> as pdbs #IMPLEMENTATION{
+            node "Amazon Aurora" <<Database Engine>> as pdbe #white{
                 database "Platform\ndatabase"
             }
         }
@@ -57,7 +57,7 @@ frame "Platform Service"{
 
 
 frame "User Service"{
-    node "psrv-2: Application server" <<device>> as UserSrvDevice #APPLICATION{
+    node "psrv-2: EC2" <<device>> as UserSrvDevice #APPLICATION{
         node "Linux" <<OS>> as usos #IMPLEMENTATION{
             node "Tomcat" <<Execution Environment>> as usee #white{
                 artifact "UserService.war"
@@ -66,9 +66,9 @@ frame "User Service"{
             }
         }
     }
-    node "dbsrv-2: Database server" <<device>> as UserDBDevice #APPLICATION{
-        node "Linux" <<OS>> as usdbos #IMPLEMENTATION{
-            node "Amazon RDS" <<Database System>> as usdb #white{
+    node "dbsrv-2: AWS (Database server)" <<device>> as UserDBDevice #APPLICATION{
+        node "Amazon RDS" <<Database System>> as udbs #IMPLEMENTATION{
+            node "Amazon Aurora" <<Database Engine>> as usbe #white{
                 database "Users\ndatabase"
             }
         }
@@ -80,7 +80,7 @@ frame "User Service"{
 PlatformDBDevice -[hidden] UserDBDevice
 
 frame "Badge Service"{
-    node "psrv-3: Application server" <<device>> as BadgesDevice #APPLICATION{
+    node "psrv-3: EC2" <<device>> as BadgesDevice #APPLICATION{
         node "Linux" <<OS>> as bdos #IMPLEMENTATION{
             node "Tomcat" <<Execution Environment>> as bdee #white{
                 artifact "BadgeService.war"
@@ -89,9 +89,9 @@ frame "Badge Service"{
             }
         }
     }
-    node "dbsrv-3: Database server" <<device>> as BadgeDBDevice #APPLICATION{
-        node "Linux" <<OS>> as bddbos #IMPLEMENTATION{
-            node "Amazon RDS" <<Database System>> as bddb #white{
+    node "dbsrv-3: AWS (Database server)" <<device>> as BadgeDBDevice #APPLICATION{
+        node "Amazon RDS" <<Database System>> as bdbs #IMPLEMENTATION{
+            node "Amazon Aurora" <<Database Engine>> as bdbe #white{
                 database "Badge\ndatabase"
             }
         }
@@ -104,7 +104,7 @@ frame "Badge Service"{
 PlatformDBDevice -[hidden] BadgeDBDevice
 
 frame "Build and Test Service"{
-    node "psrv-4: Application server" <<device>> as BuildDevice #APPLICATION{
+    node "psrv-4: EC2" <<device>> as BuildDevice #APPLICATION{
         node "Linux" <<OS>> as bos #IMPLEMENTATION{
             node "Java Virtual Machine" <<Execution Environment>> as bee #white{
                 artifact "Jenkins"
@@ -118,7 +118,7 @@ frame "Build and Test Service"{
 GatewayDevice ----> BuildDevice : HTTPS
 
 frame "Static Analysis Service"{
-    node "psrv-5: Application server" <<device>> as SADevice #APPLICATION{
+    node "psrv-5: EC2" <<device>> as SADevice #APPLICATION{
         node "Linux" <<OS>> as saos #IMPLEMENTATION{
             node "Tomcat" <<Execution Environment>> as saee #white{
                 artifact "StaticAnalysis.war"
@@ -132,11 +132,13 @@ frame "Static Analysis Service"{
 GatewayDevice ----> SADevice : HTTPS
 
 frame "Notification Service"{
-    node "psrv-6: Application server" <<device>> as NotificationDevice #APPLICATION{
+    node "psrv-6: EC2" <<device>> as NotificationDevice #APPLICATION{
         node "Linux" <<OS>> as nos #IMPLEMENTATION{
             node "Tomcat" <<Execution Environment>> as nee #white{
+                queue "Notification\nQueue" as nqueue
                 artifact "NotificationService.war"
                 component "Notification Service" as ns
+                nqueue -- "NotificationService.war"
                 "NotificationService.war" ..> ns : <<manifest>>
             }
         }

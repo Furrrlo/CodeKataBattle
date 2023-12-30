@@ -111,6 +111,36 @@ Server Components make use of 3 distinct DBMSes, each with its own schema.
     \centering
     \puml{puml/deployment-diagram}
 \end{adjustbox}
+
+The website is served by a CDN, such as Cloudflare, Amazon CloudFront or Akamai.
+This allows to always have the maximum efficiency, regardless of the number of users connected at the same time.
+
+All other microservices are protected by a firewall that allows only HTTPS connections to the API Gateway.
+All microservices can be hosted on-premise or in cloud, within a virtual network, such as Amazon VPC.
+Since the expected workload will not be constant over time (all students study more or less at the same times),
+an on-premise architecture would be unused most of the time, resulting in a waste of money.
+The best choice is therefore a cloud architecture, such as Amazon EC2, that allows to scale up resources only when really needed.
+
+The API Gateway is stateless and can be implemented with the Spring Cloud Gateway. 
+It is built on top of the Reactor project, which provides a non-blocking API for routing and filtering requests.
+This allows to handle high traffic and scale the API gateway horizontally when necessary.
+
+The Build and Test Service is based on the Jenkins system.
+It is the most CPU-intensive service and should adopt a distributed builds architecture.
+One possibility is to have a single Jenkins controller that schedules builds to dedicated build nodes (agents).
+Build agents can be dynamically deployed to a new EC2 instance and removed, based on the current workload.\\
+If the CKB platform will grow up, an architecture with multiple controllers can be adopted.
+For example, the platform can create a Jenkins controller for each tournament.
+
+All other service are implemented as Spring Boot applications and they can be deployed to EC2 instances.
+
+The Platform Service, Badge Service and User Service also have their own database.
+They use a managed DB service, such as Amazon RDS, that can automatically manage backups and resource scaling.
+Each database is in a private subnetwork and it can be accessed only by its corresponding service.
+
+The Notification Service has a queue \comment{Kafka??} where other microservices can push messages. 
+The service will periodically pop messages from the queue and send them.
+
 \pagebreak
 
 \section{Runtime view}
