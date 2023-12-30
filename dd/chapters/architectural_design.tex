@@ -2,10 +2,10 @@
 \section{Overview}
 The system is a distributed application which follows the microservices architecture paradigm.\\
 With the term client we are referring to either a Student or an Educator.\\
-Users interact with the system by interfacing with a Content Delivery Network (CDN) that's a Single Page App (SPA) site which enables the forwarding of appropriate requests to an API Gateway.
+Users interact with the system by interfacing with a Single Page App (SPA), served by a Content Delivery Network (CDN).
+The site forwards appropriate requests to an API Gateway.
 The user is completely unaware of the microservices structure used to operate the system.\\
 Each microservice realizes a service useful for the fulfillment of the single functionality that the CKB Platform is to provide.
-Microservices do not communicate directly with each other but instead use an API Gateway.
 All requests go through the API Gateway which realizes complex services by sending requests to the several available microservices.\\
 The CKB platform can be abstracted into 5 main areas:
 \begin{enumerate}
@@ -13,7 +13,7 @@ The CKB platform can be abstracted into 5 main areas:
     \item Battles, Tournaments, Teams and Scores
     \item Notifications
     \item Badges
-    \item Compiling
+    \item Building and testing
     \item Analysing
 
 \end{enumerate}
@@ -50,11 +50,11 @@ above, as well as a few additional components:
     \item \textbf{Platform Service} {-} implements all the logic related to creating and managing battles and tournaments, including
           calculating the score and keeping track of the leaderboards
     \item \textbf{Badge Service} {-} implements all the logic related to the evaluation and assignment of badges, including the gathering
-          of information needed in order to do that (for example Git or GH metadata such as number of commits by students, etc)
+          of information needed in order to do that (for example Git or GH metadata such as number of commits by students, etc.)
           as well as the actual evaluation of JavaScript code which gets used by educators in order to express the logic of
           specific badges
     \item \textbf{Build and Test Service} {-} implements the Continuous Integration aspect, by building students projects and
-          running them againsts tests for each push
+          running them against tests for each push
     \item \textbf{Static Analysis Service} {-} abstracts away the interaction with SonarCloud, the 3rd party service which will
           perform the actual static analysis. While SonarCloud already exposes their own API for interaction, it is cumbersome
           (as it requires registering a webhook \cite{SonarCloudWh}, importing the project from the GH slug \cite{SonarCloudGh},
@@ -76,7 +76,7 @@ above, as well as a few additional components:
 Server Components make use of 3 distinct DBMSes, each with its own schema.
 \begin{itemize}
     \item \textbf{User DB} {-} saves data related to the users of the platform. Its ER schema is not shown
-          here as it would depend on the 3rd-party service, but it would at leats require for each student and
+          here as it would depend on the 3rd-party service, but it would at least require for each student and
           educator a unique identifier, as well as human readable identifier to allow users to lookup each other
           (so name and surname or an email). Educators and Students are saved in different tables.
           \pagebreak
