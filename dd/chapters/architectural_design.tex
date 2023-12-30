@@ -518,7 +518,7 @@ Map<{ metricName: String }, { score: Int }>
           to the rest of the system.
     \item[API Gateway:]
           a mediator which sits between clients and a service being invoked, which allows to implement cross-cutting concerns
-          such as authentication mechanism common for all microservices.
+          such as authentication mechanism common for all microservices.It also makes it possible to keep track of and locate references to the different instances of microservices.
     \item[RPC:] an interaction style where remote calls resembles procedure call in a local setting. In particular, we have
           choosen to use gRPC and adopt its philosophy, centered around ``coarse-grained message exchange while avoiding the
           pitfalls of distributed objects and the fallacies of ignoring the network'' \cite{gRPCPrinciples}, therefore
