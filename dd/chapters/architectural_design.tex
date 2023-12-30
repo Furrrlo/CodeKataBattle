@@ -311,6 +311,8 @@ seen in the previous diagrams:
                     accept the given invitation
               \item \textbf{rejectInvitation(authToken: String, invitation: ID): void}
                     reject the given invitation
+              \item \textbf{enrollInBattle(authToken: String, teamId: ID): void}
+                    enroll the given team in the battle
               \item \textbf{insertRepoSlug(authToken: String, battleId: ID, repo: Slug): void }
                     associate the given GH repository to the team of the student owning the given token for the
                     specified battle
@@ -363,6 +365,8 @@ seen in the previous diagrams:
                     accept the given invitation
               \item \textbf{rejectInvitation(invitation: ID): void}
                     reject the given invitation
+              \item \textbf{enrollInBattle(teamId: ID): void}
+                    enroll the given team in the battle
               \item \textbf{insertRepoSlug(studentId: ID, battleId: ID, repo: Slug): void }
                     associate the given GH repository to the team of the student owning the given token for the
                     specified battle

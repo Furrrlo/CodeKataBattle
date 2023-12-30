@@ -93,7 +93,7 @@ end
 deactivate Browser2
 
 'PARTECIPATE
-Browser -> gateway ++ : partecipate(authToken, teamId)
+Browser -> gateway ++ : enrollInBattle(authToken, teamId)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
     gateway <- auth : null
