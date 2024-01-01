@@ -18,7 +18,12 @@ The CKB platform can be abstracted into 5 main areas:
 
 \end{enumerate}
 
-\comment{mettere disegnino carino ad alto livello}\\
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{../images/abstract-system-layout.PNG}
+      \caption{Abstract System View}
+      \label{fig:Abstract System View}
+\end{figure}
 
 These sections contain modules with functionality related to the same domain independent of each other, consequently the areas will be implemented by different microservices ensuring low coupling and high cohesion.\\
 The choice to use microservice architecture allows flexibility and scalability because all services can be duplicated by not having to interact with databases shared among microservices that could become bottlenecks of the system.
