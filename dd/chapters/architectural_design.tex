@@ -151,7 +151,7 @@ The service will periodically pop messages from the queue and send them.
 \section{Runtime view}
 The following sequence diagrams represent the dynamics of interaction between components.\\
 Sequence diagrams from \ref{{RW1}} to \ref{{RW9}} are the realizations of the corresponding use cases in the RASD document.\\
-Sequence diagrams from \ref{{RW0.1}} to \ref{{RW0.3}} are common part that have been extracted for simplicity and are not shown in other diagrams.\\
+Sequence diagrams from \ref{{RW0.1}} to \ref{{RW0.4}} are common part that have been extracted for simplicity and are not shown in other diagrams.\\
 In the first three sequence diagrams, the user could be a student or an educator.
 
 \begin{enumerate}[label=\textbf{RW\arabic*}:,ref=RW\arabic*,leftmargin=1.3cm]
@@ -191,6 +191,17 @@ In the first three sequence diagrams, the user could be a student or an educator
                       \puml{puml/rw0.3}
                   \end{adjustbox}
                   \pagebreak
+              }
+              \labelledsubitem{
+                  \textbf{}
+                  \begin{adjustbox}{
+                          max size={\textwidth}{\textheightwithcaption{1}},
+                          caption={Notification is sent},
+                          label={fig:Notification is sent},
+                          figure=H}
+                      \centering
+                      \puml{puml/rw0.4}
+                  \end{adjustbox}
               }
           \end{enumerate}
 

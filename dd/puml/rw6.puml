@@ -28,18 +28,10 @@ platform -> notificationQueue ++ : addRequest(tournamentObj.enrolledStudents, te
 platform <- notificationQueue --: added
 
 deactivate platform
-
-...
-notification -> notification ++ : lifecyle()
-notification -> notificationQueue ++: pop()
-notification <- notificationQueue --: message
-
-loop message.userIds
-    notification -> Browser ++: notifyNewBattle()
-end
-deactivate notification
-
 activate Browser
+
+ref over Browser, gateway, auth, platform, platformDb, notificationQueue, notification: RW0.4: send notifications
+ 
 Browser -> CDN ++ : GET index.html
 Browser <- CDN -- : index.html
 
