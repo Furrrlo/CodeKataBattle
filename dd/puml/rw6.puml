@@ -24,18 +24,17 @@ platform <- gh -- : newRepoSlug
 platform -> platformDb ++ : UPDATE ...
 platform <- platformDb -- : 1 row updated
 
-loop tournamentObj.enrolledStudents
-    platform -> notificationQueue ++ : addRequest(studentId, textInfo)
-    platform <- notificationQueue --: added
-end
+platform -> notificationQueue ++ : addRequest(tournamentObj.enrolledStudents, textInfo)
+platform <- notificationQueue --: added
+
 deactivate platform
 
 ...
 notification -> notification ++ : lifecyle()
-notification -> notificationQueue ++: popOperations()
-notification <- notificationQueue --:listOfOperations
+notification -> notificationQueue ++: pop()
+notification <- notificationQueue --: message
 
-loop listOfOperations
+loop message.userIds
     notification -> Browser ++: notifyNewBattle()
 end
 deactivate notification

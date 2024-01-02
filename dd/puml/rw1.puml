@@ -8,6 +8,7 @@ participant "Badge Service" as badges
 database "Badge DB" as badgesDb
 participant "Platform Service" as platform
 database "Platform DB" as platformDb
+queue  "Notification Queue" as notificationQueue
 
 activate Browser
 Browser -> CDN ++ : GET index.html
@@ -55,6 +56,10 @@ else
     gateway -> platform ++ : createTournament(educatorId, tournamentInfo)
     platform -> platformDb ++ : INSERT ...
     platform <- platformDb -- : newTournamentId
+
+    platform -> notificationQueue ++ : add(SEND_TO_ALL, textInfo)
+    platform <- notificationQueue --: added
+
     gateway <- platform -- : newTournamentId
     Browser <- gateway -- : newTournamentId
 end

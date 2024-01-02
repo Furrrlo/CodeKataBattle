@@ -39,11 +39,13 @@ else
         platform <- platformDb -- : tournamentObj
         platform -> platformDb ++ : UPDATE ...
         platform <- platformDb -- : 1 row updated
+        note right
+            update final rank
+            and close tournament
+        end note
 
-        loop battle.students
-            platform -> notificationQueue ++ : addRequest(studentId, textInfo)
-            platform <- notificationQueue --: added
-        end
+        platform -> notificationQueue ++ : add(tournamentObj.enrolledStudents, textInfo)
+        platform <- notificationQueue --: added
 
         gateway <- platform -- : tournamentObj
         gateway -> badges ++ : assignBadges(tournamentObj)

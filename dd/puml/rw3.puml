@@ -9,7 +9,6 @@ participant "Platform Service" as platform
 database "Platform DB" as platformDb
 
 queue  "Notification Queue" as notificationQueue
-participant "Notification Service" as notification
 
 activate Browser
 Browser -> CDN ++ : GET index.html
@@ -34,40 +33,30 @@ else
     gateway <- auth -- : educatorId
     gateway -> platform ++ : createNewBattle(tournementId, battleInfo, ...)
 
-    platform -> platformDb ++ : INSERT ...
+    platform -> platformDb ++ : SELECT ...
 
-    alt invalid field or unauthorized operation
+    alt invalid tournamentId
         platform <- platformDb : NULL
-        gateway <- platform : invalid operation
-        Browser <- gateway : invalid operation
+        gateway <- platform : invalid tournament id
+        Browser <- gateway : invalid tournament id
     else
-        platform <- platformDb -- : newBattleId
-        gateway <- platform  : newBattleId
-        Browser <- gateway -- : newBattleId
-        deactivate Browser
+        platform <- platformDb -- : tournamentObj
 
-        platform -> notificationQueue ++ : addRequest(send_to_all,textInfo)
+        alt invalid field or unauthorized operation (educatorId not in tournamentObj.aut)
+            gateway <- platform : invalid operation
+            Browser <- gateway : invalid operation
+        else
+            platform -> platformDb ++ : INSERT ...
+            platform <- platformDb -- : newBattleId
 
-        platform <- notificationQueue --: added
-        deactivate platform
+            platform -> notificationQueue ++ : add(tournamentObj.enrolledStudents, textInfo)
+            platform <- notificationQueue --: added
+
+            gateway <- platform -- : newBattleId
+            Browser <- gateway -- : newBattleId
+            deactivate Browser
+        end
     end
-
-
 end
-
-notification -> notification ++ : lifecyle()
-notification -> notificationQueue ++: popOperations()
-notification <- notificationQueue --:listOfOperations
-
-
-loop for each element in listOfOperations
-    notification -> notification ++: perform(operation)
-end
-deactivate notification
-deactivate notification
-...
-notification -> notification ++ : lifecyle()
-
-
 
 @enduml

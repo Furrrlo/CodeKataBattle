@@ -88,9 +88,12 @@ else
 end
 
 'STUDENT 1 ACCEPTS NOTIFICATION
-notification -> notificationQueue ++ : popRequest()
-notification <- notificationQueue -- : request
+notification -> notification ++ : lifecyle()
+notification -> notificationQueue ++ : pop()
+notification <- notificationQueue -- : message
 notification -> Browser1 ++ : notifyNewInvitation(invitation)
+deactivate notification
+
 Browser1 -> gateway ++ : acceptInvitation(authToken, invitation)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
