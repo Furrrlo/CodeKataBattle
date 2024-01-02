@@ -137,6 +137,8 @@ frame "Notification Service"{
             node "Tomcat" <<Execution Environment>> as nee #white{
                 queue "Notification\nQueue" as nqueue
                 artifact "NotificationService.war"
+                artifact "RabbitMQ"
+                nqueue -* "RabbitMQ"
                 component "Notification Service" as ns
                 nqueue -- "NotificationService.war"
                 "NotificationService.war" ..> ns : <<manifest>>
