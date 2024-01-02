@@ -3,34 +3,19 @@
 
 actor Browser
 participant "Notification Service" as notification
-queue  "Notification Queue" as notificationQueue
-
-participant "API Gateway" as gateway
-participant "User Service" as auth
-
-
+queue "Notification Queue" as notificationQueue
+database "Notification DB" as db
 
 notification -> notification ++ : lifecyle()
 notification -> notificationQueue ++: pop()
 notification <- notificationQueue --: message
 
-loop message.userIds
-    notification -> gateway ++: getStudentNotificationEndpoints(authToken, toNotifyId)
+notification -> db ++: SELECT ... WHERE userid IN ids
+notification <- db --: endpointUrls
 
-    gateway -> auth ++ : validateStudentToken(authToken)
-    alt invalid token
-        gateway <- auth : null
-        notification <- gateway : 401 Unauthorized
-    else
-    gateway <- auth -- : studentId
-    gateway -> auth ++: getStudentNotificationEndpoints(toNotifyId)
-    gateway <- auth --: endpointsURL
-    notification <- gateway --: endpointsURL
-
-    loop endpoint in endpointURLs
-        notification -> Browser : notifyNewBattle()    
-        deactivate notification
-    end
+loop endpoint in endpointURLs
+    notification -> Browser : notifyNewBattle()    
+    deactivate notification
 end
 
 @enduml

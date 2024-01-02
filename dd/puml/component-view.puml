@@ -41,6 +41,7 @@ component Notification {
     portout "<U+00A0>" as NotificationPortOut
     queue "Notification Queue"
     component "Notification Service"
+    database "Notification DB"
 }
 
 interface "Badge Interface" as IBadge
@@ -91,16 +92,19 @@ BadgePort - [Badge Service]
 
 NotificationPortIn - [Notification Queue]
 [Notification Queue] -- [Notification Service]
+[Notification Service] - [Notification DB]
 [Notification Service] - NotificationPortOut
 HTTP <- NotificationPortOut
 
+[API Gateway] -- INotification
 PlatformPortOut -- INotification
 INotification -- NotificationPortIn
 
 ' Hidden links to distribute stuff better
-IPlatform -r[hidden]-- ISat : \t\t\t\t\t
+IPlatform -r[hidden]-- ISat : \t\t\t\t\t\t
+IPlatform -d[hidden]- PlatformPortIn : \t\t\t
 ISat -r[hidden]-- IUser : \t\t\t\t\t
 ' IUser -r[hidden]-- IBuild : \t\t\t\t\t
-IBuild -r[hidden]-- IBadge : \t\t\t\t\t
+IBuild -r[hidden]-- IBadge : \t\t\t\t
 
 @enduml

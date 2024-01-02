@@ -145,6 +145,16 @@ frame "Notification Service"{
             }
         }
     }
+    
+    node "dbsrv-6: AWS (Database server)" <<device>> as NotificationDBDevice #APPLICATION{
+        node "Amazon RDS" <<Database System>> as ntbs #IMPLEMENTATION{
+            node "Amazon Aurora" <<Database Engine>> as ntbe #white{
+                database "Notification\ndatabase"
+            }
+        }
+    }
+
+    NotificationDevice -----> NotificationDBDevice: TCP/IP
 }
 
 GatewayDevice ----> NotificationDevice : HTTPS

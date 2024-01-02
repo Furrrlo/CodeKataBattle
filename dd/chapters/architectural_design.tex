@@ -67,7 +67,7 @@ above, as well as a few additional components:
           Therefore, by abstracting it away we can use it much more easily and, additionally, make it much less inconvenient to
           replace it should the need arise.
     \item \textbf{Notification Service} {-} responsible for delivering push notifications
-          to client devices
+          to client devices using external notification APIs (such as the Web Push API \cite{WebPushApi})
     \item \textbf{Website CDN} {-} responsible for serving the static files of the SPA to the clients
     \item \textbf{API Gateway} {-} responsible for connecting together all microservices, it is the component that provides a REST
           interface externally, which the clients will send requests to, which will be implemented by a series of internal calls
@@ -77,7 +77,7 @@ above, as well as a few additional components:
 \end{itemize}
 
 \subsection{Data Components}
-Server Components make use of 3 distinct DBMSes, each with its own schema.
+Server Components make use of 4 distinct DBMSes, each with its own schema.
 \begin{itemize}
     \item \textbf{User DB} {-} saves data related to the users of the platform. Its ER schema is not shown
           here as it would depend on the 3rd-party service, but it would at least require for each student and
@@ -103,6 +103,15 @@ Server Components make use of 3 distinct DBMSes, each with its own schema.
               \centering
               \puml{puml/badges-db}
           \end{adjustbox}
+    \item \textbf{Notification DB}
+          \begin{adjustbox}{
+                  max size={\textwidth}{\textheightwithcaption{1}},
+                  caption={Notification ER},
+                  label={fig:Notification ER},
+                  figure=H}
+              \puml{puml/notification-db}
+              \centering
+          \end{adjustbox}
 \end{itemize}
 \pagebreak
 
@@ -125,7 +134,7 @@ Since the expected workload will not be constant over time (all students study m
 an on-premise architecture would be unused most of the time, resulting in a waste of money.
 The best choice is therefore a cloud architecture, such as Amazon EC2, that allows to scale up resources only when really needed.
 
-The API Gateway is stateless and can be implemented with the Spring Cloud Gateway. 
+The API Gateway is stateless and can be implemented with the Spring Cloud Gateway.
 It is built on top of the Reactor project, which provides a non-blocking API for routing and filtering requests.
 This allows to handle high traffic and scale the API gateway horizontally when necessary.
 
@@ -138,7 +147,7 @@ For example, the platform can create a Jenkins controller for each tournament.
 
 All other service are implemented as Spring Boot applications and they can be deployed to EC2 instances.
 
-The Platform Service, Badge Service and User Service also have their own database.
+The Platform Service, Badge Service, User Service and Notification Service also have their own database.
 They use a managed DB service, such as Amazon RDS, that can automatically manage backups and resource scaling.
 Each database is in a private subnetwork and it can be accessed only by its corresponding service.
 
@@ -203,7 +212,8 @@ In the first three sequence diagrams, the user could be a student or an educator
                   \end{adjustbox}
                   This diagram shows the process of sending a notification.
                   The Notification Service will periodically pop from the Notification Queue messages that contains an array of ids of the recipient students.
-                  Then the Notification Service requests each student's endpoint URL from the API Gateway and sends the notifications.                  
+                  Then the Notification Service will look for each student's endpoint URL (previously registered by clients using the API Gateway)
+                  and sends the notifications.
                   \pagebreak
               }
           \end{enumerate}
@@ -373,10 +383,8 @@ seen in the previous diagrams:
                     close the given tournament
               \item \textbf{closeBattle(authToken: String, battleId: ID): void }
                     close the given battle while it's in its consolidation phase
-              \item \textbf{addStudentNotificationEndpoints(authToken: String, studentId: ID, endpoint: String ): void}
+              \item \textbf{addStudentNotificationEndpoints(authToken: String, endpoint: String): void}
                     add the URL of the notification endpoints of a student
-              \item \textbf{getStudentNotificationEndpoints(authToken: String, studentId: ID): Set<String>}
-                    gets the URL of the notification endpoints of a student
           \end{itemize}
     \item \textbf{User Interface}
           \begin{itemize}
@@ -392,10 +400,6 @@ seen in the previous diagrams:
                     checks that the given ids are all associated to an existing educator
               \item \textbf{checkStudentId(studentId: ID): Bool}
                     checks that the given id is associated to an existing student
-              \item \textbf{addStudentNotificationEndpoints(studentId: ID, endpoint: String ): void}
-                    add the URL of the notification endpoints of a student
-              \item \textbf{getStudentNotificationEndpoints(studentId: ID): Set<String>}
-                    gets the URL of the notification endpoints of a student
           \end{itemize}
     \item \textbf{Platform Interface}
           \begin{itemize}
@@ -447,7 +451,8 @@ seen in the previous diagrams:
           \end{itemize}
     \item \textbf{Notification Interface}
           \begin{itemize}
-              \item
+              \item \textbf{addStudentNotificationEndpoints(studentId: ID, endpoint: String): void}
+                    add the URL of the notification endpoints of a student
           \end{itemize}
     \item \textbf{Static Analysis Interface}
           \begin{itemize}

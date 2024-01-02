@@ -1,0 +1,17 @@
+@startuml Badges DB
+
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam linetype ortho 
+
+entity Student {
+  *id: Int <<external>>
+}
+
+entity Endpoint {
+  *endpoint: String
+}
+
+Student ||-o{ Endpoint : has >
+
+@enduml
