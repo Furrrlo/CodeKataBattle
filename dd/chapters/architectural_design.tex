@@ -359,6 +359,10 @@ seen in the previous diagrams:
                     close the given tournament
               \item \textbf{closeBattle(authToken: String, battleId: ID): void }
                     close the given battle while it's in its consolidation phase
+              \item \textbf{addStudentNotificationEndpoints(authToken: String, studentId: ID, endpoint: String ): void}
+                    add the URL of the notification endpoints of a student
+              \item \textbf{getStudentNotificationEndpoints(authToken: String, studentId: ID): Set<String>}
+                    gets the URL of the notification endpoints of a student
           \end{itemize}
     \item \textbf{User Interface}
           \begin{itemize}
@@ -374,6 +378,10 @@ seen in the previous diagrams:
                     checks that the given ids are all associated to an existing educator
               \item \textbf{checkStudentId(studentId: ID): Bool}
                     checks that the given id is associated to an existing student
+              \item \textbf{addStudentNotificationEndpoints(studentId: ID, endpoint: String ): void}
+                    add the URL of the notification endpoints of a student
+              \item \textbf{getStudentNotificationEndpoints(studentId: ID): Set<String>}
+                    gets the URL of the notification endpoints of a student
           \end{itemize}
     \item \textbf{Platform Interface}
           \begin{itemize}
