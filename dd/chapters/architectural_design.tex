@@ -66,8 +66,7 @@ above, as well as a few additional components:
           specifying the required analysis metrics in a quality profile \cite{SonarCloudQp} and waiting for a response on the hook).
           Therefore, by abstracting it away we can use it much more easily and, additionally, make it much less inconvenient to
           replace it should the need arise.
-    \item \textbf{Notification Service} {-} responsible for contacting external notification APIs
-          (such as Google's Firebase Cloud Messaging or Apple Push Notification Service) in order to deliver push notifications
+    \item \textbf{Notification Service} {-} responsible for delivering push notifications
           to client devices
     \item \textbf{Website CDN} {-} responsible for serving the static files of the SPA to the clients
     \item \textbf{API Gateway} {-} responsible for connecting together all microservices, it is the component that provides a REST
@@ -202,6 +201,10 @@ In the first three sequence diagrams, the user could be a student or an educator
                       \centering
                       \puml{puml/rw0.4}
                   \end{adjustbox}
+                  This diagram shows the process of sending a notification.
+                  The Notification Service will periodically pop from the Notification Queue messages that contains an array of ids of the recipient students.
+                  Then the Notification Service requests each student's endpoint URL from the API Gateway and sends the notifications.                  
+                  \pagebreak
               }
           \end{enumerate}
 
@@ -584,8 +587,8 @@ Map<{ metricName: String }, { score: Int }>
           languages, load-balancing, blocking \& non-blocking support and HTTP transport make it a perfect fit for use in a
           microservice architecture.
     \item[Pub-sub/Message queueing:] a messaging pattern which allows to obtain a high degree of decoupling among components
-          in both space and time: a publisher does not need to know of the existance of a subscriber and can continue to
-          operate indipendently even if there is none. By doing so, asynchronous communication is implemented.
+          in both space and time: a publisher does not need to know of the existence of a subscriber and can continue to
+          operate independently even if there is none. By doing so, asynchronous communication is implemented.
     \item[Tiered architecture:] the separation of the architecture in layers, such as presentation, business and data,
           offers great flexibility, maintainability and scalability. In particular, by separating the business from the data
           and having communication between components always go through a predefined API, we do not have to worry about
