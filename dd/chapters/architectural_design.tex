@@ -19,10 +19,10 @@ The CKB platform can be abstracted into 5 main areas:
 \end{enumerate}
 
 \begin{figure}[H]
-      \centering
-      \includegraphics[width=\textwidth]{../images/abstract-system-layout.PNG}
-      \caption{Abstract System View}
-      \label{fig:Abstract System View}
+    \centering
+    \includegraphics[width=\textwidth]{../images/abstract-system-layout.PNG}
+    \caption{Abstract System View}
+    \label{fig:Abstract System View}
 \end{figure}
 
 These sections contain modules with functionality related to the same domain independent of each other, consequently the areas will be implemented by different microservices ensuring low coupling and high cohesion.\\
@@ -537,8 +537,8 @@ Types:
           \end{lstlisting}
           The zippedProject field is a binary blob which contains all project files and tests, both public and private.
           The privateProjectFiles is in charge of defining which files from this zip will be hidden from the students,
-          so that educators can specify private tests. Care must be taken by educators so that the project build script 
-          can also work in the absence of those files. The sonarRules field lists all the rules to be applied by 
+          so that educators can specify private tests. Care must be taken by educators so that the project build script
+          can also work in the absence of those files. The sonarRules field lists all the rules to be applied by
           SonarCloud when scanning.
     \item \textbf{NewBadge}
           \begin{lstlisting}
