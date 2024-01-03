@@ -7,7 +7,7 @@
 !rasd/alloy/manage_tournaments.pdf
 
 # Eclude puml svgs, we generate them on compile
-**/*/puml/*.svg
+**/*/puml/**/*.svg
 **/*/svg-inkscape
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,macos,microsoftoffice,visualstudiocode,latex,linux

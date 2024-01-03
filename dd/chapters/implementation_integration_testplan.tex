@@ -64,7 +64,7 @@ That's because the subsystem is implementing High Importance features and thus p
         label={fig:Notitification subsystem},
         figure=H}
     \centering
-    \puml{puml/components_integration/notification}
+    \puml{puml/components-integration/notification}
 \end{adjustbox}
 
 Then the Platform subsystem can be integreted with the Queue of the Notification subsystem.
@@ -75,7 +75,7 @@ Obtaining the Platform and Notification Subsystem.
         label={fig:Platform and Notification subsystem},
         figure=H}
     \centering
-    \puml{puml/components_integration/platform-queue}
+    \puml{puml/components-integration/platform-queue}
 \end{adjustbox}
 
 The following four subsystems might be developed in any order, or simultaneously, as they do not depend
@@ -88,7 +88,7 @@ the User subsystem, the Build and Test subsystem, and the Static Analysis subsys
         label={fig:User subsystem},
         figure=H}
     \centering
-    \puml{puml/components_integration/user}
+    \puml{puml/components-integration/user}
 \end{adjustbox}
 
 \begin{adjustbox}{
@@ -97,7 +97,7 @@ the User subsystem, the Build and Test subsystem, and the Static Analysis subsys
         label={fig:Build and Test subsystem},
         figure=H}
     \centering
-    \puml{puml/components_integration/buildtest}
+    \puml{puml/components-integration/buildtest}
 \end{adjustbox}
 
 \begin{adjustbox}{
@@ -106,7 +106,7 @@ the User subsystem, the Build and Test subsystem, and the Static Analysis subsys
         label={fig:Static Analysis  subsystem},
         figure=H}
     \centering
-    \puml{puml/components_integration/staticanalysis}
+    \puml{puml/components-integration/staticanalysis}
 \end{adjustbox}
 
 \begin{adjustbox}{
@@ -115,7 +115,7 @@ the User subsystem, the Build and Test subsystem, and the Static Analysis subsys
         label={fig:Badge subsystem},
         figure=H}
     \centering
-    \puml{puml/components_integration/badge}
+    \puml{puml/components-integration/badge}
 \end{adjustbox}
 
 After that we can also develop the Website CDN.
@@ -125,7 +125,7 @@ After that we can also develop the Website CDN.
         label={fig:Website CDN subsystem},
         figure=H}
     \centering
-    \puml{puml/components_integration/website}
+    \puml{puml/components-integration/website}
 \end{adjustbox}
 
 At this point all subsystems have been implemented and tested, so the next step is performing integration
@@ -136,7 +136,7 @@ testing between the subsystems and the API Gateway.
         label={fig:API Gateway subsystem},
         figure=H}
     \centering
-    \puml{puml/components_integration/apigateway}
+    \puml{puml/components-integration/apigateway}
 \end{adjustbox}
 
 The integration of all the different subsystems with the Gateway API is a critical operation and performing it all at once will likely lead to errors (because of the big-bang like approach).
@@ -149,7 +149,7 @@ We can proceed to integrate the API Gateway with the Platform and Notification s
         label={fig:API Gateway subsystem step 1},
         figure=H}
     \centering
-    \puml{puml/components_integration/api_integration1}
+    \puml{puml/components-integration/api_integration1}
 \end{adjustbox}
 
 Then, it's possible to integrate the API Gateway with the User and the Badge subsystems.
@@ -161,7 +161,7 @@ Then, it's possible to integrate the API Gateway with the User and the Badge sub
         label={fig:API Gateway subsystem step 2},
         figure=H}
     \centering
-    \puml{puml/components_integration/api_integration2}
+    \puml{puml/components-integration/api_integration2}
 \end{adjustbox}
 
 After that, integrate the API Gateway with the Static Analysis and Build and Test subsystems.
@@ -172,7 +172,7 @@ After that, integrate the API Gateway with the Static Analysis and Build and Tes
         label={fig:API Gateway subsystem step 3},
         figure=H}
     \centering
-    \puml{puml/components_integration/api_integration3}
+    \puml{puml/components-integration/api_integration3}
 \end{adjustbox}
 
 Finally, when all is integrated and tested sucessfully we can proceed to integrate it with the Website CDN.
@@ -183,5 +183,5 @@ Finally, when all is integrated and tested sucessfully we can proceed to integra
         label={fig:API Gateway subsystem step 4},
         figure=H}
     \centering
-    \puml{puml/components_integration/api_integration4}
+    \puml{puml/components-integration/api_integration4}
 \end{adjustbox}
