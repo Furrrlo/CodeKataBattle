@@ -1,0 +1,9 @@
+@startuml APIGateway
+
+[API Gateway] as api
+
+api-down-> [Platform Service] : tests
+api-down-> [Notitification Service] : tests
+
+
+@enduml

@@ -1,0 +1,10 @@
+@startuml APIGateway
+
+[API Gateway] as api
+
+
+api-down-> [Website CDN] : tests
+
+
+
+@enduml

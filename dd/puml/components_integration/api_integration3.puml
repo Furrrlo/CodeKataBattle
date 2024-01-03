@@ -1,0 +1,11 @@
+@startuml APIGateway
+
+[API Gateway] as api
+
+
+api-down-> [Static Analysis Service] : tests
+api-down-> [Build and Test Service] : tests
+
+
+
+@enduml

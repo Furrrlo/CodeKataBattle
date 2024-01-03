@@ -1,0 +1,12 @@
+@startuml Notification
+
+[Notiﬁcation Service] as C
+database NotificationDB as ndb
+
+C-> [RabbitMQ] : depends on
+
+C .down.> ndb : uses
+
+
+
+@enduml

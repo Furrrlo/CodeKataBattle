@@ -1,0 +1,8 @@
+@startuml APIGateway
+
+[API Gateway] as api
+
+api-down->[User Service] : tests
+api-down->[Badge Service] : tests
+
+@enduml

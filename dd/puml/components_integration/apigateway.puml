@@ -1,0 +1,13 @@
+@startuml APIGateway
+
+[API Gateway] as api
+
+api-down-> [Platform Service] : tests
+api-down-> [Notitification Service] : tests
+api-down-> [Static Analysis Service] : tests
+api-down-> [Build and Test Service] : tests
+api-down->[User Service] : tests
+api-down->[Badge Service] : tests
+api-down-> [Website CDN] : tests
+
+@enduml

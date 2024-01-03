@@ -1,0 +1,9 @@
+@startuml User
+
+[User Service] as C
+database UserDB as udb
+C .down.> udb : uses
+
+C -> [University SSO (external)]:depends on
+
+@enduml

@@ -1,0 +1,7 @@
+@startuml StaticAnalysis
+
+[Static Analysis Service] as C
+
+C-> [SonarCloud (external)] : depends on
+
+@enduml

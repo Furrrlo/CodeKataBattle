@@ -53,4 +53,135 @@ can be integration tested. After that is completed, adherence to the specified r
 needs to be verified.
 
 \subsection{Components integration}
+Here components and subsystems are illustrated via graphs. \\
+Subsystems are a group of components meant to be integration tested together after unit testing.\\
+Integration testing is carried out in a bottom-up approach, so drivers must be implemented to test the different independent subsystems as each subsystem is developed.\\
+The first components that can be tested together are the Notification Service and the RabbitMQ (third party service).
+That's because the subsystem is implementing High Importance features and thus proper testing with the queue needs to be done carefully.
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={Notitification subsystem},
+        label={fig:Notitification subsystem},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/notification}
+\end{adjustbox}
 
+Then the Platform subsystem can be integreted with the Queue of the Notification subsystem.
+Obtaining the Platform and Notification Subsystem.
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={Platform and Notification subsystem},
+        label={fig:Platform and Notification subsystem},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/platform-queue}
+\end{adjustbox}
+
+The following four subsystems might be developed in any order, or simultaneously, as they do not depend
+on each other.
+It is recommended to develop first the subsystems that implement High Importance features, such as:\\
+the User subsystem, the Build and Test subsystem, and the Static Analysis subsystem, and then the Badge subsystem that implements Low Importance functionality.
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={User subsystem},
+        label={fig:User subsystem},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/user}
+\end{adjustbox}
+
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={Build and Test subsystem},
+        label={fig:Build and Test subsystem},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/buildtest}
+\end{adjustbox}
+
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={Static Analysis subsystem},
+        label={fig:Static Analysis  subsystem},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/staticanalysis}
+\end{adjustbox}
+
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={Badge subsystem},
+        label={fig:Badge subsystem},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/badge}
+\end{adjustbox}
+
+After that we can also develop the Website CDN.
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={Website CDN subsystem},
+        label={fig:Website CDN subsystem},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/website}
+\end{adjustbox}
+
+At this point all subsystems have been implemented and tested, so the next step is performing integration
+testing between the subsystems and the API Gateway.
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={API Gateway subsystem},
+        label={fig:API Gateway subsystem},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/apigateway}
+\end{adjustbox}
+
+The integration of all the different subsystems with the Gateway API is a critical operation and performing it all at once will likely lead to errors (because of the big-bang like approach).
+To avoid this, the integration can be broken down into smaller integrations by continuing to follow the bottom-up approach.\\
+We can proceed to integrate the API Gateway with the Platform and Notification subsystem.
+
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={API Gateway subsystem step 1},
+        label={fig:API Gateway subsystem step 1},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/api_integration1}
+\end{adjustbox}
+
+Then, it's possible to integrate the API Gateway with the User and the Badge subsystems.
+
+
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={API Gateway subsystem step 2},
+        label={fig:API Gateway subsystem step 2},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/api_integration2}
+\end{adjustbox}
+
+After that, integrate the API Gateway with the Static Analysis and Build and Test subsystems.
+
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={API Gateway subsystem step 3},
+        label={fig:API Gateway subsystem step 3},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/api_integration3}
+\end{adjustbox}
+
+Finally, when all is integrated and tested sucessfully we can proceed to integrate it with the Website CDN.
+
+\begin{adjustbox}{
+        max size={\textwidth}{\textheightwithcaption{1}},
+        caption={API Gateway subsystem step 4},
+        label={fig:API Gateway subsystem step 4},
+        figure=H}
+    \centering
+    \puml{puml/components_integration/api_integration4}
+\end{adjustbox}

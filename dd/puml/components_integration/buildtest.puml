@@ -1,0 +1,6 @@
+@startuml BuildAndTest
+
+[Static Analysis Service] as C
+
+
+@enduml

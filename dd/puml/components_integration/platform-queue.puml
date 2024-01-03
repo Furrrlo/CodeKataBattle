@@ -1,0 +1,12 @@
+@startuml Platform-queue
+
+[Platform Service] as C
+database PlatformDB as pdb
+
+C-> [RabbitMQ] : depends on
+
+
+
+C .down.> pdb : uses
+
+@enduml
