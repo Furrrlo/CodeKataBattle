@@ -13,154 +13,159 @@ cloud "CloudFlare CDN" as CDN #APPLICATION{
     "Single Page App" ..> "Website CDN": <<manifest>>
 }
 
-Client ---> CDN: HTTPS
+"Chrome" -[#transparent] CDN: \t  HTTPS
+Client -> CDN: ""
 
 node Firewall
 Client --> Firewall: HTTPS
 
-frame "API Gateway"{
-    node "gw0: EC2" <<device>> as GatewayDevice #APPLICATION{
-        node "Linux" <<OS>> as gwos #IMPLEMENTATION{
-            'https://spring.io/projects/spring-cloud-gateway/
-            node "Webflux" <<Execution Environment>> #white{
-                artifact "APIGateway.war"
-                component "API Gateway" as gw
-                "APIGateway.war" ..> gw : <<manifest>>
+cloud "Amazon VPC" #f0fcfc{
+    node "Load Balancer"
+    Firewall --> "Load Balancer": HTTPS
+
+    frame "API Gateway"{
+        node "gw0: EC2" <<device>> as GatewayDevice #APPLICATION{
+            node "Linux" <<OS>> as gwos #IMPLEMENTATION{
+                'https://spring.io/projects/spring-cloud-gateway/
+                node "Webflux" <<Execution Environment>> #white{
+                    artifact "APIGateway.war"
+                    component "API Gateway" as gw
+                    "APIGateway.war" ..> gw : <<manifest>>
+                }
             }
         }
     }
+
+    "Load Balancer" --> GatewayDevice: HTTPS
+
+    frame "Platform Service"{
+        node "psrv-1: EC2" <<device>> as PlatformDevice #APPLICATION{
+            node "Linux" <<OS>> as plos #IMPLEMENTATION{
+                node "Tomcat" <<Execution Environment>> as plee #white{
+                    artifact "PlatformService.war"
+                    component "Platform Service" as ps
+                    "PlatformService.war" ..> ps : <<manifest>>
+                }
+            }
+        }
+        node "dbsrv-1: AWS (Database server)" <<device>> as PlatformDBDevice #APPLICATION{
+            node "Amazon RDS" <<Database System>> as pdbs #IMPLEMENTATION{
+                node "Amazon Aurora" <<Database Engine>> as pdbe #white{
+                    database "Platform\ndatabase"
+                }
+            }
+        }
+
+        GatewayDevice ----> PlatformDevice : HTTPS
+        PlatformDevice ---> PlatformDBDevice: TCP/IP
+    }
+
+
+    frame "User Service"{
+        node "psrv-2: EC2" <<device>> as UserSrvDevice #APPLICATION{
+            node "Linux" <<OS>> as usos #IMPLEMENTATION{
+                node "Tomcat" <<Execution Environment>> as usee #white{
+                    artifact "UserService.war"
+                    component "User Service" as usc
+                    "UserService.war" ..> usc : <<manifest>>
+                }
+            }
+        }
+        node "dbsrv-2: AWS (Database server)" <<device>> as UserDBDevice #APPLICATION{
+            node "Amazon RDS" <<Database System>> as udbs #IMPLEMENTATION{
+                node "Amazon Aurora" <<Database Engine>> as usbe #white{
+                    database "Users\ndatabase"
+                }
+            }
+        }
+
+        GatewayDevice ---> UserSrvDevice : HTTPS
+        UserSrvDevice ---> UserDBDevice: TCP/IP
+    }
+    PlatformDBDevice -[hidden] UserDBDevice
+
+    frame "Badge Service"{
+        node "psrv-3: EC2" <<device>> as BadgesDevice #APPLICATION{
+            node "Linux" <<OS>> as bdos #IMPLEMENTATION{
+                node "Tomcat" <<Execution Environment>> as bdee #white{
+                    artifact "BadgeService.war"
+                    component "Badge Service" as bs
+                    "BadgeService.war" ..> bs : <<manifest>>
+                }
+            }
+        }
+        node "dbsrv-3: AWS (Database server)" <<device>> as BadgeDBDevice #APPLICATION{
+            node "Amazon RDS" <<Database System>> as bdbs #IMPLEMENTATION{
+                node "Amazon Aurora" <<Database Engine>> as bdbe #white{
+                    database "Badge\ndatabase"
+                }
+            }
+        }
+
+        GatewayDevice ---> BadgesDevice : HTTPS
+        BadgesDevice ---> BadgeDBDevice: TCP/IP
+
+    }
+    PlatformDBDevice -[hidden] BadgeDBDevice
+
+    frame "Build and Test Service"{
+        node "psrv-4: EC2" <<device>> as BuildDevice #APPLICATION{
+            node "Linux" <<OS>> as bos #IMPLEMENTATION{
+                node "Java Virtual Machine" <<Execution Environment>> as bee #white{
+                    artifact "Jenkins"
+                    component "Build and Test Service" as bts
+                    "Jenkins" ..> bts : <<manifest>>
+                }
+            }
+        }
+    }
+
+    GatewayDevice ----> BuildDevice : HTTPS
+
+    frame "Static Analysis Service"{
+        node "psrv-5: EC2" <<device>> as SADevice #APPLICATION{
+            node "Linux" <<OS>> as saos #IMPLEMENTATION{
+                node "Tomcat" <<Execution Environment>> as saee #white{
+                    artifact "StaticAnalysis.war"
+                    component "Static Analysis Service" as sas
+                    "StaticAnalysis.war" ..> sas : <<manifest>>
+                }
+            }
+        }
+    }
+
+    GatewayDevice ----> SADevice : HTTPS
+
+    frame "Notification Service"{
+        node "psrv-6: EC2" <<device>> as NotificationDevice #APPLICATION{
+            node "Linux" <<OS>> as nos #IMPLEMENTATION{
+                node "Tomcat" <<Execution Environment>> as nee #white{
+                    queue "Notification\nQueue" as nqueue
+                    artifact "NotificationService.war"
+                    artifact "RabbitMQ"
+                    nqueue -* "RabbitMQ"
+                    component "Notification Service" as ns
+                    nqueue -- "NotificationService.war"
+                    "NotificationService.war" ..> ns : <<manifest>>
+                }
+            }
+        }
+        
+        node "dbsrv-6: AWS (Database server)" <<device>> as NotificationDBDevice #APPLICATION{
+            node "Amazon RDS" <<Database System>> as ntbs #IMPLEMENTATION{
+                node "Amazon Aurora" <<Database Engine>> as ntbe #white{
+                    database "Notification\ndatabase"
+                }
+            }
+        }
+
+        NotificationDevice ----> NotificationDBDevice: TCP/IP
+    }
+
+    PlatformDBDevice -[hidden] NotificationDBDevice
+
+    GatewayDevice ----> NotificationDevice : HTTPS
+
+    PlatformDevice -> NotificationDevice : HTTPS
 }
-
-Firewall --> GatewayDevice: HTTPS
-
-frame "Platform Service"{
-    node "psrv-1: EC2" <<device>> as PlatformDevice #APPLICATION{
-        node "Linux" <<OS>> as plos #IMPLEMENTATION{
-            node "Tomcat" <<Execution Environment>> as plee #white{
-                artifact "PlatformService.war"
-                component "Platform Service" as ps
-                "PlatformService.war" ..> ps : <<manifest>>
-            }
-        }
-    }
-    node "dbsrv-1: AWS (Database server)" <<device>> as PlatformDBDevice #APPLICATION{
-        node "Amazon RDS" <<Database System>> as pdbs #IMPLEMENTATION{
-            node "Amazon Aurora" <<Database Engine>> as pdbe #white{
-                database "Platform\ndatabase"
-            }
-        }
-    }
-
-    GatewayDevice ----> PlatformDevice : HTTPS
-    PlatformDevice ---> PlatformDBDevice: TCP/IP
-}
-
-
-frame "User Service"{
-    node "psrv-2: EC2" <<device>> as UserSrvDevice #APPLICATION{
-        node "Linux" <<OS>> as usos #IMPLEMENTATION{
-            node "Tomcat" <<Execution Environment>> as usee #white{
-                artifact "UserService.war"
-                component "User Service" as usc
-                "UserService.war" ..> usc : <<manifest>>
-            }
-        }
-    }
-    node "dbsrv-2: AWS (Database server)" <<device>> as UserDBDevice #APPLICATION{
-        node "Amazon RDS" <<Database System>> as udbs #IMPLEMENTATION{
-            node "Amazon Aurora" <<Database Engine>> as usbe #white{
-                database "Users\ndatabase"
-            }
-        }
-    }
-
-    GatewayDevice ---> UserSrvDevice : HTTPS
-    UserSrvDevice ---> UserDBDevice: TCP/IP
-}
-PlatformDBDevice -[hidden] UserDBDevice
-
-frame "Badge Service"{
-    node "psrv-3: EC2" <<device>> as BadgesDevice #APPLICATION{
-        node "Linux" <<OS>> as bdos #IMPLEMENTATION{
-            node "Tomcat" <<Execution Environment>> as bdee #white{
-                artifact "BadgeService.war"
-                component "Badge Service" as bs
-                "BadgeService.war" ..> bs : <<manifest>>
-            }
-        }
-    }
-    node "dbsrv-3: AWS (Database server)" <<device>> as BadgeDBDevice #APPLICATION{
-        node "Amazon RDS" <<Database System>> as bdbs #IMPLEMENTATION{
-            node "Amazon Aurora" <<Database Engine>> as bdbe #white{
-                database "Badge\ndatabase"
-            }
-        }
-    }
-
-    GatewayDevice ---> BadgesDevice : HTTPS
-    BadgesDevice ---> BadgeDBDevice: TCP/IP
-
-}
-PlatformDBDevice -[hidden] BadgeDBDevice
-
-frame "Build and Test Service"{
-    node "psrv-4: EC2" <<device>> as BuildDevice #APPLICATION{
-        node "Linux" <<OS>> as bos #IMPLEMENTATION{
-            node "Java Virtual Machine" <<Execution Environment>> as bee #white{
-                artifact "Jenkins"
-                component "Build and Test Service" as bts
-                "Jenkins" ..> bts : <<manifest>>
-            }
-        }
-    }
-}
-
-GatewayDevice ----> BuildDevice : HTTPS
-
-frame "Static Analysis Service"{
-    node "psrv-5: EC2" <<device>> as SADevice #APPLICATION{
-        node "Linux" <<OS>> as saos #IMPLEMENTATION{
-            node "Tomcat" <<Execution Environment>> as saee #white{
-                artifact "StaticAnalysis.war"
-                component "Static Analysis Service" as sas
-                "StaticAnalysis.war" ..> sas : <<manifest>>
-            }
-        }
-    }
-}
-
-GatewayDevice ----> SADevice : HTTPS
-
-frame "Notification Service"{
-    node "psrv-6: EC2" <<device>> as NotificationDevice #APPLICATION{
-        node "Linux" <<OS>> as nos #IMPLEMENTATION{
-            node "Tomcat" <<Execution Environment>> as nee #white{
-                queue "Notification\nQueue" as nqueue
-                artifact "NotificationService.war"
-                artifact "RabbitMQ"
-                nqueue -* "RabbitMQ"
-                component "Notification Service" as ns
-                nqueue -- "NotificationService.war"
-                "NotificationService.war" ..> ns : <<manifest>>
-            }
-        }
-    }
-    
-    node "dbsrv-6: AWS (Database server)" <<device>> as NotificationDBDevice #APPLICATION{
-        node "Amazon RDS" <<Database System>> as ntbs #IMPLEMENTATION{
-            node "Amazon Aurora" <<Database Engine>> as ntbe #white{
-                database "Notification\ndatabase"
-            }
-        }
-    }
-
-    NotificationDevice -----> NotificationDBDevice: TCP/IP
-}
-
-GatewayDevice ----> NotificationDevice : HTTPS
-NotificationDevice ----> GatewayDevice : HTTPS
-
-
-PlatformDevice -> NotificationDevice : HTTPS
-
 @enduml

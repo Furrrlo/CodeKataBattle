@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="-1412.8479 -1122.6239 3077.9791 2599.6864" xmlns="http://www.w3.org/2000/svg">
+  <g id="cluster_Client" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <polygon fill="#C2F0FF" points="980.5123,57.5659,990.5123,47.5659,1232.5123,47.5659,1232.5123,316.5659,1222.5123,326.5659,980.5123,326.5659,980.5123,57.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1222.5123" x2="1232.5123" y1="57.5659" y2="47.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="980.5123" x2="1222.5123" y1="57.5659" y2="57.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1222.5123" x2="1222.5123" y1="57.5659" y2="326.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="1070.0123" y="73.561" style="white-space: pre;">«device»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="47" x="1079.0123" y="89.8579" style="white-space: pre;">Client</text>
+  </g>
+  <g id="cluster_Windows" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <polygon fill="#FFE0E0" points="1020.5123,129.5659,1030.5123,119.5659,1200.5123,119.5659,1200.5123,284.5659,1190.5123,294.5659,1020.5123,294.5659,1020.5123,129.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1190.5123" x2="1200.5123" y1="129.5659" y2="119.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1020.5123" x2="1190.5123" y1="129.5659" y2="129.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1190.5123" x2="1190.5123" y1="129.5659" y2="294.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="38" x="1087.5123" y="145.561" style="white-space: pre;">«OS»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="72" x="1070.5123" y="161.8579" style="white-space: pre;">Windows</text>
+  </g>
+  <g id="cluster_CDN" transform="matrix(1, 0, 0, 0.8028839826583862, -1515.0350341796875, -1099.053466796875)" style="">
+    <path d="M1312.5099,175.0581 C1317.6719,164.7208 1325.5833,164.062 1333.6136,171.6885 C1341.3984,161.1178 1350.0877,160.9482 1356.4451,173.1214 C1362.3529,160.8293 1371.1955,161.0847 1380.166,169.6359 C1386.5399,158.2754 1394.7921,155.9647 1404.6109,165.6309 C1412.6028,155.5255 1423.5502,155.2685 1428.6031,168.6351 C1434.81,161.0682 1444.1312,160.8547 1448.45,170.7777 C1456.4795,162.1527 1466.2856,161.6896 1471.638,173.775 C1482.5292,160.8136 1497.2723,164.2677 1501.5123,180.5659 C1501.9784,180.6764 1502.1028,181.0748 1501.8169,181.4456 C1513.4165,185.6091 1515.8575,195.3245 1505.7538,203.3829 C1513.0291,210.0636 1513.0294,216.0963 1504.6466,221.8376 C1513.3557,225.5868 1513.9365,233.3726 1506.8314,239.1209 C1518.5351,244.5404 1518.3099,254.5158 1507.6534,260.7837 C1515.334,267.3409 1516.1853,273.7158 1506.6966,279.3901 C1517.1674,285.6156 1518.1307,292.1179 1509.4092,300.7775 C1517.3255,305.2553 1518.8433,313.6623 1510.2738,318.9255 C1519.4454,326.2353 1517.6633,331.7043 1508.7256,337.5051 C1517.9396,344.1649 1516.6547,354.3724 1506.3219,358.8287 C1514.8561,365.9774 1515.4961,372.3005 1505.2871,378.4612 C1514.0309,385.2153 1514.9771,391.1834 1504.7593,397.4093 C1511.7302,403.0492 1511.0066,409.6288 1503.1458,413.8095 C1512.9375,419.0676 1514.746,426.823 1505.2214,434.0609 C1513.4228,447.573 1510.0622,456.0265 1494.5123,459.5659 C1496.0696,459.615 1496.7536,460.843 1495.9535,462.1878 C1488.6879,473.6272 1481.0962,474.1113 1471.8441,464.4585 C1466.3344,476.2283 1455.0131,477.7021 1448.5169,465.4151 C1443.7621,475.5672 1437.9319,479.7305 1428.2759,470.5454 C1422.5881,484.0262 1411.0624,484.8266 1403.1595,472.7198 C1395.1033,485.4084 1386.2591,485.0397 1379.2482,471.7574 C1368.9704,480.3922 1361.3763,476.8934 1356.4056,465.6568 C1349.466,474.3928 1341.5885,474.2942 1336.0412,464.1546 C1321.5694,474.691 1306.8931,471.2255 1302.5123,452.5659 C1303.974,450.9363 1305.0108,451.5672 1305.8599,453.1954 C1297.1092,448.9476 1296.421,442.0626 1304.6281,436.5592 C1294.6169,432.866 1293.2642,423.7594 1300.6153,416.5791 C1289.2213,411.73 1290.084,401.6797 1299.7235,395.9224 C1292.1826,391.0985 1291.0435,382.5984 1299.7772,377.8228 C1288.3331,371.3263 1288.7768,364.7059 1298.6257,357.0301 C1290.1139,352.4822 1289.3387,344.4101 1297.2508,338.6347 C1288.2416,331.3555 1288.7735,325.408 1298.5353,319.381 C1288.5115,314.1004 1288.3779,306.9519 1297.3994,300.524 C1287.247,293.3806 1288.2626,286.1696 1297.8437,279.442 C1290.2417,273.9368 1291.5463,266.2337 1299.1837,261.8922 C1289.7403,255.1234 1289.0561,245.296 1300.3211,239.583 C1291.7262,231.7185 1294.2555,225.5629 1304.0124,221.4302 C1295.0146,214.6505 1293.3046,208.5379 1303.765,201.5165 C1293.2631,191.7656 1294.8743,178.1474 1309.5123,173.5659 C1311.2562,172.6349 1312.1501,173.2086 1312.5099,175.0581 " fill="#C2F0FF" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="122" x="1341.0123" y="191.561" style="white-space: pre;" transform="matrix(1, 0, 0, 1.274469, 0, -49.056297)">CloudFlare CDN</text>
+  </g>
+  <g id="cluster_Amazon VPC" transform="matrix(0.9495840668678284, 0, 0, 0.8585200905799866, -1449.7493896484375, -1061.175537109375)" style="">
+    <path d="M 139.277 566.619 C 206.583 468.33 271.643 459.444 355.434 547.496 C 408.784 447.282 506.24 437.683 568.029 538.574 C 655.245 430.776 737.905 429.486 806.844 557.115 C 860.028 475.077 948.939 463.648 1000.024 559.395 C 1065.679 420.344 1152.679 410 1245.487 534.064 C 1298.866 435.07 1387.517 452.939 1433.76 541.236 C 1517.482 420.588 1597.59 423.799 1674.319 548.103 C 1732.104 444.995 1800.682 448.837 1860.751 545.975 C 1920.771 454.855 2026.681 435.268 2081.906 551.099 C 2157.041 434.171 2223.68 434.294 2297.829 552.006 C 2357.972 457.426 2463.911 440.552 2518.951 557.344 C 2560.669 455.094 2661.241 452.328 2721.423 537.385 C 2785.128 416.362 2889.185 418.608 2955.335 534.977 C 3024.265 446.072 3093.54 453.244 3158.512 539.566 C 3167.131 538.542 3169.95 543.012 3168.297 550.875 C 3284.927 625.865 3287.684 720.13 3176.312 802.386 C 3260.382 855.192 3261.266 952.819 3172.842 1002.635 C 3272.719 1068.227 3276.493 1154.779 3188.085 1232.838 C 3298.827 1297.26 3307.148 1407.397 3192.894 1476.264 C 3289.074 1548.084 3308.765 1616.758 3196.311 1691.885 C 3322.999 1783.526 3299.436 1876.244 3171.621 1942.846 C 3282.909 1993.078 3289.155 2098.411 3195.061 2169.851 C 3285.872 2241.134 3281.093 2350.011 3166.538 2395.314 C 3273.864 2460.986 3298.771 2533.586 3190.285 2621.877 C 3279.352 2711.112 3249.56 2772.775 3151.512 2826.566 C 3172.737 2826.049 3179.289 2843.945 3170.155 2860.236 C 3111.793 2946.602 3012.831 2939.35 2971.401 2841.926 C 2890.626 2939.869 2821.994 2933.865 2752.821 2829.398 C 2692.166 2951.756 2593.547 2929.826 2530.729 2831.576 C 2487.778 2936.344 2383.968 2969.091 2309.549 2864.882 C 2230.561 2954.431 2148.987 2945.463 2089.742 2842.357 C 2017.906 2950.667 1947.992 2952.425 1861.845 2858.482 C 1794.737 2951.404 1703.367 2931.454 1653.951 2838.676 C 1585.343 2938.082 1506.205 2970.573 1426.719 2849.91 C 1379.785 2941.533 1295.923 2961.974 1231.336 2868.547 C 1155.03 2985.35 1070.857 2987.485 998.024 2865.158 C 928.671 2962.185 870.482 2953.423 803.85 2862.348 C 722.121 2949.835 634.046 2962.407 575.924 2837.066 C 505.155 2930.708 431.371 2924.628 363.805 2833.39 C 284.748 2928.697 34.984 2678.022 147.17 2627.038 C 35.493 2569.044 39.915 2462.006 135.596 2393.725 C 16.93 2319.852 6 2231.108 115.919 2139.539 C 30.964 2062.136 9.019 1981.306 132.325 1919.426 C 33.656 1851.486 47.346 1754.327 141.094 1693.867 C 42.539 1641.937 37.088 1531.552 128.092 1468.678 C 15.083 1416.48 34.409 1313.173 128.774 1261.657 C 32.935 1187.577 29.174 1073.227 148.932 1016.903 C 36.506 958.739 21.892 859.526 123.436 778.481 C 6.803 694.479 13.297 612.741 127.512 532.566 C 149.941 536.824 153.021 549.863 139.277 566.619" fill="#F0FCFC" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="101" x="1586.939" y="568.907" style="white-space: pre; font-size: 14px;" transform="matrix(1.433397, 0, 0, 1.773205, -687.302551, -429.791779)">Amazon VPC</text>
+  </g>
+  <g id="cluster_API Gateway" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <rect fill="none" height="549" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="443" x="585.5123" y="687.5659"/>
+    <path d="M697.5123,687.5659 L697.5123,696.8628 L687.5123,706.8628 L585.5123,706.8628 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="102" x="588.5123" y="701.561" style="white-space: pre;">API Gateway</text>
+  </g>
+  <g id="cluster_GatewayDevice" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <polygon fill="#C2F0FF" points="617.5123,748.5659,627.5123,738.5659,996.5123,738.5659,996.5123,1194.5659,986.5123,1204.5659,617.5123,1204.5659,617.5123,748.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="986.5123" x2="996.5123" y1="748.5659" y2="738.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="617.5123" x2="986.5123" y1="748.5659" y2="748.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="986.5123" x2="986.5123" y1="748.5659" y2="1204.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="770.5123" y="764.561" style="white-space: pre;">«device»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="73" x="766.5123" y="780.8579" style="white-space: pre;">gw0: EC2</text>
+  </g>
+  <g id="cluster_gwos" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <polygon fill="#FFE0E0" points="649.5123,820.5659,659.5123,810.5659,956.5123,810.5659,956.5123,1162.5659,946.5123,1172.5659,649.5123,1172.5659,649.5123,820.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="946.5123" x2="956.5123" y1="820.5659" y2="810.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="649.5123" x2="946.5123" y1="820.5659" y2="820.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="946.5123" x2="946.5123" y1="820.5659" y2="1172.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="38" x="780.0123" y="836.561" style="white-space: pre;">«OS»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="43" x="777.5123" y="852.8579" style="white-space: pre;">Linux</text>
+  </g>
+  <g id="cluster_Webflux" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <polygon fill="#FFFFFF" points="673.5123,884.5659,683.5123,874.5659,932.5123,874.5659,932.5123,1138.5659,922.5123,1148.5659,673.5123,1148.5659,673.5123,884.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="922.5123" x2="932.5123" y1="884.5659" y2="874.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="673.5123" x2="922.5123" y1="884.5659" y2="884.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="922.5123" x2="922.5123" y1="884.5659" y2="1148.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="183" x="707.5123" y="900.561" style="white-space: pre;">«Execution Environment»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="65" x="766.5123" y="916.8579" style="white-space: pre;">Webflux</text>
+  </g>
+  <g id="cluster_Platform Service" style="" transform="matrix(0.8159829378128052, 0, 0, 1, -1398.6417236328125, -1130.257080078125)">
+    <rect fill="none" height="1006" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="496" x="136.5123" y="1365.5659"/>
+    <path d="M 319.907 1365.566 L 319.907 1374.863 L 307.259 1384.863 L 136.512 1384.863" fill="none" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="135" x="139.5123" y="1379.561" style="white-space: pre;">Platform Service</text>
+  </g>
+  <g id="cluster_PlatformDevice" transform="matrix(0.9811280369758606, 0, 0, 1, -1434.2320556640625, -1127.4232177734375)" style="">
+    <polygon fill="#C2F0FF" points="168.5123,1426.5659,178.5123,1416.5659,547.5123,1416.5659,547.5123,1874.5659,537.5123,1884.5659,168.5123,1884.5659,168.5123,1426.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="537.5123" x2="547.5123" y1="1426.5659" y2="1416.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="168.5123" x2="537.5123" y1="1426.5659" y2="1426.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="537.5123" x2="537.5123" y1="1426.5659" y2="1884.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="321.5123" y="1442.561" style="white-space: pre;">«device»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="91" x="308.5123" y="1458.8579" style="white-space: pre;">psrv-1: EC2</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="38" x="725.438" y="1483.858" style="white-space: pre; font-size: 14px;">«OS»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="43" x="722.938" y="1500.155" style="white-space: pre; font-size: 14px;">Linux</text>
+  </g>
+  <g id="cluster_plos" transform="matrix(1, 0, 0, 1, -1447.03466796875, -1130.256591796875)">
+    <polygon fill="#FFE0E0" points="200.5123,1498.5659,210.5123,1488.5659,507.5123,1488.5659,507.5123,1842.5659,497.5123,1852.5659,200.5123,1852.5659,200.5123,1498.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="497.5123" x2="507.5123" y1="1498.5659" y2="1488.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="200.5123" x2="497.5123" y1="1498.5659" y2="1498.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="497.5123" x2="497.5123" y1="1498.5659" y2="1852.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="38" x="331.0123" y="1514.561" style="white-space: pre;">«OS»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="43" x="328.5123" y="1530.8579" style="white-space: pre;">Linux</text>
+  </g>
+  <g id="cluster_plee" transform="matrix(1, 0, 0, 1, -1450.03466796875, -1131.256591796875)">
+    <polygon fill="#FFFFFF" points="224.5123,1562.5659,234.5123,1552.5659,483.5123,1552.5659,483.5123,1818.5659,473.5123,1828.5659,224.5123,1828.5659,224.5123,1562.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="473.5123" x2="483.5123" y1="1562.5659" y2="1552.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="224.5123" x2="473.5123" y1="1562.5659" y2="1562.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="473.5123" x2="473.5123" y1="1562.5659" y2="1828.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="183" x="258.5123" y="1578.561" style="white-space: pre;">«Execution Environment»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="63" x="318.5123" y="1594.8579" style="white-space: pre;">Tomcat</text>
+  </g>
+  <g id="cluster_PlatformDBDevice" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <polygon fill="#C2F0FF" points="265.5123,1983.5659,275.5123,1973.5659,600.5123,1973.5659,600.5123,2329.5659,590.5123,2339.5659,265.5123,2339.5659,265.5123,1983.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="590.5123" x2="600.5123" y1="1983.5659" y2="1973.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="265.5123" x2="590.5123" y1="1983.5659" y2="1983.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="590.5123" x2="590.5123" y1="1983.5659" y2="2339.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="396.5123" y="1999.561" style="white-space: pre;">«device»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="258" x="300.0123" y="2015.8579" style="white-space: pre;">dbsrv-1: AWS (Database server)</text>
+  </g>
+  <g id="cluster_pdbs" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <polygon fill="#FFE0E0" points="305.5123,2055.5659,315.5123,2045.5659,568.5123,2045.5659,568.5123,2297.5659,558.5123,2307.5659,305.5123,2307.5659,305.5123,2055.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="558.5123" x2="568.5123" y1="2055.5659" y2="2045.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="305.5123" x2="558.5123" y1="2055.5659" y2="2055.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="558.5123" x2="558.5123" y1="2055.5659" y2="2307.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="142" x="362.0123" y="2071.561" style="white-space: pre;">«Database System»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="102" x="382.0123" y="2087.8579" style="white-space: pre;">Amazon RDS</text>
+  </g>
+  <g id="cluster_pdbe" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <polygon fill="#FFFFFF" points="329.5123,2119.5659,339.5123,2109.5659,544.5123,2109.5659,544.5123,2273.5659,534.5123,2283.5659,329.5123,2283.5659,329.5123,2119.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="534.5123" x2="544.5123" y1="2119.5659" y2="2109.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="329.5123" x2="534.5123" y1="2119.5659" y2="2119.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="534.5123" x2="534.5123" y1="2119.5659" y2="2283.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="139" x="363.5123" y="2135.561" style="white-space: pre;">«Database Engine»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="125" x="370.5123" y="2151.8579" style="white-space: pre;">Amazon Aurora</text>
+  </g>
+  <g id="cluster_User Service" transform="matrix(0.8929459452629089, 0, 0, 1, -1431.7615966796875, -1130.257080078125)" style="">
+    <rect fill="none" height="1006" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="496" x="1192.5123" y="1365.5659"/>
+    <path d="M 1311.981 1365.566 L 1311.981 1374.863 L 1301.02 1384.863 L 1192.512 1384.863" fill="none" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="99" x="1195.5123" y="1379.561" style="white-space: pre;">User Service</text>
+  </g>
+  <g id="cluster_UserSrvDevice" transform="matrix(1, 0, 0, 1, -1559.03466796875, -1130.256591796875)">
+    <polygon fill="#C2F0FF" points="1224.5123,1426.5659,1234.5123,1416.5659,1603.5123,1416.5659,1603.5123,1874.5659,1593.5123,1884.5659,1224.5123,1884.5659,1224.5123,1426.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1593.5123" x2="1603.5123" y1="1426.5659" y2="1416.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1224.5123" x2="1593.5123" y1="1426.5659" y2="1426.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1593.5123" x2="1593.5123" y1="1426.5659" y2="1884.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="1377.5123" y="1442.561" style="white-space: pre;">«device»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="91" x="1364.5123" y="1458.8579" style="white-space: pre;">psrv-2: EC2</text>
+  </g>
+  <polygon fill="#FFE0E0" points="-299.057 359.347 -289.057 349.347 7.943 349.347 7.943 703.347 -2.057 713.347 -299.057 713.347 -299.057 359.347" style="stroke:#181818;stroke-width:1.0;" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)"/>
+  <line style="stroke:#181818;stroke-width:1.0;" x1="-2.057" x2="7.943" y1="359.347" y2="349.347" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)"/>
+  <line style="stroke:#181818;stroke-width:1.0;" x1="-299.056" x2="-2.058" y1="359.347" y2="359.347" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)"/>
+  <line style="stroke:#181818;stroke-width:1.0;" x1="-2.056" x2="-2.056" y1="359.344" y2="713.343" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)"/>
+  <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="38" x="-168.557" y="375.342" style="white-space: pre; font-size: 14px;" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)">«OS»</text>
+  <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="43" x="-171.057" y="391.639" style="white-space: pre; font-size: 14px;" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)">Linux</text>
+  <g id="cluster_usee" transform="matrix(1, 0, 0, 1, -1559.03466796875, -1130.256591796875)">
+    <polygon fill="#FFFFFF" points="1280.5123,1562.5659,1290.5123,1552.5659,1539.5123,1552.5659,1539.5123,1818.5659,1529.5123,1828.5659,1280.5123,1828.5659,1280.5123,1562.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1529.5123" x2="1539.5123" y1="1562.5659" y2="1552.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1280.5123" x2="1529.5123" y1="1562.5659" y2="1562.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1529.5123" x2="1529.5123" y1="1562.5659" y2="1828.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="183" x="1314.5123" y="1578.561" style="white-space: pre;">«Execution Environment»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="63" x="1374.5123" y="1594.8579" style="white-space: pre;">Tomcat</text>
+  </g>
+  <g id="cluster_UserDBDevice" transform="matrix(1, 0, 0, 1, -1592.03466796875, -1130.256591796875)">
+    <polygon fill="#C2F0FF" points="1272.5123,1983.5659,1282.5123,1973.5659,1607.5123,1973.5659,1607.5123,2329.5659,1597.5123,2339.5659,1272.5123,2339.5659,1272.5123,1983.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1597.5123" x2="1607.5123" y1="1983.5659" y2="1973.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1272.5123" x2="1597.5123" y1="1983.5659" y2="1983.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1597.5123" x2="1597.5123" y1="1983.5659" y2="2339.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="1403.5123" y="1999.561" style="white-space: pre;">«device»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="258" x="1307.0123" y="2015.8579" style="white-space: pre;">dbsrv-2: AWS (Database server)</text>
+  </g>
+  <g id="cluster_udbs" transform="matrix(1, 0, 0, 1, -1597.03466796875, -1130.256591796875)">
+    <polygon fill="#FFE0E0" points="1312.5123,2055.5659,1322.5123,2045.5659,1575.5123,2045.5659,1575.5123,2297.5659,1565.5123,2307.5659,1312.5123,2307.5659,1312.5123,2055.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1565.5123" x2="1575.5123" y1="2055.5659" y2="2045.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1312.5123" x2="1565.5123" y1="2055.5659" y2="2055.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1565.5123" x2="1565.5123" y1="2055.5659" y2="2307.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="142" x="1369.0123" y="2071.561" style="white-space: pre;">«Database System»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="102" x="1389.0123" y="2087.8579" style="white-space: pre;">Amazon RDS</text>
+  </g>
+  <g id="cluster_usbe" transform="matrix(1, 0, 0, 1, -1599.03466796875, -1130.256591796875)">
+    <polygon fill="#FFFFFF" points="1336.5123,2119.5659,1346.5123,2109.5659,1551.5123,2109.5659,1551.5123,2273.5659,1541.5123,2283.5659,1336.5123,2283.5659,1336.5123,2119.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1541.5123" x2="1551.5123" y1="2119.5659" y2="2109.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1336.5123" x2="1541.5123" y1="2119.5659" y2="2119.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1541.5123" x2="1541.5123" y1="2119.5659" y2="2283.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="139" x="1370.5123" y="2135.561" style="white-space: pre;">«Database Engine»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="125" x="1377.5123" y="2151.8579" style="white-space: pre;">Amazon Aurora</text>
+  </g>
+  <g id="cluster_Badge Service" transform="matrix(0.904956042766571, 0, 0, 1, -1437.2701416015625, -1130.257080078125)" style="">
+    <rect fill="none" height="1006" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="496" x="1712.5123" y="1365.5659"/>
+    <path d="M 1846.235 1365.566 L 1846.235 1374.863 L 1835.363 1384.863 L 1712.512 1384.863" fill="none" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="113" x="1715.5123" y="1379.561" style="white-space: pre;">Badge Service</text>
+  </g>
+  <g id="cluster_BadgesDevice" transform="matrix(1, 0, 0, 1, -1597.03466796875, -1130.256591796875)">
+    <polygon fill="#C2F0FF" points="1744.5123,1426.5659,1754.5123,1416.5659,2123.5123,1416.5659,2123.5123,1874.5659,2113.5123,1884.5659,1744.5123,1884.5659,1744.5123,1426.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2113.5123" x2="2123.5123" y1="1426.5659" y2="1416.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1744.5123" x2="2113.5123" y1="1426.5659" y2="1426.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2113.5123" x2="2113.5123" y1="1426.5659" y2="1884.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="1897.5123" y="1442.561" style="white-space: pre;">«device»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="91" x="1884.5123" y="1458.8579" style="white-space: pre;">psrv-3: EC2</text>
+  </g>
+  <g id="cluster_bdos" transform="matrix(1, 0, 0, 1, -1591.03466796875, -1130.256591796875)">
+    <polygon fill="#FFE0E0" points="1776.5123,1498.5659,1786.5123,1488.5659,2083.5123,1488.5659,2083.5123,1842.5659,2073.5123,1852.5659,1776.5123,1852.5659,1776.5123,1498.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2073.5123" x2="2083.5123" y1="1498.5659" y2="1488.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1776.5123" x2="2073.5123" y1="1498.5659" y2="1498.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2073.5123" x2="2073.5123" y1="1498.5659" y2="1852.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="38" x="1907.0123" y="1514.561" style="white-space: pre;">«OS»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="43" x="1904.5123" y="1530.8579" style="white-space: pre;">Linux</text>
+  </g>
+  <g id="cluster_bdee" transform="matrix(1, 0, 0, 1, -1591.03466796875, -1130.256591796875)">
+    <polygon fill="#FFFFFF" points="1800.5123,1562.5659,1810.5123,1552.5659,2059.5123,1552.5659,2059.5123,1818.5659,2049.5123,1828.5659,1800.5123,1828.5659,1800.5123,1562.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2049.5123" x2="2059.5123" y1="1562.5659" y2="1552.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1800.5123" x2="2049.5123" y1="1562.5659" y2="1562.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2049.5123" x2="2049.5123" y1="1562.5659" y2="1828.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="183" x="1834.5123" y="1578.561" style="white-space: pre;">«Execution Environment»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="63" x="1894.5123" y="1594.8579" style="white-space: pre;">Tomcat</text>
+  </g>
+  <g id="cluster_BadgeDBDevice" transform="matrix(1, 0, 0, 1, -1624.03466796875, -1130.256591796875)">
+    <polygon fill="#C2F0FF" points="1792.5123,1983.5659,1802.5123,1973.5659,2127.5123,1973.5659,2127.5123,2329.5659,2117.5123,2339.5659,1792.5123,2339.5659,1792.5123,1983.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2117.5123" x2="2127.5123" y1="1983.5659" y2="1973.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1792.5123" x2="2117.5123" y1="1983.5659" y2="1983.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2117.5123" x2="2117.5123" y1="1983.5659" y2="2339.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="1923.5123" y="1999.561" style="white-space: pre;">«device»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="258" x="1827.0123" y="2015.8579" style="white-space: pre;">dbsrv-3: AWS (Database server)</text>
+  </g>
+  <g id="cluster_bdbs" transform="matrix(1, 0, 0, 1, -1627.03466796875, -1130.256591796875)">
+    <polygon fill="#FFE0E0" points="1832.5123,2055.5659,1842.5123,2045.5659,2095.5123,2045.5659,2095.5123,2297.5659,2085.5123,2307.5659,1832.5123,2307.5659,1832.5123,2055.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2085.5123" x2="2095.5123" y1="2055.5659" y2="2045.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1832.5123" x2="2085.5123" y1="2055.5659" y2="2055.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2085.5123" x2="2085.5123" y1="2055.5659" y2="2307.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="142" x="1889.0123" y="2071.561" style="white-space: pre;">«Database System»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="102" x="1909.0123" y="2087.8579" style="white-space: pre;">Amazon RDS</text>
+  </g>
+  <g id="cluster_bdbe" transform="matrix(1, 0, 0, 1, -1625.03466796875, -1130.256591796875)">
+    <polygon fill="#FFFFFF" points="1856.5123,2119.5659,1866.5123,2109.5659,2071.5123,2109.5659,2071.5123,2273.5659,2061.5123,2283.5659,1856.5123,2283.5659,1856.5123,2119.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2061.5123" x2="2071.5123" y1="2119.5659" y2="2109.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1856.5123" x2="2061.5123" y1="2119.5659" y2="2119.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2061.5123" x2="2061.5123" y1="2119.5659" y2="2283.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="139" x="1890.5123" y="2135.561" style="white-space: pre;">«Database Engine»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="125" x="1897.5123" y="2151.8579" style="white-space: pre;">Amazon Aurora</text>
+  </g>
+  <g id="cluster_Build and Test Service" transform="matrix(1, 0, 0, 1, -1634.03466796875, -1130.256591796875)">
+    <rect fill="none" height="551" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="443" x="2232.5123" y="1365.5659"/>
+    <path d="M2423.5123,1365.5659 L2423.5123,1374.8628 L2413.5123,1384.8628 L2232.5123,1384.8628 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="181" x="2235.5123" y="1379.561" style="white-space: pre;">Build and Test Service</text>
+  </g>
+  <g id="cluster_BuildDevice" transform="matrix(1, 0, 0, 1, -1633.03466796875, -1130.256591796875)">
+    <polygon fill="#C2F0FF" points="2264.5123,1426.5659,2274.5123,1416.5659,2643.5123,1416.5659,2643.5123,1874.5659,2633.5123,1884.5659,2264.5123,1884.5659,2264.5123,1426.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2633.5123" x2="2643.5123" y1="1426.5659" y2="1416.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2264.5123" x2="2633.5123" y1="1426.5659" y2="1426.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2633.5123" x2="2633.5123" y1="1426.5659" y2="1884.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="2417.5123" y="1442.561" style="white-space: pre;">«device»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="91" x="2404.5123" y="1458.8579" style="white-space: pre;">psrv-4: EC2</text>
+  </g>
+  <g id="cluster_bos" transform="matrix(1, 0, 0, 1, -1642.03466796875, -1130.256591796875)">
+    <polygon fill="#FFE0E0" points="2304.5123,1498.5659,2314.5123,1488.5659,2611.5123,1488.5659,2611.5123,1842.5659,2601.5123,1852.5659,2304.5123,1852.5659,2304.5123,1498.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2601.5123" x2="2611.5123" y1="1498.5659" y2="1488.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2304.5123" x2="2601.5123" y1="1498.5659" y2="1498.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2601.5123" x2="2601.5123" y1="1498.5659" y2="1852.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="38" x="2435.0123" y="1514.561" style="white-space: pre;">«OS»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="43" x="2432.5123" y="1530.8579" style="white-space: pre;">Linux</text>
+  </g>
+  <g id="cluster_bee" transform="matrix(1, 0, 0, 1, -1642.03466796875, -1130.256591796875)">
+    <polygon fill="#FFFFFF" points="2328.5123,1562.5659,2338.5123,1552.5659,2587.5123,1552.5659,2587.5123,1818.5659,2577.5123,1828.5659,2328.5123,1828.5659,2328.5123,1562.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2577.5123" x2="2587.5123" y1="1562.5659" y2="1552.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2328.5123" x2="2577.5123" y1="1562.5659" y2="1562.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2577.5123" x2="2577.5123" y1="1562.5659" y2="1828.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="183" x="2362.5123" y="1578.561" style="white-space: pre;">«Execution Environment»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="167" x="2370.5123" y="1594.8579" style="white-space: pre;">Java Virtual Machine</text>
+  </g>
+  <g id="cluster_Static Analysis Service" transform="matrix(1, 0, 0, 1, -1624.03466796875, -1130.256591796875)">
+    <rect fill="none" height="551" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="443" x="2699.5123" y="1365.5659"/>
+    <path d="M2895.5123,1365.5659 L2895.5123,1374.8628 L2885.5123,1384.8628 L2699.5123,1384.8628 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="186" x="2702.5123" y="1379.561" style="white-space: pre;">Static Analysis Service</text>
+  </g>
+  <g id="cluster_SADevice" transform="matrix(1, 0, 0, 1, -1627.03466796875, -1130.256591796875)">
+    <polygon fill="#C2F0FF" points="2731.5123,1426.5659,2741.5123,1416.5659,3110.5123,1416.5659,3110.5123,1874.5659,3100.5123,1884.5659,2731.5123,1884.5659,2731.5123,1426.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="3100.5123" x2="3110.5123" y1="1426.5659" y2="1416.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2731.5123" x2="3100.5123" y1="1426.5659" y2="1426.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="3100.5123" x2="3100.5123" y1="1426.5659" y2="1884.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="2884.5123" y="1442.561" style="white-space: pre;">«device»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="91" x="2871.5123" y="1458.8579" style="white-space: pre;">psrv-5: EC2</text>
+  </g>
+  <g id="cluster_saos" transform="matrix(1, 0, 0, 1, -1635.03466796875, -1130.256591796875)">
+    <polygon fill="#FFE0E0" points="2771.5123,1498.5659,2781.5123,1488.5659,3078.5123,1488.5659,3078.5123,1842.5659,3068.5123,1852.5659,2771.5123,1852.5659,2771.5123,1498.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="3068.5123" x2="3078.5123" y1="1498.5659" y2="1488.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2771.5123" x2="3068.5123" y1="1498.5659" y2="1498.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="3068.5123" x2="3068.5123" y1="1498.5659" y2="1852.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="38" x="2902.0123" y="1514.561" style="white-space: pre;">«OS»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="43" x="2899.5123" y="1530.8579" style="white-space: pre;">Linux</text>
+  </g>
+  <g id="cluster_saee" transform="matrix(1, 0, 0, 1, -1634.03466796875, -1130.256591796875)">
+    <polygon fill="#FFFFFF" points="2795.5123,1562.5659,2805.5123,1552.5659,3054.5123,1552.5659,3054.5123,1818.5659,3044.5123,1828.5659,2795.5123,1828.5659,2795.5123,1562.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="3044.5123" x2="3054.5123" y1="1562.5659" y2="1552.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="2795.5123" x2="3044.5123" y1="1562.5659" y2="1562.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="3044.5123" x2="3044.5123" y1="1562.5659" y2="1828.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="183" x="2829.5123" y="1578.561" style="white-space: pre;">«Execution Environment»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="63" x="2889.5123" y="1594.8579" style="white-space: pre;">Tomcat</text>
+  </g>
+  <g id="cluster_Notification Service" style="" transform="matrix(0.8991520404815674, 0, 0, 1, -1448.8271484375, -1130.257080078125)">
+    <rect fill="none" height="1102.671" style="stroke: rgb(24, 24, 24); stroke-width: 1;" width="512" x="656.512" y="1363.566"/>
+    <path d="M 843.851 1363.574 L 843.851 1372.871 L 832.927 1382.871 L 657.049 1382.871" fill="none" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="161" x="660.049" y="1377.923" style="white-space: pre; font-size: 14px;">Notification Service</text>
+  </g>
+  <g id="cluster_NotificationDevice" style="" transform="matrix(1, 0, 0, 0.6538450717926025, -1515.0350341796875, -640.5982666015625)">
+    <polygon fill="#C2F0FF" points="688.5123,1424.5659,698.5123,1414.5659,1083.5123,1414.5659,1083.5123,2321.5659,1073.5123,2331.5659,688.5123,2331.5659,688.5123,1424.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1073.5123" x2="1083.5123" y1="1424.5659" y2="1414.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="688.5123" x2="1073.5123" y1="1424.5659" y2="1424.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1073.5123" x2="1073.5123" y1="1424.5659" y2="2331.5659"/>
+  </g>
+  <g id="cluster_nos" style="" transform="matrix(1, 0, 0, 0.6154580116271973, -1515.0350341796875, -558.6099853515625)">
+    <polygon fill="#FFE0E0" points="720.5123,1496.5659,730.5123,1486.5659,1043.5123,1486.5659,1043.5123,2289.5659,1033.5123,2299.5659,720.5123,2299.5659,720.5123,1496.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1033.5123" x2="1043.5123" y1="1496.5659" y2="1486.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="720.5123" x2="1033.5123" y1="1496.5659" y2="1496.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1033.5123" x2="1033.5123" y1="1496.5659" y2="2299.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="38" x="859.0123" y="1512.561" style="white-space: pre;"> </text>
+  </g>
+  <g id="cluster_nee" style="" transform="matrix(1, 0, 0, 0.5638260841369629, -1515.0350341796875, -453.94046020507807)">
+    <polygon fill="#FFFFFF" points="744.5123,1560.5659,754.5123,1550.5659,1019.5123,1550.5659,1019.5123,2265.5659,1009.5123,2275.5659,744.5123,2275.5659,744.5123,1560.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1009.5123" x2="1019.5123" y1="1560.5659" y2="1550.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="744.5123" x2="1009.5123" y1="1560.5659" y2="1560.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1009.5123" x2="1009.5123" y1="1560.5659" y2="2275.5659"/>
+  </g>
+  <g id="cluster_NotificationDBDevice" transform="matrix(1, 0, 0, 1, -1553.0506591796875, -1468.9374999999998)">
+    <polygon fill="#C2F0FF" points="744.5123,2422.5659,754.5123,2412.5659,1079.5123,2412.5659,1079.5123,2768.5659,1069.5123,2778.5659,744.5123,2778.5659,744.5123,2422.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1069.5123" x2="1079.5123" y1="2422.5659" y2="2412.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="744.5123" x2="1069.5123" y1="2422.5659" y2="2422.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1069.5123" x2="1069.5123" y1="2422.5659" y2="2778.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="875.5123" y="2438.561" style="white-space: pre;">«device»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="258" x="779.0123" y="2454.8579" style="white-space: pre;">dbsrv-6: AWS (Database server)</text>
+  </g>
+  <g id="cluster_ntbs" transform="matrix(1, 0, 0, 1, -1563.8206787109375, -1480.1905517578123)">
+    <polygon fill="#FFE0E0" points="784.5123,2494.5659,794.5123,2484.5659,1047.5123,2484.5659,1047.5123,2736.5659,1037.5123,2746.5659,784.5123,2746.5659,784.5123,2494.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1037.5123" x2="1047.5123" y1="2494.5659" y2="2484.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="784.5123" x2="1037.5123" y1="2494.5659" y2="2494.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1037.5123" x2="1037.5123" y1="2494.5659" y2="2746.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="142" x="841.0123" y="2510.561" style="white-space: pre;">«Database System»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="102" x="861.0123" y="2526.8579" style="white-space: pre;">Amazon RDS</text>
+  </g>
+  <g id="cluster_ntbe" transform="matrix(1, 0, 0, 1, -1562.86474609375, -1485.9276123046873)">
+    <polygon fill="#FFFFFF" points="808.5123,2558.5659,818.5123,2548.5659,1023.5123,2548.5659,1023.5123,2712.5659,1013.5123,2722.5659,808.5123,2722.5659,808.5123,2558.5659" style="stroke:#181818;stroke-width:1.0;"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1013.5123" x2="1023.5123" y1="2558.5659" y2="2548.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="808.5123" x2="1013.5123" y1="2558.5659" y2="2558.5659"/>
+    <line style="stroke:#181818;stroke-width:1.0;" x1="1013.5123" x2="1013.5123" y1="2558.5659" y2="2722.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="139" x="842.5123" y="2574.561" style="white-space: pre;">«Database Engine»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="125" x="849.5123" y="2590.8579" style="white-space: pre;">Amazon Aurora</text>
+  </g>
+  <g id="elem_Chrome" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <polygon fill="#F1F1F1" points="1036.5123,225.5659,1046.5123,215.5659,1184.5123,215.5659,1184.5123,268.1597,1174.5123,278.1597,1036.5123,278.1597,1036.5123,225.5659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1174.5123" x2="1184.5123" y1="225.5659" y2="215.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1036.5123" x2="1174.5123" y1="225.5659" y2="225.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1174.5123" x2="1174.5123" y1="225.5659" y2="278.1597"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="108" x="1051.5123" y="248.561" style="white-space: pre;">«web browser»</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="1077.0123" y="264.8579" style="white-space: pre;">Chrome</text>
+  </g>
+  <g id="elem_Single Page App" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <rect fill="#F1F1F1" height="39.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="147" x="1338.0123" y="227.5659"/>
+    <polygon fill="#F1F1F1" points="1468.0123,232.5659,1468.0123,246.5659,1480.0123,246.5659,1480.0123,238.5659,1474.0123,232.5659,1468.0123,232.5659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1474.0123" x2="1474.0123" y1="232.5659" y2="238.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1480.0123" x2="1474.0123" y1="238.5659" y2="238.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="1348.0123" y="253.561" style="white-space: pre;">Single Page App</text>
+  </g>
+  <g id="elem_Website CDN" transform="matrix(1, 0, 0, 1, -1512.795654296875, -1184.1055908203125)">
+    <rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="135" x="1343.0123" y="397.5659"/>
+    <rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="1458.0123" y="402.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="1456.0123" y="404.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="1456.0123" y="408.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="1358.0123" y="430.561" style="white-space: pre;">Website CDN</text>
+  </g>
+  <g id="elem_Load Balancer" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <polygon fill="#F1F1F1" points="918.5123,588.5659,928.5123,578.5659,1058.5123,578.5659,1058.5123,614.8628,1048.5123,624.8628,918.5123,624.8628,918.5123,588.5659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1048.5123" x2="1058.5123" y1="588.5659" y2="578.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="918.5123" x2="1048.5123" y1="588.5659" y2="588.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1048.5123" x2="1048.5123" y1="588.5659" y2="624.8628"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="933.5123" y="611.561" style="white-space: pre;">Load Balancer</text>
+  </g>
+  <g id="elem_APIGateway.war" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <rect fill="#F1F1F1" height="39.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="145" x="730.0123" y="970.5659"/>
+    <polygon fill="#F1F1F1" points="858.0123,975.5659,858.0123,989.5659,870.0123,989.5659,870.0123,981.5659,864.0123,975.5659,858.0123,975.5659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="864.0123" x2="864.0123" y1="975.5659" y2="981.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="870.0123" x2="864.0123" y1="981.5659" y2="981.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="740.0123" y="996.561" style="white-space: pre;">APIGateway.war</text>
+  </g>
+  <g id="elem_gw" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="129" x="736.0123" y="1086.5659"/>
+    <rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="845.0123" y="1091.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="843.0123" y="1093.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="843.0123" y="1097.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="751.0123" y="1119.561" style="white-space: pre;">API Gateway</text>
+  </g>
+  <g id="elem_PlatformService.war" transform="matrix(1, 0, 0, 1, -1450.03466796875, -1139.256591796875)">
+    <rect fill="#F1F1F1" height="39.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="176" x="265.5123" y="1648.5659"/>
+    <polygon fill="#F1F1F1" points="424.5123,1653.5659,424.5123,1667.5659,436.5123,1667.5659,436.5123,1659.5659,430.5123,1653.5659,424.5123,1653.5659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="430.5123" x2="430.5123" y1="1653.5659" y2="1659.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="436.5123" x2="430.5123" y1="1659.5659" y2="1659.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="275.5123" y="1674.561" style="white-space: pre;">PlatformService.war</text>
+  </g>
+  <g id="elem_ps" transform="matrix(1, 0, 0, 1, -1454.03466796875, -1138.256591796875)">
+    <rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="160" x="273.5123" y="1766.5659"/>
+    <rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="413.5123" y="1771.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="411.5123" y="1773.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="411.5123" y="1777.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="288.5123" y="1799.561" style="white-space: pre;">Platform Service</text>
+  </g>
+  <g id="elem_Platform\ndatabase" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <path d="M393.5123,2215.5659 C393.5123,2205.5659 436.5123,2205.5659 436.5123,2205.5659 C436.5123,2205.5659 479.5123,2205.5659 479.5123,2215.5659 L479.5123,2257.1597 C479.5123,2267.1597 436.5123,2267.1597 436.5123,2267.1597 C436.5123,2267.1597 393.5123,2267.1597 393.5123,2257.1597 L393.5123,2215.5659 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/>
+    <path d="M393.5123,2215.5659 C393.5123,2225.5659 436.5123,2225.5659 436.5123,2225.5659 C436.5123,2225.5659 479.5123,2225.5659 479.5123,2215.5659 " fill="none" style="stroke:#181818;stroke-width:0.5;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63" x="403.5123" y="2242.561" style="white-space: pre;">Platform</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="403.5123" y="2258.8579" style="white-space: pre;">database</text>
+  </g>
+  <g id="elem_UserService.war" transform="matrix(1, 0, 0, 1, -1559.898681640625, -1149.1466064453125)">
+    <rect fill="#F1F1F1" height="39.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="144" x="1337.5123" y="1648.5659"/>
+    <polygon fill="#F1F1F1" points="1464.5123,1653.5659,1464.5123,1667.5659,1476.5123,1667.5659,1476.5123,1659.5659,1470.5123,1653.5659,1464.5123,1653.5659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1470.5123" x2="1470.5123" y1="1653.5659" y2="1659.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1476.5123" x2="1470.5123" y1="1659.5659" y2="1659.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="1347.5123" y="1674.561" style="white-space: pre;">UserService.war</text>
+  </g>
+  <g id="elem_usc" transform="matrix(1, 0, 0, 1, -1555.1756591796875, -1140.882568359375)">
+    <rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="128" x="1342.5123" y="1766.5659"/>
+    <rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="1450.5123" y="1771.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="1448.5123" y="1773.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="1448.5123" y="1777.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="1357.5123" y="1799.561" style="white-space: pre;">User Service</text>
+  </g>
+  <g id="elem_Users\ndatabase" transform="matrix(1, 0, 0, 1, -1598.03466796875, -1145.256591796875)">
+    <path d="M1400.5123,2215.5659 C1400.5123,2205.5659 1443.5123,2205.5659 1443.5123,2205.5659 C1443.5123,2205.5659 1486.5123,2205.5659 1486.5123,2215.5659 L1486.5123,2257.1597 C1486.5123,2267.1597 1443.5123,2267.1597 1443.5123,2267.1597 C1443.5123,2267.1597 1400.5123,2267.1597 1400.5123,2257.1597 L1400.5123,2215.5659 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/>
+    <path d="M1400.5123,2215.5659 C1400.5123,2225.5659 1443.5123,2225.5659 1443.5123,2225.5659 C1443.5123,2225.5659 1486.5123,2225.5659 1486.5123,2215.5659 " fill="none" style="stroke:#181818;stroke-width:0.5;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="1410.5123" y="2242.561" style="white-space: pre;">Users</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="1410.5123" y="2258.8579" style="white-space: pre;">database</text>
+  </g>
+  <g id="elem_BadgeService.war" transform="matrix(1, 0, 0, 1, -1594.03466796875, -1142.256591796875)">
+    <rect fill="#F1F1F1" height="39.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="158" x="1850.5123" y="1648.5659"/>
+    <polygon fill="#F1F1F1" points="1991.5123,1653.5659,1991.5123,1667.5659,2003.5123,1667.5659,2003.5123,1659.5659,1997.5123,1653.5659,1991.5123,1653.5659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1997.5123" x2="1997.5123" y1="1653.5659" y2="1659.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="2003.5123" x2="1997.5123" y1="1659.5659" y2="1659.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="1860.5123" y="1674.561" style="white-space: pre;">BadgeService.war</text>
+  </g>
+  <g id="elem_bs" transform="matrix(1, 0, 0, 1, -1590.03466796875, -1139.256591796875)">
+    <rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="142" x="1858.5123" y="1766.5659"/>
+    <rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="1980.5123" y="1771.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="1978.5123" y="1773.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="1978.5123" y="1777.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="1873.5123" y="1799.561" style="white-space: pre;">Badge Service</text>
+  </g>
+  <g id="elem_Badge\ndatabase" transform="matrix(1, 0, 0, 1, -1625.03466796875, -1152.256591796875)">
+    <path d="M1920.5123,2215.5659 C1920.5123,2205.5659 1963.5123,2205.5659 1963.5123,2205.5659 C1963.5123,2205.5659 2006.5123,2205.5659 2006.5123,2215.5659 L2006.5123,2257.1597 C2006.5123,2267.1597 1963.5123,2267.1597 1963.5123,2267.1597 C1963.5123,2267.1597 1920.5123,2267.1597 1920.5123,2257.1597 L1920.5123,2215.5659 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/>
+    <path d="M1920.5123,2215.5659 C1920.5123,2225.5659 1963.5123,2225.5659 1963.5123,2225.5659 C1963.5123,2225.5659 2006.5123,2225.5659 2006.5123,2215.5659 " fill="none" style="stroke:#181818;stroke-width:0.5;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="45" x="1930.5123" y="2242.561" style="white-space: pre;">Badge</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="1930.5123" y="2258.8579" style="white-space: pre;">database</text>
+  </g>
+  <g id="elem_Jenkins" transform="matrix(1, 0, 0, 1, -1644.03466796875, -1142.256591796875)">
+    <rect fill="#F1F1F1" height="39.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="81" x="2417.0123" y="1648.5659"/>
+    <polygon fill="#F1F1F1" points="2481.0123,1653.5659,2481.0123,1667.5659,2493.0123,1667.5659,2493.0123,1659.5659,2487.0123,1653.5659,2481.0123,1653.5659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="2487.0123" x2="2487.0123" y1="1653.5659" y2="1659.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="2493.0123" x2="2487.0123" y1="1659.5659" y2="1659.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="2427.0123" y="1674.561" style="white-space: pre;">Jenkins</text>
+  </g>
+  <g id="elem_bts" transform="matrix(1, 0, 0, 1, -1638.03466796875, -1138.256591796875)">
+    <rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="198" x="2358.5123" y="1766.5659"/>
+    <rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="2536.5123" y="1771.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="2534.5123" y="1773.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="2534.5123" y="1777.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="2373.5123" y="1799.561" style="white-space: pre;">Build and Test Service</text>
+  </g>
+  <g id="elem_StaticAnalysis.war" transform="matrix(1, 0, 0, 1, -1636.03466796875, -1140.256591796875)">
+    <rect fill="#F1F1F1" height="39.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="160" x="2844.5123" y="1648.5659"/>
+    <polygon fill="#F1F1F1" points="2987.5123,1653.5659,2987.5123,1667.5659,2999.5123,1667.5659,2999.5123,1659.5659,2993.5123,1653.5659,2987.5123,1653.5659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="2993.5123" x2="2993.5123" y1="1653.5659" y2="1659.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="2999.5123" x2="2993.5123" y1="1659.5659" y2="1659.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="2854.5123" y="1674.561" style="white-space: pre;">StaticAnalysis.war</text>
+  </g>
+  <g id="elem_sas" transform="matrix(1, 0, 0, 1, -1630.03466796875, -1141.256591796875)">
+    <rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="201" x="2824.0123" y="1766.5659"/>
+    <rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="3005.0123" y="1771.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="3003.0123" y="1773.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="3003.0123" y="1777.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="2839.0123" y="1799.561" style="white-space: pre;">Static Analysis Service</text>
+  </g>
+  <g id="elem_nqueue" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <path d="M766.0123,1646.5659 L861.0123,1646.5659 C866.0123,1646.5659 866.0123,1667.8628 866.0123,1667.8628 C866.0123,1667.8628 866.0123,1689.1597 861.0123,1689.1597 L766.0123,1689.1597 C761.0123,1689.1597 761.0123,1667.8628 761.0123,1667.8628 C761.0123,1667.8628 761.0123,1646.5659 766.0123,1646.5659 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/>
+    <path d="M861.0123,1646.5659 C856.0123,1646.5659 856.0123,1667.8628 856.0123,1667.8628 C856.0123,1689.1597 861.0123,1689.1597 861.0123,1689.1597 " fill="none" style="stroke:#181818;stroke-width:0.5;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="766.0123" y="1664.561" style="white-space: pre;">Notification</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="45" x="766.0123" y="1680.8579" style="white-space: pre;">Queue</text>
+  </g>
+  <g id="elem_NotificationService.war" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <rect fill="#F1F1F1" height="39.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="198" x="760.5123" y="1770.0659"/>
+    <polygon fill="#F1F1F1" points="941.5123,1775.0659,941.5123,1789.0659,953.5123,1789.0659,953.5123,1781.0659,947.5123,1775.0659,941.5123,1775.0659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="947.5123" x2="947.5123" y1="1775.0659" y2="1781.0659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="953.5123" x2="947.5123" y1="1781.0659" y2="1781.0659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="168" x="770.5123" y="1796.061" style="white-space: pre;">NotificationService.war</text>
+  </g>
+  <g id="elem_RabbitMQ" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <rect fill="#F1F1F1" height="39.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="102" x="901.5123" y="1648.5659"/>
+    <polygon fill="#F1F1F1" points="986.5123,1653.5659,986.5123,1667.5659,998.5123,1667.5659,998.5123,1659.5659,992.5123,1653.5659,986.5123,1653.5659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="992.5123" x2="992.5123" y1="1653.5659" y2="1659.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="998.5123" x2="992.5123" y1="1659.5659" y2="1659.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="911.5123" y="1674.561" style="white-space: pre;">RabbitMQ</text>
+  </g>
+  <g id="elem_ns" transform="matrix(1, 0, 0, 1, -1517.1837158203125, -1447.6535644531248)">
+    <rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="182" x="768.5123" y="2213.5659"/>
+    <rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="930.5123" y="2218.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="928.5123" y="2220.5659"/>
+    <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="928.5123" y="2224.5659"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="783.5123" y="2246.561" style="white-space: pre;">Notification Service</text>
+  </g>
+  <g id="elem_Notification\ndatabase" transform="matrix(1, 0, 0, 1, -1566.689697265625, -1504.0955810546873)">
+    <path d="M863.0123,2654.5659 C863.0123,2644.5659 915.5123,2644.5659 915.5123,2644.5659 C915.5123,2644.5659 968.0123,2644.5659 968.0123,2654.5659 L968.0123,2696.1597 C968.0123,2706.1597 915.5123,2706.1597 915.5123,2706.1597 C915.5123,2706.1597 863.0123,2706.1597 863.0123,2696.1597 L863.0123,2654.5659 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/>
+    <path d="M863.0123,2654.5659 C863.0123,2664.5659 915.5123,2664.5659 915.5123,2664.5659 C915.5123,2664.5659 968.0123,2664.5659 968.0123,2654.5659 " fill="none" style="stroke:#181818;stroke-width:0.5;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="873.0123" y="2681.561" style="white-space: pre;">Notification</text>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="873.0123" y="2697.8579" style="white-space: pre;">database</text>
+  </g>
+  <g id="elem_Firewall" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <polygon fill="#F1F1F1" points="941.5123,407.5659,951.5123,397.5659,1035.5123,397.5659,1035.5123,433.8628,1025.5123,443.8628,941.5123,443.8628,941.5123,407.5659" style="stroke:#181818;stroke-width:0.5;"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1025.5123" x2="1035.5123" y1="407.5659" y2="397.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="941.5123" x2="1025.5123" y1="407.5659" y2="407.5659"/>
+    <line style="stroke:#181818;stroke-width:0.5;" x1="1025.5123" x2="1025.5123" y1="407.5659" y2="443.8628"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="956.5123" y="430.561" style="white-space: pre;">Firewall</text>
+  </g>
+  <g id="link_Single Page App_Website CDN" transform="matrix(1, 0, 0, 0.5716539621353149, -1515.0350341796875, -1015.9976806640626)" style="">
+    <path d="M1411.4023,266.7459 C1411.2223,298.6059 1410.8775,357.306 1410.6775,391.406 " fill="none" id="Single Page App-to-Website CDN" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/>
+    <polygon fill="#181818" points="1410.6423,397.4059,1414.695,388.4295,1410.6716,392.406,1406.6952,388.3826,1410.6423,397.4059" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="1412.5123" y="363.6328" style="white-space: pre;" transform="matrix(1, 0, 0, 1.777161, 0, -284.737488)">«manifest»</text>
+  </g>
+  <g id="link_Chrome_CDN" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="1242.8323" y="240.1328" style="white-space: pre;">HTTPS</text>
+  </g>
+  <g id="link_Client_CDN" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <path d="M1233.026,91.2214 C1234.9433,93.3002 1236.8123,95.4291 1238.6339,97.6017 C1242.2771,101.947 1245.7309,106.4675 1249.0034,111.1134 C1262.0932,129.6972 1272.2817,150.2884 1280.0861,169.7059 C1283.9882,179.4147 1287.2944,188.83 1290.0692,197.5542 C1291.4567,201.9163 1292.7112,206.1056 1293.8411,210.0725 C1293.9823,210.5684 1294.1216,211.0607 1294.2589,211.5495 C1294.3276,211.7939 1292.7829,206.2583 1292.8506,206.5009 " fill="none" id="Client-to-CDN" style="stroke:#181818;stroke-width:1.0;"/>
+    <polygon fill="#181818" points="1294.4635,212.2801,1295.8969,202.5361,1293.1194,207.4641,1288.1914,204.6866,1294.4635,212.2801" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="4" x="1143.5123" y="19.6328" style="white-space: pre;"> </text>
+  </g>
+  <g id="link_Client_Firewall" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <path d="M988.5123,326.742 C988.5123,327.2492 988.5123,327.7568 988.5123,328.2646 C988.5123,329.2802 988.5123,330.2969 988.5123,331.314 C988.5123,339.4512 988.5123,347.6184 988.5123,355.5222 C988.5123,371.3297 988.5123,380.0834 988.5123,391.4359 " fill="none" id="Client-to-Firewall" style="stroke:#181818;stroke-width:1.0;"/>
+    <polygon fill="#181818" points="988.5123,397.4359,992.5123,388.4359,988.5123,392.4359,984.5123,388.4359,988.5123,397.4359" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="989.5123" y="363.6328" style="white-space: pre;">HTTPS</text>
+  </g>
+  <g id="link_Firewall_Load Balancer" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <path d="M988.5123,443.8759 C988.5123,478.3659 988.5123,538.2259 988.5123,572.5359 " fill="none" id="Firewall-to-Load Balancer" style="stroke:#181818;stroke-width:1.0;"/>
+    <polygon fill="#181818" points="988.5123,578.5359,992.5123,569.5359,988.5123,573.5359,984.5123,569.5359,988.5123,578.5359" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="989.5123" y="504.6328" style="white-space: pre;">HTTPS</text>
+  </g>
+  <g id="link_APIGateway.war_gw" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <path d="M764.4113,1009.5959 C753.0003,1017.1959 741.8463,1027.1559 735.5123,1039.5659 C726.3813,1057.4459 735.8163,1070.4918 753.3243,1082.8718 " fill="none" id="APIGateway.war-to-gw" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/>
+    <polygon fill="#181818" points="758.2233,1086.3359,753.1842,1077.8738,754.1408,1083.4492,748.5654,1084.4058,758.2233,1086.3359" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="736.5123" y="1052.6328" style="white-space: pre;">«manifest»</text>
+  </g>
+  <g id="link_Load Balancer_GatewayDevice" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <path d="M988.5123,624.7359 C988.5123,645.1059 988.5123,677.7865 988.5123,715.4173 C988.5123,720.1212 988.5123,724.9024 988.5123,729.7465 C988.5123,732.1686 988.5123,728.6064 988.5123,731.0582 " fill="none" id="Load Balancer-to-GatewayDevice" style="stroke:#181818;stroke-width:1.0;"/>
+    <polygon fill="#181818" points="988.5123,737.0582,992.5123,728.0582,988.5123,732.0582,984.5123,728.0582,988.5123,737.0582" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="989.5123" y="667.6328" style="white-space: pre;">HTTPS</text>
+  </g>
+  <g id="link_PlatformService.war_ps" transform="matrix(1, 0, 0, 1, -1458.03466796875, -1139.256591796875)">
+    <path d="M353.5123,1687.7359 C353.5123,1709.0059 353.5123,1737.7359 353.5123,1760.3659 " fill="none" id="PlatformService.war-to-ps" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/>
+    <polygon fill="#181818" points="353.5123,1766.3659,357.5123,1757.3659,353.5123,1761.3659,349.5123,1757.3659,353.5123,1766.3659" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="354.5123" y="1732.6328" style="white-space: pre;">«manifest»</text>
+  </g>
+  <g id="link_PlatformDevice_PlatformDBDevice" style="" transform="matrix(0.9872990250587463, 0, 0, 0.9807829856872559, -1510.4073486328125, -1092.002197265625)">
+    <path d="M486.0192,1885.4215 C485.7854,1885.8243 485.5505,1886.2264 485.3145,1886.6278 C484.8426,1887.4305 484.3667,1888.2305 483.8865,1889.0275 C476.2045,1901.7795 467.4619,1913.7797 457.5123,1924.5659 C431.4343,1952.8369 404.2533,1929.9209 377.5123,1957.5659 C374.6909,1960.4827 371.9447,1963.4831 369.2717,1966.5592 C367.9352,1968.0973 366.617,1969.6542 365.3169,1971.2292 C364.9919,1971.6229 368.459,1967.3672 368.1363,1967.7631 " fill="none" id="PlatformDevice-to-PlatformDBDevice" style="stroke:#181818;stroke-width:1.0;"/>
+    <polygon fill="#181818" points="364.3452,1972.4137,373.1322,1967.9653,367.5044,1968.5382,366.9314,1962.9105,364.3452,1972.4137" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="40" x="462.472" y="1935.482" style="white-space: pre; font-size: 13px;">TCP/IP</text>
+  </g>
+  <g id="link_UserService.war_usc" transform="matrix(1, 0, 0, 1, -1561.0787353515625, -1144.424560546875)">
+    <path d="M1409.0423,1687.7359 C1408.5123,1709.0059 1407.7934,1737.7378 1407.2234,1760.3678 " fill="none" id="UserService.war-to-usc" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/>
+    <polygon fill="#181818" points="1407.0723,1766.3659,1411.2977,1757.4695,1407.1982,1761.3675,1403.3002,1757.2681,1407.0723,1766.3659" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="1409.5123" y="1732.6328" style="white-space: pre;">«manifest»</text>
+  </g>
+  <g id="link_GatewayDevice_UserSrvDevice" style="" transform="matrix(0.7493990063667297, 0, 0, 1, -1265.1676025390625, -1130.257080078125)">
+    <path d="M997.0723,994.6442 C997.5357,994.8415 998.0169,995.0468 998.5158,995.2602 C1000.511,996.1136 1002.7874,997.0958 1005.3293,998.205 C1015.4967,1002.6419 1029.9111,1009.1122 1047.5646,1017.5147 C1082.8717,1034.3197 1131.1358,1058.8534 1184.2956,1090.3059 C1290.6151,1153.2109 1416.5173,1243.7909 1497.5123,1355.5659 C1507.9911,1370.0272 1517.3748,1385.6459 1525.7744,1401.9184 C1527.8743,1405.9865 1529.9127,1410.0954 1531.8913,1414.2374 C1532.1386,1414.7551 1529.8187,1409.8499 1530.0642,1410.3686 " fill="none" id="GatewayDevice-to-UserSrvDevice" style="stroke:#181818;stroke-width:1.0;"/>
+    <polygon fill="#181818" points="1532.6304,1415.7921,1532.3968,1405.9461,1530.4919,1411.2726,1525.1654,1409.3677,1532.6304,1415.7921" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="1422.5123" y="1265.6328" style="white-space: pre;" transform="matrix(1.163795, 0, 0, 1, -232.999771, 0)">HTTPS</text>
+  </g>
+  <g id="link_UserSrvDevice_UserDBDevice" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <path d="M 1446.989 1884.649 C 1446.728 1885.045 1446.466 1885.439 1446.203 1885.833 C 1445.15 1887.409 1444.081 1888.972 1442.994 1890.521 C 1434.302 1902.915 1424.52 1914.427 1413.512 1924.566 C 1375.032 1960.012 1338.852 1921.961 1300.512 1957.566 C 1297.539 1960.328 1294.65 1963.182 1291.843 1966.122 C 1290.44 1967.592 1289.057 1969.083 1287.694 1970.594 C 1287.013 1971.349 1290.292 1967.599 1289.621 1968.364" fill="none" id="UserSrvDevice-to-UserDBDevice" style="stroke:#181818;stroke-width:1.0;"/>
+    <polygon fill="#181818" points="1284.666 1972.875 1293.607 1968.745 1287.962 1969.116 1287.591 1963.471 1284.666 1972.875" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="40" x="1419.735" y="1940.813" style="white-space: pre; font-size: 13px;">TCP/IP</text>
+  </g>
+  <g id="link_BadgeService.war_bs" transform="matrix(1, 0, 0, 1, -1600.03466796875, -1140.256591796875)">
+    <path d="M1929.5123,1687.7359 C1929.5123,1709.0059 1929.5123,1737.7359 1929.5123,1760.3659 " fill="none" id="BadgeService.war-to-bs" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/>
+    <polygon fill="#181818" points="1929.5123,1766.3659,1933.5123,1757.3659,1929.5123,1761.3659,1925.5123,1757.3659,1929.5123,1766.3659" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="1930.5123" y="1732.6328" style="white-space: pre;">«manifest»</text>
+  </g>
+  <g id="link_GatewayDevice_BadgesDevice" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <path d="M 997.38 991.26 C 997.68 991.269 997.989 991.279 998.306 991.29 C 1003.379 991.457 1010.578 991.745 1019.677 992.235 C 1037.876 993.215 1063.677 995.002 1095.277 998.25 C 1158.478 1004.747 1244.878 1017.087 1340.058 1040.495 C 1530.417 1087.311 1755.897 1178.401 1901.145 1355.566 C 1911.791 1368.55 1921.029 1383.055 1929.045 1398.51 C 1931.049 1402.373 1932.976 1406.296 1934.83 1410.27 C 1935.757 1412.257 1934.292 1408.897 1935.183 1410.908" fill="none" id="GatewayDevice-to-BadgesDevice" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <polygon fill="#181818" points="1937.894 1416.267 1937.42 1406.43 1935.646 1411.801 1930.274 1410.027 1937.894 1416.267" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="1741.642" y="1266.545" style="white-space: pre; font-size: 13px;">HTTPS</text>
+  </g>
+  <g id="link_BadgesDevice_BadgeDBDevice" transform="matrix(1, 0, 0, 1, -1625.03466796875, -1130.256591796875)">
+    <path d="M2057.2476,1884.7637 C2056.9953,1885.1586 2056.7418,1885.5526 2056.4873,1885.9459 C2055.469,1887.5189 2054.4333,1889.0789 2053.3797,1890.6251 C2044.9507,1902.994 2035.3798,1914.4722 2024.5123,1924.5659 C1983.9823,1962.2089 1945.3423,1920.2449 1904.5123,1957.5659 C1901.5173,1960.304 1898.6082,1963.1367 1895.7824,1966.0555 C1894.3695,1967.515 1892.9775,1968.996 1891.606,1970.4974 C1890.9203,1971.2482 1894.2232,1967.5172 1893.5477,1968.2781 " fill="none" id="BadgesDevice-to-BadgeDBDevice" style="stroke:#181818;stroke-width:1.0;"/>
+    <polygon fill="#181818" points="1889.5642,1972.7649,1898.5307,1968.6903,1892.8838,1969.0259,1892.5482,1963.379,1889.5642,1972.7649" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="40" x="2037.219" y="1938.505" style="white-space: pre; font-size: 13px;">TCP/IP</text>
+  </g>
+  <g id="link_Jenkins_bts" transform="matrix(1, 0, 0, 1, -1645.03466796875, -1139.256591796875)">
+    <path d="M2457.5123,1687.7359 C2457.5123,1709.0059 2457.5123,1737.7359 2457.5123,1760.3659 " fill="none" id="Jenkins-to-bts" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/>
+    <polygon fill="#181818" points="2457.5123,1766.3659,2461.5123,1757.3659,2457.5123,1761.3659,2453.5123,1757.3659,2457.5123,1766.3659" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="2458.5123" y="1732.6328" style="white-space: pre;">«manifest»</text>
+  </g>
+  <g id="link_GatewayDevice_BuildDevice" transform="matrix(1, 0, 0, 1.1366209983825684, -1515.0350341796875, -1265.7255859375)" style="">
+    <path d="M 996.822 991.567 C 1001.638 991.737 1008.455 991.982 1017.027 992.3 C 1034.172 992.938 1058.338 993.87 1087.565 995.091 C 1146.019 997.532 1224.715 1001.125 1307.961 1005.807 C 1474.453 1015.171 1659.147 1028.892 1736.512 1046.473 C 1934.182 1091.399 1994.842 1107.975 2131.512 1201.946 C 2179.637 1235.038 2214.547 1279.169 2237.592 1315.455 C 2249.115 1333.599 2257.671 1349.781 2263.43 1361.643 C 2263.79 1362.384 2262.54 1359.766 2262.878 1360.473" fill="none" id="GatewayDevice-to-BuildDevice" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <polygon fill="#181818" points="2264.477 1365.632 2265.935 1355.892 2263.145 1360.813 2258.224 1358.023 2264.477 1365.632" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="2091.835" y="1229.562" style="white-space: pre; font-size: 13px;">HTTPS</text>
+  </g>
+  <g id="link_StaticAnalysis.war_sas" transform="matrix(1, 0, 0, 1, -1661.03466796875, -1140.256591796875)">
+    <path d="M2924.5123,1687.7359 C2924.5123,1709.0059 2924.5123,1737.7359 2924.5123,1760.3659 " fill="none" id="StaticAnalysis.war-to-sas" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/>
+    <polygon fill="#181818" points="2924.5123,1766.3659,2928.5123,1757.3659,2924.5123,1761.3659,2920.5123,1757.3659,2924.5123,1766.3659" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="2925.5123" y="1732.6328" style="white-space: pre;">«manifest»</text>
+  </g>
+  <g id="link_GatewayDevice_SADevice" transform="matrix(1, 0, 0, 1.1333760023117065, -1519.0350341796875, -1262.5047607421875)" style="">
+    <path d="M 996.664 991.541 C 997.108 991.556 997.569 991.572 998.047 991.589 C 999.961 991.654 1002.15 991.729 1004.602 991.814 C 1014.411 992.154 1028.436 992.65 1045.928 993.293 C 1080.912 994.578 1129.765 996.454 1186.496 998.855 C 1299.959 1003.656 1444.937 1010.558 1573.512 1019.041 C 2036.132 1049.568 2224.702 1022.672 2572.512 1199.989 C 2630.257 1229.427 2671.615 1273.097 2698.727 1309.858 C 2712.284 1328.238 2722.279 1344.891 2728.98 1357.175 C 2729.818 1358.71 2728.869 1356.889 2729.604 1358.282" fill="none" id="GatewayDevice-to-SADevice" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <polygon fill="#181818" points="2730.695 1363.919 2731.921 1354.146 2729.249 1359.132 2724.263 1356.46 2730.695 1363.919" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="2460.996" y="1183.996" style="white-space: pre; font-size: 13px;">HTTPS</text>
+  </g>
+  <g id="link_nqueue_RabbitMQ" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <path d="M866.1803,1668.0659 C877.8713,1668.0659 877.5623,1668.0659 889.2523,1668.0659 " fill="none" id="nqueue-to-RabbitMQ" style="stroke:#181818;stroke-width:1.0;"/>
+    <polygon fill="#181818" points="901.2523,1668.0659,895.2523,1664.0659,889.2523,1668.0659,895.2523,1672.0659,901.2523,1668.0659" style="stroke:#181818;stroke-width:1.0;"/>
+  </g>
+  <g id="link_nqueue_NotificationService.war" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1130.256591796875)">
+    <path d="M821.4203,1689.6059 C830.1023,1712.1659 843.9223,1748.0659 852.3123,1769.8659 " fill="none" id="nqueue-NotificationService.war" style="stroke:#181818;stroke-width:1.0;"/>
+  </g>
+  <g id="link_NotificationService.war_ns" transform="matrix(1, 0, 0, 1, -1508.03466796875, -1225.256591796875)">
+    <polygon fill="#181818" points="855.704 1987.623 859.704 1978.623 855.704 1982.623 851.704 1978.623 855.704 1987.623" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="860.5123" y="1945.6328" style="white-space: pre;">«manifest»</text>
+  </g>
+  <g id="link_GatewayDevice_NotificationDevice" transform="matrix(1, 0, 0, 1, -1668.24267578125, -1132.3555908203125)">
+    <path d="M 996.546 1206.57 C 996.562 1206.615 996.578 1206.66 996.594 1206.706 C 996.657 1206.888 996.72 1207.07 996.783 1207.253 C 996.908 1207.616 997.032 1207.979 997.154 1208.343 C 997.642 1209.797 998.101 1211.241 998.512 1212.646 C 1019.771 1285.217 1014.786 1304.066 1031.512 1376.975 C 1033.655 1386.316 1035.937 1395.939 1038.291 1405.633 C 1038.585 1406.845 1038.88 1408.057 1039.177 1409.271 C 1039.325 1409.878 1039.473 1410.485 1039.622 1411.092 C 1039.696 1411.396 1038.993 1408.525 1039.067 1408.828" fill="none" id="GatewayDevice-to-NotificationDevice" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <polygon fill="#181818" points="1039.8452,1413.2191,1042.6439,1403.7762,1039.1966,1408.2613,1034.7115,1404.814,1039.8452,1413.2191" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="1023.85" y="1292.116" style="white-space: pre; font-size: 13px;">HTTPS</text>
+  </g>
+  <g id="link_PlatformDevice_NotificationDevice" transform="matrix(1, 0, 0, 1, -1515.03466796875, -1120.840576171875)">
+    <path d="M 616.872 1488.872 C 616.926 1488.85 616.98 1488.829 617.034 1488.807 C 617.143 1488.764 617.254 1488.72 617.367 1488.676 C 617.593 1488.587 617.828 1488.495 618.07 1488.4 C 619.041 1488.022 620.143 1487.602 621.374 1487.147 C 626.297 1485.326 633.273 1482.937 642.076 1480.408 C 650.879 1477.878 661.51 1475.207 673.742 1472.819 C 676.8 1472.222 679.959 1471.643 683.214 1471.088 C 684.027 1470.949 684.847 1470.812 685.673 1470.677 C 686.086 1470.609 684.162 1470.918 684.578 1470.851" fill="none" id="PlatformDevice-to-NotificationDevice" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <polygon fill="#181818" points="687.281 1470.105 677.676 1467.667 683.403 1471.204 682.926 1476.497 687.281 1470.105" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="624.837" y="1472.891" style="white-space: pre; font-size: 13px;">HTTPS</text>
+  </g>
+  <g id="g-1" style="" transform="matrix(0.9872990250587463, 0, 0, 0.9807829856872559, -1059.106689453125, -964.8052978515625)">
+    <path d="M 486.019 1885.422 C 485.785 1885.678 485.551 1885.934 485.315 1886.189 C 484.843 1886.7 484.367 1887.21 483.887 1887.717 C 476.205 1895.834 467.462 1903.472 457.512 1910.338 C 431.434 1928.334 404.253 1913.747 377.512 1931.344 C 374.691 1933.201 371.945 1935.11 369.272 1937.068 C 367.935 1938.047 366.617 1939.038 365.317 1940.041 C 364.992 1940.292 368.459 1937.583 368.136 1937.835" fill="none" id="path-1" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <polygon fill="#181818" points="361.573 1944.89 370.36 1940.442 364.732 1941.015 364.159 1935.387 361.573 1944.89" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="40" x="477.869" y="1921.561" style="white-space: pre; font-size: 13px;">TCP/IP</text>
+  </g>
+  <path d="M -652.008 681.511 C -652.008 702.782 -652.008 731.513 -652.008 754.144" fill="none" id="path-2" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)"/>
+  <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="183" x="-726.287" y="446.272" style="white-space: pre; font-size: 14px;" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)">«Execution Environment»</text>
+  <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="63" x="-666.287" y="462.569" style="white-space: pre; font-size: 14px;" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)">Tomcat</text>
+  <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="38" x="-657.381" y="381.589" style="white-space: pre; font-size: 14px;" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)">«OS»</text>
+  <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="43" x="-659.881" y="397.886" style="white-space: pre; font-size: 14px;" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)">Linux</text>
+  <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="65" x="-673.277" y="313.313" style="white-space: pre; font-size: 14px;" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)">«device»</text>
+  <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="91" x="-686.277" y="329.61" style="white-space: pre; font-size: 14px;" transform="matrix(1, 0, 0, 1, -2.2737367544323206e-13, 3.552713678800501e-15)">psrv-6: EC2</text>
+  <g id="g-2" style="" transform="matrix(0.9872990250587463, 0, 0, 0.9807829856872559, -1298.6319580078125, -1774.7697753906248)">
+    <path d="M 486.019 1885.421 C 485.529 1886.409 485.037 1887.395 484.543 1888.378 C 483.553 1890.347 482.554 1892.306 481.549 1894.26 C 465.448 1925.513 447.124 1954.924 426.271 1981.361 C 371.612 2050.649 314.642 1994.484 258.593 2062.24 C 252.68 2069.388 246.924 2076.742 241.322 2084.281 C 238.52 2088.051 235.757 2091.867 233.033 2095.726 C 232.351 2096.69 239.618 2086.262 238.941 2087.232" fill="none" id="path-3" style="stroke: rgb(24, 24, 24); stroke-width: 1;"/>
+    <polygon fill="#181818" points="228.851 2100.637 237.638 2096.188 232.01 2096.761 231.437 2091.133 228.851 2100.637" style="stroke:#181818;stroke-width:1.0;"/>
+    <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="40" x="371.634" y="1985.545" style="white-space: pre; font-size: 13px;">HTTPS</text>
+  </g>
+</svg>
