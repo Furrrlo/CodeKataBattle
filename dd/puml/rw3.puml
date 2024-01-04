@@ -12,7 +12,7 @@ queue  "Notification Queue" as notificationQueue
 
 activate Browser
 Browser -> CDN ++ : GET index.html
-Browser <- CDN -- : index.html
+Browser <-- CDN -- : index.html
 
 ref over Browser, gateway, auth, platform, platformDb: RW0.1: get list of tournaments
 ref over Browser, gateway, auth, platform, platformDb: RW0.2: get tournament details
@@ -27,33 +27,33 @@ Browser -> gateway ++ : createNewBattle(authToken, tournementId, battleInfo, ...
 
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : educatorId
+    gateway <-- auth -- : educatorId
     gateway -> platform ++ : createNewBattle(tournementId, battleInfo, ...)
 
     platform -> platformDb ++ : SELECT ...
 
     alt invalid tournamentId
-        platform <- platformDb : NULL
-        gateway <- platform : invalid tournament id
-        Browser <- gateway : invalid tournament id
+        platform <-- platformDb : NULL
+        gateway <-- platform : invalid tournament id
+        Browser <-- gateway : invalid tournament id
     else
-        platform <- platformDb -- : tournamentObj
+        platform <-- platformDb -- : tournamentObj
 
         alt invalid field or unauthorized operation (educatorId not in tournamentObj.aut)
-            gateway <- platform : invalid operation
-            Browser <- gateway : invalid operation
+            gateway <-- platform : invalid operation
+            Browser <-- gateway : invalid operation
         else
             platform -> platformDb ++ : INSERT ...
-            platform <- platformDb -- : newBattleId
+            platform <-- platformDb -- : newBattleId
 
             platform -> notificationQueue ++ : add(tournamentObj.enrolledStudents, textInfo)
-            platform <- notificationQueue --: added
+            platform <-- notificationQueue --: added
 
-            gateway <- platform -- : newBattleId
-            Browser <- gateway -- : newBattleId
+            gateway <-- platform -- : newBattleId
+            Browser <-- gateway -- : newBattleId
             deactivate Browser
         end
     end

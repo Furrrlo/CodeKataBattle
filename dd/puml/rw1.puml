@@ -12,7 +12,7 @@ queue  "Notification Queue" as notificationQueue
 
 activate Browser
 Browser -> CDN ++ : GET index.html
-Browser <- CDN -- : index.html
+Browser <-- CDN -- : index.html
 
 Browser -> Browser : input(tournamentInfo)
 Browser -> Browser : input(authorizedEducators)
@@ -21,13 +21,13 @@ loop authorizedEducators
     Browser -> gateway ++ : searchEducator(authToken, name?, surname?, ...)
     gateway -> auth ++ : validateEducatorToken(authToken)
     alt invalid token
-        gateway <- auth : null
-        Browser <- gateway : 401 Unauthorized
+        gateway <-- auth : null
+        Browser <-- gateway : 401 Unauthorized
     else
-        gateway <- auth -- : educatorId
+        gateway <-- auth -- : educatorId
         gateway -> auth ++ : searchEducator(name?, surname?, ...)
-        gateway <- auth -- : authorizedEducatorId?
-        Browser <- gateway -- : authorizedEducatorId?
+        gateway <-- auth -- : authorizedEducatorId?
+        Browser <-- gateway -- : authorizedEducatorId?
         Browser -> Browser : tournamentInfo.authorizedEducators[] =\n  authorizedEducatorId
     end
 end
@@ -47,21 +47,21 @@ Browser -> gateway ++ : createTournament(authToken, tournamentInfo)
 
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : educatorId
+    gateway <-- auth -- : educatorId
     gateway -> auth ++ : checkEducatorIds(autorizedEducatorsIds)
-    gateway <- auth -- : true
+    gateway <-- auth -- : true
     gateway -> platform ++ : createTournament(educatorId, tournamentInfo)
     platform -> platformDb ++ : INSERT ...
-    platform <- platformDb -- : newTournamentId
+    platform <-- platformDb -- : newTournamentId
 
     platform -> notificationQueue ++ : add(SEND_TO_ALL, textInfo)
-    platform <- notificationQueue --: added
+    platform <-- notificationQueue --: added
 
-    gateway <- platform -- : newTournamentId
-    Browser <- gateway -- : newTournamentId
+    gateway <-- platform -- : newTournamentId
+    Browser <-- gateway -- : newTournamentId
 end
 
 deactivate Browser

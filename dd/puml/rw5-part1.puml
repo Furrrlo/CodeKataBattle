@@ -16,7 +16,7 @@ participant "Notification\nService" as notification
 
 activate Browser
 Browser -> CDN ++ : GET index.html
-Browser <- CDN -- : index.html
+Browser <-- CDN -- : index.html
 
 ref over Browser, gateway, auth, platform, platformDb: RW0.1: get list of tournaments
 ref over Browser, gateway, auth, platform, platformDb: RW0.2: get tournament detials
@@ -25,23 +25,23 @@ ref over Browser, gateway, auth, platform, platformDb: RW0.3: get battle details
 Browser -> gateway ++ : createTeam(authToken, battleId)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : studentId
+    gateway <-- auth -- : studentId
     gateway -> platform ++ : createTeam(battleId, studentId)
     platform -> platformDb ++ : GET ...
 
     alt invalid battleId
-        platform <- platformDb : NULL
-        gateway <- platform : invalid battle id
-        Browser <- gateway : invalid battle id
+        platform <-- platformDb : NULL
+        gateway <-- platform : invalid battle id
+        Browser <-- gateway : invalid battle id
     else
-        platform <- platformDb -- : battleObj
+        platform <-- platformDb -- : battleObj
         platform -> platformDb ++ : INSERT ...
-        platform <- platformDb -- : 1 row inserted
-        gateway <- platform -- : newTeamId
-        Browser <- gateway -- : newTeamId
+        platform <-- platformDb -- : 1 row inserted
+        gateway <-- platform -- : newTeamId
+        Browser <-- gateway -- : newTeamId
     end
 end
 
@@ -51,69 +51,69 @@ Browser -> Browser : input(name, surname)
 Browser -> gateway ++ : searchStudent(authToken, name?, surname?, ...)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : studentId
+    gateway <-- auth -- : studentId
     gateway -> auth ++ : searchStudent(name?, surname?, ...)
-    gateway <- auth -- : invitedStudentId?
-    Browser <- gateway -- : invitedStudentId?
+    gateway <-- auth -- : invitedStudentId?
+    Browser <-- gateway -- : invitedStudentId?
 end
 
 Browser -> gateway ++ : invite(authToken, newTeamId, invitedStudentId)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : studentId
+    gateway <-- auth -- : studentId
     gateway -> auth ++ : checkStudentId(invitedStudentId)
-    gateway <- auth -- : true
+    gateway <-- auth -- : true
     gateway -> platform ++ : invite(newTeamId, invitedStudentId)
     platform -> platformDb ++ : GET ...
 
     alt invalid teamId
-        platform <- platformDb : NULL
-        gateway <- platform : invalid team id
-        Browser <- gateway : invalid team id
+        platform <-- platformDb : NULL
+        gateway <-- platform : invalid team id
+        Browser <-- gateway : invalid team id
     else
-        platform <- platformDb -- : teamObj
+        platform <-- platformDb -- : teamObj
         platform -> platformDb ++ : INSERT ...
-        platform <- platformDb -- : 1 row inserted
+        platform <-- platformDb -- : 1 row inserted
         platform -> notificationQueue ++ : addRequest(invitedStudentId, textInfo)
-        platform <- notificationQueue -- : added
-        gateway <- platform -- : ok
-        Browser <- gateway -- : ok
+        platform <-- notificationQueue -- : added
+        gateway <-- platform -- : ok
+        Browser <-- gateway -- : ok
     end
 end
 
 'STUDENT 1 ACCEPTS NOTIFICATION
 notification -> notification ++ : lifecyle()
 notification -> notificationQueue ++ : pop()
-notification <- notificationQueue -- : message
+notification <-- notificationQueue -- : message
 notification -> Browser1 ++ : notifyNewInvitation(invitation)
 deactivate notification
 
 Browser1 -> gateway ++ : acceptInvitation(authToken, invitation)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser1 <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser1 <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : studentId
+    gateway <-- auth -- : studentId
     gateway -> platform ++ : acceptInvitation(invitation)
     platform -> platformDb ++ : GET ...
 
     alt invalid invitation
-        platform <- platformDb : NULL
-        gateway <- platform : invalid invitation
-        Browser1 <- gateway : invalid invitation
+        platform <-- platformDb : NULL
+        gateway <-- platform : invalid invitation
+        Browser1 <-- gateway : invalid invitation
     else
-        platform <- platformDb -- : invitationObj
+        platform <-- platformDb -- : invitationObj
         platform -> platformDb ++ : INSERT ...
-        platform <- platformDb -- : 1 row inserted
-        gateway <- platform -- : ok
-        Browser1 <- gateway -- : ok
+        platform <-- platformDb -- : 1 row inserted
+        gateway <-- platform -- : ok
+        Browser1 <-- gateway -- : ok
     end
 end
 deactivate Browser1

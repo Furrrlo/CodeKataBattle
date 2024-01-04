@@ -9,26 +9,26 @@ database "Badge DB" as badgesDb
 
 activate Browser
 Browser -> CDN ++ : GET index.html
-Browser <- CDN -- : index.html
+Browser <-- CDN -- : index.html
 
 Browser -> Browser : input(newBadge)
 Browser -> gateway ++ : createBadge(authToken, badgeInfo)
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : educatorId
+    gateway <-- auth -- : educatorId
     gateway -> badges ++ : createBadge(educatorId, badgeInfo)
 
     alt invalid badge code
-        gateway <- badges : invalid badge
-        Browser <- gateway : invalid badge
+        gateway <-- badges : invalid badge
+        Browser <-- gateway : invalid badge
     else
         badges -> badgesDb ++ : INSERT ...
-        badges <- badgesDb -- : newBadgeId
-        gateway <- badges -- : newBadgeId
-        Browser <- gateway -- : newBadgeId
+        badges <-- badgesDb -- : newBadgeId
+        gateway <-- badges -- : newBadgeId
+        Browser <-- gateway -- : newBadgeId
     end
 end
 

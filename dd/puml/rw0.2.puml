@@ -13,22 +13,22 @@ activate Browser
 Browser -> gateway ++ : getTournamentDetails(authToken, tournementId)
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : educatorId
+    gateway <-- auth -- : educatorId
     gateway -> platform ++ : getTournamentDetails(tournementId)
 
     platform -> platformDb ++ : GET ...
 
     alt invalid tournamentId
-        platform <- platformDb : NULL
-        gateway <- platform : invalid tournament id
-        Browser <- gateway : invalid tournament id
+        platform <-- platformDb : NULL
+        gateway <-- platform : invalid tournament id
+        Browser <-- gateway : invalid tournament id
     else
-        platform <- platformDb -- : tournamentObj
-        gateway <- platform -- : tournamentObj
-        Browser <- gateway -- : tournamentObj
+        platform <-- platformDb -- : tournamentObj
+        gateway <-- platform -- : tournamentObj
+        Browser <-- gateway -- : tournamentObj
     end
 end
 

@@ -13,15 +13,15 @@ activate Browser
 Browser -> gateway ++ : getListOfTournaments(authToken, ...)
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : educatorId
+    gateway <-- auth -- : educatorId
     gateway -> platform ++ : getListOfTournaments(educatorId, ...)
     platform -> platformDb ++ : GET ...
-    platform <- platformDb -- : listOfTourmanetsObj
-    gateway <- platform -- : listOfTourmanetsObj
-    Browser <- gateway -- : listOfTourmanetsObj
+    platform <-- platformDb -- : listOfTourmanetsObj
+    gateway <-- platform -- : listOfTourmanetsObj
+    Browser <-- gateway -- : listOfTourmanetsObj
 end
 
 @enduml

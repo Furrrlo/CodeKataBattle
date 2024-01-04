@@ -15,7 +15,7 @@ database "Badge DB" as badgesDb
 
 activate Browser
 Browser -> CDN ++ : GET index.html
-Browser <- CDN -- : index.html
+Browser <-- CDN -- : index.html
 
 ref over Browser, gateway, auth, platform, platformDb, badges, badgesDb: RW0.1: get list of tournaments
 ref over Browser, gateway, auth, platform, platformDb, badges, badgesDb: RW0.2: get tournament details
@@ -23,40 +23,40 @@ ref over Browser, gateway, auth, platform, platformDb, badges, badgesDb: RW0.2: 
 Browser -> gateway ++ : closeTournament(authToken, tournamentId)
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : educatorId
+    gateway <-- auth -- : educatorId
     gateway -> platform ++ : closeTournament(battleId)
 
     platform -> platformDb ++ : SELECT ...
 
     alt invalid tournamentId
-        platform <- platformDb : NULL
-        gateway <- platform : invalid tournament id
-        Browser <- gateway : invalid tournament id
+        platform <-- platformDb : NULL
+        gateway <-- platform : invalid tournament id
+        Browser <-- gateway : invalid tournament id
     else
-        platform <- platformDb -- : tournamentObj
+        platform <-- platformDb -- : tournamentObj
         platform -> platformDb ++ : UPDATE ...
-        platform <- platformDb -- : 1 row updated
+        platform <-- platformDb -- : 1 row updated
         note right
             update final rank
             and close tournament
         end note
 
         platform -> notificationQueue ++ : add(tournamentObj.enrolledStudents, textInfo)
-        platform <- notificationQueue --: added
+        platform <-- notificationQueue --: added
 
-        gateway <- platform -- : tournamentObj
+        gateway <-- platform -- : tournamentObj
         gateway -> badges ++ : assignBadges(tournamentObj)
         
         loop tournamentObj.enrolledStudents
             badges -> badgesDb ++ : INSERT ...
-            badges <- badgesDb -- : Inserted 1 row
+            badges <-- badgesDb -- : Inserted 1 row
         end
 
-        gateway <- badges -- : ok
-        Browser <- gateway -- : ok
+        gateway <-- badges -- : ok
+        Browser <-- gateway -- : ok
     end
 end
 

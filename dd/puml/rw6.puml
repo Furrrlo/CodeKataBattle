@@ -20,12 +20,12 @@ note across: The registration deadline expires
 
 activate platform
 platform -> gh ++ : push(tournamentFiles)
-platform <- gh -- : newRepoSlug
+platform <-- gh -- : newRepoSlug
 platform -> platformDb ++ : UPDATE ...
-platform <- platformDb -- : 1 row updated
+platform <-- platformDb -- : 1 row updated
 
 platform -> notificationQueue ++ : addRequest(tournamentObj.enrolledStudents, textInfo)
-platform <- notificationQueue --: added
+platform <-- notificationQueue --: added
 
 deactivate platform
 activate Browser
@@ -33,43 +33,43 @@ activate Browser
 ref over Browser, gateway, auth, platform, platformDb, notificationQueue, notification: RW0.4: send notifications
  
 Browser -> CDN ++ : GET index.html
-Browser <- CDN -- : index.html
+Browser <-- CDN -- : index.html
 
 ref over Browser, gateway, auth, platform, platformDb: RW0.1: get list of tournaments
 ref over Browser, gateway, auth, platform, platformDb: RW0.2: get tournament details
 ref over Browser, gateway, auth, platform, platformDb: RW0.3: get battle details
 
 ...
-gha --> gateway ++ : newPush(repoSlug)
+gha -> gateway ++ : newPush(repoSlug)
 gateway -> platform ++ : findBattleAndTeamFor(repoSlug)
 platform -> platformDb ++ : SELECT ...  
-platform <- platformDb -- : NULL
-gateway <- platform -- : null
+platform <-- platformDb -- : NULL
+gateway <-- platform -- : null
 deactivate gateway
 ...
 
 Browser -> gateway ++ : insertRepoSlug(authToken, battleId, repoSlug)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : studentId
+    gateway <-- auth -- : studentId
     gateway -> platform ++ : insertRepoSlug(studentId, battleId, repoSlug)
 
     platform -> platformDb ++ : INSERT ...
 
     alt invalid battleId
-        platform <- platformDb : NULL
-        gateway <- platform : invalid battle id
-        Browser <- gateway : invalid battle id
+        platform <-- platformDb : NULL
+        gateway <-- platform : invalid battle id
+        Browser <-- gateway : invalid battle id
     else
-        platform <- platformDb -- : battleObj
+        platform <-- platformDb -- : battleObj
         platform -> platformDb ++ : UPDATE ...
-        platform <- platformDb -- : 1 row updated
+        platform <-- platformDb -- : 1 row updated
 
-        gateway <- platform -- : ok
-        Browser <- gateway -- : ok
+        gateway <-- platform -- : ok
+        Browser <-- gateway -- : ok
     end
 end
 

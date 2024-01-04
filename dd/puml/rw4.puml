@@ -8,32 +8,32 @@ participant "User Service" as auth
 participant "Platform Service" as platform
 database "Platform DB" as platformDb
 
-notifs --> Browser ++ : notifyNewTournament(tournamentId)
+notifs -> Browser ++ : notifyNewTournament(tournamentId)
 Browser -> CDN ++ : GET index.html
-Browser <- CDN -- : index.html
+Browser <-- CDN -- : index.html
 
 ref over Browser, gateway, auth, platform, platformDb: RW0.1: get list of tournaments
 
 Browser -> gateway ++ : enrollInTournament(authToken, tournementId)
 gateway -> auth ++ : validateStudentToken(authToken)
 alt invalid token
-    gateway <- auth : null
-    Browser <- gateway : 401 Unauthorized
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
 else
-    gateway <- auth -- : studentId
+    gateway <-- auth -- : studentId
     gateway -> platform ++ : enrollInTournament(studentId, tournementId)
     
     platform -> platformDb ++ : GET ...
     alt invalid tournamentId
-        platform <- platformDb : NULL
-        gateway <- platform : invalid tournament id
-        Browser <- gateway : invalid tournament id
+        platform <-- platformDb : NULL
+        gateway <-- platform : invalid tournament id
+        Browser <-- gateway : invalid tournament id
     else
-        platform <- platformDb -- : tournamentObj
+        platform <-- platformDb -- : tournamentObj
         platform -> platformDb ++ : INSERT ...
-        platform <- platformDb -- : 1 row inserted
-        gateway <- platform -- : ok
-        Browser <- gateway -- : ok
+        platform <-- platformDb -- : 1 row inserted
+        gateway <-- platform -- : ok
+        Browser <-- gateway -- : ok
     end
 end
 
