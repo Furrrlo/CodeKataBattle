@@ -143,6 +143,8 @@ The API Gateway is stateless and can be implemented with the Spring Cloud Gatewa
 It is built on top of the Reactor project \cite{Reactor}, which provides a non-blocking API for routing and filtering requests.
 This allows to handle high traffic and scale the API Gateway horizontally when necessary.
 
+If the API Gateway is replicated, a load balancer, such as the Amazon ELB \cite{ELB}, is necessary to equally distribute requests.
+
 The Build and Test Service is based on the Jenkins system \cite{Jenkins}.
 It is the most CPU-intensive service and should adopt a distributed builds architecture \cite{JenkinsScale}.
 One possibility is to have a single Jenkins controller that schedules builds to dedicated build nodes (agents).
