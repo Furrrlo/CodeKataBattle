@@ -35,10 +35,10 @@ Consequently, they will be implemented in such a way as to be asynchronous with 
 \section{Component view}
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={Component view diagram},
         label={fig:Component view diagram},
         figure=H}
-    \centering
     \puml{puml/component-view}
 \end{adjustbox}
 
@@ -89,30 +89,30 @@ Server Components make use of 4 distinct DBMSes, each with its own schema.
     \item \textbf{Platform DB}
           \begin{adjustbox}{
                   max size={\textwidth}{\textheightwithcaption{1}},
+                  center,
                   caption={Platform ER},
                   label={fig:Platform ER},
                   figure=H}
-              \centering
               \puml{puml/platform-db}
           \end{adjustbox}
           \pagebreak
     \item \textbf{Badge DB}
           \begin{adjustbox}{
                   max size={\textwidth}{\textheightwithcaption{1}},
+                  center,
                   caption={Badges ER},
                   label={fig:Badges ER},
                   figure=H}
-              \centering
               \puml{puml/badges-db}
           \end{adjustbox}
     \item \textbf{Notification DB}
           \begin{adjustbox}{
                   max size={\textwidth}{\textheightwithcaption{1}},
+                  center,
                   caption={Notification ER},
                   label={fig:Notification ER},
                   figure=H}
               \puml{puml/notification-db}
-              \centering
           \end{adjustbox}
 \end{itemize}
 \pagebreak
@@ -120,10 +120,10 @@ Server Components make use of 4 distinct DBMSes, each with its own schema.
 \section{Deployment view}
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={Deployment view diagram},
         label={fig:Deployment view diagram},
         figure=H}
-    \centering
     \puml{puml/deployment-diagram}
 \end{adjustbox}
 The frontend is a SPA implemented with the React framework.
@@ -174,10 +174,10 @@ In the first three sequence diagrams, the user could be a student or an educator
                   \textbf{}
                   \begin{adjustbox}{
                           max size={\textwidth}{\textheightwithcaption{1}},
+                          center,
                           caption={User gets list of tournaments},
                           label={fig:User gets list of tournaments},
                           figure=H}
-                      \centering
                       \puml{puml/rw0.1}
                   \end{adjustbox}
                   \pagebreak
@@ -186,10 +186,10 @@ In the first three sequence diagrams, the user could be a student or an educator
                   \textbf{}
                   \begin{adjustbox}{
                           max size={\textwidth}{\textheightwithcaption{1}},
+                          center,
                           caption={User gets tournament details},
                           label={fig:User gets tournament details},
                           figure=H}
-                      \centering
                       \puml{puml/rw0.2}
                   \end{adjustbox}
               }
@@ -197,10 +197,10 @@ In the first three sequence diagrams, the user could be a student or an educator
                   \textbf{}
                   \begin{adjustbox}{
                           max size={\textwidth}{\textheightwithcaption{1}},
+                          center,
                           caption={User gets battle details},
                           label={fig:User gets battle details},
                           figure=H}
-                      \centering
                       \puml{puml/rw0.3}
                   \end{adjustbox}
                   \pagebreak
@@ -209,10 +209,10 @@ In the first three sequence diagrams, the user could be a student or an educator
                   \textbf{}
                   \begin{adjustbox}{
                           max size={\textwidth}{\textheightwithcaption{1}},
+                          center,
                           caption={Notification is sent},
                           label={fig:Notification is sent},
                           figure=H}
-                      \centering
                       \puml{puml/rw0.4}
                   \end{adjustbox}
                   This diagram shows the process of sending a notification.
@@ -227,10 +227,10 @@ In the first three sequence diagrams, the user could be a student or an educator
               \textbf{}
               \begin{adjustbox}{
                       max size={\textwidth}{\textheightwithcaption{1}},
+                      center,
                       caption={Educator creates a new Tournament},
                       label={fig:Educator creates a new Tournament},
                       figure=H}
-                  \centering
                   \puml{puml/rw1}
               \end{adjustbox}
               \pagebreak
@@ -239,10 +239,10 @@ In the first three sequence diagrams, the user could be a student or an educator
               \textbf{}
               \begin{adjustbox}{
                       max size={\textwidth}{\textheightwithcaption{1}},
+                      center,
                       caption={Educator creates a new badge},
                       label={fig:Educator creates a new badge},
                       figure=H}
-                  \centering
                   \puml{puml/rw2}
               \end{adjustbox}
               \pagebreak
@@ -251,10 +251,10 @@ In the first three sequence diagrams, the user could be a student or an educator
               \textbf{}
               \begin{adjustbox}{
                       max size={\textwidth}{\textheightwithcaption{1}},
+                      center,
                       caption={Educator creates a new Battle for an Existing Tournament},
                       label={fig:Educator creates a new Battle for an Existing Tournament},
                       figure=H}
-                  \centering
                   \puml{puml/rw3}
               \end{adjustbox}
               \pagebreak
@@ -263,10 +263,10 @@ In the first three sequence diagrams, the user could be a student or an educator
               \textbf{}
               \begin{adjustbox}{
                       max size={\textwidth}{\textheightwithcaption{1}},
+                      center,
                       caption={Student joins to an existing Tournament by receiving a notification},
                       label={fig:Student joins to an existing Tournament by receiving a notification},
                       figure=H}
-                  \centering
                   \puml{puml/rw4}
               \end{adjustbox}
               \pagebreak
@@ -275,17 +275,17 @@ In the first three sequence diagrams, the user could be a student or an educator
               \textbf{}
               \begin{adjustbox}{
                       max size={\textwidth}{\textheightwithcaption{1}},
+                      center,
                       figure=H}
-                  \centering
                   \puml{puml/rw5-part1}
               \end{adjustbox}
               \pagebreak
               \begin{adjustbox}{
                       max size={\textwidth}{\textheightwithcaption{1}},
+                      center,
                       caption={Students create a team for a tournament battle},
                       label={fig:Students create a team for a tournament battle},
                       figure=H}
-                  \centering
                   \puml{puml/rw5-part2}
               \end{adjustbox}
               \pagebreak
@@ -294,10 +294,10 @@ In the first three sequence diagrams, the user could be a student or an educator
               \textbf{}
               \begin{adjustbox}{
                       max size={\textwidth}{\textheightwithcaption{1}},
+                      center,
                       caption={Student forks the repository},
                       label={fig:Student forks the repository},
                       figure=H}
-                  \centering
                   \puml{puml/rw6}
               \end{adjustbox}
               \pagebreak
@@ -306,10 +306,10 @@ In the first three sequence diagrams, the user could be a student or an educator
               \textbf{}
               \begin{adjustbox}{
                       max size={\textwidth}{\textheightwithcaption{2}},
+                      center,
                       caption={Student pushes and triggers automatic evaluation},
                       label={fig:Student pushes and triggers automatic evaluation},
                       figure=H}
-                  \centering
                   \puml{puml/rw7}
               \end{adjustbox}
               \pagebreak
@@ -318,10 +318,10 @@ In the first three sequence diagrams, the user could be a student or an educator
               \textbf{}
               \begin{adjustbox}{
                       max size={\textwidth}{\textheightwithcaption{1}},
+                      center,
                       caption={Educator manually evaluates teams},
                       label={fig:Educator manually evaluates teams},
                       figure=H}
-                  \centering
                   \puml{puml/rw8}
               \end{adjustbox}
               \pagebreak
@@ -330,10 +330,10 @@ In the first three sequence diagrams, the user could be a student or an educator
               \textbf{}
               \begin{adjustbox}{
                       max size={\textwidth}{\textheightwithcaption{1}},
+                      center,
                       caption={Educator closes a tournament},
                       label={fig:Educator closes a tournament},
                       figure=H}
-                  \centering
                   \puml{puml/rw9}
               \end{adjustbox}
               \pagebreak

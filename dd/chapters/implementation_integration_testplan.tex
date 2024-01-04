@@ -60,10 +60,10 @@ The first components that can be tested together are the Notification Service an
 That's because the subsystem is implementing High Importance features and thus proper testing with the queue needs to be done carefully.
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={Notitification subsystem},
         label={fig:Notitification subsystem},
         figure=H}
-    \centering
     \puml{puml/components-integration/notification}
 \end{adjustbox}
 
@@ -71,10 +71,10 @@ Then the Platform subsystem can be integreted with the Queue of the Notification
 Obtaining the Platform and Notification Subsystem.
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={Platform and Notification subsystem},
         label={fig:Platform and Notification subsystem},
         figure=H}
-    \centering
     \puml{puml/components-integration/platform-queue}
 \end{adjustbox}
 
@@ -84,47 +84,47 @@ It is recommended to develop first the subsystems that implement High Importance
 the User subsystem, the Build and Test subsystem, and the Static Analysis subsystem, and then the Badge subsystem that implements Low Importance functionality.
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={User subsystem},
         label={fig:User subsystem},
         figure=H}
-    \centering
     \puml{puml/components-integration/user}
 \end{adjustbox}
 
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={Build and Test subsystem},
         label={fig:Build and Test subsystem},
         figure=H}
-    \centering
     \puml{puml/components-integration/buildtest}
 \end{adjustbox}
 
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={Static Analysis subsystem},
         label={fig:Static Analysis  subsystem},
         figure=H}
-    \centering
     \puml{puml/components-integration/staticanalysis}
 \end{adjustbox}
 
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={Badge subsystem},
         label={fig:Badge subsystem},
         figure=H}
-    \centering
     \puml{puml/components-integration/badge}
 \end{adjustbox}
 
 After that we can also develop the Website CDN.
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={Website CDN subsystem},
         label={fig:Website CDN subsystem},
         figure=H}
-    \centering
     \puml{puml/components-integration/website}
 \end{adjustbox}
 
@@ -132,10 +132,10 @@ At this point all subsystems have been implemented and tested, so the next step 
 testing between the subsystems and the API Gateway.
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={API Gateway subsystem},
         label={fig:API Gateway subsystem},
         figure=H}
-    \centering
     \puml{puml/components-integration/apigateway}
 \end{adjustbox}
 
@@ -145,10 +145,10 @@ We can proceed to integrate the API Gateway with the Platform and Notification s
 
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={API Gateway subsystem step 1},
         label={fig:API Gateway subsystem step 1},
         figure=H}
-    \centering
     \puml{puml/components-integration/api-integration1}
 \end{adjustbox}
 
@@ -157,10 +157,10 @@ Then, it's possible to integrate the API Gateway with the User and the Badge sub
 
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={API Gateway subsystem step 2},
         label={fig:API Gateway subsystem step 2},
         figure=H}
-    \centering
     \puml{puml/components-integration/api-integration2}
 \end{adjustbox}
 
@@ -168,10 +168,10 @@ After that, integrate the API Gateway with the Static Analysis and Build and Tes
 
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={API Gateway subsystem step 3},
         label={fig:API Gateway subsystem step 3},
         figure=H}
-    \centering
     \puml{puml/components-integration/api-integration3}
 \end{adjustbox}
 
@@ -179,9 +179,9 @@ Finally, when all is integrated and tested sucessfully we can proceed to integra
 
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
+        center,
         caption={API Gateway subsystem step 4},
         label={fig:API Gateway subsystem step 4},
         figure=H}
-    \centering
     \puml{puml/components-integration/api-integration4}
 \end{adjustbox}
