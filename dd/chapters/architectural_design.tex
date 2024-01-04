@@ -43,6 +43,8 @@ Consequently, they will be implemented in such a way as to be asynchronous with 
 \end{adjustbox}
 
 \subsection{Client Components}
+The frontend of the platform is a website, that allows users to interact with the system.
+The role of the website is to interface the user with the API Gateway, rendering interfaces and requesting data.
 
 \subsection{Server Components}
 The server components contain the business logic needed to provide the functionalities of the application to the clients,
@@ -124,6 +126,9 @@ Server Components make use of 4 distinct DBMSes, each with its own schema.
     \centering
     \puml{puml/deployment-diagram}
 \end{adjustbox}
+The frontend is a SPA implemented with the React framework.
+The website can be visited from any modern web browser, such as Google Chrome, Mozilla Firefox or Microsoft Edge.
+Clients can be any device that can run the previous browsers, such as computers with Windows, Linux or macOS and smartphones/tablets with Android or IOS.
 
 The website is served by a CDN, such as Cloudflare, Amazon CloudFront or Akamai.
 This allows to always have the maximum efficiency, regardless of the number of users connected at the same time.
