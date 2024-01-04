@@ -56,8 +56,8 @@ needs to be verified.
 Here components and subsystems are illustrated via graphs. \\
 Subsystems are a group of components meant to be integration tested together after unit testing.\\
 Integration testing is carried out in a bottom-up approach, so drivers must be implemented to test the different independent subsystems as each subsystem is developed.\\
-The first components that can be tested together are the Notification Service and the RabbitMQ (third party service).
-That's because the subsystem is implementing High Importance features and thus proper testing with the queue needs to be done carefully.
+The first components that can be tested together are the Notification Service and RabbitMQ.
+That's because the subsystem is implementing medium importance features and thus proper testing with the queue needs to be done carefully.
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
         center,
