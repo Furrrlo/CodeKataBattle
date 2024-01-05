@@ -1,0 +1,21 @@
+@startuml RW0.5 - Send notification
+
+
+actor Browser
+participant "Notification Service" as notification
+queue "Notification Queue" as notificationQueue
+database "Notification DB" as db
+
+notification -> notification ++ : lifecyle()
+notification -> notificationQueue ++: pop()
+notification <-- notificationQueue --: message
+
+notification -> db ++: SELECT ... WHERE userid IN ids
+notification <-- db --: endpointUrls
+
+loop endpoint in endpointURLs
+    notification -> Browser : notifyNewBattle()    
+    deactivate notification
+end
+
+@enduml

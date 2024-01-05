@@ -1,4 +1,4 @@
-@startuml RW0.3 - User gets battle details
+@startuml RW0.3 - User gets tournament details
 
 actor Browser
 
@@ -9,25 +9,26 @@ participant "Platform Service" as platform
 database "Platform DB" as platformDb
 
 activate Browser
-Browser -> gateway ++ : getBattleDetails(authToken, battleId)
+
+Browser -> gateway ++ : getTournamentDetails(authToken, tournementId)
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
     gateway <-- auth : null
     Browser <-- gateway : 401 Unauthorized
 else
     gateway <-- auth -- : educatorId
-    gateway -> platform ++ : getBattleDetails(battleId)
+    gateway -> platform ++ : getTournamentDetails(tournementId)
 
     platform -> platformDb ++ : GET ...
 
-    alt invalid battleId
+    alt invalid tournamentId
         platform <-- platformDb : NULL
-        gateway <-- platform : invalid battle id
-        Browser <-- gateway : invalid battle id
+        gateway <-- platform : invalid tournament id
+        Browser <-- gateway : invalid tournament id
     else
-        platform <-- platformDb -- : battleObj
-        gateway <-- platform -- : battleObj
-        Browser <-- gateway -- : battleObj
+        platform <-- platformDb -- : tournamentObj
+        gateway <-- platform -- : tournamentObj
+        Browser <-- gateway -- : tournamentObj
     end
 end
 

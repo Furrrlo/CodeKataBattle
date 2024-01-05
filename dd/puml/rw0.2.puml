@@ -1,7 +1,7 @@
-@startuml RW0.2 - User gets tournament details
+@startuml RW0.2 - User gets list of tournaments
 
 actor Browser
-
+participant CDN
 participant "API Gateway" as gateway
 participant "User Service" as auth
 
@@ -10,27 +10,18 @@ database "Platform DB" as platformDb
 
 activate Browser
 
-Browser -> gateway ++ : getTournamentDetails(authToken, tournementId)
+Browser -> gateway ++ : getListOfTournaments(authToken, ...)
 gateway -> auth ++ : validateEducatorToken(authToken)
 alt invalid token
     gateway <-- auth : null
     Browser <-- gateway : 401 Unauthorized
 else
     gateway <-- auth -- : educatorId
-    gateway -> platform ++ : getTournamentDetails(tournementId)
-
+    gateway -> platform ++ : getListOfTournaments(educatorId, ...)
     platform -> platformDb ++ : GET ...
-
-    alt invalid tournamentId
-        platform <-- platformDb : NULL
-        gateway <-- platform : invalid tournament id
-        Browser <-- gateway : invalid tournament id
-    else
-        platform <-- platformDb -- : tournamentObj
-        gateway <-- platform -- : tournamentObj
-        Browser <-- gateway -- : tournamentObj
-    end
+    platform <-- platformDb -- : listOfTourmanetsObj
+    gateway <-- platform -- : listOfTourmanetsObj
+    Browser <-- gateway -- : listOfTourmanetsObj
 end
-
 
 @enduml

@@ -1,21 +1,35 @@
-@startuml RW0.4 - Send notification
-
+@startuml RW0.4 - User gets battle details
 
 actor Browser
-participant "Notification Service" as notification
-queue "Notification Queue" as notificationQueue
-database "Notification DB" as db
 
-notification -> notification ++ : lifecyle()
-notification -> notificationQueue ++: pop()
-notification <-- notificationQueue --: message
+participant "API Gateway" as gateway
+participant "User Service" as auth
 
-notification -> db ++: SELECT ... WHERE userid IN ids
-notification <-- db --: endpointUrls
+participant "Platform Service" as platform
+database "Platform DB" as platformDb
 
-loop endpoint in endpointURLs
-    notification -> Browser : notifyNewBattle()    
-    deactivate notification
+activate Browser
+Browser -> gateway ++ : getBattleDetails(authToken, battleId)
+gateway -> auth ++ : validateEducatorToken(authToken)
+alt invalid token
+    gateway <-- auth : null
+    Browser <-- gateway : 401 Unauthorized
+else
+    gateway <-- auth -- : educatorId
+    gateway -> platform ++ : getBattleDetails(battleId)
+
+    platform -> platformDb ++ : GET ...
+
+    alt invalid battleId
+        platform <-- platformDb : NULL
+        gateway <-- platform : invalid battle id
+        Browser <-- gateway : invalid battle id
+    else
+        platform <-- platformDb -- : battleObj
+        gateway <-- platform -- : battleObj
+        Browser <-- gateway -- : battleObj
+    end
 end
+
 
 @enduml
