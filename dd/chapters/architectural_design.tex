@@ -84,7 +84,7 @@ Server Components make use of 4 distinct DBMSes, each with its own schema.
 \begin{itemize}
     \item \textbf{User DB} {-} saves data related to the users of the platform. Its ER schema is not shown
           here as it would depend on the 3rd-party service, but it would at least require for each student and
-          educator a unique identifier, as well as human readable identifier to allow users to lookup each other
+          educator a unique identifier, as well as human-readable identifier to allow users to look up each other
           (so name and surname or an email). Educators and Students are saved in different tables.
           \pagebreak
     \item \textbf{Platform DB}
@@ -235,7 +235,7 @@ In the first four sequence diagrams, the user could be a student or an educator.
                       \puml{puml/rw0.5}
                   \end{adjustbox}
                   This diagram shows the process of sending a notification.
-                  The Notification Service will periodically pop from the Notification Queue messages that contains an array of ids of the recipient students.
+                  The Notification Service will periodically pop from the Notification Queue messages that contain an array of IDs of the recipient students.
                   Then the Notification Service will look for each student's endpoint URL (previously registered by clients using the API Gateway)
                   and sends the notifications.
                   \pagebreak
@@ -496,7 +496,7 @@ seen in the previous diagrams:
 
 Types:
 \begin{itemize}
-    \item \textbf{ID} {-} a unique identifier for a given object, could be a self-incrementing integer or a UUID (depends on the choosen DBMS)
+    \item \textbf{ID} {-} a unique identifier for a given object, could be a self-incrementing integer or a UUID (depends on the chosen DBMS)
     \item \textbf{Slug} {-} a String identifying a specific GitHub repository, in the format `<username>/<repository>' as can be seen
           in a GitHub project URL
     \item \textbf{SimpleTournament}
@@ -614,12 +614,12 @@ Map<{ metricName: String }, { score: Int }>
           a mediator which sits between clients and a service being invoked, which allows to implement cross-cutting concerns
           such as authentication mechanism common for all microservices. It also makes it possible to keep track of and locate references to the different instances of microservices.
     \item[RPC:] an interaction style where remote calls resembles procedure call in a local setting. In particular, we have
-          choosen to use gRPC and adopt its philosophy, centered around ``coarse-grained message exchange while avoiding the
+          chosen to use gRPC and adopt its philosophy, centered around ``coarse-grained message exchange while avoiding the
           pitfalls of distributed objects and the fallacies of ignoring the network'' \cite{gRPCPrinciples}, therefore
           avoiding many of the issues normally stemming from RPC/RMI. Additionally, its support out-of-the-box for many
           languages, load-balancing, blocking \& non-blocking support and HTTP transport make it a perfect fit for use in a
           microservice architecture.
-    \item[Pub-sub/Message queueing:] a messaging pattern which allows to obtain a high degree of decoupling among components
+    \item[Pub-sub/Message queuing:] a messaging pattern which allows to obtain a high degree of decoupling among components
           in both space and time: a publisher does not need to know of the existence of a subscriber and can continue to
           operate independently even if there is none. By doing so, asynchronous communication is implemented.
     \item[Tiered architecture:] the separation of the architecture in layers, such as presentation, business and data,
@@ -634,6 +634,6 @@ Map<{ metricName: String }, { score: Int }>
 \begin{description}[leftmargin=0pt]
     \item[Relational DBMS:]
           a relational database is the traditional choice because of their guarantees given by ACID properties
-          enforcing consistency on the data, as well as their fixed schema with well defined entities which fits
+          enforcing consistency on the data, as well as their fixed schema with well-defined entities which fits
           well with the well-defined model we have identified.
 \end{description}

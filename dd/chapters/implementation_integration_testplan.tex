@@ -1,6 +1,6 @@
 % !TeX root = ../dd.tex
 
-The choosen architecture guarantees high decoupling between components, so that most of them
+The chosen architecture guarantees high decoupling between components, so that most of them
 can be developed and unit tested completely independently, without the need to mock other
 components. Once those are developed, we can integrate them at the end and do additional
 integration testing. We can identify a few different types components:
@@ -45,7 +45,7 @@ implementation and its importance for the final user experience:
 \section{Development and Test Plan}
 All the components will be developed and tested using a bottom-up approach, in order to reduce as
 much as possible stubs and mocks, which would add additional overhead to the development.
-All the indipendent microservices can be developed first and in parallel, prioritizing components
+All the independent microservices can be developed first and in parallel, prioritizing components
 of high importance which need to be tested more thoroughly as outlined by the table above.
 Development can also start on front-end components, which can mock the REST API during testing.
 Lastly, integrating components such as the API Gateway can be developed, after which everything
@@ -175,7 +175,7 @@ After that, integrate the API Gateway with the Static Analysis and Build and Tes
     \puml{puml/components-integration/api-integration3}
 \end{adjustbox}
 
-Finally, when all is integrated and tested sucessfully we can proceed to integrate it with the Website CDN.
+Finally, when all is integrated and tested successfully we can proceed to integrate it with the Website CDN.
 
 \begin{adjustbox}{
         max size={\textwidth}{\textheightwithcaption{1}},
