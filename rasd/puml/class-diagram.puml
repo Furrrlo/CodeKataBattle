@@ -121,7 +121,7 @@ class Badge {
 }
 
 Educator "1" --o "0...n" Tournament: > creates
-Educator "0...n" -- "1" Tournament : > is allowed
+Educator "0...n" -- "0...n" Tournament : > is allowed
 Educator "1" -- "0...n" Battle : < created by
 note on link 
 must be tournament 

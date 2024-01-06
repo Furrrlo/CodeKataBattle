@@ -87,7 +87,7 @@ TournamentSubscription }o-down-|| Tournament: > referred to
 BattleParticipation }o-down-|| Battle: > referred to
 
 Educator ||-o{ Tournament: > creates
-Educator }o-|| Tournament : > is allowed
+Educator }o-o{ Tournament : > is allowed
 Educator ||--o{ Battle : < created by
 
 Tournament ||--o{ Battle: > formed by
