@@ -3,7 +3,7 @@
 The system is a distributed application which follows the microservices architecture paradigm.\\
 With the term client we are referring to either a Student or an Educator.\\
 Users interact with the system by interfacing with a Single Page App (SPA), served by a Content Delivery Network (CDN).
-The site forwards appropriate requests to an API Gateway.
+The website forwards appropriate requests to an API Gateway.
 The user is completely unaware of the microservices structure used to operate the system.\\
 Each microservice realizes a service useful for the fulfillment of the single functionality that the CKB Platform is to provide.
 All requests go through the API Gateway which realizes complex services by sending requests to the several available microservices.\\
@@ -44,7 +44,7 @@ Consequently, they will be implemented in such a way as to be asynchronous, usin
 \end{adjustbox}
 
 \subsection{Client Components}
-The frontend of the platform is a website, that allows users to interact with the system.
+The frontend of the platform is a website that allows users to interact with the system.
 The role of the website is to interface the user with the API Gateway, rendering interfaces and requesting data.
 
 \subsection{Server Components}
@@ -169,26 +169,26 @@ The service will periodically pop messages from the queue with the Spring AMQP p
 The following sequence diagrams represent the dynamics of interaction between components.\\
 Sequence diagrams from \ref{{RW1}} to \ref{{RW9}} are the realizations of the corresponding use cases in the RASD document.\\
 Sequence diagram \ref{{RW0.1}} represents the login process.\\
-Sequence diagrams from \ref{{RW0.2}} to \ref{{RW0.4}} are common part that have been extracted for simplicity and are not shown in other diagrams.\\
+Sequence diagrams from \ref{{RW0.2}} to \ref{{RW0.5}} are common part that have been extracted for simplicity and are not shown in other diagrams.\\
 In the first four sequence diagrams, the user could be a student or an educator.
 
 \begin{enumerate}[label=\textbf{RW\arabic*}:,ref=RW\arabic*,leftmargin=1.3cm]
     \item[]
           \begin{enumerate}[label=\textbf{RW\arabic{enumi}.\arabic*}:,ref=RW\arabic{enumi}.\arabic*,leftmargin=0.5cm]
-            \labelledsubitem{
-                \textbf{}
-                \begin{adjustbox}{
-                        max size={\textwidth}{\textheightwithcaption{1}},
-                        center,
-                        caption={Login},
-                        label={fig:Login},
-                        figure=H}
-                    \puml{puml/rw0.1}
-                \end{adjustbox}
-                When the User Service receives the login request, it contacts the external SSO service to validate it.
-                If the credential provided by the user are correct, the User Service returns an authToken, that must be included in all subsequent requests.
-                \pagebreak
-            }
+              \labelledsubitem{
+                  \textbf{}
+                  \begin{adjustbox}{
+                          max size={\textwidth}{\textheightwithcaption{1}},
+                          center,
+                          caption={Login},
+                          label={fig:Login},
+                          figure=H}
+                      \puml{puml/rw0.1}
+                  \end{adjustbox}
+                  When the User Service receives the login request, it contacts the external SSO service to validate it.
+                  If the credential provided by the user are correct, the User Service returns an authToken, that must be included in all subsequent requests.
+                  \pagebreak
+              }
               \labelledsubitem{
                   \textbf{}
                   \begin{adjustbox}{
@@ -612,7 +612,7 @@ Map<{ metricName: String }, { score: Int }>
           to the rest of the system.
     \item[API Gateway:]
           a mediator which sits between clients and a service being invoked, which allows to implement cross-cutting concerns
-          such as authentication mechanism common for all microservices.It also makes it possible to keep track of and locate references to the different instances of microservices.
+          such as authentication mechanism common for all microservices. It also makes it possible to keep track of and locate references to the different instances of microservices.
     \item[RPC:] an interaction style where remote calls resembles procedure call in a local setting. In particular, we have
           choosen to use gRPC and adopt its philosophy, centered around ``coarse-grained message exchange while avoiding the
           pitfalls of distributed objects and the fallacies of ignoring the network'' \cite{gRPCPrinciples}, therefore
@@ -635,5 +635,5 @@ Map<{ metricName: String }, { score: Int }>
     \item[Relational DBMS:]
           a relational database is the traditional choice because of their guarantees given by ACID properties
           enforcing consistency on the data, as well as their fixed schema with well defined entities which fits
-          well with the well-defined model we have identified
+          well with the well-defined model we have identified.
 \end{description}

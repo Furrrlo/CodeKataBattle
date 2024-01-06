@@ -60,7 +60,7 @@ entity Battle {
   *submissionDeadline: DateTime
   *closed: Bool
   *requiresManualEvaluation: Bool
-  *repoSlug: String?
+  repoSlug: String
 }
 
 entity Badge {
