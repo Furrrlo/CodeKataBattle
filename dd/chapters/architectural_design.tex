@@ -25,11 +25,12 @@ The CKB platform can be abstracted into 5 main areas:
     \label{fig:Abstract System View}
 \end{figure}
 
-These sections contain modules with functionality related to the same domain independent of each other, consequently the areas will be implemented by different microservices ensuring low coupling and high cohesion.\\
-The choice to use microservice architecture allows flexibility and scalability because all services can be duplicated by not having to interact with databases shared among microservices that could become bottlenecks of the system.
-In particular, the API Gateway is responsible for performing load balancing and being stateless, more or less resources can be dynamically allocated depending on the load of requests that are received.\\
+These sections contain modules with functionality related to the same domain and independent of each other.
+Consequently, the areas will be implemented by different microservices ensuring low coupling and high cohesion.\\
+The choice to use microservice architecture allows flexibility and scalability.
+All services can indeed be duplicated, since they don't have to interact with databases shared among microservices that could become bottlenecks of the system.\\
 In addition, the components involved in sending notifications, compiling sources, running tests, and analyzing them perform more or less complex operations that may take a few moments of execution time.
-Consequently, they will be implemented in such a way as to be asynchronous with the use of message queues avoiding making users wait for a long time (more details in later sections).
+Consequently, they will be implemented in such a way as to be asynchronous, using of message queues to avoid making users wait for a long time (more details in later sections).
 
 
 \section{Component view}
@@ -142,8 +143,9 @@ The best choice is therefore a cloud architecture, such as Amazon EC2 \cite{EC2}
 The API Gateway is stateless and can be implemented with the Spring Cloud Gateway \cite{SpringCloudGateway}.
 It is built on top of the Reactor project \cite{Reactor}, which provides a non-blocking API for routing and filtering requests.
 This allows to handle high traffic and scale the API Gateway horizontally when necessary.
+The API Gateway is also responsible for performing load balancing in case other microservices are replicated.
 
-If the API Gateway is replicated, a load balancer, such as the Amazon ELB \cite{ELB}, is necessary to equally distribute requests.
+If the API Gateway is replicated, a load balancer, such as the Amazon ELB \cite{ELB}, is necessary to equally distribute requests among the various instances.
 
 The Build and Test Service is based on the Jenkins system \cite{Jenkins}.
 It is the most CPU-intensive service and should adopt a distributed builds architecture \cite{JenkinsScale}.
