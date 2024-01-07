@@ -49,9 +49,18 @@ All the independent microservices can be developed first and in parallel, priori
 of high importance which need to be tested more thoroughly as outlined by the table above.
 Development can also start on front-end components, which can mock the REST API during testing.
 Lastly, integrating components such as the API Gateway can be developed, after which everything
-can be integration tested. After that is completed, adherence to the specified requirements
-needs to be verified.
+can be integration tested. 
 
+After that is completed, system and e2e testing should be done to verify the adherence to the specified requirements.
+This phase also include:
+\begin{itemize}
+    \item Performance testing, to detect bottlenecks and test the scaling strategies. 
+    \item Load testing, to identify memory leaks, overflows and other memory-related problems.
+    \item Stress testing: to make sure that the system recovers gracefully after failures.
+\end{itemize}
+Once a beta version of the software is available, it's possible to perform some acceptance testing which should
+involve different users, including stakeholders, to test if the system responds to actual needs and constraints.
+\pagebreak
 \section{Components integration}
 Here components and subsystems are illustrated via graphs. \\
 Subsystems are a group of components meant to be integration tested together after unit testing.\\
