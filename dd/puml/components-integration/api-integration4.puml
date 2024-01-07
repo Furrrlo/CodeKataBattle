@@ -3,7 +3,7 @@
 [API Gateway] as api
 
 
-api-down-> [Website CDN] : tests
+api <-down- [Website CDN] : tests
 
 
 
