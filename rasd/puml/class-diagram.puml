@@ -1,5 +1,4 @@
 @startuml
-
 skinparam nodesep 70
 skinparam ranksep 100
 
@@ -12,9 +11,9 @@ class Student {
 <> inviteDiamond
 
 Student "1" - inviteDiamond
-inviteDiamond -* "0...n" Invite: > sends
-inviteDiamond -* "0...n" Invite: > receives<U+00A0><U+00A0>
-Invite "0...1" -* "1" TeamParticipation: > to join
+inviteDiamond - "0...n" Invite: > sends
+inviteDiamond - "0...n" Invite: > receives<U+00A0><U+00A0>
+Invite "0...1" -o "1" TeamParticipation: > to join
 
 Invite -- InviteState
 
@@ -28,7 +27,7 @@ enum InviteState {
     PENDING
 }
 
-Student "1" -down- "0...n" TeamParticipation: > takes part
+Student "1" -down-o "0...n" TeamParticipation: > takes part
 
 class TeamParticipation {
   +studentCommits: Int
@@ -50,14 +49,14 @@ Must respect min/max students contraints
 A student must only be in one team at a time for each battle
 end note
 Team "1" -d- TeamToBattleParticipation: > takes part
-TeamToBattleParticipation -d- "0...1" BattleParticipation
+TeamToBattleParticipation -d-o "0...1" BattleParticipation
 
 class BattleParticipation {
   +registrationDate: Date
   +score: int
 }
 
-Student "1" -down-* "0...n" TournamentSubscription: subscribes
+Student "1" -down-o "0...n" TournamentSubscription: subscribes
 
 class TournamentSubscription {
   +score: Int
@@ -87,7 +86,7 @@ Must have
 registrationDate <= registrationDeadline
 end note
 BattleParticipation "0...n" -down- BattleParticipationToBattle: > referred to
-BattleParticipationToBattle -down- "1" Battle
+BattleParticipationToBattle -down-* "1" Battle
 
 class Battle {
   +state: BattleState
@@ -120,7 +119,7 @@ class Badge {
   +condition: String
 }
 
-Educator "1" --o "0...n" Tournament: > creates
+Educator "1" -- "0...n" Tournament: > creates
 Educator "0...n" -- "0...n" Tournament : > is allowed
 Educator "1" -- "0...n" Battle : < created by
 note on link 
@@ -130,11 +129,11 @@ end note
 
 Tournament - TournamentState
 
-Tournament "1" --* "0...n" Battle: > formed by
+Tournament "1" *-- "0...n" Battle: > formed by
 
 Battle - BattleState
 
-Battle "0...1" -* "0...1" Repository
+Battle "0...1" o- "0...1" Repository
 note on link
 Exists only past the REGISTRATION state
 end note
@@ -144,10 +143,10 @@ Exists only past the battle
 REGISTRATION state and if 
 the team created it on their own
 end note
-BattleParticipation "0...1" - BattleParticipationToRepository
-BattleParticipationToRepository -* "0...1" Repository
+BattleParticipation "0...1" o- BattleParticipationToRepository
+BattleParticipationToRepository - "0...1" Repository
 
-Github "1" - "0...n" Repository: hosts
+Github "1" *- "0...n" Repository: hosts
 
 note as TournamentSubscriptionToBadge
 Badge must be defined for this tournament
@@ -158,5 +157,4 @@ TournamentSubscriptionToBadge -- "0...n" Badge
 
 Educator "1" -- "0...n" Badge : > creates
 Badge "0...n" -- "0...n" Tournament : > is assigned
-
 @enduml
