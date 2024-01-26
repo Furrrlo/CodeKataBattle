@@ -21,15 +21,21 @@ GitHub --> System --: last commited files
 
 System -> System ++--: buildProject()
 
+par
+
 loop for each test case
     System -> System ++--: runTests(test, files)
 end
 
-System -> System ++--: calculateElapsedDays(battle, repo)
+else
 
+System -> System ++--: calculateElapsedDays(battle, repo)
+else
 System -> StaticAnalysisTool ++: runStaticAnalysisTools(files, aspects)
+...
 StaticAnalysisTool --> System -- : outcame
 
+end
 
 System -> System ++--: calculateScore()
 
