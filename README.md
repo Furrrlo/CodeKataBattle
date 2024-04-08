@@ -1,5 +1,10 @@
 # CodeKataBattle
 
+Grade: 14/14<br>
+Homework: 2/2
+
+Reference Teacher: Rossi Matteo Giovanni
+
 ## R&DD project for the course "Software Engineering 2" at Politecnico di Milano, academic year 2023/2024
 
 See specs [here](https://github.com/Furrrlo/FerlinOrsenigoSaccani/blob/main/Assignment%20RDD%20AY%202023-2024.pdf).
