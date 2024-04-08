@@ -1,5 +1,6 @@
 # Exclude all pdfs which are not in the deliverables folder
 *.pdf
+!homework/*.pdf
 !DeliveryFolder/*.pdf
 !Assignment RDD AY 2023-2024.pdf
 !rasd/alloy/diagrammone.pdf

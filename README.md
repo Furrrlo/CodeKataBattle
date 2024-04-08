@@ -16,6 +16,8 @@ Nightly versions are also available:
 and 
 [DD](https://github.com/Furrrlo/FerlinOrsenigoSaccani/releases/download/nightly/dd.pdf).
 
+Homework is available in [this folder](https://github.com/Furrrlo/FerlinOrsenigoSaccani/tree/main/homework).
+
 ### Authors
 
 - [Francesco Ferlin](https://github.com/Furrrlo)
